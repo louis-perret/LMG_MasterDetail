@@ -1,0 +1,68 @@
+﻿<Window x:Class="ProjetManga.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetManga"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid> <!-- Les couleurs c'est pour me reperer entre les differents layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Grid.Column="0">
+
+        </Image>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFFBECF8" >
+            <TextBlock Text="Genres disponibles :"></TextBlock>
+            <ListBox  Background="#FFE5F3FF" Height="209" > <!-- Dans une list box tous les elements sont clickable et il ya une scrollbar quand la fenetre est tres petite-->
+                <ListBoxItem Content="Shonen" Height="30" Background="#FFCCE7FF" Width="100" Margin="0,10,0,0"/>
+                <ListBoxItem Content="Sheinen" Height="30" Background="#FFCCE7FF" Width="100" Margin="0,10,0,0"/>
+                <ListBoxItem Content="Shojo" Height="30" Background="#FFCCE7FF" Width="100" Margin="0,10,0,0"/>
+                <ListBoxItem Content="Josei" Height="30"  Background="#FFCCE7FF" Width="100"  Margin="0,10,0,0"/>
+            
+                <ListBoxItem Content="Genre au hasard" Height="30"  Background="#FF7FBFF7" Width="100"  Margin="0,10,0,0" VerticalAlignment="Bottom"/>
+            </ListBox>
+            <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
+            <TextBox Text="Saisir..." Background="White" FontStyle="Italic" Height="25"></TextBox>
+            <Button Content="Rechercher" Height="24"></Button>
+
+        </StackPanel>
+        
+
+        <Grid Grid.Row="0" Grid.Column="1" Background="Beige"><!-- J'ai utilisé bcp de grid mais c'est pratique -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.9*"/>
+                <ColumnDefinition/>
+                
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Informations utilisateur :"  Margin="10,10,0,0"> <!-- pour mettre du texte l'un en dessous de l'autre on peut mettre un stackpanel -->
+                
+            </TextBlock>
+            
+            <StackPanel Grid.Column="1" Background="AntiqueWhite"><!-- Ici pareil je met des trucs pas forcement utiles, c'est pour se rendre compte -->
+                <!-- Avec une tool bar on pourra mettre des elements : ajouter manger, supprimer etc -->
+                <Button Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal">
+        
+                </Button>
+                <CheckBox Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219"  />
+                <Button Content="Deconnexion" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="LightCoral">
+                    
+                </Button>
+            </StackPanel>
+        </Grid>
+        <ListBox Grid.Column="1" Grid.Row="1"/>
+
+
+
+
+    </Grid>
+</Window>
