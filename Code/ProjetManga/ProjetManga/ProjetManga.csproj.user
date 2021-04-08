@@ -21,7 +21,7 @@
     <Compile Update="Profil_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Window1.xaml.cs">
+    <Compile Update="Window1( a suppr).xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <Page Update="Profil_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Window1.xaml">
+    <Page Update="Window1( a suppr).xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

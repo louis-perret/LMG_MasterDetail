@@ -1,0 +1,52 @@
+﻿<Window x:Class="ProjetManga.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetManga"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <!--J'ai repris la même layout en modifiant seulement la taille de la première ligne-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Grid.Column="0">
+
+        </Image>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFFBECF8" >
+            <TextBlock Text="Genres disponibles :"></TextBlock>
+            <ListBox  Background="#FFE5F3FF" Height="209" >
+                <!-- Dans une list box tous les elements sont clickable et il ya une scrollbar quand la fenetre est tres petite
+                Faudra enlever les éléments de la liste à la fin quand on fera notre logique-->
+                <ListBoxItem Name="Shonen" Content="Shonen" Height="30" Background="#FFCCE7FF" Width="100" Margin="0,10,0,0"/>
+                <ListBoxItem Name="Seinen" Content="Seinen" Height="30" Background="#FFCCE7FF" Width="100" Margin="0,10,0,0"/>
+                <ListBoxItem Name="Shojo" Content="Shõjo" Height="30" Background="#FFCCE7FF" Width="100" Margin="0,10,0,0"/>
+                <ListBoxItem Name="Josei" Content="Josei" Height="30"  Background="#FFCCE7FF" Width="100"  Margin="0,10,0,0"/>
+
+                <ListBoxItem Content="Genre au hasard" Height="30"  Background="#FF7FBFF7" Width="100"  Margin="0,10,0,0" VerticalAlignment="Bottom"/>
+            </ListBox>
+            <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
+            <TextBox Name="nom_rechercher" Text="Saisir..." Background="White" FontStyle="Italic" Height="25"></TextBox>
+            <Button Name="rechercher_Button" Content="Rechercher" Height="24"></Button>
+
+        </StackPanel>
+
+        <Grid Grid.Row="0" Grid.Column="1" Background="AliceBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="Définition du genre sélectionné" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+            <Button Name="page_accueil_button" Content="Page d'accueil" Width="90" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <ListView>
+                <!--On s'en servira pour afficher nos données (ça sera à faire après la partie logique-->
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>
