@@ -8,10 +8,29 @@
 
   <ItemGroup>
     <None Remove="Image\banniere.jpg" />
+    <None Remove="Image\banniere2.jpg" />
+    <None Remove="Image\L.png" />
+    <None Remove="Image\naruto.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Image\L.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\naruto.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Image\banniere.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\banniere2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
