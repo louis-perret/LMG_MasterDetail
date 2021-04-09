@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
-        Title="Profil" Height="220" Width="400">
+        Title="Profil" MaxHeight="220" MaxWidth="400" MinHeight="220" MinWidth="400">
     <Grid Background="#FFD5E0E8">
         
      
@@ -53,7 +53,6 @@
             </DockPanel>
         </StackPanel>
         <WrapPanel Grid.Row="1" Grid.ColumnSpan="2" >
-            <!--ColumnSpan permet de fusionner des colonnes, mais je n'y arrive pas-->
             <TextBlock Text="Inscrit le :" Margin="10,0,10,0" FontSize="10"/>
             <TextBlock x:Name="dateInscription" Text="20/03/2021" FontSize="10"/>
             <TextBlock Text="Genres préférés :" Margin="10,0,10,0" FontSize="10"/>

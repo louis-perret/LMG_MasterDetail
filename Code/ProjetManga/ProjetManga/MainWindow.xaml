@@ -43,7 +43,7 @@
                 <ListBoxItem Content="Genre au hasard" Height="30"  Background="#FFFF9C63" Width="100"  Margin="0,10,0,0" VerticalAlignment="Bottom" BorderBrush="Black"/>
             </ListBox>
             <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
-            <TextBox Name="nom_rechercher" Text="Saisir..." Background="White" FontStyle="Italic" Height="25"></TextBox>
+            <TextBox Name="nom_rechercher" Background="White" FontStyle="Italic" Height="25"></TextBox>
             <Button Name="rechercher_Button" Content="Rechercher" Height="24" BorderBrush="Black" BorderThickness="2" Background="#FF7FBFF7"></Button>
 
         </StackPanel>
@@ -59,12 +59,10 @@
 
             </Grid.ColumnDefinitions>
 
-            <TextBlock Margin="10,10,0,10" Background="#FFFDFDFD" Opacity="0.8"> <!-- pour mettre du texte l'un en dessous de l'autre on peut mettre un stackpanel -->
-                <!--J'ai mis un text bloc pour "information utilisateur" car ça ne s'affichait pas si je mettais d'autre text bloc-->
+            <TextBlock Margin="10,10,0,10" Background="#FFFDFDFD" Opacity="0.8"> <!-- pour mettre du texte l'un en dessous de l'autre on peut mettre un stackpanel -->               
                 <WrapPanel> <!--Permet de mettre des élements à la ligne et si plus de place va à la ligne en dessous -->
                     <Image Source="https://resize-elle.ladmedia.fr/rcrop/796,1024/img/var/plain_site/storage/images/deco/news-tendances2/habitudes-des-francais-avec-les-fleurs-3180028/69321394-1-fre-FR/Les-Francais-et-les-fleurs-decouvrez-vos-habitudes.jpg" MaxHeight="70" MaxWidth="100" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
-                    <StackPanel>
-                        <!--<TextBlock Text="Informations utilisateur :" Margin="10,0,10,10" />-->
+                    <StackPanel>                      
                         <TextBlock Text="Pseudo " Margin="10,3,3,3"/>
                         <TextBlock Text="Date d'inscription" Margin="10,3,3,3"/>
                         <TextBlock Text="Âge" Margin="10,3,3,3"/> 
@@ -84,19 +82,38 @@
                 </Button>
                 <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219"  />
 
-                <!--Je pense que c'est mieux quand on clique sur paramètre qu'on puisse choisir modifier/deconnexion-->
                 <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="settings_button_Click" BorderBrush="Black" BorderThickness="2"/>
-                <!--<Button Content="Deconnexion" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="LightCoral">
-                    
-                </Button>-->
+               
             </StackPanel>
         </Grid>
-        <ListView Grid.Column="1" Grid.Row="1">
+        <!--<ListView Grid.Column="1" Grid.Row="1">-->
+        <ListView Grid.Row="1" Grid.Column="1">
             <!--Pour l'affichage des données, une liste view c'est préférable-->
-            <!--Contiendra la collection de manga par genre-->
+            <!--Contiendra la collection de manga par genre, pour les tests j'ai directement mis l'image et le nom-->
+            <StackPanel>
+                <WrapPanel>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                </WrapPanel>
+                <WrapPanel>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    
+                </WrapPanel>
+                <WrapPanel>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    <local:AffichageCollection/>
+                    
+                </WrapPanel>
+            </StackPanel>
         </ListView>
-
-
-
+        
+    
     </Grid>
 </Window>

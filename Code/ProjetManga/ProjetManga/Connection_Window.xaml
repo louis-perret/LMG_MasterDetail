@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
-        Title="LMG" Height="300" Width="500">
+        Title="LMG" MinHeight="300" MinWidth="500" MaxHeight="500" MaxWidth="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
-        Title="Note" Height="220" Width="360" MaxHeight="220" MaxWidth="360">
+        Title="Note" MinHeight="220" MinWidth="360" MaxHeight="220" MaxWidth="360">
     <Grid Background="#FFD5E0E8">
         <Grid.RowDefinitions>
             <RowDefinition/>

@@ -9,11 +9,16 @@
   <ItemGroup>
     <None Remove="Image\banniere.jpg" />
     <None Remove="Image\banniere2.jpg" />
+    <None Remove="Image\couvertureSNK.jpg" />
     <None Remove="Image\L.png" />
+    <None Remove="Image\modifier.png" />
     <None Remove="Image\naruto.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Image\couvertureSNK.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Image\L.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -31,6 +36,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\banniere2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\modifier.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
