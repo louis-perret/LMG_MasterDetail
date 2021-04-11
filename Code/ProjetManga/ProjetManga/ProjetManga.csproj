@@ -10,6 +10,7 @@
     <None Remove="Image\banniere.jpg" />
     <None Remove="Image\banniere2.jpg" />
     <None Remove="Image\couvertureSNK.jpg" />
+    <None Remove="Image\etoile.png" />
     <None Remove="Image\L.png" />
     <None Remove="Image\modifier.png" />
     <None Remove="Image\naruto.png" />
@@ -36,6 +37,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\banniere2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\etoile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\modifier.png">

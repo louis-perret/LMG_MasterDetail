@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
-        Title="LMG" Height="450" Width="800">
+        Title="LMG" MinHeight="600" MinWidth="1200">
     <Window.Resources>
         <Style TargetType="ListBoxItem" x:Key="ButtonGenre">
             <Setter Property="Background" Value="#FFC0E0FD"></Setter>
@@ -33,7 +33,7 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" >
             <TextBlock Text="Genres disponibles :"></TextBlock>
             <ListBox   Height="209" >
-                <!-- Dans une list box tous les elements sont clickable et il ya une scrollbar quand la fenetre est tres petite
+                <!-- Dans une list box tous les elements sont clickable et il ya une scrollbar quand la fenêtre est très petite
                 Faudra enlever les éléments de la liste à la fin quand on fera notre logique-->
                 <ListBoxItem Name="Shonen" Content="Shonen" Style="{StaticResource ButtonGenre}"/>
                 <ListBoxItem Name="Seinen" Content="Seinen" Style="{StaticResource ButtonGenre}"/>
@@ -76,7 +76,7 @@
 
             <StackPanel Grid.Column="1" Background="#FFD5E0E8">
                 <!-- Ici pareil je met des trucs pas forcement utiles, c'est pour se rendre compte -->
-                <!-- Avec une tool bar on pourra mettre des elements : ajouter manger, supprimer etc -->
+                <!-- Avec une tool bar on pourra mettre des elements : ajouter manga, supprimer etc -->
                 <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2">
 
                 </Button>
@@ -87,33 +87,12 @@
             </StackPanel>
         </Grid>
         <!--<ListView Grid.Column="1" Grid.Row="1">-->
-        <ListView Grid.Row="1" Grid.Column="1">
-            <!--Pour l'affichage des données, une liste view c'est préférable-->
-            <!--Contiendra la collection de manga par genre, pour les tests j'ai directement mis l'image et le nom-->
-            <StackPanel>
-                <WrapPanel>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                </WrapPanel>
-                <WrapPanel>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    
-                </WrapPanel>
-                <WrapPanel>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    <local:AffichageCollection/>
-                    
-                </WrapPanel>
-            </StackPanel>
-        </ListView>
-        
-    
+        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1">
+            <!--Pour l'affichage de notre collection : une ListeBox, il y a aura la présence de la scrollBar + éléments cliquables-->
+            <!--Contiendra la collection de manga par genre-->
+            <local:MangaDuMoment/>
+        </ContentControl>
+
+
     </Grid>
 </Window>

@@ -9,11 +9,11 @@
     <!--UserControl pour afficher chaque élément de notre collection-->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <!--<Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="120" VerticalAlignment="Center" Width="80"/>-->
