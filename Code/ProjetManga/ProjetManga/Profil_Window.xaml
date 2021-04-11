@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Profil" MaxHeight="220" MaxWidth="400" MinHeight="220" MinWidth="400">
     <Grid Background="#FFD5E0E8">
-        
-     
+
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0.5*"/>
@@ -61,14 +61,18 @@
         </WrapPanel>
 
         <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="Annuler" Grid.Column="0"></Button>
+            <Button Content="Annuler" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,18,0" Grid.RowSpan="2"></Button>
 
-            <Button DockPanel.Dock="Right" Content="Valider" Grid.Column="2" Background="#FF7FBFF7"></Button>
+            <Button Content="Valider" Grid.Column="1" Background="#FF7FBFF7" Grid.ColumnSpan="2" Margin="18,0,0,0" Grid.RowSpan="2"/>
 
 
 
