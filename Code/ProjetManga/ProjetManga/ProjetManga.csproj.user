@@ -12,13 +12,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AffichageCollection.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Connection_Window.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MangaDuMoment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Profil_Window.xaml.cs">
@@ -30,21 +24,12 @@
     <Compile Update="Menu_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Info_Manga_Window.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AffichageCollection.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Connection_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MangaDuMoment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Profil_Window.xaml">
@@ -54,9 +39,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Menu_Window.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Info_Manga_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

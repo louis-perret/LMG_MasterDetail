@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace ProjetManga
 {
     /// <summary>
-    /// Logique d'interaction pour Page1.xaml
+    /// Logique d'interaction pour AffichageCollection.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class AffichageCollection : UserControl
     {
-        public Page1()
+        public AffichageCollection()
         {
             InitializeComponent();
         }
