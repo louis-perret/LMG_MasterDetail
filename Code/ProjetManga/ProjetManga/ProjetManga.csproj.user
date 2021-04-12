@@ -30,6 +30,9 @@
     <Compile Update="Menu_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Info_Manga_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AffichageCollection.xaml">
@@ -51,6 +54,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Menu_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Info_Manga_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

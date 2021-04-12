@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
-        Title="LMG" MinHeight="600" MinWidth="1200">
+        Title="LMG" MinHeight="650" MinWidth="1200">
     <Window.Resources>
         <Style TargetType="ListBoxItem" x:Key="ButtonGenre">
             <Setter Property="Background" Value="#FFC0E0FD"></Setter>
@@ -90,7 +90,8 @@
         <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1">
             <!--Pour l'affichage de notre collection : une ListeBox, il y a aura la présence de la scrollBar + éléments cliquables-->
             <!--Contiendra la collection de manga par genre-->
-            <local:MangaDuMoment/>
+            <!-- <local:MangaDuMoment/>-->
+            <local:Info_Manga_Window />
         </ContentControl>
 
 
