@@ -31,19 +31,19 @@
             <Image Height="160" Width="140" Source="/Image/question.png" ></Image>
             <StackPanel>
                 <WrapPanel>
-                    <TextBlock Text="Titre original" Margin="10,10,10,0"></TextBlock>
+                    <TextBlock Text="Titre original" Style="{StaticResource TextMargin}"></TextBlock>
                     <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock Text="Titre alternatif" Margin="10,10,10,0"></TextBlock>
+                    <TextBlock Text="Titre alternatif" Style="{StaticResource TextMargin}"></TextBlock>
                     <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock Text="Auteur(s)" Margin="10,10,10,0"></TextBlock>
+                    <TextBlock Text="Auteur(s)" Style="{StaticResource TextMargin}"></TextBlock>
                     <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock Text="Dessinateur(s)" Margin="10,10,10,0"></TextBlock>
+                    <TextBlock Text="Dessinateur(s)" Style="{StaticResource TextMargin}"></TextBlock>
                     <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
                 </WrapPanel>
             </StackPanel>
@@ -52,37 +52,37 @@
         <StackPanel Grid.Row="2" Grid.Column="1">
 
             <WrapPanel>
-                <TextBlock Text="Maison d'édition Japonaise" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Maison d'édition Japonaise" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
             </WrapPanel>
 
             <WrapPanel>
-                <TextBlock Text="Maison d'édition Française" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Maison d'édition Française" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
             </WrapPanel>
 
             <WrapPanel>
-                <TextBlock Text="Premier tome" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Premier tome" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
-                <TextBlock Text="Nombre de tome" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Nombre de tome" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox Width="25" Margin="0,10,0,0" ></TextBox>
             </WrapPanel>
 
             <WrapPanel>
-                <TextBlock Text="Dernier tome" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Dernier tome" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox Width="100" Margin="0,10,0,0" ></TextBox>
-                <TextBlock Text="Genre" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Genre" Style="{StaticResource TextMargin}"></TextBlock>
                 <ComboBox Width="70" Margin="0,8,0,0" ></ComboBox>
             </WrapPanel>
 
             <WrapPanel>
-                <TextBlock Text="Synopsis" Margin="10,10,10,0"></TextBlock>
+                <TextBlock Text="Synopsis" Style="{StaticResource TextMargin}"></TextBlock>
                 <RichTextBox Width="300" Height="80" Margin="0,10,0,0" ></RichTextBox>
             </WrapPanel>
         </StackPanel>
 
         <Button Content="Annuler" Grid.Row="3" Width="100"  HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
-        <Button Content="Valider" Grid.Row="3" Width="100" Background="#FF7FBFF7"  HorizontalAlignment="Right" Grid.Column="1"/>
+        <Button Grid.Row="3" Width="100"  HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource ButtonValider}"/>
 
 
 
