@@ -16,6 +16,7 @@
     <None Remove="Image\L.png" />
     <None Remove="Image\modifier.png" />
     <None Remove="Image\naruto.png" />
+    <None Remove="Image\plus.png" />
     <None Remove="Image\poubelle.png" />
     <None Remove="Image\question.png" />
   </ItemGroup>
@@ -49,6 +50,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\modifier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\plus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\poubelle.png">

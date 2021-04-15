@@ -5,10 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjetManga"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="500" d:DesignWidth="600">
     <!--UserControl pour afficher chaque élément de notre collection lorsqu'on affiche nos favoris ou les mangas d'un genre choisi.-->
-    <Grid>
+    <StackPanel Background="#FFD5E0E8">
         <!-- Reste à faire : mettre la définition du genre + icône ajouter manga -->
+        <TextBlock Text="Description du genre : " Height="80" FontSize="20"/>
+        <Button Width="30" Height="30" HorizontalAlignment="Left">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/plus.png"/>
+            </Button.Background>
+        </Button>
         <ListBox>
             <!--Faudra penser à mettre le WrapPanel dans un ItemTemplate quand on sera à la partie 3 pour l'affichage de nos données-->
             <WrapPanel>
@@ -31,5 +37,5 @@
        
 
 
-    </Grid>
+    </StackPanel>
 </UserControl>
