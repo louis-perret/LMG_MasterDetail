@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
         Title="LMG" MinHeight="300" MinWidth="500" MaxHeight="500" MaxWidth="700">
-    
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="BoutonConnection">
+            <Setter Property="FontFamily" Value="Century"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MaxWidth" Value="200"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="MaxHeight" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -17,8 +26,8 @@
             <DockPanel.Background>
                 <ImageBrush ImageSource="Image/banniere.jpg" Stretch="UniformToFill" TileMode="None"/>
             </DockPanel.Background>
-            <Button x:Name="quitter_button" Content="Quitter" FontFamily="Century" DockPanel.Dock="Left" MinWidth="100" MaxWidth="200" MinHeight="30" MaxHeight="50" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            <Button x:Name="profil_button" Content="Créer un compte" FontFamily="Century" DockPanel.Dock="Right" MinWidth="100" MaxWidth="200" MinHeight="30" MaxHeight="50" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Button x:Name="quitter_button" Content="Quitter"  DockPanel.Dock="Left"  HorizontalAlignment="Left" Style="{StaticResource BoutonConnection}"/>
+            <Button x:Name="profil_button" Content="Créer un compte" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource BoutonConnection}"/>
         </DockPanel>
 
         <StackPanel Grid.Row="1">

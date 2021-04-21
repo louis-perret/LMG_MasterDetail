@@ -55,8 +55,9 @@
                 <ColumnDefinition/>
 
             </Grid.ColumnDefinitions>
-
-            <TextBlock Margin="10,10,0,10" Background="#FFFDFDFD" Opacity="0.8">               
+            
+            <TextBlock Margin="10,10,0,10" Background="#FFFDFDFD" Opacity="0.8">    
+                <ItemsControl>
                 <WrapPanel>
                     <Image Source="https://resize-elle.ladmedia.fr/rcrop/796,1024/img/var/plain_site/storage/images/deco/news-tendances2/habitudes-des-francais-avec-les-fleurs-3180028/69321394-1-fre-FR/Les-Francais-et-les-fleurs-decouvrez-vos-habitudes.jpg" MaxHeight="70" MaxWidth="100" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
                     <StackPanel>                      
@@ -69,6 +70,7 @@
                         <TextBlock Text="Genre(s) préféré(s)" Margin="10,3,3,3"/> 
                     </StackPanel>
                 </WrapPanel>
+                </ItemsControl>
             </TextBlock>
 
             <StackPanel Grid.Column="1" Background="#FFD5E0E8">
@@ -81,7 +83,8 @@
             </StackPanel>
         </Grid>
         <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1">
-            <!--Permettra de passer d'un user-control à un autre-->         
+            <!--Permettra de passer d'un user-control à un autre-->
+            <local:Info_Manga_Window />
         </ContentControl>
 
 

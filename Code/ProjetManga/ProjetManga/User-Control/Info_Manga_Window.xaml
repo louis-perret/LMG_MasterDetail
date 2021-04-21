@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjetManga"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" MinHeight="400">
+             d:DesignHeight="450" d:DesignWidth="800" MinHeight="400"> 
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="Intitule">
             <Setter Property="Margin" Value="40,0,10,10"></Setter>
@@ -13,29 +13,34 @@
         </Style>
     </UserControl.Resources>
     <!-- User control à finir -->
-    <Grid  Background="#FFECF3F3">
+    <ScrollViewer>
+        <Grid  Background="#FFE2F3F3">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="1.6*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
         
-        <Button Width="20" Height="20" HorizontalAlignment="Left">
-            <Button.Background>
-                <ImageBrush ImageSource="/Image/poubelle.png" Stretch="Fill"/>
-            </Button.Background>
-        </Button>
-        <Button Width="20" Height="20" HorizontalAlignment="Left" Margin="20,0,0,0">
-            <Button.Background>
-                <ImageBrush ImageSource="/Image/modifier.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-       <!-- <ItemsControl Grid.Row="1"> 
+         <StackPanel>
+            <WrapPanel>
+                <Button Width="20" Height="20" HorizontalAlignment="Left">
+                    <Button.Background>
+                            <ImageBrush ImageSource="/Image/poubelle.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
+                    <Button Width="20" Height="20" HorizontalAlignment="Left" Margin="5,0,0,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Image/modifier.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                </WrapPanel>
+                <!-- <ItemsControl Grid.Row="1"> 
          <ItemsControl.ItemTemplate> 
            <DataTemplate>  -->
         <!--A modifier lors de la partie 3-->
             <DockPanel Grid.Row="1">
-                <Image Height="200" Width="160" Margin="10,10,0,0" DockPanel.Dock="Left" ></Image>
+                <Image Source="/Image/couvertureSNK.jpg" MinHeight="250" MinWidth="200" Width="200" Margin="10,10,0,0" DockPanel.Dock="Left" ></Image>
                 <StackPanel DockPanel.Dock="Left" Width="400">
                     <TextBlock Text="Titre original" Style="{StaticResource Intitule}"  ></TextBlock>
                     <TextBlock Text="Titre alternatif"  Style="{StaticResource Intitule}" ></TextBlock>
@@ -62,14 +67,15 @@
         <!--   </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl> -->
-        <StackPanel Grid.Row="2">
-            <TextBlock Text="Synopsis : " Style="{StaticResource Intitule}"></TextBlock>
-            <TextBlock Height="100"></TextBlock>
-            <TextBlock Text="Avis : " Style="{StaticResource Intitule}"></TextBlock>
-            <TextBlock Height="100"></TextBlock>
-        </StackPanel>
-       
+                <StackPanel Grid.Row="2" Margin="0,20,0,0">
+                    <TextBlock Text="Synopsis : " Style="{StaticResource Intitule}"></TextBlock>
+                    <TextBlock Height="100"></TextBlock>
+                    <TextBlock Text="Avis : " Style="{StaticResource Intitule}"></TextBlock>
+                    <TextBlock Height="100"></TextBlock>
+                </StackPanel>
+          </StackPanel>
+        
 
-    </Grid>
-    
+        </Grid>
+    </ScrollViewer>
 </UserControl>

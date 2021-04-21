@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
         Title="Menu" MinHeight="200" MinWidth="300" MaxHeight="220" MaxWidth="340">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Choice">
+            <Setter Property="Height" Value="40"/>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FFD5E0E8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,8 +24,8 @@
         </Grid.RowDefinitions>
         <Image Source="Image/naruto.png" Grid.ColumnSpan="2" Margin="-17,26,119,0" Grid.RowSpan="3"  />
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <Button Content="Modifier le profil" Height="40" Margin="0,15,0,15" ></Button>
-            <Button Content="Se déconnecter" Height="40"></Button>
+            <Button Content="Modifier le profil" Margin="0,15,0,15" Style="{StaticResource Choice}"></Button>
+            <Button Content="Se déconnecter" Style="{StaticResource Choice}"></Button>
 
         </StackPanel>
         <Button Grid.Column="2" Grid.Row="2" Content="Annuler" ></Button>
