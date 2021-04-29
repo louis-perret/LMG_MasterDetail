@@ -7,7 +7,7 @@ namespace Modele
     /// <summary>
     /// Enumération des genres disponibles
     /// </summary>
-    public enum Genre
+    public enum GenreDispo
     {
         Shonen,
         Seinen,

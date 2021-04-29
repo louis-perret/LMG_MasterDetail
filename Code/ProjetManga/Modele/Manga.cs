@@ -4,37 +4,57 @@ using System.Text;
 
 namespace Modele
 {
-    class Manga
+    /// <summary>
+    /// Classe qui represente un manga
+    /// </summary>
+    public class Manga
     {
+        
         public string TitreOriginal { get; set; }
-        private string titreOriginal;
+        ///private string titreOriginal --> vu avec le prof, ne sert à rien a part pour stocker des données donc pas utile dans ce cas 
+        ///On met donc ca quand on a besoin de recalculer/modifier dans le setter
 
         public string TitreAlternatif { get; set; }
-        private string titreAlternatif;
+        
 
         public string Auteur { get; set; }
-        private string auteur;
+       
 
         public string Dessinateur { get; set; }
-        private string dessinateur;
+        
 
         public string MaisonEdition { get; set; }
-        private string maisonEdition;
+        
 
         public DateTime PremierTome { get; set; }
-        private DateTime premierTome;
+        
 
         public DateTime? DernierTome { get; set; }
-        private DateTime? dernierTome; //Le ? permet de dire que cette variable peut-être nulle
+         //Le ? permet de dire que cette variable peut-être nulle
 
         public int NombreTome { get; set; }
-        private int nombreTome;
+        
 
         private string couverture;
 
         public string Synopsis { get; set; }
-        private string synopsis;
 
+        /* a completer 
+         public string SommeNote
+         {
+             get
+             {
+                 return (un truc + sommeNote)
+             }
+         }
+         private string sommeNote;
+
+        */
+
+        /// <summary>
+        /// Constructeur de cette classe
+        /// </summary>
+        /// <param name="commentaire">Valeur du commentaire</param>
         public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEdition, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis)
         {
             TitreOriginal = titreOriginal ?? throw new ArgumentNullException(nameof(titreOriginal));
@@ -49,10 +69,33 @@ namespace Modele
             Synopsis = synopsis ?? throw new ArgumentNullException(nameof(synopsis));
         }
 
-        /*public override string ToString()
+        /// <summary>
+        /// Permet de transformer une instance en chaîne de caractères
+        /// </summary>
+        public override string ToString()
         {
-            return $"Manga {TitreOriginal}/{TitreAlternatif} : ";
-        } A Finir*/
+            return $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEdition} / {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (TitreOriginal == ((Manga)obj).TitreOriginal && Auteur == ((Manga)obj).Auteur)
+                return true;
+            return false;
+        }
+
+        public void AjouterAvis()
+        {
+            Console.WriteLine("Saisir votre avis :");
+            Avis a = new Avis(Console.ReadLine());
+            ///completer
+            Console.WriteLine("Votre avis a bien été saisi, merci !");
+            Console.WriteLine("Votre avis :");
+            Console.WriteLine(a);
+
+        }
+       
+
 
     }
 }
