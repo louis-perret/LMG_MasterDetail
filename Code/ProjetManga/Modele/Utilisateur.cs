@@ -22,6 +22,8 @@ namespace Modele
             Age = age;
             DateInscription = dateInscription;
             MotDePasse = motDePasse ?? throw new ArgumentNullException(nameof(motDePasse));
+
+            LesFavoris = new List<Manga>();
             
         }
 

@@ -9,7 +9,7 @@ namespace Modele
     /// </summary>
     public class Manga
     {
-        
+        public List<Avis> LesAvis; ///a mettre dans l'uml diagramme de classe
         public string TitreOriginal { get; set; }
         ///private string titreOriginal --> vu avec le prof, ne sert à rien a part pour stocker des données donc pas utile dans ce cas 
         ///On met donc ca quand on a besoin de recalculer/modifier dans le setter
@@ -72,7 +72,7 @@ namespace Modele
         /// <summary>
         /// Permet de transformer une instance en chaîne de caractères
         /// </summary>
-        public override string ToString()
+        public override string ToString() /// a finir : rajouter la liste des avis avec un string r;
         {
             return $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEdition} / {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis}";
         }
@@ -84,14 +84,11 @@ namespace Modele
             return false;
         }
 
-        public void AjouterAvis()
+        public void AjouterAvis(Avis a)///a modif dans l'uml
         {
-            Console.WriteLine("Saisir votre avis :");
-            Avis a = new Avis(Console.ReadLine());
-            ///completer
-            Console.WriteLine("Votre avis a bien été saisi, merci !");
-            Console.WriteLine("Votre avis :");
-            Console.WriteLine(a);
+            if (LesAvis == null)
+                LesAvis = new List<Avis>();
+            LesAvis.Add(a);
 
         }
        

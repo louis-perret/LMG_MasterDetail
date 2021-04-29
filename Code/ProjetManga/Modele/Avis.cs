@@ -16,14 +16,19 @@ namespace Modele
             }
         }
         private string commentaire;
-
+        public int? Note { get; set; }
+       
+        public DateTime Date { get; set; }
         /// <summary>
         /// Constructeur de cette classe
         /// </summary>
         /// <param name="commentaire">Valeur du commentaire</param>
-        public Avis(String commentaire)
+        public Avis(String commentaire, int note, DateTime date)
         {
+            Note = note;
             Commentaire = commentaire;
+            Date = date;
+
         }
 
         /// <summary>
@@ -32,7 +37,7 @@ namespace Modele
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Avis : {Commentaire}";
+            return $"Avis : {Commentaire} {Note} {Date}";
         }
     }
 }

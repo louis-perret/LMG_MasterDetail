@@ -7,7 +7,7 @@ namespace TestFonctionnel
     {
         static void Main(string[] args)
         {
-            Avis a = new Avis("Belle couverture");
+            Avis a = new Avis("Belle couverture", 9, new DateTime(2021));
 
             GenreDispo g = GenreDispo.Josei;
             GenreDispo g2 = GenreDispo.Shojo;
@@ -15,7 +15,7 @@ namespace TestFonctionnel
             GenreDispo g4 = GenreDispo.Seinen;
 
             Manga m1 = new Manga("test", "altertest", "eichiro", "dessinateur", "maisone", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
-            m1.AjouterAvis();
+            m1.AjouterAvis(a);
 
             Utilisateur u1 = new Utilisateur("xProGamer", 14, new DateTime(2021, 12, 12), "azerty123");
 
