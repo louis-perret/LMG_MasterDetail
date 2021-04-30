@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+///A FINIR : PROPRIETE SommeNote
+///         METHODE CalculerMoyenneNote
 namespace Modele
 {
     /// <summary>
@@ -72,9 +74,22 @@ namespace Modele
         /// <summary>
         /// Permet de transformer une instance en chaîne de caractères
         /// </summary>
-        public override string ToString() /// a finir : rajouter la liste des avis avec un string r;
+        public override string ToString() /// testé et fonctionne
         {
-            return $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEdition} / {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis}";
+            string r;
+            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEdition} / {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis} \n";
+            
+            
+            if (LesAvis != null)
+            {
+                r += "\n\t\tListe des avis : \n";
+                foreach (Avis a in LesAvis)
+                {
+                    r += "\n\t\t" + a;
+                }
+            }
+
+            return r;
         }
 
         public override bool Equals(object obj)
@@ -92,7 +107,7 @@ namespace Modele
 
         }
        
-
+        /// faire la méthode CalculerMoyenneNote
 
     }
 }

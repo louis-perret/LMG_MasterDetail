@@ -12,7 +12,10 @@ namespace Modele
         Shonen,
         Seinen,
         Shojo,
-        Josei,
+        Josei
     }
+     
 }
+
+    
 
