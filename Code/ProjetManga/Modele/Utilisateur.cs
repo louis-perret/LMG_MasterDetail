@@ -19,9 +19,9 @@ namespace Modele
 
         public string MotDePasse { get; set; }
 
-        public Genre GenresPreferes { get; set; }
+        public GenreDispo GenresPreferes { get; set; }
 
-        public Utilisateur(string pseudo, int age, DateTime dateInscription, Genre genrepref, string motDePasse)
+        public Utilisateur(string pseudo, int age, DateTime dateInscription, GenreDispo genrepref, string motDePasse)
         {
             Pseudo = pseudo ?? throw new ArgumentNullException(nameof(pseudo));
             Age = age;
@@ -36,7 +36,7 @@ namespace Modele
         public override string ToString() ///testé
         {
             string r;
-            r = $"[Utilisateur] {Pseudo} / {Age} / {DateInscription} / {GenresPreferes.GetDescription()} / *{MotDePasse}*\n ";
+            r = $"[Utilisateur] {Pseudo} / {Age} / {DateInscription} /  / *{MotDePasse}*\n "; //{GenresPreferes.GetDescription()}
             if (LesFavoris != null)
             {
                 r += "Liste des favoris : \n";
@@ -66,7 +66,7 @@ namespace Modele
         }
         public void SupprimerFavori(Manga m)
         {
-            if (LesFavoris.Contains(m)) ;
+            if (LesFavoris.Contains(m))
             {
                 LesFavoris.Remove(m);
             }

@@ -3,53 +3,47 @@ using System.Collections.Generic;
 using System.Text;
 
 /// A FINIR : comment on peut lier le nom du genre par rapport à sa description ?
-///  ToString qui affiche la liste  des collections est testée est marche
-
+/// Louis -> Réponse : Tout simplement en indiquant que le nom est de type de l'énumération GenreDispo
+/// Louis -> Testée et fontionne (j'ai essayé les expcetions mais je galère un peu
 namespace Modele
 {
     public class Genre
     {
-        public List<Manga> lesMangas; ///à modifier le type de collection maybe?
+        public string Description { get; set; }
 
-        private string description; ///a modifier dans le diagramme de classe
+        public GenreDispo NomGenre { get; set; }
 
-        private string nomGenre;
-
-        public Genre(string description)
+        public Genre(string description, GenreDispo type)
         {
-            this.description = description;
-            lesMangas = new List<Manga>();
+            NomGenre = type;
+            /*if(String.IsNullOrEmpty(description))
+            {
+                throw new ArgumentException("Description requise");
+            }*/
+            Description = description;
         }
 
-        public string GetDescription()
-        {
-            return description;
-        }
-
-        public string getNomGenre()
-        {
-            return nomGenre; 
-        }
-        public List<Manga> GetLesMangas()
+        /*public List<Manga> GetLesMangas()
         {
             return lesMangas;
-        }
+        }*/
 
-        public void AjouterManga(Manga m) ///testé mais utile ? meme methode dans admin (je me perd surement)s
+        /*public void AjouterManga(Manga m) ///testé mais utile ? meme methode dans admin (je me perd surement) 
+                                          ///Réponse : La méthode admin ajouterManga appelera cette m
         {
             if (lesMangas == null)
                 lesMangas = new List<Manga>();
             lesMangas.Add(m);
-        }
+        }*/
 
         public override bool Equals(object obj)
         {
             return obj is Genre genre &&
-                   description == genre.description;
+                   Description == genre.Description;
         }
 
 
-        public override string ToString() ///testé
+        /*public override string ToString() ///testé
         {
             string r;
             r = $"[Genre] {description} \n";
@@ -63,11 +57,16 @@ namespace Modele
             }
  
             return r;
+        }*/
+        public override string ToString() ///testé
+        {
+            string r;
+            r = $"{NomGenre} : {Description} \n";
+            return r;
         }
+
+
     }
-
-    
-
 
 
 

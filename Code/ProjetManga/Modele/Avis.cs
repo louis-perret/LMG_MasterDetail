@@ -5,6 +5,7 @@ namespace Modele
     /// <summary>
     /// Classe représentant les avis des utilisateurs
     /// </summary>
+    //Testée & fonctionnelle
     public class Avis
     {
         public string Commentaire
@@ -16,7 +17,7 @@ namespace Modele
             }
         }
         private string commentaire;
-        public int? Note { get; set; }
+        public int Note { get; set; }
        
         public Utilisateur Util { get; set; }
         public DateTime Date { get; set; }
@@ -39,7 +40,7 @@ namespace Modele
         /// <returns></returns>
         public override string ToString() ///testé
         {
-            return $"Avis : {Commentaire} {Note} {Date} \n\t  écrit par {Util.Pseudo}";
+            return $" écrit par {Util.Pseudo} le  {Date} : {Commentaire} \n\t\t Note : {Note} \n\t  ";
         }
     }
 }

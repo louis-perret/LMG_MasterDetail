@@ -2,31 +2,28 @@
 using System.Collections.Generic;
 using System.Text;
 
-///A FINIR : PROPRIETE SommeNote
-///         METHODE CalculerMoyenneNote
 namespace Modele
 {
     /// <summary>
     /// Classe qui represente un manga
     /// </summary>
+    //Testée & Fonctionelle
     public class Manga
-    {
-        public List<Avis> LesAvis; ///a mettre dans l'uml diagramme de classe
-        public string TitreOriginal { get; set; }
-        ///private string titreOriginal --> vu avec le prof, ne sert à rien a part pour stocker des données donc pas utile dans ce cas 
-        ///On met donc ca quand on a besoin de recalculer/modifier dans le setter
+    {           
+        public string TitreOriginal { get; set; }       
 
         public string TitreAlternatif { get; set; }
         
-
         public string Auteur { get; set; }
        
 
         public string Dessinateur { get; set; }
         
 
-        public string MaisonEdition { get; set; }
-        
+        public string MaisonEditionJap { get; set; }
+
+        public string MaisonEditionFr { get; set; } //Rajout de la maison d'édition française car on l'avait oublié
+
 
         public DateTime PremierTome { get; set; }
         
@@ -34,40 +31,41 @@ namespace Modele
         public DateTime? DernierTome { get; set; }
          //Le ? permet de dire que cette variable peut-être nulle
 
-        public int NombreTome { get; set; }
-        
+        public int NombreTome { get; set; }       
 
-        private string couverture;
+        public string Couverture { get; set; } //Le prof a dit qu'il fallait tous mettre en propriété car ça serait plus simple
 
         public string Synopsis { get; set; }
 
-        /* a completer 
-         public string SommeNote
-         {
-             get
-             {
-                 return (un truc + sommeNote)
-             }
-         }
-         private string sommeNote;
+        public List<Avis> LesAvis { get; set; }
 
-        */
+        public float MoyenneNote { get; set; }
 
         /// <summary>
-        /// Constructeur de cette classe
+        /// Constructeur de la classe
         /// </summary>
-        /// <param name="commentaire">Valeur du commentaire</param>
-        public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEdition, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis)
+        /// <param name="titreOriginal">Le titre originale de l'oeuvre (souvent en japonais)</param>
+        /// <param name="titreAlternatif">Le titre alternatif de l'oeuvre (en anglais ou français)</param>
+        /// <param name="auteur">Le nom de l'auteur </param>
+        /// <param name="dessinateur">Le nom du dessinateur</param>
+        /// <param name="maisonEdition">Le nom de la maison d'édition japonaise</param>
+        /// <param name="premierTome">La date de parution du premier</param>
+        /// <param name="dernierTome">La date de parution du dernier tome (null si aucune)</param>
+        /// <param name="nombreTome">Nombre de tome</param>
+        /// <param name="couverture">Chemin du fichier de la couverture</param>
+        /// <param name="synopsis">Synopsis de l'oeuvre</param>
+        public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEditionJap, string maisonEditionFr, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis)
         {
             TitreOriginal = titreOriginal ?? throw new ArgumentNullException(nameof(titreOriginal));
             TitreAlternatif = titreAlternatif ?? throw new ArgumentNullException(nameof(titreAlternatif));
             Auteur = auteur ?? throw new ArgumentNullException(nameof(auteur));
             Dessinateur = dessinateur ?? throw new ArgumentNullException(nameof(dessinateur));
-            MaisonEdition = maisonEdition ?? throw new ArgumentNullException(nameof(maisonEdition));
+            MaisonEditionJap = maisonEditionJap ?? throw new ArgumentNullException(nameof(maisonEditionJap));
+            MaisonEditionFr = maisonEditionFr ?? throw new ArgumentNullException(nameof(maisonEditionFr));
             PremierTome = premierTome;
             DernierTome = dernierTome;
             NombreTome = nombreTome;
-            this.couverture = couverture ?? throw new ArgumentNullException(nameof(couverture));
+            Couverture = couverture ?? throw new ArgumentNullException(nameof(couverture));
             Synopsis = synopsis ?? throw new ArgumentNullException(nameof(synopsis));
         }
 
@@ -77,7 +75,7 @@ namespace Modele
         public override string ToString() /// testé et fonctionne
         {
             string r;
-            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEdition} / {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis} \n";
+            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEditionJap} / {MaisonEditionFr}/ {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis} \n";
             
             
             if (LesAvis != null)
@@ -92,22 +90,48 @@ namespace Modele
             return r;
         }
 
+        /// <summary>
+        /// Renvoie true si les deux objets sont identiques (false sinon)
+        /// </summary>
+        /// <param name="obj">Objet à comparer avec l'instance de manga appelante</param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (TitreOriginal == ((Manga)obj).TitreOriginal && Auteur == ((Manga)obj).Auteur)
+            if (TitreOriginal == ((Manga)obj).TitreOriginal && TitreAlternatif == ((Manga)obj).TitreAlternatif)
                 return true;
             return false;
         }
 
-        public void AjouterAvis(Avis a)///a modif dans l'uml
+        /// <summary>
+        /// Ajoute un avis dans la collection des avis de l'instance de manga concernée
+        /// </summary>
+        /// <param name="a"> Avis à ajouter </param>
+        public void AjouterAvis(Avis a)
         {
             if (LesAvis == null)
+            {
                 LesAvis = new List<Avis>();
+            }
             LesAvis.Add(a);
 
         }
-       
-        /// faire la méthode CalculerMoyenneNote
+       /// <summary>
+       /// Calcule la moyenne des notes d'un manga
+       /// </summary>
+        public void CalculerMoyenne()
+        {
+            int nbNotes = 0;
+            float sommeNotes = 0;
 
+            if (LesAvis != null)
+            {
+                foreach (Avis a in LesAvis)
+                {
+                    nbNotes++;
+                    sommeNotes += a.Note;
+                }
+            }
+            MoyenneNote = sommeNotes / nbNotes;            
+        }
     }
 }

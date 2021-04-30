@@ -5,9 +5,10 @@ using System.Text;
 namespace Modele
 {
     ///je suis pas sur pour ajouter/supprimer les mangas
+    ///Louis : Va falloir je pense ajouter dans le dictionnaire de mangas
     public class Administrateur : Utilisateur
     {
-        public Administrateur(string pseudo, int age, DateTime dateInscription, Genre genrepref, string motDePasse)
+        public Administrateur(string pseudo, int age, DateTime dateInscription, GenreDispo genrepref, string motDePasse)
         : base(pseudo, age, dateInscription,genrepref, motDePasse)
         { }
 
