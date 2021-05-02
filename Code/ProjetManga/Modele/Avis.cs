@@ -11,16 +11,16 @@ namespace Modele
         public string Commentaire
         {
             get => commentaire;
-            set
+            private set
             {
                 commentaire = value;
             }
         }
         private string commentaire;
-        public int Note { get; set; }
+        public int Note { get; private set; }
        
-        public Utilisateur Util { get; set; }
-        public DateTime Date { get; set; }
+        public Utilisateur Util { get; private set; }
+        public DateTime Date { get; private set; }
         /// <summary>
         /// Constructeur de cette classe
         /// </summary>

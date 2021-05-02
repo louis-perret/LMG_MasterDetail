@@ -11,15 +11,15 @@ namespace Modele
     public class Utilisateur
     {
         public List<Manga> LesFavoris;
-        public string Pseudo { get; set; }
+        public string Pseudo { get; private set; }
 
-        public int Age { get; set; }
+        public int Age { get; private set; }
 
-        public DateTime DateInscription { get; set; }
+        public DateTime DateInscription { get; private set; }
 
-        public string MotDePasse { get; set; }
+        public string MotDePasse { get; private set; }
 
-        public GenreDispo GenresPreferes { get; set; }
+        public GenreDispo GenresPreferes { get; private set; }
 
         public Utilisateur(string pseudo, int age, DateTime dateInscription, GenreDispo genrepref, string motDePasse)
         {

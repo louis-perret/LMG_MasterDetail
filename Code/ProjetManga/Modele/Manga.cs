@@ -10,36 +10,36 @@ namespace Modele
     //Testée & Fonctionelle
     public class Manga
     {           
-        public string TitreOriginal { get; set; }       
+        public string TitreOriginal { get; private set; }       
 
-        public string TitreAlternatif { get; set; }
+        public string TitreAlternatif { get; private set; }
         
-        public string Auteur { get; set; }
+        public string Auteur { get; private set; }
        
 
-        public string Dessinateur { get; set; }
+        public string Dessinateur { get; private set; }
         
 
-        public string MaisonEditionJap { get; set; }
+        public string MaisonEditionJap { get; private set; }
 
-        public string MaisonEditionFr { get; set; } //Rajout de la maison d'édition française car on l'avait oublié
+        public string MaisonEditionFr { get; private set; } //Rajout de la maison d'édition française car on l'avait oublié
 
 
-        public DateTime PremierTome { get; set; }
+        public DateTime PremierTome { get; private set; }
         
 
-        public DateTime? DernierTome { get; set; }
+        public DateTime? DernierTome { get; private set; }
          //Le ? permet de dire que cette variable peut-être nulle
 
-        public int NombreTome { get; set; }       
+        public int NombreTome { get; private set; }       
 
-        public string Couverture { get; set; } //Le prof a dit qu'il fallait tous mettre en propriété car ça serait plus simple
+        public string Couverture { get; private set; } //Le prof a dit qu'il fallait tous mettre en propriété car ça serait plus simple
 
-        public string Synopsis { get; set; }
+        public string Synopsis { get; private set; }
 
-        public List<Avis> LesAvis { get; set; }
+        public List<Avis> LesAvis { get; private set; }
 
-        public float MoyenneNote { get; set; }
+        public float MoyenneNote { get; private set; }
 
         /// <summary>
         /// Constructeur de la classe

@@ -9,9 +9,9 @@ namespace Modele
 {
     public class Genre
     {
-        public string Description { get; set; }
+        public string Description { get; private set; }
 
-        public GenreDispo NomGenre { get; set; }
+        public GenreDispo NomGenre { get; private set; }
 
         public Genre(string description, GenreDispo type)
         {
