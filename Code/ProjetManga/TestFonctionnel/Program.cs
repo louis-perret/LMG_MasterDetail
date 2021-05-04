@@ -14,23 +14,24 @@ namespace TestFonctionnel
 
             Genre genre1 = new Genre("Description Shonen", g);
             Genre genre2 = new Genre("Description Seinen", g2);
+            Genre genre12 = new Genre("Description Shonen", g);
             Genre genre3 = new Genre("Description Shojo", g3);
             Genre genre4 = new Genre("Description Josei", g4);
 
             Manga m1 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
-            //Manga m12 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
+            Manga m12 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisonfr", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
             Manga m2 = new Manga("HxH", "ezhz", "jesaispas", "nonplus", "genre", "maisone2", new DateTime(2009), new DateTime(2011), 999, "dossier/test/", "epreuve 1 ");
             Manga m3 = new Manga("Death Note", "Note Death", "toujourpas", "encoremoins", "horreur", "maisone2", new DateTime(2002), new DateTime(2005), 36, "dossier/test/", "shinigami ");
 
             Utilisateur u1 = new Utilisateur("xProGamer", 14, new DateTime(2021, 12, 12),g, "azerty123");
-            Avis a = new Avis("Belle couverture", 7, new DateTime(2021), u1);
+            Avis a = new Avis("Belle couverture", 9, new DateTime(2021), u1);
             m1.AjouterAvis(a);
-            a = new Avis("Histoire intéressante avec un suspense insoutenable", 5, new DateTime(2021), u1);            
+            a = new Avis("Histoire intéressante avec un suspense insoutenable", 1, new DateTime(2021), u1);            
             m1.AjouterAvis(a);
 
-            Utilisateur admin1 = new Administrateur("xProAdmin", 27, new DateTime(2021, 12, 24), g3, "motdepasse");
-            a = new Avis("Que des retournements de situations", 10, new DateTime(2021), admin1);
-            m1.AjouterAvis(a);
+            
+            
+     
 
 
             //genre1.AjouterManga(m1);
@@ -65,8 +66,7 @@ namespace TestFonctionnel
             Console.WriteLine(u1);
             Console.WriteLine("\n\n");
 
-            Console.WriteLine(admin1);
-            Console.WriteLine("\n\n");
+            
 
             Console.WriteLine("----------------------");
             Console.WriteLine("Affichage des mangas");
@@ -75,10 +75,7 @@ namespace TestFonctionnel
             Console.WriteLine(m2);
             Console.WriteLine(m3);
 
-            m1.CalculerMoyenne();
-            Console.WriteLine(m1.MoyenneNote);
-
-            /*Console.WriteLine("------------------------");
+            Console.WriteLine("------------------------");
             Console.WriteLine("Test des equals");
             
             if (m12.Equals(m1))
@@ -88,7 +85,16 @@ namespace TestFonctionnel
             if (!m12.Equals(m2))
             {
                 Console.WriteLine("Le manga m12 et m2 sont différents");
-            }*/
+            }
+
+            if (genre12.Equals(genre1))
+            {
+                Console.WriteLine("Le genre 2 et 1 sont similaires");
+            }
+            if (!genre1.Equals(genre3))
+            {
+                Console.WriteLine("Le manga 1 et 3 sont différents");
+            }
         }
     }
 }

@@ -8,15 +8,8 @@ namespace Modele
     //Testée & fonctionnelle
     public class Avis
     {
-        public string Commentaire
-        {
-            get => commentaire;
-            private set
-            {
-                commentaire = value;
-            }
-        }
-        private string commentaire;
+        public string Commentaire { get; private set; }
+       
         public int Note { get; private set; }
        
         public Utilisateur Util { get; private set; }

@@ -8,7 +8,7 @@ namespace Modele
     /// Classe qui represente un manga
     /// </summary>
     //Testée & Fonctionelle
-    public class Manga
+    public class Manga : IEquatable<Manga>, IComparable<Manga>, IComparable
     {           
         public string TitreOriginal { get; private set; }       
 
@@ -39,7 +39,28 @@ namespace Modele
 
         public List<Avis> LesAvis { get; private set; }
 
-        public float MoyenneNote { get; private set; }
+        public float MoyenneNote 
+        { 
+            get
+            {
+                int nbNotes = 0;
+                float sommeNotes = 0;
+
+                if (LesAvis != null)
+                {
+                    foreach (Avis a in LesAvis)
+                    {
+                        nbNotes++;
+                        
+                        sommeNotes += a.Note;
+                    }
+                }
+                return sommeNotes / nbNotes;
+            }
+        
+        }
+
+       
 
         /// <summary>
         /// Constructeur de la classe
@@ -75,7 +96,7 @@ namespace Modele
         public override string ToString() /// testé et fonctionne
         {
             string r;
-            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEditionJap} / {MaisonEditionFr}/ {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis} \n";
+            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEditionJap} / {MaisonEditionFr}/ {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis} / {MoyenneNote} \n";
             
             
             if (LesAvis != null)
@@ -90,17 +111,7 @@ namespace Modele
             return r;
         }
 
-        /// <summary>
-        /// Renvoie true si les deux objets sont identiques (false sinon)
-        /// </summary>
-        /// <param name="obj">Objet à comparer avec l'instance de manga appelante</param>
-        /// <returns></returns>
-        public override bool Equals(object obj)
-        {
-            if (TitreOriginal == ((Manga)obj).TitreOriginal && TitreAlternatif == ((Manga)obj).TitreAlternatif)
-                return true;
-            return false;
-        }
+       
 
         /// <summary>
         /// Ajoute un avis dans la collection des avis de l'instance de manga concernée
@@ -115,23 +126,45 @@ namespace Modele
             LesAvis.Add(a);
 
         }
-       /// <summary>
-       /// Calcule la moyenne des notes d'un manga
-       /// </summary>
-        public void CalculerMoyenne()
-        {
-            int nbNotes = 0;
-            float sommeNotes = 0;
 
-            if (LesAvis != null)
+        public bool Equals(Manga other)
+        {
+            if (TitreOriginal == other.TitreOriginal && TitreAlternatif == other.TitreAlternatif)
+                return true;
+            return false;
+        }
+
+
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(obj, null)) return false;
+            if (ReferenceEquals(obj, this)) return true;
+            if (GetType().Equals(obj.GetType())) return false;
+            return Equals((obj as Manga));
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -1862994041;
+            hashCode = hashCode * -1521134295 + TitreOriginal.GetHashCode();
+            hashCode = hashCode * -1521134295 + TitreAlternatif.GetHashCode();
+            return hashCode;
+        }
+
+        public int CompareTo(Manga other)
+        {
+            return TitreOriginal.CompareTo(other.TitreOriginal);
+        }
+
+        int IComparable.CompareTo(object obj)
+        {
+            if(!(obj is Manga))
             {
-                foreach (Avis a in LesAvis)
-                {
-                    nbNotes++;
-                    sommeNotes += a.Note;
-                }
+                throw new ArgumentException("Pas un manga");
             }
-            MoyenneNote = sommeNotes / nbNotes;            
+            Manga autreManga = obj as Manga;
+            return this.CompareTo(autreManga);
         }
     }
 }

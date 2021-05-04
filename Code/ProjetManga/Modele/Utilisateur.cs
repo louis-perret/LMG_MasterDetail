@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Modele
 {
-    public class Utilisateur
+    public class Utilisateur : IEquatable<Utilisateur>
     {
         public List<Manga> LesFavoris;
         public string Pseudo { get; private set; }
@@ -48,12 +48,8 @@ namespace Modele
             return r;
         }
 
-        public override bool Equals(object obj)
-        {
-            if (Pseudo == ((Utilisateur)obj).Pseudo && MotDePasse == ((Utilisateur)obj).MotDePasse)
-                return true;
-            return false;
-        }
+        
+
 
         public void AjouterFavori(Manga m) ///testé
         {
@@ -73,7 +69,30 @@ namespace Modele
 
         }
 
-   
+        public bool Equals(Utilisateur other) ///[AllowNull]
+        {
+            if (Pseudo == other.Pseudo && MotDePasse == other.MotDePasse)
+                return true;
+            return false;
+        }
 
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(obj, null)) return false;
+            if (ReferenceEquals(obj, this)) return true;
+            if (GetType().Equals(obj.GetType())) return false;
+            return Equals((obj as Utilisateur));
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -1968196876;
+            
+            hashCode = hashCode * -1521134295 + Pseudo.GetHashCode();
+           
+            hashCode = hashCode * -1521134295 + MotDePasse.GetHashCode();
+           
+            return hashCode;
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 /// Louis -> Testée et fontionne (j'ai essayé les expcetions mais je galère un peu
 namespace Modele
 {
-    public class Genre
+    public class Genre : IEquatable<Genre>  
     {
         public string Description { get; private set; }
 
@@ -23,41 +23,10 @@ namespace Modele
             Description = description;
         }
 
-        /*public List<Manga> GetLesMangas()
-        {
-            return lesMangas;
-        }*/
-
-        /*public void AjouterManga(Manga m) ///testé mais utile ? meme methode dans admin (je me perd surement) 
-                                          ///Réponse : La méthode admin ajouterManga appelera cette m
-        {
-            if (lesMangas == null)
-                lesMangas = new List<Manga>();
-            lesMangas.Add(m);
-        }*/
-
-        public override bool Equals(object obj)
-        {
-            return obj is Genre genre &&
-                   Description == genre.Description;
-        }
+       
 
 
-        /*public override string ToString() ///testé
-        {
-            string r;
-            r = $"[Genre] {description} \n";
-            if(lesMangas!=null)
-            {
-                r += "Liste des mangas : \n";
-                foreach (Manga m in lesMangas)
-                {
-                    r += "\n\t\t" + m;
-                }
-            }
- 
-            return r;
-        }*/
+       
         public override string ToString() ///testé
         {
             string r;
@@ -65,7 +34,27 @@ namespace Modele
             return r;
         }
 
+        public bool Equals(Genre other)
+        {
+            return NomGenre.Equals(other.NomGenre)
+                && Description == other.Description;
+        }
 
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(obj, null)) return false;
+            if (ReferenceEquals(obj, this)) return true;
+            if (GetType().Equals(obj.GetType())) return false;
+            return Equals((obj as Genre));
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -1633598879;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
+            hashCode = hashCode * -1521134295 + NomGenre.GetHashCode();
+            return hashCode;
+        }
     }
 
 
