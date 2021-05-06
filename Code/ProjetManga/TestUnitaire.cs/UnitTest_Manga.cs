@@ -26,10 +26,10 @@ namespace TestUnitaire.cs
         [Fact]
         public void TestCalculNote()
         {
-            Utilisateur u1 = new Utilisateur("xProGamer", 14, new DateTime(2021, 12, 12), GenreDispo.Josei, "azerty123");
-            Avis a = new Avis("Belle couverture", 9, new DateTime(2021), u1);
+            Compte u1 = new Compte("xProGamer", "05/02/2015", new DateTime(2021, 12, 12), GenreDispo.Josei, "azerty123");
+            Avis a = new Avis("Belle couverture", 9, new DateTime(2021), u1.Pseudo);
             m1.AjouterAvis(a);
-            a = new Avis("Histoire intéressante avec un suspense insoutenable", 1, new DateTime(2021), u1);
+            a = new Avis("Histoire intéressante avec un suspense insoutenable", 1, new DateTime(2021), u1.Pseudo);
             m1.AjouterAvis(a);
 
 
