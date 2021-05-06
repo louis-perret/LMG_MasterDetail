@@ -32,6 +32,8 @@ namespace TestFonctionnel
             a = new Avis("Histoire intéressante avec un suspense insoutenable", 1, new DateTime(2021), u1.Pseudo);            
             m1.AjouterAvis(a);
 
+            a = new Avis("Histoire intéressante avec un suspense insoutenable", 10, new DateTime(2021), u1.Pseudo);
+            m3.AjouterAvis(a);
 
             HashSet<Compte> ListeDesComptes = new HashSet<Compte>();
             ListeDesComptes.Add(u1);
@@ -79,10 +81,41 @@ namespace TestFonctionnel
            
 
             Console.WriteLine("------------------------");
-            Console.WriteLine("Test de listes \n\n");
-            Console.WriteLine(l1);
-           
+            Console.WriteLine("Testes de Listes \n\n");
 
+            Console.WriteLine("<-- Affichage de Liste -->\n");
+            Console.WriteLine(l1);
+
+            Console.WriteLine("<-- Teste sur ajouter/suppression/modification de manga -->\n\n");
+            /*l1.AjouterManga(m1, genre4); //Ajoute m1
+            Console.WriteLine("<-- Affichage de Liste -->\n");
+            Console.WriteLine(l1);
+            
+            l1.AjouterManga(m2, genre4); //N'ajoute pas m2
+            Console.WriteLine("<-- Affichage de Liste -->\n");
+            Console.WriteLine(l1);*/
+
+            /*l1.SupprimerManga(m1, genre4); //Supprime m1
+            Console.WriteLine("<-- Affichage de Liste -->\n");
+            Console.WriteLine(l1);
+
+            l1.SupprimerManga(m3, genre4); //Supprime rien
+            Console.WriteLine("<-- Affichage de Liste -->\n");
+            Console.WriteLine(l1);*/
+
+            /*Manga mModif = new Manga("Death Note", "Note Death", "auteurBidon", "dessinateurBidon", "horreur", "maisone2", new DateTime(2002), new DateTime(2005), 36, "dossier/test/", "shinigami qui aime les pommes ");
+            l1.ModifierManga(mModif, genre1);
+            Console.WriteLine("<-- Affichage de Liste -->\n");
+            Console.WriteLine(l1);*/
+
+            /*Console.WriteLine("Teste de la méthode AjouterAvis\n\n");
+            l1.AjouterAvis(a, genre1, m1);
+            Console.WriteLine("<-- Affichage de Liste -->");
+            Console.WriteLine(l1);*/
+
+            Console.WriteLine("Teste de la méthode ChercherMeilleurManga\n\n");
+            Manga m = l1.ChercherMeilleurManga();
+            Console.Write(m);
         }
     }
 }

@@ -37,9 +37,9 @@ namespace Modele
 
         public string Synopsis { get; private set; }
 
-        public List<Avis> LesAvis { get; private set; }
+        public IList<Avis> LesAvis { get; private set; }
 
-        public float MoyenneNote 
+        public float MoyenneNote
         { 
             get
             {
@@ -55,7 +55,14 @@ namespace Modele
                         sommeNotes += a.Note;
                     }
                 }
-                return sommeNotes / nbNotes;
+                if (nbNotes == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return sommeNotes / nbNotes;
+                }
             }
         
         }

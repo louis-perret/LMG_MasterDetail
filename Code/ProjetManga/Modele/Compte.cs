@@ -18,8 +18,7 @@ namespace Modele
             get
             {
                 DateTime now = DateTime.Today;
-                int age = now.Year - dateNaissance.Year;
-                Console.WriteLine(dateNaissance.Year);
+                int age = now.Year - dateNaissance.Year;               
                 if (dateNaissance > now.AddYears(-age))
                     age--;
                 return age;
