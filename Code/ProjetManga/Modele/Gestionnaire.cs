@@ -10,12 +10,26 @@ namespace Modele
     public class Gestionnaire 
     {
 
-        public static GenreDispo GenreAuHasard() //testé et fonctionnel
+       
+
+        public static SortedSet<Manga> GenreAuHasard(Listes l) //testé et fonctionnel ATTENTION les pb d'exceptions sont du au fait que le genre au hasard tombe sur un genre sans aucun manga parfois
         {
+
             Array genreDispo = Enum.GetValues(typeof(GenreDispo));
             Random random = new Random();
             int index = random.Next(0, 3);
-            return (GenreDispo)genreDispo.GetValue(index);
+            GenreDispo gd =(GenreDispo)genreDispo.GetValue(index);
+
+            foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in l.CollectionManga) /// jai bien besoin de ce bout de code je peux pas rappeler l'autre fonction
+            {
+                if (kvp.Key.NomGenre.Equals(gd))
+                {
+                    return kvp.Value;
+                }
+
+            }       
+            return null;
+
         }
 
         /*public static HashSet<Compte> lCompte;
@@ -78,9 +92,17 @@ namespace Modele
             l.AjouterFavoriManga(m, c);
         }
 
+        public static SortedSet<Manga> ListeParGenre(Listes l,Genre g)
+        {
+            SortedSet<Manga> listeMangaParGenre = new SortedSet<Manga>();
+            listeMangaParGenre = l.ListeParGenre(g);
+            return listeMangaParGenre;
+        }
         public static void SupprimerFavoriManga(Listes l,Manga m, Compte c)
         {
             l.SupprimerFavoriManga(m, c);
         }
+
+        
     }
 }
