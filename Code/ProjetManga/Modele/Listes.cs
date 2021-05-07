@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Modele
+namespace Modele   
 {
-    public class Listes
-    {
+    public class Listes//fini et testé
+{
         public HashSet<Compte> ListeCompte { get; private set; }
         public Dictionary<Genre, SortedSet<Manga>> CollectionManga { get; private set; }
 
@@ -31,7 +31,7 @@ namespace Modele
             }
         }
 
-        public void SupprimerManga(Manga m, Genre g)
+        public void SupprimerManga(Manga m, Genre g) 
         {
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
@@ -141,6 +141,9 @@ namespace Modele
             ChercherUtilisateur(c.Pseudo, c.MotDePasse).SupprimerFavori(m);
         }
 
+
+
+
         public override string ToString()
         {
             string r= "Liste des comptes : \n\n ";
@@ -160,6 +163,8 @@ namespace Modele
             }
             return r;
         }
+
+       
 
 
     }

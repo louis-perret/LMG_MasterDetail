@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 
 
-/// A FINIR : voir sur le diagramme de classe, ??? signifie methodes peut etre inutiles ? 
-/// Methode "ModifierProfil" inutile ? les set des proprietes suffisent 
 
 namespace Modele
 {

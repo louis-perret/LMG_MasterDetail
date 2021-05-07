@@ -12,18 +12,18 @@ namespace Modele
        
         public int Note { get; private set; }
        
-        public Compte Util { get; private set; }
+        public string NomUtil { get; private set; }
         public DateTime Date { get; private set; }
         /// <summary>
         /// Constructeur de cette classe
         /// </summary>
         /// <param name="commentaire">Valeur du commentaire</param>
-        public Avis(String commentaire, int note, DateTime date, Compte Util)
+        public Avis(String commentaire, int note, DateTime date, string nomUtil)
         {
             Note = note;
             Commentaire = commentaire;
             Date = date;
-            this.Util = Util;
+            NomUtil = nomUtil;
 
         }
 
@@ -33,7 +33,7 @@ namespace Modele
         /// <returns></returns>
         public override string ToString() ///testé
         {
-            return $" écrit par {Util.Pseudo} le  {Date} : {Commentaire} \n\t\t Note : {Note} \n\t  ";
+            return $" écrit par {NomUtil} le  {Date} : {Commentaire} \n\t\t Note : {Note} \n\t  ";
         }
     }
 }
