@@ -4,15 +4,24 @@ using System.Text;
 
 namespace Modele
 {
-    public class Gestionnaire ///je bug je crois, je sais pas si je dois instancier une liste ou quoi
-    ///je sais pas pq, notre classe avis n'avait pas le string nomUtilisateur donc je l'ai  remis
-    ///11:35 -- jarrive pas à tester la classe static, je te laisse faire si tu sais faire, jai demandé à un pote il sait pas non plus
-
+       //On a oublié la fonctionnalité qui permmet d'afficher les mangas suivant le genre qu'on a  cliqué
+       //J'ai pensé que ça pourrait être une méthode qui prendrait le genre selectionné en paramètre et qui renverrait la collection de mangas qui correspond
+       //On pourrait utiliser le système de filtrage de linq
+    public class Gestionnaire 
     {
-        public static HashSet<Compte> lCompte;
+
+        public static GenreDispo GenreAuHasard() //testé et fonctionnel
+        {
+            Array genreDispo = Enum.GetValues(typeof(GenreDispo));
+            Random random = new Random();
+            int index = random.Next(0, 3);
+            return (GenreDispo)genreDispo.GetValue(index);
+        }
+
+        /*public static HashSet<Compte> lCompte;
         public static Dictionary<Genre, SortedSet<Manga>> cManga;
-        public static Listes l = new Listes(lCompte,cManga);
-        public static void AjouterManga(Genre g, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime dTome,int nbTome, string couv, string synop)
+        public static Listes l = new Listes(lCompte,cManga);*/
+        public static void AjouterManga(Listes l, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime dTome,int nbTome, string couv, string synop, Genre g)
          {
             ///rajouter le parametre Genre dans le diagramme
             Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
@@ -20,36 +29,36 @@ namespace Modele
          }
 
         ///pour les 2 méthodes dessous, sur de devoir passer tous les parametres ?
-        public static void SupprimerManga(Genre g, string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime dTome, int nbTome, string couv, string synop)
+        public static void SupprimerManga(Listes l,Manga m, Genre g)
         {
-            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
+            //Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
             l.SupprimerManga(m, g);
         }
 
-        public static void ModifierManga(Genre g, string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime dTome, int nbTome, string couv, string synop)
+        public static void ModifierManga(Listes l,Genre g, string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime dTome, int nbTome, string couv, string synop)
         {
             Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
             l.ModifierManga(m, g);
         }
 
-        public static void AjouterAvis(string pseudo, string comm, int note,Genre g, Manga m)
+        public static void AjouterAvis(Listes l,Compte util, string comm, int note,Genre g, Manga m)
         {
-            Avis a = new Avis(comm, note, DateTime.Today, pseudo);
+            Avis a = new Avis(comm, note, DateTime.Today, util);
             l.AjouterAvis(a, g, m);
         }
 
-        public static Manga MangaDuMoment()
+        public static Manga MangaDuMoment(Listes l)
         {
             Manga m = l.ChercherMeilleurManga();
             return m;
         }
         /// classe du dessous : jai rajouté un parametre je voyais pass comment faire autrement
-        public static void ModifierProfil(string oldPseudo, string newPseudo, GenreDispo[] g)
+        public static void ModifierProfil(Listes l,string oldPseudo, string newPseudo, GenreDispo[] g)
         {
             l.ModifierProfil(oldPseudo, newPseudo, g);
         }
 
-        public static Compte ChercherUtilisateur(string pseudo, string mdp)
+        public static Compte ChercherUtilisateur(Listes l,string pseudo, string mdp)
         {
             ///sinon si on veut pas faire comme ca, on peut envoyer un Compte dans Listes
             /// donc constructeur de Listes : public Compte ChercherUtilisateur(string pseudo, string motDePasse)
@@ -58,20 +67,20 @@ namespace Modele
             return c;
         }
         ///string datenaissance a mettre dans le diagramme + supprimer dateInscription + GenreDispo g
-        public static void AjouterUtilisateur(string pse, string dateN,string mdp, GenreDispo[] g)
+        public static void AjouterUtilisateur(Listes l,string pse, string dateN,string mdp, GenreDispo[] g)
         {
             Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g);
             l.AjouterUtilisateur(c);
         }
 
-        public static void AjouterFavoriManga(Manga m, Compte c)
+        public static void AjouterFavoriManga(Listes l, Manga m, Compte c)
         {
-            l.AjouterFavorisManga(m, c);
+            l.AjouterFavoriManga(m, c);
         }
 
-        public static void SupprimerFavoriManga(Manga m, Compte c)
+        public static void SupprimerFavoriManga(Listes l,Manga m, Compte c)
         {
-            l.SupprimerFavorisManga(m, c);
+            l.SupprimerFavoriManga(m, c);
         }
     }
 }

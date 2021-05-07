@@ -131,12 +131,12 @@ namespace Modele
             }
         }
 
-        public void AjouterFavorisManga(Manga m, Compte c)
+        public void AjouterFavoriManga(Manga m, Compte c)
         {
             ChercherUtilisateur(c.Pseudo, c.MotDePasse).AjouterFavori(m);
         }
 
-        public void SupprimerFavorisManga(Manga m, Compte c)
+        public void SupprimerFavoriManga(Manga m, Compte c)
         {
             ChercherUtilisateur(c.Pseudo, c.MotDePasse).SupprimerFavori(m);
         }

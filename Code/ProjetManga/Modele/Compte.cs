@@ -75,9 +75,12 @@ namespace Modele
         {
             if (LesFavoris == null)
             {
-                LesFavoris = new List<Manga>();
+                LesFavoris = new List<Manga>();                
             }
-            LesFavoris.Add(m);
+            if (!LesFavoris.Contains(m))
+            {
+                LesFavoris.Add(m);
+            }
 
         }
         public void SupprimerFavori(Manga m)
