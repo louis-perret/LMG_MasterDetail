@@ -100,6 +100,47 @@ namespace Modele
 
         }
 
+        public void ModifierProfil(string oldPseudo, string newPseudo, GenreDispo[] genrePref)
+        {
+            foreach(Compte compte in ListeCompte)
+            {
+                if (compte.Pseudo.Equals(oldPseudo))
+                {
+                    compte.ModifierProfil(newPseudo, genrePref);
+                }
+            }
+        }
+
+        public Compte ChercherUtilisateur(string pseudo, string motDePasse)
+        {
+            foreach(Compte c in ListeCompte)
+            {
+                if(c.Pseudo.Equals(pseudo) && c.MotDePasse.Equals(motDePasse))
+                {
+                    return c;
+                }
+            }
+            return null; //tester dans gestionnaire, si la valeur est null ça veut dire que le mdp ou le pseudo sont incorrects (ou que le compte n'existe pas)
+        }
+
+        public void AjouterUtilisateur(Compte c) //Les informations sur le compte sont reçues parle Gestionnaire qui l'instancie en Compte et lui envoie l'instance (faut bien qu'il serve à qqch !)
+        {            
+            if(!ListeCompte.Contains(c))
+            {
+                ListeCompte.Add(c);
+            }
+        }
+
+        public void AjouterFavorisManga(Manga m, Compte c)
+        {
+            ChercherUtilisateur(c.Pseudo, c.MotDePasse).AjouterFavori(m);
+        }
+
+        public void SupprimerFavorisManga(Manga m, Compte c)
+        {
+            ChercherUtilisateur(c.Pseudo, c.MotDePasse).SupprimerFavori(m);
+        }
+
         public override string ToString()
         {
             string r= "Liste des comptes : \n\n ";

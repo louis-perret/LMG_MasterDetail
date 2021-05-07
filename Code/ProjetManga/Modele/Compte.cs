@@ -10,7 +10,7 @@ namespace Modele
 {
     public class Compte : IEquatable<Compte>
     {
-        public List<Manga> LesFavoris;
+        public IList<Manga> LesFavoris;
         public string Pseudo { get; private set; }
 
         public int Age 
@@ -32,9 +32,9 @@ namespace Modele
 
         public string MotDePasse { get; private set; }
 
-        public GenreDispo GenresPreferes { get; private set; }
+        public GenreDispo[] GenresPreferes { get; private set; }
 
-        public Compte(string pseudo, string dateDeNaissance, DateTime dateInscription, GenreDispo genrepref, string motDePasse)
+        public Compte(string pseudo, string dateDeNaissance, DateTime dateInscription, string motDePasse, GenreDispo[] genrepref)
         {
             Pseudo = pseudo ?? throw new ArgumentNullException(nameof(pseudo));
             dateNaissance = Convert.ToDateTime(dateDeNaissance);
@@ -50,10 +50,14 @@ namespace Modele
         public override string ToString() ///testé
         {
             string r;
-            r = $"[Utilisateur] {Pseudo} / {Age} / {DateInscription} /  / *{MotDePasse}*\n "; //{GenresPreferes.GetDescription()}
+            r = $"{Pseudo} a {Age} ans et s'est inscrit(e) le {DateInscription}  / *{MotDePasse}*. Ses genres préféres sont : / \n ";
+            foreach(GenreDispo g in GenresPreferes)
+            {
+                r += $"{g}/";
+            }
             if (LesFavoris != null)
             {
-                r += "Liste des favoris : \n";
+                r += "\nListe des favoris : \n";
                 foreach (Manga m in LesFavoris)
                 {
                     r += "\t\t" + m.TitreOriginal;
@@ -62,7 +66,11 @@ namespace Modele
             return r;
         }
 
-        
+        public void ModifierProfil(string newPseudo, GenreDispo[] genrePref)
+        {
+            Pseudo = newPseudo;
+            GenresPreferes = genrePref;
+        }
 
 
         public void AjouterFavori(Manga m) ///testé
