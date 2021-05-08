@@ -15,6 +15,7 @@ namespace Data
 
         public override Listes Load(string chemin)
         {
+            ///faire une belle Liste avec des beaux exemples :)
             GenreDispo g = GenreDispo.Josei;
             GenreDispo g2= GenreDispo.Shojo;
             GenreDispo g3 = GenreDispo.Shonen;
@@ -25,11 +26,11 @@ namespace Data
             Genre genre3 = new Genre("Description Shojo", g2);
             Genre genre4 = new Genre("Description Josei", g);
 
-            Manga m1 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
+            Manga m1 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois"); 
             Manga m2 = new Manga("HxH", "ezhz", "jesaispas", "nonplus", "genre", "maisone2", new DateTime(2009), new DateTime(2011), 999, "dossier/test/", "epreuve 1 ");
             Manga m3 = new Manga("Death Note", "Note Death", "toujourpas", "encoremoins", "horreur", "maisone2", new DateTime(2002), new DateTime(2005), 36, "dossier/test/", "shinigami ");
 
-            Compte u1 = new Compte("xProGamer", "05/05/2015", new DateTime(2021, 12, 12), "azerty123", new GenreDispo[] { g, g2 });
+            Compte u1 = new Compte("xProGamer", "05/05/2015", new DateTime(2015, 12, 12), "azerty123", new GenreDispo[] { g, g2 });
             Compte u2 = new Compte("xgmm", "05/05/2012", new DateTime(2021, 11, 12), "test", new GenreDispo[] { g, g2 });
             Compte u3 = new Compte("sihano", "05/05/1999", new DateTime(2021, 11, 11), "frigiel", new GenreDispo[] { g, g2 });
 

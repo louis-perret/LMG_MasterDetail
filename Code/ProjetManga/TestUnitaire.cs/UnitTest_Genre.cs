@@ -9,6 +9,7 @@ namespace TestUnitaire.cs
         [Fact]
         public void TestEqualsGenre()
         {
+            // a faire avec stub ducoup
             GenreDispo g = GenreDispo.Josei;
             GenreDispo g3 = GenreDispo.Shonen;
             Genre genre1 = new Genre("Description Shonen", g);

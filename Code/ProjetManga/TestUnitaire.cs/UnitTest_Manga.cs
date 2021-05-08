@@ -6,7 +6,7 @@ using Modele;
 
 namespace TestUnitaire.cs
 {
-    public class UnitTest_Manga
+    public class UnitTest_Manga // a faire avec stub
         
     {
         Manga m1 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
@@ -21,8 +21,21 @@ namespace TestUnitaire.cs
        
         }
 
+        /*public void TestEqualsManga()
+       {
+           Stub stub = new Stub("");
+           Listes l1 = stub.Load("");
+           Manga mTest = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois");
 
-        
+           foreach (Manga m in l1.CollectionManga.Values.)
+           {
+               Assert.True(mTest.Equals(m));
+           }
+
+       }
+       */
+
+
         [Fact]
         public void TestCalculNote()
         {

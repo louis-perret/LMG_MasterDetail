@@ -76,9 +76,7 @@ namespace Modele
 
         public static Compte ChercherUtilisateur(Listes l,string pseudo, string mdp)
         {
-            ///sinon si on veut pas faire comme ca, on peut envoyer un Compte dans Listes
-            /// donc constructeur de Listes : public Compte ChercherUtilisateur(string pseudo, string motDePasse)
-            /// et dans Listes avant de rechercher le compte on extrait son pseudo et mdp de son objet
+            
             Compte c=l.ChercherUtilisateur(pseudo, mdp);
             return c;
         }

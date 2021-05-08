@@ -15,7 +15,7 @@ namespace TestUnitaire.cs
             Listes l1 = stub.Load("");
 
             ///Compte u1 = new Compte("xProGamer", "05/02/2015", new DateTime(2021, 12, 12), "azerty123",new GenreDispo[]  { GenreDispo.Josei });
-            Assert.Equal(6, u1.Age);
+            Assert.Equal(6, l1.ListeCompte[0].Age);
 
             }
         
