@@ -12,8 +12,9 @@ namespace Modele
 
        
 
-        public static SortedSet<Manga> GenreAuHasard(Listes l) //testé et fonctionnel ATTENTION les pb d'exceptions sont du au fait que le genre au hasard tombe sur un genre sans aucun manga parfois
+        public static Dictionary<Genre,SortedSet<Manga>> GenreAuHasard(Listes l) //testé et fonctionnel ATTENTION les pb d'exceptions sont du au fait que le genre au hasard tombe sur un genre sans aucun manga parfois
         {
+            Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
 
             Array genreDispo = Enum.GetValues(typeof(GenreDispo));
             Random random = new Random();
@@ -24,7 +25,8 @@ namespace Modele
             {
                 if (kvp.Key.NomGenre.Equals(gd))
                 {
-                    return kvp.Value;
+                    genreHasard.Add(kvp.Key, kvp.Value);
+                    return genreHasard;
                 }
 
             }       

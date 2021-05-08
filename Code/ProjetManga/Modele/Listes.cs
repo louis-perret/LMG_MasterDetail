@@ -7,32 +7,43 @@ namespace Modele
 {
     public class Listes//fini et testé
 {
-        public SortedSet<Compte> ListeCompte { get; private set; } // il faut une collection enumerable jai donc mis un sortedset
+        public List<Compte> ListeCompte { get; private set; } // il faut une collection enumerable jai donc mis un sortedset
         public Dictionary<Genre, SortedSet<Manga>> CollectionManga { get; private set; }
 
-        public Listes(SortedSet<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga)
+        public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga)
         {
             ListeCompte = lCompte;
             CollectionManga = cManga;
 
         }
 
+       
+
         public SortedSet<Manga> ListeParGenre(Genre g) //fonctionne
         {
-            
-            foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
+            SortedSet<Manga> listeDuGenre = new SortedSet<Manga>();
+            var temp = from k in CollectionManga
+
+                       where k.Key.NomGenre.Equals(g.NomGenre)
+                       select k.Value;
+
+            foreach (var t in temp)
             {
-                if (kvp.Key.Equals(g))
+
+                foreach (Manga m in t)
                 {
-                    return kvp.Value;  
+                    listeDuGenre.Add(m);
                 }
-                
             }
-            return null;
-            
+            return listeDuGenre;
+
 
         }
-        public void AjouterManga(Manga m, Genre g)
+
+
+
+    
+    public void AjouterManga(Manga m, Genre g)
         {
             foreach(KeyValuePair<Genre,SortedSet<Manga>> kvp in CollectionManga)
             {

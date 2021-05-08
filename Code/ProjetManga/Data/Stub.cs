@@ -15,7 +15,11 @@ namespace Data
 
         public override Listes Load(string chemin)
         {
-            
+            GenreDispo g = GenreDispo.Josei;
+            GenreDispo g2= GenreDispo.Shojo;
+            GenreDispo g3 = GenreDispo.Shonen;
+            GenreDispo g4 = GenreDispo.Seinen;
+
             Genre genre1 = new Genre("Description Shonen", g3);
             Genre genre2 = new Genre("Description Seinen", g4);
             Genre genre3 = new Genre("Description Shojo", g2);
@@ -36,7 +40,7 @@ namespace Data
             a = new Avis("Histoire intéressante avec un suspense insoutenable", 10, new DateTime(2021), u1);
             m3.AjouterAvis(a);
 
-            HashSet<Compte> ListeDesComptes = new HashSet<Compte>();
+            List<Compte> ListeDesComptes = new List<Compte>();
             ListeDesComptes.Add(u1);
             ListeDesComptes.Add(u2);
             ListeDesComptes.Add(u3);
@@ -55,7 +59,7 @@ namespace Data
             u1.AjouterFavori(m1);
             u1.AjouterFavori(m2);
             u1.AjouterFavori(m3);
-
+           
             return l1;
         }
     }

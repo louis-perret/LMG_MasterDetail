@@ -9,22 +9,27 @@ namespace TestFonctionnel
     {
         static void Main(string[] args)
         {
-
+            
             Stub stub = new Stub("");
             Listes l1 = stub.Load("");
 
+            var c = l1.ListeCompte[0]; //pour recuperer un compte precis pour les test
+            
+
+            
             Console.WriteLine("<-- Affichage de Liste -->\n");
             Console.WriteLine(l1);
 
             Console.WriteLine("Teste de la méthode ModiferManga \n\n");
 
-            Manga mModif = new Manga("Death Note", "Note Death", "auteurBidon", "dessinateurBidon", "horreur", "maisone2", new DateTime(2002), new DateTime(2005), 36, "dossier/test/", "shinigami qui aime les pommes ");
-            l1.ModifierManga(mModif, new Genre("Genre d'action", GenreDispo.Shonen));
+            //jai tout testé impossible de recuperer des valeurs de l1 je comprend rien
+            //var toto =((l1.CollectionManga).Items[1]).Value).Items[0];
+            //l1.ModifierManga(mModif, new Genre("Genre d'action", GenreDispo.Shonen));
 
             Console.WriteLine("<-- Affichage de Liste -->\n");
             Console.WriteLine(l1);
 
-            Console.WriteLine("Teste de la méthode AjouterAvis\n\n");
+           /* Console.WriteLine("Teste de la méthode AjouterAvis\n\n");
 
             Gestionnaire.AjouterAvis(l1, l1.ListeCompte., "Ce manga est incroyable je recommande vivement !", 8, new Genre("Genre d'action", GenreDispo.Shonen), l1.CollectionManga.Values.g); 
             ///pour nos test il faut absolument proceder comme le truc juste au dessus mais j'arrive pas a acceder à l'element precis de nos sortedSet
@@ -42,8 +47,9 @@ namespace TestFonctionnel
 
             Console.WriteLine("Test de la fonctonnalité RechercherUtilisateur\n");
             
-            Compte c = Gestionnaire.ChercherUtilisateur(l1,"xProGamer", "azerty123");
-            Compte c = Gestionnaire.ChercherUtilisateur(l1,"Toto", "azerty123");
+           // Compte c = Gestionnaire.ChercherUtilisateur(l1,"xProGamer", "azerty123");
+            //Compte c = Gestionnaire.ChercherUtilisateur(l1,"Toto", "azerty123");
+            
             if (c != null)
             {
                 Console.WriteLine("L'utilsateur recherché était :\n ");
@@ -53,8 +59,8 @@ namespace TestFonctionnel
             {
                 Console.WriteLine("Ce compte n'existe pas");
             }
-            */
-            /*Console.WriteLine("\n\n\nTest de la fonctonnalité AjouterUtilisateur\n");
+            
+            Console.WriteLine("\n\n\nTest de la fonctonnalité AjouterUtilisateur\n");
             Compte u4 = new Compte("TerreTerre", "05/05/1999", new DateTime(2021, 11, 11), "frigiel", new GenreDispo[] { g, g2 });
             Gestionnaire.AjouterUtilisateur(l1,"TerreTerre", "05/05/1999", "frigiel", new GenreDispo[] { g, g2 });
             //Console.WriteLine(l1);
@@ -63,7 +69,7 @@ namespace TestFonctionnel
             Gestionnaire. AjouterFavoriManga(l1,m1, u1);
             Console.WriteLine(u1);
             Gestionnaire.SupprimerFavoriManga(l1,m1, u1);
-            Console.WriteLine(u1);*/
+            Console.WriteLine(u1);
 
 
             
@@ -87,7 +93,7 @@ namespace TestFonctionnel
             {
                 Console.WriteLine(s);
             }
-
+            */
         }
-}
+    }
 }
