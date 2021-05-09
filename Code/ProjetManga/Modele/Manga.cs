@@ -7,7 +7,6 @@ namespace Modele
     /// <summary>
     /// Classe qui represente un manga
     /// </summary>
-    //Testée & Fonctionelle
     public class Manga : IEquatable<Manga>, IComparable<Manga>, IComparable
     {           
         public string TitreOriginal { get; private set; }       
@@ -22,7 +21,7 @@ namespace Modele
 
         public string MaisonEditionJap { get; private set; }
 
-        public string MaisonEditionFr { get; private set; } //Rajout de la maison d'édition française car on l'avait oublié
+        public string MaisonEditionFr { get; private set; } 
 
 
         public DateTime PremierTome { get; private set; }
@@ -33,7 +32,7 @@ namespace Modele
 
         public int NombreTome { get; private set; }       
 
-        public string Couverture { get; private set; } //Le prof a dit qu'il fallait tous mettre en propriété car ça serait plus simple
+        public string Couverture { get; private set; }
 
         public string Synopsis { get; private set; }
 
@@ -103,12 +102,10 @@ namespace Modele
         /// <summary>
         /// Permet de transformer une instance en chaîne de caractères
         /// </summary>
-        public override string ToString() /// testé et fonctionne
+        public override string ToString() 
         {
             string r;
-            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} / {Auteur} / {Dessinateur} / {MaisonEditionJap} / {MaisonEditionFr}/ {PremierTome} / {DernierTome} / {NombreTome} / {Synopsis} / {MoyenneNote} \n";
-            
-            
+            r= $"[Manga] {TitreOriginal} / {TitreAlternatif} \n Auteur : {Auteur} / Dessinateur : {Dessinateur} \n Maison D'édition Jap/Fr : {MaisonEditionJap} / {MaisonEditionFr} \n Premier tome : {PremierTome} Dernier tome : {DernierTome} Nombre de tome : {NombreTome} \n\n Synopsis : {Synopsis} \n\n Note :{MoyenneNote} \n";           
             if (LesAvis != null)
             {
                 r += "\n\t\tListe des avis : \n";

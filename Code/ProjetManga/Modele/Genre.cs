@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-/// A FINIR : comment on peut lier le nom du genre par rapport à sa description ?
-/// Louis -> Réponse : Tout simplement en indiquant que le nom est de type de l'énumération GenreDispo
-/// Louis -> Testée et fontionne (j'ai essayé les expcetions mais je galère un peu
 namespace Modele
 {
     public class Genre : IEquatable<Genre>  
@@ -27,7 +24,7 @@ namespace Modele
 
 
        
-        public override string ToString() ///testé
+        public override string ToString()
         {
             string r;
             r = $"{NomGenre} : {Description} \n";

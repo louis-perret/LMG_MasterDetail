@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Modele   
 {
-    public class Listes//fini et testé
+    public class Listes
 {
-        public IList<Compte> ListeCompte { get; private set; } // il faut une collection enumerable jai donc mis un sortedset
+        public IList<Compte> ListeCompte { get; private set; } 
         public Dictionary<Genre, SortedSet<Manga>> CollectionManga { get; private set; }
 
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga)
@@ -26,7 +26,7 @@ namespace Modele
             return g.FirstOrDefault();
         }
 
-        public SortedSet<Manga> ListeParGenre(Genre g) //fonctionne
+        public SortedSet<Manga> ListeParGenre(Genre g) 
         {
             SortedSet<Manga> listeDuGenre = new SortedSet<Manga>();
             var temp = from k in CollectionManga
@@ -152,10 +152,10 @@ namespace Modele
                     return c;
                 }
             }
-            return null; //tester dans gestionnaire, si la valeur est null ça veut dire que le mdp ou le pseudo sont incorrects (ou que le compte n'existe pas)
+            return null; 
         }
 
-        public void AjouterUtilisateur(Compte c) //Les informations sur le compte sont reçues parle Gestionnaire qui l'instancie en Compte et lui envoie l'instance (faut bien qu'il serve à qqch !)
+        public void AjouterUtilisateur(Compte c)
         {            
             if(!ListeCompte.Contains(c))
             {

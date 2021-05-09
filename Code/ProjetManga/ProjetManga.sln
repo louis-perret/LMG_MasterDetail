@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modele", "Modele\Modele.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUnitaire.cs", "TestUnitaire.cs\TestUnitaire.cs.csproj", "{229762AD-FF54-47A4-B2C9-459BECE6612B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{607A7370-E2D9-45A6-9B7B-48DE5D6D0148}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{607A7370-E2D9-45A6-9B7B-48DE5D6D0148}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

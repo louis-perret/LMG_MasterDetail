@@ -45,20 +45,25 @@ namespace Modele
 
         }
 
-        public override string ToString() ///testé
+        public override string ToString()
         {
             string r;
-            r = $"{Pseudo} a {Age} ans et s'est inscrit(e) le {DateInscription}  / *{MotDePasse}*. Ses genres préféres sont : / \n ";
-            foreach(GenreDispo g in GenresPreferes)
+            r = $" {Pseudo} a {Age} ans et s'est inscrit(e) le {DateInscription}.";
+            if(GenresPreferes != null)
             {
-                r += $"{g}/";
+                r += "Ses genres préféres sont : \n";
+                foreach (GenreDispo g in GenresPreferes)
+                {
+                    r += $"/{g}";
+                }
             }
+                
             if (LesFavoris != null)
             {
                 r += "\nListe des favoris : \n";
                 foreach (Manga m in LesFavoris)
                 {
-                    r += "\t\t" + m.TitreOriginal;
+                    r += $"\t\t{m.TitreOriginal},";
                 }
             }
             return r;
@@ -71,7 +76,7 @@ namespace Modele
         }
 
 
-        public void AjouterFavori(Manga m) ///testé
+        public void AjouterFavori(Manga m)
         {
             if (LesFavoris == null)
             {
