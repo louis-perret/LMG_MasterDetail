@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Modele
 {
@@ -12,7 +13,7 @@ namespace Modele
 
        
 
-        public static Dictionary<Genre,SortedSet<Manga>> GenreAuHasard(Listes l) //testé et fonctionnel ATTENTION les pb d'exceptions sont du au fait que le genre au hasard tombe sur un genre sans aucun manga parfois
+        public static SortedSet<Manga> GenreAuHasard(Listes l) //testé et fonctionnel ATTENTION les pb d'exceptions sont du au fait que le genre au hasard tombe sur un genre sans aucun manga parfois
         {
             Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
 
@@ -21,7 +22,8 @@ namespace Modele
             int index = random.Next(0, 3);
             GenreDispo gd =(GenreDispo)genreDispo.GetValue(index);
 
-            foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in l.CollectionManga) /// jai bien besoin de ce bout de code je peux pas rappeler l'autre fonction
+            return l.ListeParGenre(l.RecupererGenre(gd));
+            /*foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in l.CollectionManga) /// jai bien besoin de ce bout de code je peux pas rappeler l'autre fonction
             {
                 if (kvp.Key.NomGenre.Equals(gd))
                 {
@@ -29,19 +31,18 @@ namespace Modele
                     return genreHasard;
                 }
 
-            }       
-            return null;
+            }    */   
 
         }
 
         /*public static HashSet<Compte> lCompte;
         public static Dictionary<Genre, SortedSet<Manga>> cManga;
         public static Listes l = new Listes(lCompte,cManga);*/
-        public static void AjouterManga(Listes l, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime dTome,int nbTome, string couv, string synop, Genre g)
+        public static void AjouterManga(Listes l, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime dTome,int nbTome, string couv, string synop,GenreDispo g)
          {
             ///rajouter le parametre Genre dans le diagramme
-            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
-            l.AjouterManga(m, g);
+            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop,g);
+            l.AjouterManga(m, l.RecupererGenre(g));
          }
 
         ///pour les 2 méthodes dessous, sur de devoir passer tous les parametres ?
@@ -51,12 +52,26 @@ namespace Modele
             l.SupprimerManga(m, g);
         }
 
-        public static void ModifierManga(Listes l,Genre g, string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime dTome, int nbTome, string couv, string synop)
+        public static void ModifierManga(Listes l, Genre g, string to, DateTime dTome, int nbTome, string couv, string synop)
         {
-            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
-            l.ModifierManga(m, g);
+            //Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop);
+            l.ModifierManga(g, to, dTome, nbTome, couv, synop);
         }
 
+        public static Manga RechercherMangaParNom(Listes l, string nomManga)
+        {
+            Manga m=null;
+            foreach(KeyValuePair<Genre,SortedSet<Manga>> kvp in l.CollectionManga)
+            {
+                var Manga = kvp.Value.Where(manga => manga.TitreOriginal.ToLower().Equals(nomManga.ToLower()));
+                if(Manga.Count<Manga>() != 0)
+                {
+                    m = Manga.FirstOrDefault();
+                    return m;
+                }
+            }
+            return m;
+        }
         public static void AjouterAvis(Listes l,Compte util, string comm, int note,Genre g, Manga m)
         {
             Avis a = new Avis(comm, note, DateTime.Today, util);

@@ -26,9 +26,9 @@ namespace Data
             Genre genre3 = new Genre("Description Shojo", g2);
             Genre genre4 = new Genre("Description Josei", g);
 
-            Manga m1 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois"); 
-            Manga m2 = new Manga("HxH", "ezhz", "jesaispas", "nonplus", "genre", "maisone2", new DateTime(2009), new DateTime(2011), 999, "dossier/test/", "epreuve 1 ");
-            Manga m3 = new Manga("Death Note", "Note Death", "toujourpas", "encoremoins", "horreur", "maisone2", new DateTime(2002), new DateTime(2005), 36, "dossier/test/", "shinigami ");
+            Manga m1 = new Manga("one Piece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020,12,25), new DateTime(2021,10,26), 33, "dossier/test/", "il etait une fois",g3); 
+            Manga m2 = new Manga("HxH", "ezhz", "jesaispas", "nonplus", "genre", "maisone2", new DateTime(2009,04,06), new DateTime(2011,11,03), 50, "dossier/test/", "epreuve 1 ",g);
+            Manga m3 = new Manga("Death Note", "Note Death", "toujourpas", "encoremoins", "horreur", "maisone2", new DateTime(2002,10,03), new DateTime(2005,06,16), 36, "dossier/test/", "shinigami ",g3);
 
             Compte u1 = new Compte("xProGamer", "05/05/2015", new DateTime(2015, 12, 12), "azerty123", new GenreDispo[] { g, g2 });
             Compte u2 = new Compte("xgmm", "05/05/2012", new DateTime(2021, 11, 12), "test", new GenreDispo[] { g, g2 });

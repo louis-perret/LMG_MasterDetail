@@ -18,13 +18,16 @@ namespace TestFonctionnel
             
 
             
-            //Console.WriteLine("<-- Affichage de Liste -->\n");
-            //Console.WriteLine(l1);
+            Console.WriteLine("<-- Affichage de l1, une instance de Listes -->\n");
+            Console.WriteLine($"{l1}\n");
 
-           //Console.WriteLine("Test de la méthode ModiferManga \n\n");     JE TE LAISSE LA FAIRE
-           // l1.ModifierManga(mModif, new Genre("Genre d'action", GenreDispo.Shonen));
-           //Console.WriteLine("<-- Affichage de Liste -->\n");
-           // Console.WriteLine(l1);
+            Console.WriteLine("\n\n\tTest de la fonctionnalité Ajouter un Manga \n\n");
+
+            Console.WriteLine("\n\n\tTest de la fonctionnalité Modifier un Manga \n\n");
+            Manga m = Gestionnaire.RechercherMangaParNom(l1, "hxh"); //Recherche le manga à modifier
+            Console.WriteLine("Voici le manga avant sa modification : \n {0}", m);
+            Gestionnaire.ModifierManga(l1,l1.RecupererGenre(m.Genre), m.TitreOriginal, new DateTime(2012, 10, 26), 55, "nouvelleCouverture", "20 ans plus tard, l'équipage au chapeau de paille se retrouve démunis face aux 4 grandes empereurs des mers");
+            Console.WriteLine("Voici le manga, après sa modification : \n {0}", m);
 
             //Console.WriteLine("Teste de la méthode AjouterAvis\n\n");
             // Gestionnaire.AjouterAvis(l1, c, "Ce manga est incroyable je recommande vivement !", 8, new Genre("Genre d'action", GenreDispo.Shonen), /* mettre un manga peut importe*/); 
@@ -32,7 +35,7 @@ namespace TestFonctionnel
             //Console.WriteLine(l1);
 
             Console.WriteLine("Test de la méthode ChercherMeilleurManga\n\n"); // fonctionnel avec STUB
-            Manga m = Gestionnaire.MangaDuMoment(l1);
+            m = Gestionnaire.MangaDuMoment(l1);
             Console.Write(m);
 
             Console.WriteLine("Test de la fonctonnalité ModifierProfil"); //fonctionnel avec STUB
@@ -59,38 +62,38 @@ namespace TestFonctionnel
             Console.WriteLine($"Nb utilisateur apres l'ajout :{l1.ListeCompte.Count()}");
 
 
-             /*Console.WriteLine("Test de la fonctonnalité AjouterFavorisManga/SupprimerFavoriManga \n"); // fonctionnel apres avoir mis les manga gracex aux STUB (pas fait)
-             Gestionnaire. AjouterFavoriManga(l1,m1, l1.ListeCompte[0]);
-             Console.WriteLine(l1.ListeCompte[0]);
-             Gestionnaire.SupprimerFavoriManga(l1,m1, l1.ListeCompte[0]);
-             Console.WriteLine(l1.ListeCompte[0]);
-             */
+            /*Console.WriteLine("Test de la fonctonnalité AjouterFavorisManga/SupprimerFavoriManga \n"); // fonctionnel apres avoir mis les manga gracex aux STUB (pas fait)
+            Gestionnaire. AjouterFavoriManga(l1,m1, l1.ListeCompte[0]);
+            Console.WriteLine(l1.ListeCompte[0]);
+            Gestionnaire.SupprimerFavoriManga(l1,m1, l1.ListeCompte[0]);
+            Console.WriteLine(l1.ListeCompte[0]);
+            */
 
 
 
 
-            /* Console.WriteLine("------------------------");   Pas encore fonctionnel, peut etre le genre a mettre avec STUB ?
-             Console.WriteLine("Tests de Gestionnaire : listeParGenre\n\n");
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Tests de Gestionnaire : listeParGenre\n\n"); //Fonctionnel
 
 
-             SortedSet<Manga>  listeDeManga = Gestionnaire.ListeParGenre(l1, genre4);
-             foreach (var s in listeDeManga)
+            SortedSet<Manga> listeDeManga = Gestionnaire.ListeParGenre(l1, l1.RecupererGenre(GenreDispo.Shonen));
+            foreach (var s in listeDeManga)
              {
                  Console.WriteLine(s);
              }
-             */
-             Console.WriteLine("------------------------"); //fonctionnel (si y'a des bug c'est qu'on tombe sur une liste vide
-             Console.WriteLine("Tests de Gestionnaire : genre au hasard\n\n");
-             Dictionary<Genre,SortedSet<Manga>> listeDeManga = Gestionnaire.GenreAuHasard(l1);
-             foreach (var s in listeDeManga)
-             {
-                 Console.WriteLine(s.Key);
-                foreach(Manga man in s.Value)
-                {
-                    Console.WriteLine(man);
-                }
-             }
              
+            /*Console.WriteLine("------------------------"); //fonctionnel (si y'a des bug c'est qu'on tombe sur une liste vide
+            Console.WriteLine("Tests de Gestionnaire : genre au hasard\n\n");
+            Dictionary<Genre,SortedSet<Manga>> listeDeManga = Gestionnaire.GenreAuHasard(l1);
+            foreach (var s in listeDeManga)
+            {
+                Console.WriteLine(s.Key);
+               foreach(Manga man in s.Value)
+               {
+                   Console.WriteLine(man);
+               }
+            }*/
+                   
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Modele
 {
     public class Listes//fini et testé
 {
-        public List<Compte> ListeCompte { get; private set; } // il faut une collection enumerable jai donc mis un sortedset
+        public IList<Compte> ListeCompte { get; private set; } // il faut une collection enumerable jai donc mis un sortedset
         public Dictionary<Genre, SortedSet<Manga>> CollectionManga { get; private set; }
 
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga)
@@ -17,7 +17,14 @@ namespace Modele
 
         }
 
-       
+       public Genre RecupererGenre(GenreDispo nomGenre)
+        {
+            var genres = CollectionManga.Keys;
+            var g = from genre in genres
+                      where genre.NomGenre.Equals(nomGenre)
+                      select genre;
+            return g.FirstOrDefault();
+        }
 
         public SortedSet<Manga> ListeParGenre(Genre g) //fonctionne
         {
@@ -71,7 +78,7 @@ namespace Modele
             }
         }
 
-        public void ModifierManga(Manga m, Genre g)
+        public void ModifierManga(Genre g, string to, DateTime dTome, int nbTome, string couv, string synop)
         {
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
@@ -79,10 +86,9 @@ namespace Modele
                 {
                     foreach(Manga manga in kvp.Value)
                     {
-                        if (manga.Equals(m))
+                        if (manga.TitreOriginal.Equals(to))
                         {
-                            kvp.Value.Remove(manga);
-                            kvp.Value.Add(m);
+                            manga.Modifier(dTome, nbTome, couv, synop);
                             break;
                         }
                     }
@@ -100,7 +106,7 @@ namespace Modele
                     {
                         if (man.Equals(m))
                         {
-                            man.LesAvis.Add(a);
+                            man.AjouterAvis(a);
                         }
                     }
                 }
@@ -109,7 +115,7 @@ namespace Modele
 
         public Manga ChercherMeilleurManga()
         {
-            Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", new DateTime(2000), new DateTime(2001), 1, "/test/", "testtest");
+            Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", new DateTime(2000), new DateTime(2001), 1, "/test/", "testtest",GenreDispo.Shonen);
 
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
@@ -159,12 +165,12 @@ namespace Modele
 
         public void AjouterFavoriManga(Manga m, Compte c)
         {
-            ChercherUtilisateur(c.Pseudo, c.MotDePasse).AjouterFavori(m);
+            c.AjouterFavori(m);
         }
 
         public void SupprimerFavoriManga(Manga m, Compte c)
         {
-            ChercherUtilisateur(c.Pseudo, c.MotDePasse).SupprimerFavori(m);
+            c.SupprimerFavori(m);
         }
 
 

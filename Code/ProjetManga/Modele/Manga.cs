@@ -37,6 +37,8 @@ namespace Modele
 
         public string Synopsis { get; private set; }
 
+        public GenreDispo Genre { get; private set; }
+
         public IList<Avis> LesAvis { get; private set; }
 
         public float MoyenneNote
@@ -82,7 +84,7 @@ namespace Modele
         /// <param name="nombreTome">Nombre de tome</param>
         /// <param name="couverture">Chemin du fichier de la couverture</param>
         /// <param name="synopsis">Synopsis de l'oeuvre</param>
-        public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEditionJap, string maisonEditionFr, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis)
+        public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEditionJap, string maisonEditionFr, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis, GenreDispo g)
         {
             TitreOriginal = titreOriginal ?? throw new ArgumentNullException(nameof(titreOriginal));
             TitreAlternatif = titreAlternatif ?? throw new ArgumentNullException(nameof(titreAlternatif));
@@ -95,6 +97,7 @@ namespace Modele
             NombreTome = nombreTome;
             Couverture = couverture ?? throw new ArgumentNullException(nameof(couverture));
             Synopsis = synopsis ?? throw new ArgumentNullException(nameof(synopsis));
+            Genre = g;
         }
 
         /// <summary>
@@ -132,6 +135,21 @@ namespace Modele
             }
             LesAvis.Add(a);
 
+        }
+
+        public void Modifier(DateTime dTome, int nbTome, string couv, string synop)
+        {
+            if(PremierTome < dTome && DernierTome <= dTome)
+            {
+                DernierTome = dTome;
+            }
+            
+            if(NombreTome <= nbTome)
+            {
+                NombreTome = nbTome;
+            }           
+            Couverture = couv;
+            Synopsis = synop;
         }
 
         public bool Equals(Manga other)
