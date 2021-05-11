@@ -40,7 +40,7 @@ namespace Modele
 
         public IList<Avis> LesAvis { get; private set; }
 
-        public float MoyenneNote
+        public float MoyenneNote //Renvoie la moyenne des notes de tous ses avis
         { 
             get
             {
@@ -77,12 +77,14 @@ namespace Modele
         /// <param name="titreAlternatif">Le titre alternatif de l'oeuvre (en anglais ou français)</param>
         /// <param name="auteur">Le nom de l'auteur </param>
         /// <param name="dessinateur">Le nom du dessinateur</param>
-        /// <param name="maisonEdition">Le nom de la maison d'édition japonaise</param>
+        /// <param name="maisonEditionJap">Le nom de la maison d'édition japonaise</param>
+        /// <param name="maisonEditionFr">Le nom de la maison d'édition française </param>
         /// <param name="premierTome">La date de parution du premier</param>
         /// <param name="dernierTome">La date de parution du dernier tome (null si aucune)</param>
         /// <param name="nombreTome">Nombre de tome</param>
         /// <param name="couverture">Chemin du fichier de la couverture</param>
         /// <param name="synopsis">Synopsis de l'oeuvre</param>
+        /// <param name="g">Genre du manga</param>
         public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEditionJap, string maisonEditionFr, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis, GenreDispo g)
         {
             TitreOriginal = titreOriginal ?? throw new ArgumentNullException(nameof(titreOriginal));
@@ -134,6 +136,13 @@ namespace Modele
 
         }
 
+        /// <summary>
+        /// Modifie certaines des propriétés d'un manga
+        /// </summary>
+        /// <param name="dTome">Date du dernier tome</param>
+        /// <param name="nbTome">Nombre de tome total</param>
+        /// <param name="couv">"Noueau chemin de la couverture</param>
+        /// <param name="synop">"Nouveau synopsis</param>
         public void Modifier(DateTime dTome, int nbTome, string couv, string synop)
         {
             if(PremierTome < dTome && DernierTome <= dTome)
@@ -149,6 +158,11 @@ namespace Modele
             Synopsis = synop;
         }
 
+        /// <summary>
+        /// Compare deux instances de Manga
+        /// </summary>
+        /// <param name="other">Instance à comparer</param>
+        /// <returns>Renvoie true si égaux</returns>
         public bool Equals(Manga other)
         {
             if (TitreOriginal == other.TitreOriginal && TitreAlternatif == other.TitreAlternatif)
@@ -157,7 +171,11 @@ namespace Modele
         }
 
 
-
+        /// <summary>
+        /// Compare deux instances de Manga
+        /// </summary>
+        /// <param name="obj">Instance castée en object à comparer</param>
+        /// <returns>Retourne un true si égaux</returns>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(obj, null)) return false;
@@ -166,6 +184,10 @@ namespace Modele
             return Equals((obj as Manga));
         }
 
+        /// <summary>
+        /// Renvoie un entier identifiant une instance d'un manga
+        /// </summary>
+        /// <returns>Retourne un int</returns>
         public override int GetHashCode()
         {
             var hashCode = -1862994041;
@@ -174,11 +196,21 @@ namespace Modele
             return hashCode;
         }
 
+        /// <summary>
+        /// Compare deux instances puis renvoie un int
+        /// </summary>
+        /// <param name="other">Instance à comparer</param>
+        /// <returns>int</returns>
         public int CompareTo(Manga other)
         {
             return TitreOriginal.CompareTo(other.TitreOriginal);
         }
 
+        /// <summary>
+        /// Compare deux instances puis renvoie un int
+        /// </summary>
+        /// <param name="obj">Instance à comparer</param>
+        /// <returns>int</returns>
         int IComparable.CompareTo(object obj)
         {
             if(!(obj is Manga))

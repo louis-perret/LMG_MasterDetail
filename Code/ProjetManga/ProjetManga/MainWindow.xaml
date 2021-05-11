@@ -31,14 +31,20 @@
         </Image>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" >
             <TextBlock Text="Genres disponibles :"></TextBlock>
-            <ListBox   Height="209" >
+            <ListBox x:Name="ListeDesGenresDisponibles" Height="209" ItemsSource="{Binding GenreDisponible}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button DataContext="{Binding ElementName=ListeDesGenresDisponibles, Path=SelectItem}"></Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
                 <!--Faudra modifier le contenu lors de la partie 3-->
-                <ListBoxItem Name="Shonen" Content="Shonen" Style="{StaticResource ButtonGenre}"/>
+                <!--<ListBoxItem Name="Shonen" Content="Shonen" Style="{StaticResource ButtonGenre}"/>
                 <ListBoxItem Name="Seinen" Content="Seinen" Style="{StaticResource ButtonGenre}"/>
                 <ListBoxItem Name="Shojo" Content="Shõjo" Style="{StaticResource ButtonGenre}"/>
                 <ListBoxItem Name="Josei" Content="Josei" Style="{StaticResource ButtonGenre}"/>
                 <ListBoxItem Content="Genre au hasard" Height="30"  Background="#FFFF9C63" Width="100"  Margin="0,10,0,0" VerticalAlignment="Bottom" BorderBrush="Black"/>
-            </ListBox>
+                -->
+                </ListBox>
             <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
             <TextBox Name="nom_rechercher" Background="White" FontStyle="Italic" Height="25"></TextBox>
             <Button Name="rechercher_Button" Content="Rechercher" Height="24" BorderBrush="Black" BorderThickness="2" Background="#FF7FBFF7"></Button>

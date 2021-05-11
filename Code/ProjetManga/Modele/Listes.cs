@@ -18,7 +18,7 @@ namespace Modele
         }
 
        public Genre RecupererGenre(GenreDispo nomGenre)
-        {
+       {
             var genres = CollectionManga.Keys;
             var g = from genre in genres
                       where genre.NomGenre.Equals(nomGenre)

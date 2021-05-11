@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Modele
 {
+    /// <summary>
+    /// Classe réprésentant les genres disponibles de notre application
+    /// </summary>
     public class Genre : IEquatable<Genre>  
     {
-        public string Description { get; private set; }
+        public string Description { get; private set; } //Description du genre
 
-        public GenreDispo NomGenre { get; private set; }
+        public GenreDispo NomGenre { get; private set; } //Nom du genre à partir de l'enum
 
         public Genre(string description, GenreDispo type)
         {
@@ -23,7 +26,10 @@ namespace Modele
        
 
 
-       
+       /// <summary>
+       /// Renvoie sous forme de chaîne de caractères l'objet appelant
+       /// </summary>
+       /// <returns></returns>
         public override string ToString()
         {
             string r;
@@ -31,12 +37,22 @@ namespace Modele
             return r;
         }
 
+        /// <summary>
+        /// Premier Equals de la classe
+        /// </summary>
+        /// <param name="other">Instance à comparer</param>
+        /// <returns>Renvoie true si égaux</returns>
         public bool Equals(Genre other)
         {
             return NomGenre.Equals(other.NomGenre)
                 && Description == other.Description;
         }
 
+        /// <summary>
+        /// Deuxième equals de la classe
+        /// </summary>
+        /// <param name="obj">Instance castée en objet à comparer</param>
+        /// <returns>Renvoie true si égaux</returns>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(obj, null)) return false;
@@ -45,6 +61,10 @@ namespace Modele
             return Equals((obj as Genre));
         }
 
+        /// <summary>
+        /// Renvoie un nombre permettant d'identifier une instance de Genre dans une collection
+        /// </summary>
+        /// <returns>Retourne un int</returns>
         public override int GetHashCode()
         {
             var hashCode = -1633598879;

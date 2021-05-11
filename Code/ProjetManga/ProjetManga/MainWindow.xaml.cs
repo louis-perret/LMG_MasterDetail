@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Modele;
+using Data;
 
 namespace ProjetManga
 {
@@ -20,9 +22,15 @@ namespace ProjetManga
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Stub chargeur = new Stub("");
+        private Listes l;
+        private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
+
         public MainWindow()
         {
             InitializeComponent();
+            l = chargeur.Load("");
+            //ListeDesGenresDisponibles.DataContext = genreDisponible;
         }
 
         private void settings_button_Click(object sender, RoutedEventArgs e)
