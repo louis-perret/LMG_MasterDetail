@@ -13,6 +13,8 @@
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Margin" Value="0,10,0,0"></Setter>
+           <!-- <Setter Property="VerticalAlignment" Value="Center"></Setter>-->
+           <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -31,10 +33,10 @@
         </Image>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" >
             <TextBlock Text="Genres disponibles :"></TextBlock>
-            <ListBox x:Name="ListeDesGenresDisponibles" Height="209" ItemsSource="{Binding GenreDisponible}">
+            <ListBox x:Name="ListeDesGenresDisponibles" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Button DataContext="{Binding ElementName=ListeDesGenresDisponibles, Path=SelectItem}"></Button>
+                        <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}"></ListBoxItem>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <!--Faudra modifier le contenu lors de la partie 3-->

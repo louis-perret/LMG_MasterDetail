@@ -24,6 +24,9 @@
     <Compile Update="Menu_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="User-Control\AfficherManga.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Connection_Window.xaml">
@@ -39,6 +42,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Menu_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User-Control\AfficherManga.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

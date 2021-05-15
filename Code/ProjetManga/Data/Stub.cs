@@ -26,6 +26,11 @@ namespace Data
             Genre genre2 = new Genre("Le mot « Seinen » signifie en japonais « jeune homme ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public composé de jeunes hommes", g2);
             Genre genre3 = new Genre("Le mot « Shojo » signifie en japonais « jeune fille ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public jeune de sexe feminin.", g3);
             Genre genre4 = new Genre("Le mot « Josei » signifie en japonais « jeune femme ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public composé de jeunes femmes.", g4);
+            List<Genre> lGenre = new List<Genre>();
+            lGenre.Add(genre1);
+            lGenre.Add(genre2);
+            lGenre.Add(genre3);
+            lGenre.Add(genre4);
 
             Manga m1 = new Manga("One Piece", "One Piece", "Eiichirõ Oda", "Eiichirõ Oda", "Shueisha", "Glénat", new DateTime(1997,06,22), null, 98, "couvertureOnePiece.png", "Monkey D. Luffy rêve de retrouver ce trésor légendaire et de devenir le nouveau 'Roi des Pirates'. Après avoir mangé un fruit du démon, il possède un pouvoir lui permettant de réaliser son rêve. Il lui faut maintenant trouver un équipage pour partir à l'aventure !", g1); 
             Manga m2 = new Manga("Death Note", "Death Note", "Tsugumi Oba", "Takeshi Obata", "Shueisha", "Kana", new DateTime(2003,12,01), new DateTime(2006,05,15), 13, "couvertureDeathNote.png", "Light Yagami est un lycéen surdoué qui juge le monde actuel criminel, pourri et corrompu. Sa vie change du tout au tout le jour où il ramasse par hasard un mystérieux cahier intitulé « Death Note ». Son mode d'emploi indique que « la personne dont le nom est écrit dans ce cahier meurt ».", g1);
@@ -73,7 +78,7 @@ namespace Data
             CollectionDesMangas.Add(genre2, lesSeinen);
             CollectionDesMangas.Add(genre3, lesShojo);
             CollectionDesMangas.Add(genre4, lesJosei);
-            Listes l1 = new Listes(ListeDesComptes, CollectionDesMangas);
+            Listes l1 = new Listes(ListeDesComptes, CollectionDesMangas,lGenre);
 
             u1.AjouterFavori(m1);
             u1.AjouterFavori(m2);

@@ -13,16 +13,18 @@ namespace Modele
         public IList<Compte> ListeCompte { get; private set; } 
         public Dictionary<Genre, SortedSet<Manga>> CollectionManga { get; private set; }
 
+        public IList<Genre> ListeGenre { get; private set; }
+
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
         /// <param name="lCompte">Listes des comptes</param>
         /// <param name="cManga">Dictionnaire des manga, clé : genres, valeur : liste de manga</param>
-        public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga)
+        public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga,List<Genre> lGenre)
         {
             ListeCompte = lCompte;
             CollectionManga = cManga;
-
+            ListeGenre = lGenre;
         }
 
         /// <summary>

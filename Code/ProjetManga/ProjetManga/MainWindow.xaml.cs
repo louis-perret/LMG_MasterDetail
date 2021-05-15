@@ -23,14 +23,14 @@ namespace ProjetManga
     public partial class MainWindow : Window
     {
         private Stub chargeur = new Stub("");
-        private Listes l;
-        private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
+        public Listes l => chargeur.Load("");
+        //private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
 
         public MainWindow()
         {
             InitializeComponent();
-            l = chargeur.Load("");
-            //ListeDesGenresDisponibles.DataContext = genreDisponible;
+            //l = chargeur.Load("");
+            ListeDesGenresDisponibles.DataContext = l;
         }
 
         private void settings_button_Click(object sender, RoutedEventArgs e)
