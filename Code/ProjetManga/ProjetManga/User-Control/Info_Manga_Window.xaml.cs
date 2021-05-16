@@ -22,5 +22,11 @@ namespace ProjetManga
         {
             InitializeComponent();
         }
+
+        public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
+        {
+            var ajoutWindow = new Ajout_Window();
+            ajoutWindow.Show();
+        }
     }
 }

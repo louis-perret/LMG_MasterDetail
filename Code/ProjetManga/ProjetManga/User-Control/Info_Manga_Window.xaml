@@ -29,7 +29,7 @@
                             <ImageBrush ImageSource="/Image/poubelle.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
-                    <Button Width="20" Height="20" HorizontalAlignment="Left" Margin="5,0,0,0">
+                    <Button Width="20" Height="20" HorizontalAlignment="Left" Margin="5,0,0,0" Click="Button_Modifier_Manga">
                         <Button.Background>
                             <ImageBrush ImageSource="/Image/modifier.png" Stretch="Uniform"/>
                         </Button.Background>
