@@ -25,8 +25,8 @@ namespace ProjetManga
 
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
         {
-            var ajoutWindow = new Ajout_Window();
-            ajoutWindow.Show();
+            var modifWindow = new Modifier_Window();
+            modifWindow.Show();
         }
     }
 }
