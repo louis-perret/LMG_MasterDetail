@@ -15,6 +15,8 @@ namespace Modele
 
         public IList<Genre> ListeGenre { get; private set; }
 
+        public Compte CompteCourant { get; set; }
+
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -201,16 +203,17 @@ namespace Modele
         /// <param name="pseudo">pseudo du Compte à retrouver</param>
         /// <param name="motDePasse">mot de passe du Compte à retrouver</param>
         /// <returns>Le compte cherché</returns>
-        public Compte ChercherUtilisateur(string pseudo, string motDePasse)
+        public bool ChercherUtilisateur(string pseudo, string motDePasse)
         {
             foreach(Compte c in ListeCompte)
             {
                 if(c.Pseudo.Equals(pseudo) && c.MotDePasse.Equals(motDePasse))
                 {
-                    return c;
+                    CompteCourant = c;
+                    return true;
                 }
             }
-            return null; 
+            return false; 
         }
 
         /// <summary>

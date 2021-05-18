@@ -24,7 +24,7 @@
         
          <StackPanel>
             <WrapPanel>
-                <Button Width="20" Height="20" HorizontalAlignment="Left">
+                <Button Width="20" Height="20" HorizontalAlignment="Left" Click="Button_Supprimer_Manga" >
                     <Button.Background>
                             <ImageBrush ImageSource="/Image/poubelle.png" Stretch="Fill"/>
                     </Button.Background>

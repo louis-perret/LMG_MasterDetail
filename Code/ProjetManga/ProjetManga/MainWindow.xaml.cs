@@ -22,8 +22,10 @@ namespace ProjetManga
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
+        /*private Stub chargeur = new Stub("");
+        public Listes l => chargeur.Load("");*/
+
+        public Listes l => (App.Current as App).l;
         //private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
 
         public MainWindow()

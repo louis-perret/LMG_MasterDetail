@@ -26,7 +26,12 @@ namespace ProjetManga
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
         {
             var modifWindow = new Modifier_Window();
-            modifWindow.Show();
+            modifWindow.ShowDialog();
+        }
+
+        private void Button_Supprimer_Manga(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel);
         }
     }
 }

@@ -69,10 +69,10 @@ namespace Modele
             l.ModifierProfil(oldPseudo, newPseudo, g);
         }
 
-        public static Compte ChercherUtilisateur(Listes l, string pseudo, string mdp)
+        public static bool ChercherUtilisateur(Listes l, string pseudo, string mdp)
         {
 
-            Compte c = l.ChercherUtilisateur(pseudo, mdp);
+            bool c = l.ChercherUtilisateur(pseudo, mdp);
             return c;
         }
         

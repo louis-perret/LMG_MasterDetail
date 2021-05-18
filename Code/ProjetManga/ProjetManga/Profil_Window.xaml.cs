@@ -21,5 +21,15 @@ namespace ProjetManga
         {
             InitializeComponent();
         }
+
+        private void Button_CloseWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Valider(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

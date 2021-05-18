@@ -26,8 +26,8 @@
             <DockPanel.Background>
                 <ImageBrush ImageSource="Image/banniere.jpg" Stretch="UniformToFill" TileMode="None"/>
             </DockPanel.Background>
-            <Button x:Name="quitter_button" Content="Quitter"  DockPanel.Dock="Left"  HorizontalAlignment="Left" Style="{StaticResource BoutonConnection}"/>
-            <Button x:Name="profil_button" Content="Créer un compte" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource BoutonConnection}"/>
+            <Button x:Name="quitter_button" Content="Quitter"  DockPanel.Dock="Left"  HorizontalAlignment="Left" Style="{StaticResource BoutonConnection}" Click="Button_FermerApplication"/>
+            <Button x:Name="profil_button" Content="Créer un compte" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource BoutonConnection}" Click="Button_CreerProfil"/>
         </DockPanel>
 
         <StackPanel Grid.Row="1">
@@ -45,6 +45,6 @@
             <PasswordBox x:Name="mdp_texte" MaxWidth="200" />
         </StackPanel>
 
-        <Button x:Name="connecter_button" Grid.Row="1" Content="Se connecter" MaxWidth="100" VerticalAlignment="Bottom" FontFamily="Century" Style="{StaticResource ButtonValider}"/>
+        <Button x:Name="connecter_button" Grid.Row="1" Content="Se connecter" MaxWidth="100" VerticalAlignment="Bottom" FontFamily="Century" Style="{StaticResource ButtonValider}" Click="Button_Connexion"/>
     </Grid>
 </Window>

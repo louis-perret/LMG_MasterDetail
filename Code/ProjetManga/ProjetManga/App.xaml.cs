@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using Modele;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,10 @@ namespace ProjetManga
     /// </summary>
     public partial class App : Application
     {
+        public Listes l { get; set; }
+        public App()
+        {
+            l = new Stub("").Load("");
+        }
     }
 }
