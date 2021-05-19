@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -10,8 +11,12 @@ namespace Modele
         /// <summary>
         /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
         /// </summary>
-        public IList<Compte> ListeCompte { get; private set; } 
-        public Dictionary<Genre, SortedSet<Manga>> CollectionManga { get; private set; }
+       
+        public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
+        IList<Compte> listeCompte { get; set; } 
+        
+        public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
+        IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
 
         public IList<Genre> ListeGenre { get; private set; }
 
@@ -24,8 +29,10 @@ namespace Modele
         /// <param name="cManga">Dictionnaire des manga, clé : genres, valeur : liste de manga</param>
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga,List<Genre> lGenre)
         {
-            ListeCompte = lCompte;
-            CollectionManga = cManga;
+            listeCompte = lCompte;
+            ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
+            collectionManga = cManga;
+            CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
             ListeGenre = lGenre;
         }
 
@@ -222,9 +229,9 @@ namespace Modele
         /// <param name="c">Compte à ajouter</param>
         public void AjouterUtilisateur(Compte c)
         {            
-            if(!ListeCompte.Contains(c))
+            if(!listeCompte.Contains(c))
             {
-                ListeCompte.Add(c);
+                listeCompte.Add(c);
             }
         }
 

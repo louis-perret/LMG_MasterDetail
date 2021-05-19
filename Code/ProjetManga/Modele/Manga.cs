@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Modele
@@ -8,29 +9,29 @@ namespace Modele
     /// Classe qui represente un manga
     /// </summary>
     public class Manga : IEquatable<Manga>, IComparable<Manga>, IComparable
-    {           
-        public string TitreOriginal { get; private set; }       
+    {
+        public string TitreOriginal { get; private set; }
 
         public string TitreAlternatif { get; private set; }
-        
+
         public string Auteur { get; private set; }
-       
+
 
         public string Dessinateur { get; private set; }
-        
+
 
         public string MaisonEditionJap { get; private set; }
 
-        public string MaisonEditionFr { get; private set; } 
+        public string MaisonEditionFr { get; private set; }
 
 
         public DateTime PremierTome { get; private set; }
-        
+
 
         public DateTime? DernierTome { get; private set; }
-         //Le ? permet de dire que cette variable peut-être nulle
+        //Le ? permet de dire que cette variable peut-être nulle
 
-        public int NombreTome { get; private set; }       
+        public int NombreTome { get; private set; }
 
         public string Couverture { get; private set; }
 
@@ -38,7 +39,8 @@ namespace Modele
 
         public GenreDispo Genre { get; private set; }
 
-        public IList<Avis> LesAvis { get; private set; }
+        public ReadOnlyCollection<Avis> LesAvis { get; private set; }
+        IList<Avis> lesAvis { get; set; }
 
         public float MoyenneNote //Renvoie la moyenne des notes de tous ses avis
         { 
@@ -130,9 +132,10 @@ namespace Modele
         {
             if (LesAvis == null)
             {
-                LesAvis = new List<Avis>();
+                lesAvis = new List<Avis>();
+                LesAvis = new ReadOnlyCollection<Avis>(lesAvis);
             }
-            LesAvis.Add(a);
+            lesAvis.Add(a);
 
         }
 

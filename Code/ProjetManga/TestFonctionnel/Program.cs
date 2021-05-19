@@ -14,7 +14,7 @@ namespace TestFonctionnel
             Stub stub = new Stub("");
             Listes l1 = stub.Load("");
 
-           
+
             Console.WriteLine("<-- Affichage de l1, une instance de Listes -->\n");
             Console.WriteLine($"{l1}\n");
 

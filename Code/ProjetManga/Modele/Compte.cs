@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 
@@ -11,7 +12,10 @@ namespace Modele
     /// </summary>
     public class Compte : IEquatable<Compte>
     {
-        public IList<Manga> LesFavoris;
+        public ReadOnlyCollection<Manga> LesFavoris { get; private set; }
+        
+        IList<Manga> lesFavoris;
+
         public string Pseudo { get; private set; }
 
         public int Age 
@@ -54,7 +58,8 @@ namespace Modele
             MotDePasse = motDePasse ?? throw new ArgumentNullException(nameof(motDePasse));
             GenresPreferes = genrepref;
 
-            LesFavoris = new List<Manga>();
+            lesFavoris = new List<Manga>();
+            LesFavoris = new ReadOnlyCollection<Manga>(lesFavoris);
             ImageProfil = image;
 
         }
@@ -103,13 +108,13 @@ namespace Modele
         /// <param name="m">Manga qui va etre rajouté à la liste</param>
         public void AjouterFavori(Manga m)
         {
-            if (LesFavoris == null)
+            /*if (LesFavoris == null)
             {
                 LesFavoris = new List<Manga>();                
-            }
+            }*/
             if (!LesFavoris.Contains(m))
             {
-                LesFavoris.Add(m);
+                lesFavoris.Add(m);
             }
 
         }
@@ -121,7 +126,7 @@ namespace Modele
         {
             if (LesFavoris.Contains(m))
             {
-                LesFavoris.Remove(m);
+                lesFavoris.Remove(m);
             }
 
         }
