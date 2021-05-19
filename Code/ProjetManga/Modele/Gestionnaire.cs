@@ -78,7 +78,7 @@ namespace Modele
         
         public static void AjouterUtilisateur(Listes l,string pse, string dateN,string mdp, GenreDispo[] g)
         {
-            Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g);
+            Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g,null);
             l.AjouterUtilisateur(c);
         }
 

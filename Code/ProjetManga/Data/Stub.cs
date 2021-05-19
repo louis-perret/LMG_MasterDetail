@@ -42,9 +42,9 @@ namespace Data
             Manga m8 = new Manga("Nodame Cantabile", "Nodame Cantabile", "Tomoko Ninomiya", "Tomoko Ninomiya", "Kodansha", "Pika Edition", new DateTime(2001, 07, 10), new DateTime(2009, 10, 10), 23, "couvertureNodame.png", "C'est l'histoire de Shin'ichi Chiaki, étudiant en 3eme classe de piano à l'Académie de musique Momogaoka. Né dans une famille de musiciens, il est un excellent pianiste et violoniste. Son rêve est de devenir chef d'orchestre comme son mentor Sebastiano Viera. Il se sent prisonnier au Japon et perçoit son avenir musical en noir. C'est dans ce contexte qu'il rencontre Megumi Node (Nodame) qui ne sait pas lire une partition. Mais elle tombe amoureuse de Chiaki et ces deux personnages vont mutuellement se rapprocher...", g4);
 
 
-            Compte u1 = new Compte("Nicolas", "05/05/2003", new DateTime(2021, 03, 03), "azerty123", new GenreDispo[] { g1, g2 });
-            Compte u2 = new Compte("Frederic", "11/08/1972", new DateTime(2021, 04, 02), "test", null);
-            Compte u3 = new Compte("Camille", "05/01/2004", new DateTime(2021, 03, 12), "frigiel", new GenreDispo[] { g2, g4 });
+            Compte u1 = new Compte("Nicolas", "05/05/2003", new DateTime(2021, 03, 03), "azerty123", new GenreDispo[] { g1, g2 },null);
+            Compte u2 = new Compte("Frederic", "11/08/1972", new DateTime(2021, 04, 02), "test", null,null);
+            Compte u3 = new Compte("Camille", "05/01/2004", new DateTime(2021, 03, 12), "frigiel", new GenreDispo[] { g2, g4 },null);
 
             Avis a = new Avis("Belle couverture", 9,u1);
             m1.AjouterAvis(a);

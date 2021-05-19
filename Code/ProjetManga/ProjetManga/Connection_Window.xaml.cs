@@ -19,7 +19,9 @@ namespace ProjetManga
     /// </summary>
     public partial class Connection_Window : Window
     {
-        public Listes l => new Stub("").Load("");
+        // public Listes l => new Stub("").Load("");
+        private Stub chargeur = new Stub("");
+        public Listes l => chargeur.Load("");
         public Connection_Window()
         {
             InitializeComponent();

@@ -57,11 +57,11 @@ namespace TestFonctionnel
             //On voit bien que son pseudo ainsi que ses genres préférés ont été modifiés
 
             Console.WriteLine("\n\n\tTest de la fonctonnalité ChercherUtilisateur\n");
-            Compte cu = Gestionnaire.ChercherUtilisateur(l1, "Camille", "frigiel"); //On recherche un compte qui existe 
-            if (cu != null)
+            bool u = Gestionnaire.ChercherUtilisateur(l1, "Camille", "frigiel"); //On recherche un compte qui existe 
+            if (u)
             {
                 Console.WriteLine("L'utilisateur recherché était :\n ");
-                Console.WriteLine(cu); //Et il s'affiche 
+                Console.WriteLine(l1.CompteCourant); //Et il s'affiche 
             }
             else
             {
@@ -75,12 +75,12 @@ namespace TestFonctionnel
 
 
             Console.WriteLine("\n\n\tTest de la fonctonnalité AjouterFavorisManga/SupprimerFavoriManga\n\n"); 
-            Gestionnaire.AjouterFavoriManga(l1, Gestionnaire.RechercherMangaParNom(l1,"one piece"), cu); //Pour ce test, on reprend le compte chercher précédemment et qui possède aucun favoris
-            Console.WriteLine($"Voici l'utilisateur après l'ajout d'un manga à ses favoris : \n {cu}"); 
+            Gestionnaire.AjouterFavoriManga(l1, Gestionnaire.RechercherMangaParNom(l1,"one piece"), l1.CompteCourant); //Pour ce test, on reprend le compte chercher précédemment et qui possède aucun favoris
+            Console.WriteLine($"Voici l'utilisateur après l'ajout d'un manga à ses favoris : \n {l1.CompteCourant}"); 
             //On remarque que sa liste de favoris possède maintenant un manga
             
-            Gestionnaire.SupprimerFavoriManga(l1, Gestionnaire.RechercherMangaParNom(l1, "one piece"), cu);
-            Console.WriteLine($"\nVoici l'utilisateur après la suppression du manga ajouter précédemment à ses favoris : \n {cu}");
+            Gestionnaire.SupprimerFavoriManga(l1, Gestionnaire.RechercherMangaParNom(l1, "one piece"), l1.CompteCourant);
+            Console.WriteLine($"\nVoici l'utilisateur après la suppression du manga ajouter précédemment à ses favoris : \n {l1.CompteCourant}");
             //On remarque que sa liste de favoris est maintenant vide
 
             Console.WriteLine("\n\n\tTeste de la fonctionnalité Liste par genre\n\n"); 

@@ -35,6 +35,8 @@ namespace Modele
 
         public GenreDispo[] GenresPreferes { get; private set; }
 
+        public string ImageProfil { get; private set; }
+
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -43,7 +45,7 @@ namespace Modele
         /// <param name="dateInscription">Cette date est définit au jour de la création du compte</param>
         /// <param name="motDePasse">permet de se connecter</param>
         /// <param name="genrepref">un utilisateur peut afficher sur son profil 0 à 2 genres qu'il affectionne</param>
-        public Compte(string pseudo, string dateDeNaissance, DateTime dateInscription, string motDePasse, GenreDispo[] genrepref)
+        public Compte(string pseudo, string dateDeNaissance, DateTime dateInscription, string motDePasse, GenreDispo[] genrepref, string image)
         {
             Pseudo = pseudo ?? throw new ArgumentNullException(nameof(pseudo));
             dateNaissance = Convert.ToDateTime(dateDeNaissance);
@@ -53,6 +55,7 @@ namespace Modele
             GenresPreferes = genrepref;
 
             LesFavoris = new List<Manga>();
+            ImageProfil = image;
 
         }
 
