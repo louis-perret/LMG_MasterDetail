@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Modele;
 using Data;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ProjetManga
 {
@@ -38,7 +40,15 @@ namespace ProjetManga
 
         private void settings_button_Click(object sender, RoutedEventArgs e)
         {
-
+            var menuWindow = new Menu();
+            menuWindow.ShowDialog();
+            l.CompteCourant = null;
+            var connectionWindow = new Connection_Window();
+            connectionWindow.Show();
+            this.Close();
+            
+            
+            
         }
     }
 }

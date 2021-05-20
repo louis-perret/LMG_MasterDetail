@@ -25,7 +25,7 @@
                 <TextBlock Text="Synopsis" FontSize="20" TextDecorations="Underline" Margin="30,0,0,0" FontWeight="UltraBold"/>
                 <TextBlock></TextBlock>
                 <ItemsControl>
-                    <TextBlock Text="Eren est un petit garçon rêvant de voyager dans le monde extérieur. Mais cela est impossible car il vit dans une ville fortifiée aux murailles dépassant les cinquante mètres de haut. Ces remparts sont nécessaires à la sécurité des habitants car ils sont les derniers représentants de l'humanité, obligés de se cacher pour échapper aux titans qui ont massacré la majeure partie du genre humain un siècle plus tôt.Eren est têtu : il ne se doute pas de la violence des combats qui ont opposé les hommes aux titans. Il décide de poster sa candidature pour devenir éclaireur, car il s'agit des seuls soldats autorisés à sortir de la ville pour en savoir plus sur les titans. Mais un beau jour, un géant parvient à détruire le mur qui protégeait la ville et ouvre la voie à plusieurs dizaines de ses congénères ! Eren assiste impuissant à la mort atroce de sa mère qui finit dévorée. Alors qu'il fuit avec d'autres survivants, il se jure de se venger et de détruire la race des titans jusqu'à ce qu'il n'en reste plus un seul !! "
+                    <TextBlock Text="{Binding Synopsis}"
                               MaxWidth="700" TextWrapping="Wrap" FontSize="13" Margin="10,0,0,10" HorizontalAlignment="Left"/>
                 </ItemsControl>
             </StackPanel>
@@ -35,10 +35,12 @@
             <DockPanel>
                 
                 <Grid DockPanel.Dock="Right">
-                    <Image Source="/Image/couvertureSNK.jpg"  Margin="10" DockPanel.Dock="Right"/>
+                    <Image Source="{Binding Couverture}"  Margin="10" DockPanel.Dock="Right">
+                        
+                    </Image>
                 </Grid>
                 <Image Source="Image/etoile.png" Grid.Column="1" MinHeight="30" MaxHeight="30" MaxWidth="50" DockPanel.Dock="Left" VerticalAlignment="Top" Margin="10,15,0,0"/>
-                <TextBlock Text="8.0" FontSize="20" Margin="10,15,10,0" DockPanel.Dock="Right"/>
+                <TextBlock Text="{Binding MoyenneNote}" FontSize="20" Margin="10,15,10,0" DockPanel.Dock="Right"/>
             </DockPanel>
         </ItemsControl>
         

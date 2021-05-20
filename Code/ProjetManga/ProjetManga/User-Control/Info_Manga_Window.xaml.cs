@@ -27,6 +27,7 @@ namespace ProjetManga
         {
             var modifWindow = new Modifier_Window();
             modifWindow.ShowDialog();
+            
         }
 
         private void Button_Supprimer_Manga(object sender, RoutedEventArgs e)

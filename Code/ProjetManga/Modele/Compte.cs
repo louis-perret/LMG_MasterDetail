@@ -31,7 +31,7 @@ namespace Modele
 
         }
 
-        private DateTime dateNaissance;
+        public DateTime dateNaissance;
 
         public DateTime DateInscription { get; private set; }
 

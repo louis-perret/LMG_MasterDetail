@@ -38,6 +38,9 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ModifierProfil_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Profil_Window.xaml">
       <SubType>Designer</SubType>
     </Page>

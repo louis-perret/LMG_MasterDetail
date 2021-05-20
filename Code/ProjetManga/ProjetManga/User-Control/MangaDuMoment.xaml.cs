@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +20,12 @@ namespace ProjetManga
     /// </summary>
     public partial class MangaDuMoment : UserControl
     {
+        private Stub chargeur = new Stub("");
+        public Listes l => chargeur.Load("");
         public MangaDuMoment()
         {
             InitializeComponent();
+            DataContext = l.ChercherMeilleurManga();
         }
     }
 }

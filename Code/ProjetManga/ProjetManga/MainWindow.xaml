@@ -85,12 +85,12 @@
                 </Button>
                 <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219"  />
 
-                <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="settings_button_Click" BorderBrush="Black" BorderThickness="2"/>
+                <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="settings_button_Click" BorderBrush="Black" BorderThickness="2" />
             </StackPanel>
         </Grid>
         <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1">
             <!--Permettra de passer d'un user-control à un autre-->
-            <local:Info_Manga_Window />
+            <local:MangaDuMoment />
         </ContentControl>
 
 

@@ -37,8 +37,8 @@ namespace ProjetManga
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
-            GenreDispo[] tabGenre = null;
-            int i = 1;
+            GenreDispo[] tabGenre = new GenreDispo[2];
+            int i = 0;
             if(combo1.SelectedItem != null)
             {
                 tabGenre[i] =(combo1.SelectedItem as Genre).NomGenre;
@@ -50,6 +50,8 @@ namespace ProjetManga
                 tabGenre[i] = (combo2.SelectedItem as Genre).NomGenre;
             }
             Compte c = new Compte(nom_text.Text, dateNaissance_text.Text, DateTime.Today,mdp_text.Text, tabGenre,null);
+            l.CompteCourant = c;
+            l.ListeCompte.Add(c);
             Button_CloseWindow(sender, e);
         }
 

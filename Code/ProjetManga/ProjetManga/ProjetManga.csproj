@@ -68,4 +68,16 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ModifierProfil_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="ModifierProfil_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
