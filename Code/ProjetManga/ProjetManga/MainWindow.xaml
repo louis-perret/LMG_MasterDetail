@@ -16,6 +16,9 @@
            <!-- <Setter Property="VerticalAlignment" Value="Center"></Setter>-->
            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         </Style>
+        <Style TargetType="TextBlock" x:Key="ProfilText">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -39,14 +42,7 @@
                         <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}"></ListBoxItem>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-                <!--Faudra modifier le contenu lors de la partie 3-->
-                <!--<ListBoxItem Name="Shonen" Content="Shonen" Style="{StaticResource ButtonGenre}"/>
-                <ListBoxItem Name="Seinen" Content="Seinen" Style="{StaticResource ButtonGenre}"/>
-                <ListBoxItem Name="Shojo" Content="Shõjo" Style="{StaticResource ButtonGenre}"/>
-                <ListBoxItem Name="Josei" Content="Josei" Style="{StaticResource ButtonGenre}"/>
-                <ListBoxItem Content="Genre au hasard" Height="30"  Background="#FFFF9C63" Width="100"  Margin="0,10,0,0" VerticalAlignment="Bottom" BorderBrush="Black"/>
-                -->
-                </ListBox>
+            </ListBox>
             <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
             <TextBox Name="nom_rechercher" Background="White" FontStyle="Italic" Height="25"></TextBox>
             <Button Name="rechercher_Button" Content="Rechercher" Height="24" BorderBrush="Black" BorderThickness="2" Background="#FF7FBFF7"></Button>
@@ -63,24 +59,26 @@
                 <ColumnDefinition/>
 
             </Grid.ColumnDefinitions>
-            
-            <TextBlock Margin="10,10,0,10" Background="#FFFDFDFD" Opacity="0.8">    
-                <ItemsControl>
-                <WrapPanel>
-                    <Image Source="https://resize-elle.ladmedia.fr/rcrop/796,1024/img/var/plain_site/storage/images/deco/news-tendances2/habitudes-des-francais-avec-les-fleurs-3180028/69321394-1-fre-FR/Les-Francais-et-les-fleurs-decouvrez-vos-habitudes.jpg" MaxHeight="70" MaxWidth="100" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
-                    <StackPanel>                      
-                        <TextBlock Text="Pseudo " Margin="10,3,3,3"/>
-                        <TextBlock Text="Date d'inscription" Margin="10,3,3,3"/>
-                        <TextBlock Text="Âge" Margin="10,3,3,3"/> 
-                    </StackPanel>
-                    <StackPanel>
-                        <TextBlock Text="Type" Margin="10,3,3,3"/>
-                        <TextBlock Text="Genre(s) préféré(s)" Margin="10,3,3,3"/> 
-                    </StackPanel>
-                </WrapPanel>
-                </ItemsControl>
-            </TextBlock>
 
+            <DockPanel x:Name="profil" Grid.Row="0" Background="#FFFDFDFD" Opacity="0.90" Margin="10,10"> <!--J'ai changé en DockPanel parce qu'on bind une propriété unique et pas une collection-->
+                <Image Source="{Binding ImageProfil}" MinHeight="100" MaxHeight="200" DockPanel.Dock="Left" Margin="10"/>
+                <StackPanel DockPanel.Dock="Left" Margin="10,10,10,20">
+                    <TextBlock Text="{Binding Pseudo}" FontSize="20" Style="{StaticResource ProfilText}"/>
+                    <TextBlock Text="{Binding DateInscription}" FontSize="20" Style="{StaticResource ProfilText}"/>
+                    <TextBlock Text="{Binding Age}" FontSize="20" Style="{StaticResource ProfilText}"/>
+                </StackPanel>
+                <WrapPanel DockPanel.Dock="Right" Margin="30,10,10,20">
+                    <TextBlock Text="Genres préférés :"  FontSize="20" Style="{StaticResource ProfilText}"/>
+                    <ListView ItemsSource="{Binding GenrePreferes}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding GenreDispo}"  FontSize="20" Style="{StaticResource ProfilText}"/> <!--Faut binder sur l'enum  mais je n'y suis pas arrivé-->
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </WrapPanel>
+            </DockPanel>
+            
             <StackPanel Grid.Column="1" Background="#FFD5E0E8">
                 <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2">
 

@@ -22,9 +22,7 @@ namespace ProjetManga
     /// </summary>
     public partial class MainWindow : Window
     {
-        /*private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");*/
-
+        
         public Listes l => (App.Current as App).l;
         //private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
 
@@ -32,7 +30,10 @@ namespace ProjetManga
         {
             InitializeComponent();
             //l = chargeur.Load("");
-            ListeDesGenresDisponibles.DataContext = l;
+            //ListeDesGenresDisponibles.DataContext = l;
+            DataContext = l;
+            //bool c = Gestionnaire.ChercherUtilisateur(l, "Nicolas", "azerty123");
+            profil.DataContext = l.CompteCourant;
         }
 
         private void settings_button_Click(object sender, RoutedEventArgs e)

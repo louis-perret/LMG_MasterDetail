@@ -20,8 +20,9 @@ namespace ProjetManga
     public partial class Connection_Window : Window
     {
         // public Listes l => new Stub("").Load("");
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
+        /*private Stub chargeur = new Stub("");
+        public Listes l => chargeur.Load("");*/
+        public Listes l => (App.Current as App).l;
         public Connection_Window()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace ProjetManga
 
             else
             {
-                Compte c = l.CompteCourant;
+                //Compte c = l.CompteCourant;
                 var mainWindow = new MainWindow();
                 mainWindow.Show();
                 Button_FermerApplication(sender, e);               

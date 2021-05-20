@@ -60,7 +60,15 @@ namespace Modele
 
             lesFavoris = new List<Manga>();
             LesFavoris = new ReadOnlyCollection<Manga>(lesFavoris);
-            ImageProfil = image;
+            if(image == null)
+            {
+                ImageProfil = "/Image/question.png";
+            }
+            else
+            {
+                ImageProfil = image;
+            }
+            
 
         }
 
