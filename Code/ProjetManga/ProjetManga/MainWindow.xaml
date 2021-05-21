@@ -36,10 +36,10 @@
         </Image>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" >
             <TextBlock Text="Genres disponibles :"></TextBlock>
-            <ListBox x:Name="ListeDesGenresDisponibles" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center">
+            <ListBox x:Name="genreClick" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center" SelectionChanged="Selection_Changed_Genre"  >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}"></ListBoxItem>
+                        <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

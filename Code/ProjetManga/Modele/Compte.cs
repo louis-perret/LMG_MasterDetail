@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 
 
@@ -10,13 +11,29 @@ namespace Modele
     /// <summary>
     /// Classe qui définit un Compte d'utilisateur
     /// </summary>
-    public class Compte : IEquatable<Compte>
+    public class Compte : IEquatable<Compte>, INotifyPropertyChanged
     {
         public ReadOnlyCollection<Manga> LesFavoris { get; private set; }
         
         IList<Manga> lesFavoris;
 
-        public string Pseudo { get; private set; }
+        private string pseudo;
+        public string Pseudo
+        {
+            get => pseudo;
+            set
+            {
+                if (pseudo != value)
+                {
+                    pseudo = value;
+                    OnPropertyChanged(nameof(Pseudo));
+                }
+
+            }
+        }
+
+        void OnPropertyChanged(string nomProp)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
 
         public int Age 
         {
@@ -33,13 +50,30 @@ namespace Modele
 
         public DateTime dateNaissance;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public DateTime DateInscription { get; private set; }
 
         public string MotDePasse { get; private set; }
 
-        public GenreDispo[] GenresPreferes { get; private set; }
+        
 
-        public string ImageProfil { get; private set; }
+        private GenreDispo[] genresPreferes;
+        public GenreDispo[] GenresPreferes
+        {
+            get => genresPreferes;
+            set
+            {
+                if (genresPreferes != value)
+                {
+                    genresPreferes = value;
+                    OnPropertyChanged(nameof(Pseudo));
+                }
+
+            }
+        }
+
+        public string ImageProfil { get; set; }
 
         /// <summary>
         /// Constructeur de la classe

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace Modele   
 {
-    public class Listes
+    public class Listes : INotifyPropertyChanged
 {
         /// <summary>
         /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
@@ -20,7 +21,27 @@ namespace Modele
 
         public IList<Genre> ListeGenre { get; private set; }
 
-        public Compte CompteCourant { get; set; }
+    // indice du prof : pour le dictionnary on doit faire la propriété calculée au niveau d'une classe qui peut avoir le genre donné par l'utilisateur. Côté vue peut etre ?
+        private Compte compte;
+        public Compte CompteCourant 
+        { 
+            get => compte;  
+            set
+            {
+                if (compte !=value)
+                {
+                    compte = value;
+                    OnPropertyChanged(nameof(CompteCourant));
+                }
+                
+            }
+        }
+
+        
+
+
+        void OnPropertyChanged(string nomProp)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
 
         /// <summary>
         /// Constructeur de la classe
@@ -37,12 +58,14 @@ namespace Modele
             ListeGenre = lGenre;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Permet de recuperer le genre à partir de son nom de l'enum
         /// </summary>
         /// <param name="nomGenre">nom du genre dans l'enum</param>
         /// <returns>g de la classe Genre</returns>
-       public Genre RecupererGenre(GenreDispo nomGenre)
+        public Genre RecupererGenre(GenreDispo nomGenre)
        {
             var genres = CollectionManga.Keys;
             var g = from genre in genres
