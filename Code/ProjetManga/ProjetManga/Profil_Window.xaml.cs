@@ -20,10 +20,11 @@ namespace ProjetManga
     /// </summary>
     public partial class Profil_Window : Window
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
+        /*private Stub chargeur = new Stub("");
+        public Listes l => chargeur.Load("");*/
+        public Listes l => (App.Current as App).l;
 
-        private string fileName;
+        private string imageName;
         public Profil_Window()
         {
             InitializeComponent();
@@ -49,9 +50,8 @@ namespace ProjetManga
             {
                 tabGenre[i] = (combo2.SelectedItem as Genre).NomGenre;
             }
-            Compte c = new Compte(nom_text.Text, dateNaissance_text.Text, DateTime.Today,mdp_text.Text, tabGenre,null);
-            l.CompteCourant = c;
-            l.ListeCompte.Add(c);
+            Gestionnaire.AjouterUtilisateur(l, nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre,imageName); //On a une méthode pour ajouter un utilisateur, autant s'en servir !
+            //Faudra afficher dans la textbox de la date de naissance, la manière dont l'écrire
             Button_CloseWindow(sender, e);
         }
 
@@ -64,8 +64,8 @@ namespace ProjetManga
             bool? resultat = dialog.ShowDialog();
             if(resultat==true)
             {
-                fileName = dialog.FileName;
-                imageProfil.Source = new BitmapImage(new Uri( fileName));
+                imageName = dialog.FileName;
+                imageProfil.Source = new BitmapImage(new Uri( imageName));
             }
         }
     }

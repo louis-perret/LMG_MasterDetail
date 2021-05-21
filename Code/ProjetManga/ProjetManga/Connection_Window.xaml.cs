@@ -19,10 +19,7 @@ namespace ProjetManga
     /// </summary>
     public partial class Connection_Window : Window
     {
-        // public Listes l => new Stub("").Load("");
-        /*private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");*/
-        public Listes l => (App.Current as App).l;
+        public Listes l => (App.Current as App).l; //Pense bien à mettre ça sur chaque fene^tre pour qu'elles pointent bien toutes sur le même l
         public Connection_Window()
         {
             InitializeComponent();
@@ -45,6 +42,8 @@ namespace ProjetManga
             if (!Gestionnaire.ChercherUtilisateur(l, nom_texte.Text, mdp_texte.Password))
             {
                 MessageBox.Show("Ce compte n'existe pas", "Connexion", MessageBoxButton.OK);
+                nom_texte.Text = null;
+                mdp_texte.Password = null;
             }
 
             else

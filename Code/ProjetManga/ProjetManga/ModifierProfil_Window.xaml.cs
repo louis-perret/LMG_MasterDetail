@@ -20,19 +20,17 @@ namespace ProjetManga
     /// </summary>
     public partial class ModifierProfil : Window
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
-
+        public Listes l => (App.Current as App).l; //Pointe sur le même l de toutes l'application
         public Compte LeCompte { get; set; }
 
         
         public ModifierProfil()
         {
             InitializeComponent();
-            DataContext = l.CompteCourant; //retourne null ?
-            var c = l.CompteCourant;
-            LeCompte = new Compte(c.Pseudo, c.dateNaissance.ToString(), c.DateInscription, c.MotDePasse,c.GenresPreferes, c.ImageProfil);
-           
+            
+            LeCompte = l.CompteCourant;
+            stackPanelProfil.DataContext = LeCompte;
+            combo1.DataContext = l;
         }
 
         private void Button_CloseWindow(object sender, RoutedEventArgs e)

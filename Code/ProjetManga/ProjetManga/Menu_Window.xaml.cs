@@ -17,6 +17,8 @@ namespace ProjetManga
     /// </summary>
     public partial class Menu : Window
     {
+
+        public MainWindow m { get; set; }
         public Menu()
         {
             InitializeComponent();
@@ -29,14 +31,17 @@ namespace ProjetManga
 
         private void Button_Deco(object sender, RoutedEventArgs e)
         {
+            m.Close();
+            var connection_window = new Connection_Window();
+            connection_window.Show();
             Close();
-
         }
 
         private void Button_Modif(object sender, RoutedEventArgs e)
         {
             var modifProfilWindow = new ModifierProfil();
             modifProfilWindow.ShowDialog();
+            modifProfilWindow.Close();
         }
     }
 }

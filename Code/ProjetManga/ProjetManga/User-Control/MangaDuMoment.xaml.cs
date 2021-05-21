@@ -20,8 +20,10 @@ namespace ProjetManga
     /// </summary>
     public partial class MangaDuMoment : UserControl
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
+        /*private Stub chargeur = new Stub("");
+        public Listes l => chargeur.Load("");*/
+
+        public Listes l => (App.Current as App).l;
         public MangaDuMoment()
         {
             InitializeComponent();

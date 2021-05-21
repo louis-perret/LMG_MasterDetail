@@ -76,9 +76,9 @@ namespace Modele
             return c;
         }
         
-        public static void AjouterUtilisateur(Listes l,string pse, string dateN,string mdp, GenreDispo[] g)
+        public static void AjouterUtilisateur(Listes l,string pse, string dateN,string mdp, GenreDispo[] g, string photo_profil)
         {
-            Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g,null);
+            Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g,photo_profil);
             l.AjouterUtilisateur(c);
         }
 

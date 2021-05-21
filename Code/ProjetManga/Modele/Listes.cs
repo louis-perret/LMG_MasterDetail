@@ -12,7 +12,7 @@ namespace Modele
         /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
         /// </summary>
        
-        public List<Compte> ListeCompte { get; private set; }
+        public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
         IList<Compte> listeCompte { get; set; } 
         
         public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
@@ -30,7 +30,8 @@ namespace Modele
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga,List<Genre> lGenre)
         {
             listeCompte = lCompte;
-            ListeCompte = new List<Compte>(listeCompte);
+            ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
+            //ListeCompte = new List<Compte>(listeCompte);
             collectionManga = cManga;
             CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
             ListeGenre = lGenre;
@@ -239,7 +240,7 @@ namespace Modele
         /// Appel la méthode Compte pour ajouter un Manga favori à la liste de favori d'un Compte
         /// </summary>
         /// <param name="m">Manga à ajouter aux favoris</param>
-        /// <param name="c">Compte qui recoit le favori</param>
+        /// <param name="c">Compte qui reçoit le favori</param>
         public void AjouterFavoriManga(Manga m, Compte c)
         {
             c.AjouterFavori(m);

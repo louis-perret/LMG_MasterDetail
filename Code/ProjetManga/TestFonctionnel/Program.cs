@@ -70,8 +70,9 @@ namespace TestFonctionnel
             
             Console.WriteLine("\n\n\tTest de la fonctonnalité AjouterUtilisateur\n");
             Console.WriteLine($"Nb utilisateur avant l'ajout :{l1.ListeCompte.Count()}");
-            Gestionnaire.AjouterUtilisateur(l1,"TerreTerre", "05/05/1999", "frigiel", new GenreDispo[] { GenreDispo.Seinen, GenreDispo.Josei });
+            Gestionnaire.AjouterUtilisateur(l1,"TerreTerre", "05/05/1999", "frig", new GenreDispo[] { GenreDispo.Seinen, GenreDispo.Josei },null);
             Console.WriteLine($"Nb utilisateur apres l'ajout :{l1.ListeCompte.Count()}");
+
 
 
             Console.WriteLine("\n\n\tTest de la fonctonnalité AjouterFavorisManga/SupprimerFavoriManga\n\n"); 
