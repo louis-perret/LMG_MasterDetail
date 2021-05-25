@@ -13,8 +13,8 @@
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Margin" Value="0,10,0,0"></Setter>
-           <!-- <Setter Property="VerticalAlignment" Value="Center"></Setter>-->
-           <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <!-- <Setter Property="VerticalAlignment" Value="Center"></Setter>-->
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         </Style>
         <Style TargetType="TextBlock" x:Key="ProfilText">
             <Setter Property="Margin" Value="5"/>
@@ -22,8 +22,9 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition/>
+            <RowDefinition Height="160*"/>
+            <RowDefinition Height="103*"/>
+            <RowDefinition Height="371*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -31,12 +32,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="0" Grid.Column="0">
+        <Image Grid.Row="0" Grid.Column="0"  >
 
         </Image>
-        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" >
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" Grid.RowSpan="2" >
             <TextBlock Text="Genres disponibles :"></TextBlock>
-            <ListBox x:Name="genreClick" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center" SelectionChanged="Selection_Changed_Genre"  >
+            <ListBox x:Name="genreClick" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center" SelectionChanged="Selection_Changed_Genre" SelectionMode="Single" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}" />
@@ -50,7 +51,7 @@
         </StackPanel>
 
 
-        <Grid Grid.Row="0" Grid.Column="1">
+        <Grid Grid.Row="0" Grid.Column="1" Margin="0,0,0,103" Grid.RowSpan="2">
             <Grid.Background>
                 <ImageBrush ImageSource="/Image/banniere2.jpg"/>
             </Grid.Background>
@@ -60,8 +61,9 @@
 
             </Grid.ColumnDefinitions>
 
-            <DockPanel x:Name="profil" Grid.Row="0" Background="#FFFDFDFD" Opacity="0.90" Margin="10,10"> <!--J'ai changé en DockPanel parce qu'on bind une propriété unique et pas une collection-->
-                <Image Source="{Binding ImageProfil}" MinHeight="100" MaxHeight="200" DockPanel.Dock="Left" Margin="10"/>
+            <DockPanel x:Name="profil" Grid.Row="0" Background="#FFFDFDFD" Opacity="0.90" Margin="10,10" Height="150">
+                
+                <Image Source="{Binding ImageProfil}" MaxHeight="200"  MinHeight="100"  DockPanel.Dock="Left" Margin="10"/>
                 <StackPanel DockPanel.Dock="Left" Margin="10,10,10,20">
                     <TextBlock Text="{Binding Pseudo}" FontSize="20" Style="{StaticResource ProfilText}"/>
                     <TextBlock Text="{Binding DateInscription}" FontSize="20" Style="{StaticResource ProfilText}"/>
@@ -72,13 +74,14 @@
                     <ListView ItemsSource="{Binding GenrePreferes}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding GenreDispo}"  FontSize="20" Style="{StaticResource ProfilText}"/> <!--Faut binder sur l'enum  mais je n'y suis pas arrivé-->
+                                <TextBlock Text="{Binding GenreDispo}"  FontSize="20" Style="{StaticResource ProfilText}"/>
+                                <!--Faut binder sur l'enum  mais je n'y suis pas arrivé-->
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </WrapPanel>
             </DockPanel>
-            
+
             <StackPanel Grid.Column="1" Background="#FFD5E0E8">
                 <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2">
 
@@ -88,9 +91,10 @@
                 <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="Settings_button_Click" BorderBrush="Black" BorderThickness="2" />
             </StackPanel>
         </Grid>
-        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1">
+        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <!--Permettra de passer d'un user-control à un autre-->
-            <local:MangaDuMoment />
+            <local:MangaDuMoment  />
+            
         </ContentControl>
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,15 @@ namespace ProjetManga
         public AffichageCollection()
         {
             InitializeComponent();
+        }
+
+        
+
+        private void Click_Ajouter_Manga(object sender, RoutedEventArgs e)
+        {
+            var ajoutWindow = new Ajout_Window();
+
+            ajoutWindow.ShowDialog();
         }
     }
 }

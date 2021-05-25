@@ -37,8 +37,37 @@ namespace Modele
             }
         }
 
-        
+        private Genre genreCourant { get; set; }
+        public Genre GenreCourant
+        {
+            get => genreCourant;
+            set
+            {
+                if (genreCourant != value)
+                {
+                    genreCourant = value;
+                    OnPropertyChanged(nameof(genreCourant));
+                }
 
+            }
+        }
+
+
+        private SortedSet<Manga> listeMangaCourant;
+
+        public SortedSet<Manga> ListeMangaCourant
+        {
+            get => listeMangaCourant;
+            set
+            {
+                if (listeMangaCourant != value)
+                {
+                    listeMangaCourant = value;
+                    OnPropertyChanged(nameof(listeMangaCourant));
+                }
+
+            }
+        }
 
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
@@ -247,6 +276,27 @@ namespace Modele
             return false; 
         }
 
+        public void ChercherListeParGenre(Genre g)
+        {
+            SortedSet<Manga> listeTemp = new SortedSet<Manga>();
+            var temp = from k in CollectionManga
+
+                       where k.Key.NomGenre.Equals(g.NomGenre)
+                       select k.Value;
+
+            foreach (var t in temp)
+            {
+
+                foreach (Manga m in t)
+                {
+                    listeTemp.Add(m);
+                }
+            }
+            ListeMangaCourant = listeTemp;
+            
+
+
+        }
         /// <summary>
         /// Permet d'ajouter un utilisateur
         /// </summary>

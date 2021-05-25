@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +19,7 @@ namespace ProjetManga
     /// </summary>
     public partial class Info_Manga_Window : UserControl
     {
+        public Listes l => (App.Current as App).l;
         public Info_Manga_Window()
         {
             InitializeComponent();
@@ -33,6 +35,18 @@ namespace ProjetManga
         private void Button_Supprimer_Manga(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel);
+        }
+
+        private void Click_Ajout_Favori(object sender, RoutedEventArgs e)
+        {
+            ///
+            ///Gestionnaire.AjouterFavoriManga(l,, l.CompteCourant);
+        }
+
+        private void Click_Noter_Manga(object sender, RoutedEventArgs e)
+        {
+            var noteWindow = new Note_Window();
+            noteWindow.ShowDialog();
         }
     }
 }

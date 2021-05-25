@@ -42,8 +42,8 @@
             <DockPanel Grid.Row="1">
                 <Image Source="/Image/couvertureSNK.jpg" MinHeight="250" MinWidth="200" Width="200" Margin="10,10,0,0" DockPanel.Dock="Left" ></Image>
                 <StackPanel DockPanel.Dock="Left" Width="400">
-                    <TextBlock Text="Titre original" Style="{StaticResource Intitule}"  ></TextBlock>
-                    <TextBlock Text="Titre alternatif"  Style="{StaticResource Intitule}" ></TextBlock>
+                    <TextBlock Text="{Binding TitreOriginal, StringFormat='Titre original {0}'}" Style="{StaticResource Intitule}"  ></TextBlock>
+                        <TextBlock Text="{Binding TitreAlternatif, StringFormat='Titre alternatif {0}'}" ></TextBlock>
                     <TextBlock Text="Auteur"  Style="{StaticResource Intitule}" ></TextBlock>
                     <TextBlock Text="Dessinateur"  Style="{StaticResource Intitule}" ></TextBlock>
                     <TextBlock Text="Maison d'édition"  Style="{StaticResource Intitule}" ></TextBlock>
@@ -52,12 +52,12 @@
                     <TextBlock Text="Nombre de tome"   Style="{StaticResource Intitule}"></TextBlock>
                 </StackPanel>
                 <WrapPanel DockPanel.Dock="Right">
-                <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Ajout_Favori" >
                     <Button.Background>
                         <ImageBrush ImageSource="/Image/c.png"/>
                     </Button.Background>
                 </Button>
-                <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Noter_Manga" >
                     <Button.Background>
                         <ImageBrush ImageSource="/Image/etoile.png"/>
                     </Button.Background>

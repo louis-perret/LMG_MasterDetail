@@ -51,20 +51,7 @@ namespace ProjetManga
             //this.Close();
         }
 
-        private Genre gClick { get; set; }
-        public Genre GClick
-        {
-            get => gClick;
-            set
-            {
-                if (gClick != value)
-                {
-                    gClick = value;
-                    OnPropertyChanged(nameof(GClick));
-                }
-
-            }
-        }
+        
 
 
         void OnPropertyChanged(string nomProp)
@@ -72,17 +59,23 @@ namespace ProjetManga
 
         
         
-        public SortedSet<Manga> ListeDeMangaParGenre
+       /* public SortedSet<Manga> ListeDeMangaParGenre
         {
             get
             {
                 return l.ListeParGenre(genreClick.SelectedItem as Genre);
             }
-        }
+        }*/
+
+        
 
         private void Selection_Changed_Genre(object sender, SelectionChangedEventArgs e)
         {
-            GClick = genreClick.SelectedItem as Genre;
+            l.GenreCourant = genreClick.SelectedItem as Genre;
+            
+            l.ChercherListeParGenre(l.GenreCourant);
+            contentControl.Content = new AffichageCollection();
+
         }
     }
 

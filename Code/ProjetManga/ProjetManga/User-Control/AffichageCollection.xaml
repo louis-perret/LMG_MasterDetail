@@ -9,19 +9,27 @@
     <!--UserControl pour afficher chaque élément de notre collection lorsqu'on affiche nos favoris ou les mangas d'un genre choisi.-->
     <DockPanel>
      <StackPanel  DockPanel.Dock="Top">
-            <TextBlock Text="Description du genre : " Height="80" FontSize="20" Background="#FFD5E0E8"/>
-        <Button Width="30" Height="30" HorizontalAlignment="Left">
+            <TextBlock TextWrapping="Wrap" Text="{Binding GenreCourant.Description, StringFormat='Description du genre : {0}'}"  Height="80" FontSize="20" Background="#FFD5E0E8"/>
+        <Button Width="30" Height="30" HorizontalAlignment="Left" Click="Click_Ajouter_Manga">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/plus.png"/>
             </Button.Background>
         </Button>
     </StackPanel>
-    <ListBox DockPanel.Dock="Bottom" >
+        <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}"  >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
             <!--Faudra penser à mettre le WrapPanel dans un ItemTemplate quand on sera à la partie 3 pour l'affichage de nos données-->
-            <WrapPanel>
-                <User_Control:AfficherManga />
-            </WrapPanel>
-
+                    <WrapPanel>
+                        <User_Control:AfficherManga />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </DockPanel>
 

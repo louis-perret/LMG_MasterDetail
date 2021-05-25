@@ -30,19 +30,21 @@
                 </ItemsControl>
             </StackPanel>
         </DockPanel>
-        
-        <ItemsControl Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="15">
-            <DockPanel>
+
+
+        <DockPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="15">
                 
                 <Grid DockPanel.Dock="Right">
-                    <Image Source="{Binding Couverture}"  Margin="10" DockPanel.Dock="Right">
-                        
-                    </Image>
+                    <Viewbox>
+                        <Image Source="{Binding Couverture}"  MaxHeight="480" MaxWidth="320" Margin="10" DockPanel.Dock="Right"></Image>
+
+
+                    </Viewbox>
                 </Grid>
-                <Image Source="Image/etoile.png" Grid.Column="1" MinHeight="30" MaxHeight="30" MaxWidth="50" DockPanel.Dock="Left" VerticalAlignment="Top" Margin="10,15,0,0"/>
+                <Image Source="/Image/etoile.png" Grid.Column="1" MinHeight="30" MaxHeight="30" MaxWidth="50" DockPanel.Dock="Left" VerticalAlignment="Top" Margin="10,15,0,0"/>
                 <TextBlock Text="{Binding MoyenneNote}" FontSize="20" Margin="10,15,10,0" DockPanel.Dock="Right"/>
             </DockPanel>
-        </ItemsControl>
+        
         
     </Grid>
 </UserControl>

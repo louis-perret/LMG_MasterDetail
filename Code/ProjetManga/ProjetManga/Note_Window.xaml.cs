@@ -17,11 +17,11 @@ namespace ProjetManga
     /// <summary>
     /// Logique d'interaction pour Window1.xaml
     /// </summary>
-    public partial class Note : Window
+    public partial class Note_Window : Window
     {
         private Stub chargeur = new Stub("");
         public Listes l => chargeur.Load("");
-        public Note()
+        public Note_Window()
         {
             DataContext = l.CompteCourant;
         }
