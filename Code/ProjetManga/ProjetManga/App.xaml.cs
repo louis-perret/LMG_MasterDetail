@@ -16,9 +16,17 @@ namespace ProjetManga
     public partial class App : Application
     {
         public Listes l { get; set; }
+
+        public Navigation Navigator { get; set; }
         public App()
         {
             l = new Stub("").Load("");
         }
+
+        /*protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            Navigator = new Navigation((MainWindow as MainWindow).contentControl);
+        }*/
     }
 }

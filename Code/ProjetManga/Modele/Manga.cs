@@ -168,6 +168,7 @@ namespace Modele
         /// <returns>Renvoie true si égaux</returns>
         public bool Equals(Manga other)
         {
+            if (other == null) return false;
             if (TitreOriginal == other.TitreOriginal && TitreAlternatif == other.TitreAlternatif)
                 return true;
             return false;

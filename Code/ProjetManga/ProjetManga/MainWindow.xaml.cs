@@ -14,8 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Modele;
 using Data;
-using System.Windows;
-using System.Windows.Controls;
 using System.ComponentModel;
 
 namespace ProjetManga
@@ -29,12 +27,14 @@ namespace ProjetManga
         public Listes l => (App.Current as App).l;
         //private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
 
+        public Navigation Navigator => (App.Current as App).Navigator;
         public MainWindow()
         {
             InitializeComponent();
             DataContext = l;
             //bool c = Gestionnaire.ChercherUtilisateur(l, "Nicolas", "azerty123");
             profil.DataContext = l.CompteCourant;
+            //Navigator = new Navigation(this.contentControl);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -73,8 +73,9 @@ namespace ProjetManga
         {
             l.GenreCourant = genreClick.SelectedItem as Genre;
             
-            l.ChercherListeParGenre(l.GenreCourant);
-            contentControl.Content = new AffichageCollection();
+            l.ListeParGenre(l.GenreCourant);
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
+            //contentControl.Content = new AffichageCollection();
 
         }
     }

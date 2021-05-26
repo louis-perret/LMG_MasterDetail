@@ -85,18 +85,20 @@ namespace TestFonctionnel
             //On remarque que sa liste de favoris est maintenant vide
 
             Console.WriteLine("\n\n\tTeste de la fonctionnalité Liste par genre\n\n"); 
-            SortedSet<Manga> listeDeManga = Gestionnaire.ListeParGenre(l1, l1.RecupererGenre(GenreDispo.Shonen)); //On souhaite afficher la collection de mangas de genre Shonen
+            //SortedSet<Manga> listeDeManga = 
+            Gestionnaire.ListeParGenre(l1, l1.RecupererGenre(GenreDispo.Shonen)); //On souhaite afficher la collection de mangas de genre Shonen
             Console.WriteLine("Affichage des mangas de type Shonen :\n");
-            foreach (var s in listeDeManga)
+            foreach (var s in l1.ListeMangaCourant)
              {
                  Console.WriteLine(s);
              }
                          
             Console.WriteLine("\n\n\t Teste de la fonctionnalité Genre au hasard\n\n");
             Genre g;
-            listeDeManga = Gestionnaire.GenreAuHasard(l1, out g);
+            //listeDeManga = 
+            Gestionnaire.GenreAuHasard(l1, out g);
             Console.WriteLine($"Le genre pioché au hasard est : \n{g} \nVoici la liste des mangas de ce genre : \n\n");
-            foreach (var s in listeDeManga)
+            foreach (var s in l1.ListeMangaCourant)
             {
                 Console.WriteLine(s);             
             }

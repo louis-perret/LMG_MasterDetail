@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
         <Border BorderThickness="2" BorderBrush="Black" Margin="5" MinHeight="50" MinWidth="240" MaxHeight="100" MaxWidth="240" HorizontalAlignment="Left" VerticalAlignment="Top"/>

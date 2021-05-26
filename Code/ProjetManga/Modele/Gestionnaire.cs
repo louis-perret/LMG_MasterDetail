@@ -10,7 +10,7 @@ namespace Modele
 
        
 
-        public static SortedSet<Manga> GenreAuHasard(Listes l, out Genre g) 
+        public static void GenreAuHasard(Listes l, out Genre g) 
         {
             Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
 
@@ -19,7 +19,7 @@ namespace Modele
             int index = random.Next(1, 4);
             GenreDispo gd =(GenreDispo)genreDispo.GetValue(index);
             g = l.RecupererGenre(gd);
-            return l.ListeParGenre(g);              
+            Gestionnaire.ListeParGenre(l,g);              
         }
 
         public static void AjouterManga(Listes l, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime dTome,int nbTome, string couv, string synop,GenreDispo g)
@@ -87,11 +87,12 @@ namespace Modele
             l.AjouterFavoriManga(m, c);
         }
 
-        public static SortedSet<Manga> ListeParGenre(Listes l,Genre g)
+        public static void ListeParGenre(Listes l,Genre g)
         {
-            SortedSet<Manga> listeMangaParGenre = new SortedSet<Manga>();
-            listeMangaParGenre = l.ListeParGenre(g);
-            return listeMangaParGenre;
+            //SortedSet<Manga> listeMangaParGenre = new SortedSet<Manga>();
+            //listeMangaParGenre = 
+            l.ListeParGenre(g);
+            //return listeMangaParGenre;
         }
         public static void SupprimerFavoriManga(Listes l,Manga m, Compte c)
         {

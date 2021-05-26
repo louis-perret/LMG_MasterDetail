@@ -53,7 +53,7 @@ namespace Modele
         }
 
 
-        private SortedSet<Manga> listeMangaCourant;
+        private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
 
         public SortedSet<Manga> ListeMangaCourant
         {
@@ -108,9 +108,10 @@ namespace Modele
         /// </summary>
         /// <param name="g">Genre de manga voulu</param>
         /// <returns>Liste de manga du genre passé en parametre</returns>
-        public SortedSet<Manga> ListeParGenre(Genre g) 
+        public void ListeParGenre(Genre g) 
         {
-            SortedSet<Manga> listeDuGenre = new SortedSet<Manga>();
+            //SortedSet<Manga> listeDuGenre = new SortedSet<Manga>();
+            listeMangaCourant.Clear();
             var temp = from k in CollectionManga
 
                        where k.Key.NomGenre.Equals(g.NomGenre)
@@ -121,10 +122,10 @@ namespace Modele
 
                 foreach (Manga m in t)
                 {
-                    listeDuGenre.Add(m);
+                    listeMangaCourant.Add(m);
                 }
             }
-            return listeDuGenre;
+            //return listeDuGenre;
 
 
         }
@@ -276,9 +277,10 @@ namespace Modele
             return false; 
         }
 
-        public void ChercherListeParGenre(Genre g)
+        /*public void ChercherListeParGenre(Genre g)
         {
-            SortedSet<Manga> listeTemp = new SortedSet<Manga>();
+            //SortedSet<Manga> listeTemp = new SortedSet<Manga>();
+            
             var temp = from k in CollectionManga
 
                        where k.Key.NomGenre.Equals(g.NomGenre)
@@ -289,14 +291,14 @@ namespace Modele
 
                 foreach (Manga m in t)
                 {
-                    listeTemp.Add(m);
+                    listeMangaCourant.Add(m);
                 }
             }
-            ListeMangaCourant = listeTemp;
+            //ListeMangaCourant = listeTemp;
             
 
 
-        }
+        }*/
         /// <summary>
         /// Permet d'ajouter un utilisateur
         /// </summary>
