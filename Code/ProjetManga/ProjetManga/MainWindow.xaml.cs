@@ -74,9 +74,13 @@ namespace ProjetManga
             l.GenreCourant = genreClick.SelectedItem as Genre;
             
             l.ListeParGenre(l.GenreCourant);
-            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
-            //contentControl.Content = new AffichageCollection();
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION,contentControl);
 
+        }
+
+        private void Home_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT, contentControl);
         }
     }
 

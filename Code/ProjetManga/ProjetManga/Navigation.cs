@@ -14,20 +14,25 @@ namespace ProjetManga
 
         static Dictionary<string, UserControl> DicoUC = new Dictionary<string, UserControl>()
         {
-            [UC_AFFICHAGE_COLLECTION] = new MangaDuMoment(),
-            [UC_AFFICHAGE_MANGA_DU_MOMENT] = new AffichageCollection(),
+            [UC_AFFICHAGE_MANGA_DU_MOMENT] = new MangaDuMoment(),
+            [UC_AFFICHAGE_COLLECTION] = new AffichageCollection(),
             [UC_Affichage_INFO_MANGA] = new Info_Manga_Window()
         };
 
         public ContentControl MainPart { get; private set; }
 
-        public Navigation(ContentControl mainPart)
+        public Navigation()
         {
-            MainPart = mainPart;
+            //MainPart = mainPart;
         }
 
-        public void NavigationTo(string nomUC)
+        public void NavigationTo(string nomUC,ContentControl contentControl)
         {
+            if(contentControl != null)
+            {
+                MainPart = contentControl; //Permet de toujours garder le ContentControl de MainWindow
+            }          
+
             if (DicoUC.TryGetValue(nomUC, out UserControl u))
             {               
                 MainPart.Content = u;

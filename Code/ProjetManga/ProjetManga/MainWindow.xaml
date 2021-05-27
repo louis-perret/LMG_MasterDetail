@@ -89,6 +89,12 @@
                 <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219"  />
 
                 <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="Settings_button_Click" BorderBrush="Black" BorderThickness="2" />
+
+                <Button x:Name="home_button" Height="35" Width="35" HorizontalAlignment="Right" Click="Home_Button_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Image/home.png" />
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </Grid>
         <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">

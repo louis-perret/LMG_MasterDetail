@@ -16,7 +16,7 @@
             </Button.Background>
         </Button>
     </StackPanel>
-        <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}"  >
+        <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}" SelectionChanged="AffichageDuMangaSelectionne"  >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
@@ -24,10 +24,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-            <!--Faudra penser à mettre le WrapPanel dans un ItemTemplate quand on sera à la partie 3 pour l'affichage de nos données-->
-                    <WrapPanel>
-                        <User_Control:AfficherManga />
-                    </WrapPanel>
+                    <User_Control:AfficherManga />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

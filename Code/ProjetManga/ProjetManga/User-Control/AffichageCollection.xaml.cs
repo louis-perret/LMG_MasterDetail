@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace ProjetManga
 {
@@ -19,6 +20,9 @@ namespace ProjetManga
     /// </summary>
     public partial class AffichageCollection : UserControl
     {
+
+        public Listes l => (App.Current as App).l;
+        public Navigation Navigator => (App.Current as App).Navigator;
         public AffichageCollection()
         {
             InitializeComponent();
@@ -31,6 +35,17 @@ namespace ProjetManga
             var ajoutWindow = new Ajout_Window();
 
             ajoutWindow.ShowDialog();
+        }
+
+        private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e)
+        {
+            var m = e.AddedItems;
+            foreach(Manga manga in m)
+            {
+                l.MangaCourant = manga; //m contient l'élément cliqué donc forcément il n'y en a qu'un           
+            }
+            Info_Manga_Window.MangaCourant = l.MangaCourant;
+            Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
         }
     }
 }

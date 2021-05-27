@@ -19,10 +19,13 @@ namespace ProjetManga
     /// </summary>
     public partial class Info_Manga_Window : UserControl
     {
-        public Listes l => (App.Current as App).l;
+        public static Listes l => (App.Current as App).l;
+
+        public static Manga MangaCourant;
         public Info_Manga_Window()
         {
             InitializeComponent();
+            DataContext = this; //ça va nous permettre de pouvoir binder sur MangaCourant de l'UC puis sur chacune de ses propriétés
         }
 
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)

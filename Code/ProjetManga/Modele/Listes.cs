@@ -14,10 +14,10 @@ namespace Modele
         /// </summary>
        
         public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
-        IList<Compte> listeCompte { get; set; } 
+        private IList<Compte> listeCompte { get; set; } 
         
         public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
-        IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
+        private IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
 
         public IList<Genre> ListeGenre { get; private set; }
 
@@ -53,9 +53,13 @@ namespace Modele
         }
 
 
-        private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
+        //private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
 
-        public SortedSet<Manga> ListeMangaCourant
+        public ObservableCollection<Manga> ListeMangaCourant { get; private set; } = new ObservableCollection<Manga>();
+        //J'ai mis une observable collection car quand on change de genre on change les éléments à l'intérieur et donc il faut notifier la vue car ce sont les éléments 
+        //à 'intérieur qui change et non l'objet pointé par la référence
+
+        /*public SortedSet<Manga> ListeMangaCourant
         {
             get => listeMangaCourant;
             set
@@ -66,6 +70,20 @@ namespace Modele
                     OnPropertyChanged(nameof(listeMangaCourant));
                 }
 
+            }
+        }*/
+
+        private Manga mangaCourant;
+        public Manga MangaCourant
+        {
+            get => mangaCourant;
+            set
+            {
+                if (mangaCourant != value)
+                {
+                    mangaCourant = value;
+                    OnPropertyChanged(nameof(mangaCourant));
+                }
             }
         }
 
@@ -111,7 +129,7 @@ namespace Modele
         public void ListeParGenre(Genre g) 
         {
             //SortedSet<Manga> listeDuGenre = new SortedSet<Manga>();
-            listeMangaCourant.Clear();
+            ListeMangaCourant.Clear();
             var temp = from k in CollectionManga
 
                        where k.Key.NomGenre.Equals(g.NomGenre)
@@ -122,7 +140,7 @@ namespace Modele
 
                 foreach (Manga m in t)
                 {
-                    listeMangaCourant.Add(m);
+                    ListeMangaCourant.Add(m);
                 }
             }
             //return listeDuGenre;
