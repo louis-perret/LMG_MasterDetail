@@ -51,7 +51,7 @@ namespace ProjetManga
                 tabGenre[i] = (combo2.SelectedItem as Genre).NomGenre;
             }
             Gestionnaire.AjouterUtilisateur(l, nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre,imageName); //On a une méthode pour ajouter un utilisateur, autant s'en servir !
-            //Faudra afficher dans la textbox de la date de naissance, la manière dont l'écrire
+            
             Button_CloseWindow(sender, e);
         }
 

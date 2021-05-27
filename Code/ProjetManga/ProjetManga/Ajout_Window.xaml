@@ -21,30 +21,30 @@
         </Grid.ColumnDefinitions>
         
         <Image Grid.Column="1" Source="/Image/Gon.png" Margin="268,32,39,0" Grid.RowSpan="3" Stretch="None" Grid.Row="1"/>
-        <Button Margin="2,2,2,2" BorderThickness="0">
+        <Button Margin="2,2,2,2" BorderThickness="0" Click="Button_Changer_Image">
             <Button.Background>
                 <ImageBrush ImageSource="Image/modifier.png" Stretch="Uniform"/>
             </Button.Background>
 
         </Button>
         <WrapPanel Grid.Row="1" Grid.Column="1">
-            <Image Height="160" Width="140" Source="/Image/question.png" ></Image>
+            <Image Height="160" Width="140" Source="/Image/question.png" x:Name="couv_img" ></Image>
             <StackPanel>
                 <WrapPanel>
                     <TextBlock Text="Titre original" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBox Width="100" Margin="0,10,0,0" Text="{Binding TitreOriginal }"></TextBox>
+                    <TextBox x:Name="to_text" Width="100" Margin="0,10,0,0" Text="{Binding TitreOriginal }"></TextBox>
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock Text="Titre alternatif" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBox Width="100" Margin="0,10,0,0" Text="{Binding TitreAlternatif }" ></TextBox>
+                    <TextBox x:Name="ta_text" Width="100" Margin="0,10,0,0" Text="{Binding TitreAlternatif }" ></TextBox>
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock Text="Auteur(s)" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBox Width="100" Margin="0,10,0,0" Text="{Binding Auteur }" ></TextBox>
+                    <TextBox x:Name="dess_text" Width="100" Margin="0,10,0,0" Text="{Binding Auteur }" ></TextBox>
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock Text="Dessinateur(s)" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBox Width="100" Margin="0,10,0,0" Text="{Binding TitreOriginal  }" ></TextBox>
+                    <TextBox x:Name="auteur_text" Width="100" Margin="0,10,0,0" Text="{Binding TitreOriginal  }" ></TextBox>
                 </WrapPanel>
             </StackPanel>
         </WrapPanel>
@@ -53,31 +53,31 @@
 
             <WrapPanel>
                 <TextBlock Text="Maison d'édition Japonaise" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionJap }" ></TextBox>
+                <TextBox x:Name="maisonJ_text" Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionJap }" ></TextBox>
             </WrapPanel>
 
             <WrapPanel>
                 <TextBlock Text="Maison d'édition Française" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionFr }"></TextBox>
+                <TextBox x:Name="maisonFr_text" Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionFr }"></TextBox>
             </WrapPanel>
 
             <WrapPanel>
                 <TextBlock Text="Premier tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox Width="100" Margin="0,10,0,0" Text="{Binding PremierTome }" ></TextBox>
+                <TextBox x:Name="pTome_text" Width="100" Margin="0,10,0,0" Text="{Binding PremierTome }" ></TextBox>
                 <TextBlock Text="Nombre de tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox Width="25" Margin="0,10,0,0" Text="{Binding DernierTome }"></TextBox>
+                <TextBox x:Name="NbTome_text" Width="25" Margin="0,10,0,0" Text="{Binding DernierTome }"></TextBox>
             </WrapPanel>
 
             <WrapPanel>
                 <TextBlock Text="Dernier tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox Width="100" Margin="0,10,0,0" Text="{Binding DernierTome }" ></TextBox>
+                <TextBox x:Name="dTome_text" Width="100" Margin="0,10,0,0" Text="{Binding DernierTome }" ></TextBox>
                 <TextBlock Text="Genre" Style="{StaticResource TextMargin}"></TextBlock>
-                <ComboBox Width="70" Margin="0,8,0,0" ></ComboBox>
+                <ComboBox x:Name="comboGenre" Width="70" Margin="0,8,0,0" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre" ></ComboBox>
             </WrapPanel>
 
             <WrapPanel>
                 <TextBlock Text="Synopsis" Style="{StaticResource TextMargin}"></TextBlock>
-                <RichTextBox Width="300" Height="80" Margin="0,10,0,0"  ></RichTextBox>
+                <TextBox x:Name="syno_text" Width="300" Height="80" Margin="0,10,0,0"  ></TextBox>
             </WrapPanel>
         </StackPanel>
 

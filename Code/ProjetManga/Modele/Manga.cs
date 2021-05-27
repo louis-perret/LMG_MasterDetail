@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 
 namespace Modele
@@ -8,8 +9,10 @@ namespace Modele
     /// <summary>
     /// Classe qui represente un manga
     /// </summary>
-    public class Manga : IEquatable<Manga>, IComparable<Manga>, IComparable
+    public class Manga : IEquatable<Manga>, IComparable<Manga>, IComparable, INotifyPropertyChanged
     {
+        void OnPropertyChanged(string nomProp)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
         public string TitreOriginal { get; private set; }
 
         public string TitreAlternatif { get; private set; }
@@ -28,14 +31,71 @@ namespace Modele
         public DateTime PremierTome { get; private set; }
 
 
-        public DateTime? DernierTome { get; private set; }
+        private DateTime? dernierTome;
+
+        public DateTime? DernierTome
+        {
+            get => dernierTome;
+            set
+            {
+                if (dernierTome != value)
+                {
+                    dernierTome = value;
+                    OnPropertyChanged(nameof(DernierTome));
+                }
+
+            }
+        }
         //Le ? permet de dire que cette variable peut-être nulle
 
-        public int NombreTome { get; private set; }
+        private int nombreTome;
+        public int NombreTome
+        {
+            get => nombreTome;
+            set
+            {
+                if (nombreTome != value)
+                {
+                    nombreTome = value;
+                    OnPropertyChanged(nameof(NombreTome));
+                }
 
-        public string Couverture { get; private set; }
+            }
+        }
 
-        public string Synopsis { get; private set; }
+        private string couverture;
+        public string Couverture
+        {
+            get => couverture;
+            set
+            {
+                if (couverture != value)
+                {
+                    couverture = value;
+                    OnPropertyChanged(nameof(Couverture));
+                }
+
+            }
+        }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private string synopsis;
+        public string Synopsis
+        {
+            get => synopsis;
+            set
+            {
+                if (synopsis != value)
+                {
+                    synopsis = value;
+                    OnPropertyChanged(nameof(Synopsis));
+                }
+
+            }
+        }
 
         public GenreDispo Genre { get; private set; }
 

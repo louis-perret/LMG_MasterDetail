@@ -39,12 +39,14 @@ namespace ProjetManga
 
         private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e)
         {
-            var m = e.AddedItems;
+            /*var m = e.AddedItems;
             foreach(Manga manga in m)
             {
                 l.MangaCourant = manga; //m contient l'élément cliqué donc forcément il n'y en a qu'un           
             }
-            Info_Manga_Window.MangaCourant = l.MangaCourant;
+
+            Info_Manga_Window.MangaCourant = l.MangaCourant;*/
+            l.MangaCourant = (sender as ListBox).SelectedItem as Manga;
             Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
         }
     }
