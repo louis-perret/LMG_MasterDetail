@@ -45,7 +45,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="Annuler" Grid.Column="0"></Button>
+            <Button Content="Annuler" Grid.Column="0" Click="Button_Annuler"></Button>
 
             <Button DockPanel.Dock="Right"  Grid.Column="2" Style="{StaticResource ButtonValider}" Click="Button_Valider" ></Button>
 

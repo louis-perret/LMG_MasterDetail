@@ -13,7 +13,7 @@ namespace Modele
     /// </summary>
     public class Compte : IEquatable<Compte>, INotifyPropertyChanged
     {
-        public ReadOnlyCollection<Manga> LesFavoris { get; private set; }
+        public ObservableCollection<Manga> LesFavoris { get; private set; }
         
         IList<Manga> lesFavoris;
 
@@ -93,7 +93,7 @@ namespace Modele
             GenresPreferes = genrepref;
 
             lesFavoris = new List<Manga>();
-            LesFavoris = new ReadOnlyCollection<Manga>(lesFavoris);
+            LesFavoris = new ObservableCollection<Manga>(lesFavoris);
             if(image == null)
             {
                 ImageProfil = "/Image/question.png";

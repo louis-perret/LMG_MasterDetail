@@ -43,10 +43,12 @@
                         <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+                
             </ListBox>
+            <Button Content="GENRE AU HASARD" Click="Button_Click_Hasard" />
             <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
             <TextBox Name="nom_rechercher" Background="White" FontStyle="Italic" Height="25"></TextBox>
-            <Button Name="rechercher_Button" Content="Rechercher" Height="24" BorderBrush="Black" BorderThickness="2" Background="#FF7FBFF7"></Button>
+            <Button Name="rechercher_Button" Content="Rechercher" Height="24" BorderBrush="Black" BorderThickness="2" Background="#FF7FBFF7" Click="Button_Recherche_Clavier"></Button>
 
         </StackPanel>
 
@@ -82,11 +84,11 @@
                 </WrapPanel>
             </DockPanel>
 
-            <StackPanel Grid.Column="1" Background="#FFD5E0E8">
-                <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2">
+            <StackPanel x:Name="fond_test" Grid.Column="1" Background="#FFD5E0E8">
+                <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2" Click="Button_Click_ListeFavoris">
 
                 </Button>
-                <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219"  />
+                <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219" Checked="Click_Dark_Mode"  />
 
                 <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="Settings_button_Click" BorderBrush="Black" BorderThickness="2" />
 
@@ -97,9 +99,9 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
+        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Content="{Binding SelectedUserControl}" >
             <!--Permettra de passer d'un user-control à un autre-->
-            <local:MangaDuMoment  />
+             
             
         </ContentControl>
 

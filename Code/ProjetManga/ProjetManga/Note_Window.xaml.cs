@@ -23,7 +23,8 @@ namespace ProjetManga
         public Listes l => chargeur.Load("");
         public Note_Window()
         {
-            DataContext = l.CompteCourant;
+            InitializeComponent();
+            DataContext = l;
         }
 
         private void Button_Valider(object sender, RoutedEventArgs e)
@@ -36,8 +37,14 @@ namespace ProjetManga
             {
                 MessageBoxResult result = MessageBox.Show(e1.Message, "Erreur", MessageBoxButton.OK);
             }
-            //Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text, noteBox.SelectedIndex,);
-            //l.AjouterAvis(a,)
+            int note = (int)noteBox.SelectedIndex;
+            Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text.Text, note,l.MangaCourant.Genre,l.MangaCourant);
+            
+        }
+
+        private void Button_Annuler(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

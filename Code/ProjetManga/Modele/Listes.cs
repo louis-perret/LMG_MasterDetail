@@ -55,7 +55,7 @@ namespace Modele
 
         //private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
 
-        public ObservableCollection<Manga> ListeMangaCourant { get; private set; } = new ObservableCollection<Manga>();
+        public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>();
         //J'ai mis une observable collection car quand on change de genre on change les éléments à l'intérieur et donc il faut notifier la vue car ce sont les éléments 
         //à 'intérieur qui change et non l'objet pointé par la référence
 

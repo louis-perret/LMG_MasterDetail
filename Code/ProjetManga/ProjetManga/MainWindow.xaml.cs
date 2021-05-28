@@ -32,6 +32,7 @@ namespace ProjetManga
         {
             InitializeComponent();
             DataContext = l;
+            contentControl.DataContext = Navigator;
             //bool c = Gestionnaire.ChercherUtilisateur(l, "Nicolas", "azerty123");
             profil.DataContext = l.CompteCourant;
             //Navigator = new Navigation(this.contentControl);
@@ -74,13 +75,57 @@ namespace ProjetManga
             l.GenreCourant = genreClick.SelectedItem as Genre;
             
             l.ListeParGenre(l.GenreCourant);
-            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION,contentControl);
+            //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION,contentControl);
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
 
         }
 
         private void Home_Button_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT, contentControl);
+            // Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT, contentControl);
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT);
+        }
+
+        private void Button_Click_Hasard(object sender, RoutedEventArgs e)
+        {
+
+            Genre g;
+            Gestionnaire.GenreAuHasard(l,out g);
+            l.ListeParGenre(g);
+            //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
+
+        }
+
+        private void Button_Recherche_Clavier(object sender, RoutedEventArgs e)
+        {
+            
+            string m = nom_rechercher.Text;
+            l.MangaCourant= Gestionnaire.RechercherMangaParNom(l, m);
+
+            // Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
+            Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
+
+        }
+
+        private void Button_Click_ListeFavoris(object sender, RoutedEventArgs e)
+        {
+            l.ListeMangaCourant = l.CompteCourant.LesFavoris;
+            // Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
+        }
+
+        private void Click_Dark_Mode(object sender, RoutedEventArgs e)
+        {
+            if(mode_button.IsChecked==true)
+            {
+                fond_test.Background = Brushes.Black;
+            }
+            else
+            {
+              
+            }
+
         }
     }
 

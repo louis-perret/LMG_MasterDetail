@@ -1,12 +1,13 @@
 ﻿using Modele;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Controls;
 
 namespace ProjetManga
 {
-    public class Navigation
+    public class Navigation : INotifyPropertyChanged
     {
 
         Listes l => (App.Current as App).l;
@@ -26,25 +27,50 @@ namespace ProjetManga
 
         public Navigation()
         {
+            SelectedUserControl = DicoUC.GetValueOrDefault(UC_AFFICHAGE_MANGA_DU_MOMENT);
             //MainPart = mainPart;
         }
 
-        public void NavigationTo(string nomUC,ContentControl contentControl)
-        {
-            if(contentControl != null)
-            {
-                MainPart = contentControl; //Permet de toujours garder le ContentControl de MainWindow
-            }          
+        /* public void NavigationTo(string nomUC,ContentControl contentControl)
+         {
+             if(contentControl != null)
+             {
+                 MainPart = contentControl; //Permet de toujours garder le ContentControl de MainWindow
+             }          
 
-            if (DicoUC.TryGetValue(nomUC, out UserControl u))
+             if (DicoUC.TryGetValue(nomUC, out UserControl u))
+             {
+                 if (nomUC == UC_Affichage_INFO_MANGA)
+                 {
+                     u.DataContext = l.MangaCourant;
+                 }
+                 MainPart.Content = u;
+
+             }
+         }*/
+        public void NavigationTo(string nomUC)
+        {
+            SelectedUserControl = DicoUC.GetValueOrDefault(nomUC);
+        }
+
+        private UserControl selectedUserControl;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public UserControl SelectedUserControl
+        {
+            get => selectedUserControl;
+            set
             {
-                if (nomUC == UC_Affichage_INFO_MANGA)
+                if (selectedUserControl != value)
                 {
-                    u.DataContext = l.MangaCourant;
+                    selectedUserControl = value;
+                    OnPropertyChanged(nameof(SelectedUserControl));
                 }
-                MainPart.Content = u;
-                
             }
         }
+        void OnPropertyChanged(string nomProp)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
+
     }
 }

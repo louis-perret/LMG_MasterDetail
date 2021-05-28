@@ -22,7 +22,7 @@
         <DockPanel Grid.RowSpan="2">
             <TextBlock DockPanel.Dock="Top" Text="Manga du moment" MinHeight="50" MaxHeight="50" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="25"  TextWrapping="Wrap" Margin="10" Padding="2" Foreground="#FF0B0B0B" FontWeight="Bold"/>
             <StackPanel DockPanel.Dock="Bottom" Margin="20,0,0,0">
-                <TextBlock Text="Synopsis" FontSize="20" TextDecorations="Underline" Margin="30,0,0,0" FontWeight="UltraBold"/>
+                <TextBlock Text="Synopsis" FontSize="20" TextDecorations="Underline"  FontWeight="UltraBold"/>
                 <TextBlock></TextBlock>
                 <ItemsControl>
                     <TextBlock Text="{Binding Synopsis}"

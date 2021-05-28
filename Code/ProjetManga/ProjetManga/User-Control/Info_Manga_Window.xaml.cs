@@ -27,7 +27,7 @@ namespace ProjetManga
             InitializeComponent();
             //DataContext = this; //ça va nous permettre de pouvoir binder sur MangaCourant de l'UC puis sur chacune de ses propriétés
             //DataContext =l; //mauvaise reference, il faut binder sur une propriété qui comprend le MangaCourant (c'est ce qu'a dit le prof)
-            //DataContext = l;
+            DataContext = l;
         }
 
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
@@ -40,12 +40,20 @@ namespace ProjetManga
         private void Button_Supprimer_Manga(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel);
+            
         }
 
         private void Click_Ajout_Favori(object sender, RoutedEventArgs e)
         {
-            ///
-            ///Gestionnaire.AjouterFavoriManga(l,, l.CompteCourant);
+           if(l.CompteCourant.LesFavoris.Contains(l.MangaCourant))
+            {
+                Gestionnaire.SupprimerFavoriManga(l, l.MangaCourant, l.CompteCourant);
+            }
+            else
+            {
+                Gestionnaire.AjouterFavoriManga(l, l.MangaCourant, l.CompteCourant);
+            }
+           
         }
 
         private void Click_Noter_Manga(object sender, RoutedEventArgs e)
