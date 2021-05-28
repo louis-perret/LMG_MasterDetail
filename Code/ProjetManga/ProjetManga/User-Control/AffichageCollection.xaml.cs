@@ -52,6 +52,9 @@ namespace ProjetManga
             if(i == 0)
             {
                 l.MangaCourant = (sender as ListBox).SelectedItem as Manga;
+                
+
+
                 //Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
                 Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
                 i = i + 1;

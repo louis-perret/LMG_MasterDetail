@@ -20,6 +20,7 @@ namespace ProjetManga
     public partial class Info_Manga_Window : UserControl
     {
         public static Listes l => (App.Current as App).l;
+        
 
        // private static Manga MangaCourant { get; set; }
         public Info_Manga_Window()
@@ -58,6 +59,7 @@ namespace ProjetManga
 
         private void Click_Noter_Manga(object sender, RoutedEventArgs e)
         {
+         //   l.MangaCourant = (sender as Button).Parent as Manga;
             var noteWindow = new Note_Window();
             noteWindow.ShowDialog();
         }

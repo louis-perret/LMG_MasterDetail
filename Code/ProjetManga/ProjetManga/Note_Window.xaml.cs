@@ -19,8 +19,8 @@ namespace ProjetManga
     /// </summary>
     public partial class Note_Window : Window
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
+
+        public Listes l => (App.Current as App).l;
         public Note_Window()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace ProjetManga
             }
             int note = (int)noteBox.SelectedIndex;
             Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text.Text, note,l.MangaCourant.Genre,l.MangaCourant);
+            Close();
             
         }
 

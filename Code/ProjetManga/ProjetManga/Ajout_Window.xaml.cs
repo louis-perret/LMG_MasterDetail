@@ -20,8 +20,7 @@ namespace ProjetManga
     /// </summary>
     public partial class Ajout_Window : Window
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
+        public static Listes l => (App.Current as App).l;
 
         private string imageName;
         public Ajout_Window()
