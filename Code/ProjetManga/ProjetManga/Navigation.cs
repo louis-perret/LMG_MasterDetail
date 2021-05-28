@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
@@ -7,6 +8,8 @@ namespace ProjetManga
 {
     public class Navigation
     {
+
+        Listes l => (App.Current as App).l;
 
         public const string UC_AFFICHAGE_COLLECTION = "AffichageCollection";
         public const string UC_AFFICHAGE_MANGA_DU_MOMENT = "MangaDuMoment";
@@ -34,8 +37,13 @@ namespace ProjetManga
             }          
 
             if (DicoUC.TryGetValue(nomUC, out UserControl u))
-            {               
+            {
+                if (nomUC == UC_Affichage_INFO_MANGA)
+                {
+                    u.DataContext = l.MangaCourant;
+                }
                 MainPart.Content = u;
+                
             }
         }
     }

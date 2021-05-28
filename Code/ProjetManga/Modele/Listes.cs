@@ -46,7 +46,7 @@ namespace Modele
                 if (genreCourant != value)
                 {
                     genreCourant = value;
-                    OnPropertyChanged(nameof(genreCourant));
+                    OnPropertyChanged(nameof(GenreCourant));
                 }
 
             }
@@ -82,7 +82,7 @@ namespace Modele
                 if (mangaCourant != value)
                 {
                     mangaCourant = value;
-                    OnPropertyChanged(nameof(mangaCourant));
+                    OnPropertyChanged(nameof(MangaCourant));
                 }
             }
         }

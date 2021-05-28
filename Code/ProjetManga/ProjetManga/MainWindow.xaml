@@ -97,7 +97,7 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
             <!--Permettra de passer d'un user-control à un autre-->
             <local:MangaDuMoment  />
             

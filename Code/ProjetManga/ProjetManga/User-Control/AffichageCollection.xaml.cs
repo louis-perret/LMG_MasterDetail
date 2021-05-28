@@ -37,8 +37,10 @@ namespace ProjetManga
             ajoutWindow.ShowDialog();
         }
 
-        private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e)
+        private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e) //Le problème vient car l'évènement est appelé 2x fois au lieu d'une 
+            //Le prof m'a conseillé d'utiliser la propriété SelectionChanged et non l'évènement et de binder notre data context avec
         {
+            int i = 0;
             /*var m = e.AddedItems;
             foreach(Manga manga in m)
             {
@@ -46,8 +48,12 @@ namespace ProjetManga
             }
 
             Info_Manga_Window.MangaCourant = l.MangaCourant;*/
-            l.MangaCourant = (sender as ListBox).SelectedItem as Manga;
-            Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
+            if(i == 0)
+            {
+                l.MangaCourant = (sender as ListBox).SelectedItem as Manga;
+                Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
+                i = i + 1;
+            }           
         }
     }
 }

@@ -13,8 +13,8 @@
         </Style>
     </UserControl.Resources>
     <!-- User control à finir -->
-    <ScrollViewer DataContext="l.MangaCourant">
-        <Grid  Background="#FFE2F3F3">
+    <ScrollViewer>
+        <Grid  Background="#FFE2F3F3" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="1.6*"/>
@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         
-         <StackPanel>
+         <StackPanel >
             <WrapPanel>
                 <Button Width="20" Height="20" HorizontalAlignment="Left" Click="Button_Supprimer_Manga" >
                     <Button.Background>
@@ -40,16 +40,17 @@
            <DataTemplate>  -->
         <!--A modifier lors de la partie 3-->
             <DockPanel Grid.Row="1">
+                
                 <Image Source="{Binding Couverture}" MinHeight="250" MinWidth="200" Width="200" Margin="10,10,0,0" DockPanel.Dock="Left" ></Image>
                 <StackPanel DockPanel.Dock="Left" Width="400">
-                    <TextBlock Text="{Binding TitreOriginal}" Style="{StaticResource Intitule}"  ></TextBlock>
-                    <TextBlock Text="{Binding TitreAlternatif, StringFormat='Titre alternatif : {0}'}" ></TextBlock>
-                    <TextBlock Text="{Binding Auteur, StringFormat='Auteur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                    <TextBlock Text="{Binding Dessinateur, StringFormat='Dessinateur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                    <TextBlock Text="{Binding MaisonEditionJap, StringFormat='Maison édition Japonaise : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                    <TextBlock Text="{Binding MaisonEditionFr, StringFormat='Maison édition française : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                    <TextBlock Text="{Binding PremierTome, StringFormat='Premier tome : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                    <TextBlock Text="{Binding DernierTome, StringFormat='Dernier tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
+                        <TextBlock Text="{Binding TitreOriginal}" Style="{StaticResource Intitule}"  ></TextBlock>
+                        <TextBlock Text="{Binding TitreAlternatif, StringFormat='Titre alternatif : {0}'}" ></TextBlock>
+                        <TextBlock Text="{Binding Auteur, StringFormat='Auteur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding Dessinateur, StringFormat='Dessinateur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding MaisonEditionJap, StringFormat='Maison édition Japonaise : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding MaisonEditionFr, StringFormat='Maison édition française : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding PremierTome, StringFormat='Premier tome : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding DernierTome, StringFormat='Dernier tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
                 </StackPanel>
                 <WrapPanel DockPanel.Dock="Right">
                 <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Ajout_Favori" >

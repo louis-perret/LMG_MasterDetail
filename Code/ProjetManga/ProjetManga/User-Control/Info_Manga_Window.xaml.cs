@@ -26,8 +26,8 @@ namespace ProjetManga
         {
             InitializeComponent();
             //DataContext = this; //ça va nous permettre de pouvoir binder sur MangaCourant de l'UC puis sur chacune de ses propriétés
-            DataContext = l.MangaCourant; //mauvaise reference, il faut binder sur une propriété qui comprend le MangaCourant (c'est ce qu'a dit le prof)
-            
+            //DataContext =l; //mauvaise reference, il faut binder sur une propriété qui comprend le MangaCourant (c'est ce qu'a dit le prof)
+            //DataContext = l;
         }
 
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
