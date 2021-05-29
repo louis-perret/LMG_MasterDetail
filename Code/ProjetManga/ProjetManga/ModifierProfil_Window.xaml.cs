@@ -40,7 +40,8 @@ namespace ProjetManga
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
-            l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre } ); // pour les genre c'est certainement pas la bonne méthode
+            //l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre } ); // pour les genre c'est certainement pas la bonne méthode
+            Gestionnaire.ModifierProfil(l,l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre });
             Close();
         }
 

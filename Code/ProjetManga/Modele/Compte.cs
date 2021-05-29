@@ -15,7 +15,7 @@ namespace Modele
     {
         public ObservableCollection<Manga> LesFavoris { get; private set; }
         
-        IList<Manga> lesFavoris;
+        //private ObservableCollection<Manga> lesFavoris;
 
         private string pseudo;
         public string Pseudo
@@ -92,9 +92,10 @@ namespace Modele
             MotDePasse = motDePasse ?? throw new ArgumentNullException(nameof(motDePasse));
             GenresPreferes = genrepref;
 
-            lesFavoris = new List<Manga>();
-            LesFavoris = new ObservableCollection<Manga>(lesFavoris);
-            if(image == null)
+            // lesFavoris = new ObservableCollection<Manga>();
+            //LesFavoris = new ObservableCollection<Manga>(lesFavoris);
+            LesFavoris = new ObservableCollection<Manga>();
+            if (image == null)
             {
                 ImageProfil = "/Image/question.png";
             }
@@ -156,7 +157,7 @@ namespace Modele
             }*/
             if (!LesFavoris.Contains(m))
             {
-                lesFavoris.Add(m);
+                LesFavoris.Add(m);
             }
 
         }
@@ -168,7 +169,7 @@ namespace Modele
         {
             if (LesFavoris.Contains(m))
             {
-                lesFavoris.Remove(m);
+                LesFavoris.Remove(m);
             }
 
         }

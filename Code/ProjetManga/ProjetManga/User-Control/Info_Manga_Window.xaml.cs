@@ -20,9 +20,11 @@ namespace ProjetManga
     public partial class Info_Manga_Window : UserControl
     {
         public static Listes l => (App.Current as App).l;
-        
 
-       // private static Manga MangaCourant { get; set; }
+        public Navigation Navigator => (App.Current as App).Navigator;
+
+
+        // private static Manga MangaCourant { get; set; }
         public Info_Manga_Window()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace ProjetManga
 
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
         {
+
             var modifWindow = new Modifier_Window();
             modifWindow.ShowDialog();
             
@@ -40,7 +43,12 @@ namespace ProjetManga
 
         private void Button_Supprimer_Manga(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel,MessageBoxImage.Question);
+            if(result==MessageBoxResult.OK)
+            {
+                Gestionnaire.SupprimerManga(l, l.MangaCourant, l.MangaCourant.Genre);
+                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
+            }
             
         }
 
@@ -59,7 +67,7 @@ namespace ProjetManga
 
         private void Click_Noter_Manga(object sender, RoutedEventArgs e)
         {
-         //   l.MangaCourant = (sender as Button).Parent as Manga;
+         
             var noteWindow = new Note_Window();
             noteWindow.ShowDialog();
         }

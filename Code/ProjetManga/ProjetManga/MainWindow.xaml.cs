@@ -58,17 +58,6 @@ namespace ProjetManga
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
 
-        
-        
-       /* public SortedSet<Manga> ListeDeMangaParGenre
-        {
-            get
-            {
-                return l.ListeParGenre(genreClick.SelectedItem as Genre);
-            }
-        }*/
-
-        
 
         private void Selection_Changed_Genre(object sender, SelectionChangedEventArgs e)
         {

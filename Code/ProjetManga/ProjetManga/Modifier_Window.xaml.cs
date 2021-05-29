@@ -20,20 +20,21 @@ namespace ProjetManga
     /// </summary>
     public partial class Modifier_Window : Window
     {
-        private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");
-        public Manga LeManga { get; set; }
+
+        public static Listes l => (App.Current as App).l;
+        //public Manga LeManga { get; set; }
         private string imageName;
 
 
         public Modifier_Window()
         {
             InitializeComponent();
-            var m = l.MangaCourant;
+            /*var m = l.MangaCourant;
             
             LeManga = new Manga(m.TitreOriginal,m.TitreAlternatif,m.Auteur,m.Dessinateur,m.MaisonEditionJap,m.MaisonEditionFr,m.PremierTome,m.DernierTome,m.NombreTome,m.Couverture,m.Synopsis,m.Genre);
             DataContext = LeManga;
-            
+            */
+            DataContext = l.MangaCourant;
             
 
 
@@ -45,7 +46,14 @@ namespace ProjetManga
         }
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            //l.ModifierManga(l.RecupererGenre(LeManga.Genre) ,LeManga.TitreOriginal,LeManga.DernierTome,LeManga.NombreTome,LeManga.Couverture,LeManga.Synopsis); 
+            /*
+            DateTime d = LeManga.DernierTome.GetValueOrDefault();
+            Gestionnaire.ModifierManga(l,LeManga.Genre, LeManga.TitreOriginal, d, LeManga.NombreTome, LeManga.Couverture, LeManga.Synopsis);
+            Close();
+            */
+            int nb = Int32.Parse(modif_nb.Text);
+            DateTime d = Convert.ToDateTime(modif_dTome.Text);
+            Gestionnaire.ModifierManga(l, l.MangaCourant.Genre, l.MangaCourant.TitreOriginal, d, nb, imageName, modif_syno.Text); //je crois que c'est qu'il manque parfois des 0
             Close();
         }
 
