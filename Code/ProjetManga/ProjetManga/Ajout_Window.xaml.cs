@@ -26,7 +26,7 @@ namespace ProjetManga
         public Ajout_Window()
         {
             InitializeComponent();
-            DataContext = l.CollectionManga.Values;
+            //DataContext = l.CollectionManga.Values;
             comboGenre.DataContext = l;
         }
 
@@ -36,13 +36,34 @@ namespace ProjetManga
         }
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            GenreDispo g=(comboGenre.SelectedItem as Genre).NomGenre;
-            DateTime p = Convert.ToDateTime(pTome_text.Text);
-            DateTime d = Convert.ToDateTime(dTome_text.Text);
-            int nb = Int32.Parse(NbTome_text.Text);
-            
+            if (String.IsNullOrEmpty(to_text.Text) || String.IsNullOrEmpty(ta_text.Text) || String.IsNullOrEmpty(auteur_text.Text) || String.IsNullOrEmpty(dess_text.Text) || String.IsNullOrEmpty(maisonFr_text.Text)
+                 || String.IsNullOrEmpty(maisonJ_text.Text) || String.IsNullOrEmpty(syno_text.Text) || String.IsNullOrEmpty(NbTome_text.Text) || comboGenre.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez remplir tous les champs", "Problème", MessageBoxButton.OK);
+                return;
+            }
 
-           
+            DateTime p;
+            DateTime? d;
+            try
+            {
+                p = Convert.ToDateTime(pTome_text.Text);
+                d = Convert.ToDateTime(dTome_text.Text);
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show("Erreur dans la saisie des dates de parutions, veuillez entrer l'un des bons formats", "Problème date", MessageBoxButton.OK);
+                return;
+            }
+            if(imageName == null)
+            {
+                MessageBox.Show("Vous devez ajouter une couverture pour le manga", "Problème image", MessageBoxButton.OK);
+                Button_Changer_Image(sender,e);
+            }
+
+            
+            GenreDispo g = (comboGenre.SelectedItem as Genre).NomGenre;
+            int nb = Int32.Parse(NbTome_text.Text);          
             Gestionnaire.AjouterManga(l, to_text.Text, ta_text.Text, auteur_text.Text, dess_text.Text, maisonJ_text.Text, maisonFr_text.Text, p, d, nb, imageName, syno_text.Text, g);
             Close();
         }

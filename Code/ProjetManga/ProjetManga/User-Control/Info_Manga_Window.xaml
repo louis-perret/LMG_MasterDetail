@@ -52,6 +52,7 @@
                         <TextBlock Text="{Binding MangaCourant.PremierTome, StringFormat='Premier tome : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.DernierTome, StringFormat='Dernier tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.NombreTome, StringFormat='Nombre de tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
+                        <TextBlock Text="{Binding MangaCourant.MoyenneNote, StringFormat='Note : {0}/10'}"   Style="{StaticResource Intitule}"></TextBlock>
                     </StackPanel>
                 <WrapPanel DockPanel.Dock="Right">
                 <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Ajout_Favori" >
@@ -71,8 +72,19 @@
         </ItemsControl> -->
                 <StackPanel Grid.Row="2" Margin="0,20,0,0">
                     <TextBlock Text="{Binding MangaCourant.Synopsis, StringFormat='Synopsis : {0}'}" Style="{StaticResource Intitule}" TextWrapping="Wrap"></TextBlock>
-                    <TextBlock Height="100"></TextBlock>
+                    <TextBlock Height="50"></TextBlock>
                     <TextBlock Text="Avis : " Style="{StaticResource Intitule}"></TextBlock>
+                    <ItemsControl ItemsSource="{Binding MangaCourant.LesAvis}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel Margin="30,15,0,0">
+                                    <TextBlock Text="{Binding Util.Pseudo, StringFormat='De {0},'}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Date, StringFormat=' écrit le {0} : '}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Commentaire}" FontSize="16"/>
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                     <TextBlock Height="100"></TextBlock>
                 </StackPanel>
           </StackPanel>

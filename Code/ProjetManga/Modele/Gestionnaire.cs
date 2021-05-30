@@ -22,7 +22,7 @@ namespace Modele
             Gestionnaire.ListeParGenre(l,g);              
         }
 
-        public static void AjouterManga(Listes l, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime dTome,int nbTome, string couv, string synop,GenreDispo g)
+        public static void AjouterManga(Listes l, string to, string ta, string au, string dess,string maisJ,string maisFr, DateTime pTome, DateTime? dTome,int nbTome, string couv, string synop,GenreDispo g)
          {
             Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop,g);
             l.AjouterManga(m, l.RecupererGenre(g));
@@ -33,7 +33,7 @@ namespace Modele
             l.SupprimerManga(m, l.RecupererGenre(g));
         }
 
-        public static void ModifierManga(Listes l, GenreDispo g, string to, DateTime dTome, int nbTome, string couv, string synop)
+        public static void ModifierManga(Listes l, GenreDispo g, string to, DateTime? dTome, int nbTome, string couv, string synop)
         {           
             l.ModifierManga(l.RecupererGenre(g), to, dTome, nbTome, couv, synop);
         }

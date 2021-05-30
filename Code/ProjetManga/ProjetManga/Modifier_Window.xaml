@@ -67,12 +67,12 @@
                 <TextBlock Text="Nombre de tome" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox x:Name="modif_nb" Width="25" Margin="0,10,0,0" Text="{Binding NombreTome }"></TextBox>
             </WrapPanel>
-
+            <TextBlock Text="Format : JJ/MM/AAAA ou JJ-MM-AAAA ou JJ MM AAAA" FontSize="8" Margin="10,10,0,0"/>
             <WrapPanel>
-                <TextBlock Text="Dernier tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox x:Name="modif_dTome" Width="100" Margin="0,10,0,0" Text="{Binding DernierTome }" ></TextBox>
-                <TextBlock Text="Genre" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBlock Width="70" Margin="0,8,0,0" Text="{Binding Genre }" ></TextBlock>
+                <TextBlock Text="Dernier tome (facultatif)" Margin="10,0,10,10"></TextBlock>
+                <TextBox x:Name="modif_dTome" Width="100" Margin="10,0,10,10" Text="{Binding DernierTome }" ></TextBox>
+                <TextBlock Text="Genre" Margin="10,0,10,10"></TextBlock>
+                <TextBlock Width="70" Margin="10,0,10,10" Text="{Binding Genre }" ></TextBlock>
             </WrapPanel>
 
             <WrapPanel>

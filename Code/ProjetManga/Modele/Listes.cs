@@ -56,7 +56,7 @@ namespace Modele
         //private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
 
         public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>();
-        string toto = "";
+        //string toto = "";
         //J'ai mis une observable collection car quand on change de genre on change les éléments à l'intérieur et donc il faut notifier la vue car ce sont les éléments 
         //à 'intérieur qui change et non l'objet pointé par la référence
 
@@ -167,6 +167,7 @@ namespace Modele
                         kvp.Value.Add(m);
                     }
                 }
+                ListeParGenre(g);
             }
         }
         /// <summary>
@@ -185,6 +186,7 @@ namespace Modele
                         kvp.Value.Remove(m);
                     }
                 }
+                ListeParGenre(g);
             }
         }
 
@@ -197,7 +199,7 @@ namespace Modele
         /// <param name="nbTome">nombre de tome</param>
         /// <param name="couv">lien vers l'image de couverture</param>
         /// <param name="synop">texte permetant de lancer l'intrigue du manga</param>
-        public void ModifierManga(Genre g, string to, DateTime dTome, int nbTome, string couv, string synop)
+        public void ModifierManga(Genre g, string to, DateTime? dTome, int nbTome, string couv, string synop)
         {
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {

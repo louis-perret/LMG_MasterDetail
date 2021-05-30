@@ -29,16 +29,18 @@ namespace ProjetManga
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
-            try
+            int note = (int)noteBox.SelectedIndex;
+            /*try //Inutile car on ne fait pas de vérification lors de l'appel au constructeur donc ça marchera toujours
             {
-                Avis a = new Avis(avis_text.Text, noteBox.SelectedIndex, l.CompteCourant);
+                //Avis a = new Avis(avis_text.Text, note, l.CompteCourant);
+                
             }
             catch(Exception e1)
             {
                 MessageBoxResult result = MessageBox.Show(e1.Message, "Erreur", MessageBoxButton.OK);
             }
-            int note = (int)noteBox.SelectedIndex;
-            Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text.Text, note,l.MangaCourant.Genre,l.MangaCourant);
+            */
+            Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text.Text, note, l.MangaCourant.Genre, l.MangaCourant);
             Close();
             
         }

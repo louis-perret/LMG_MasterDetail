@@ -46,13 +46,23 @@ namespace ProjetManga
         }
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            DateTime d = LeManga.DernierTome.GetValueOrDefault();
-            Gestionnaire.ModifierManga(l,LeManga.Genre, LeManga.TitreOriginal, d, LeManga.NombreTome, LeManga.Couverture, LeManga.Synopsis);
-            Close();
-            */
+            DateTime? d = null;
             int nb = Int32.Parse(modif_nb.Text);
-            DateTime d = Convert.ToDateTime(modif_dTome.Text);
+            if (!String.IsNullOrEmpty(modif_dTome.Text))
+            {
+                try 
+                {
+                    d = Convert.ToDateTime(modif_dTome.Text);
+                }
+                catch(Exception exception)
+                {
+                    MessageBox.Show("Mauvais format pour la dernière date de parution","Problème", MessageBoxButton.OK);
+                }               
+            }
+            if(imageName == null)
+            {
+                imageName = l.MangaCourant.Couverture;
+            }
             Gestionnaire.ModifierManga(l, l.MangaCourant.Genre, l.MangaCourant.TitreOriginal, d, nb, imageName, modif_syno.Text); //je crois que c'est qu'il manque parfois des 0
             Close();
         }

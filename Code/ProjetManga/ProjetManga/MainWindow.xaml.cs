@@ -80,6 +80,7 @@ namespace ProjetManga
 
             Genre g;
             Gestionnaire.GenreAuHasard(l,out g);
+            l.GenreCourant = g;
             l.ListeParGenre(g);
             //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
@@ -91,9 +92,14 @@ namespace ProjetManga
             
             string m = nom_rechercher.Text;
             l.MangaCourant= Gestionnaire.RechercherMangaParNom(l, m);
-
-            // Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
+            if (l.MangaCourant == null)
+            {
+                MessageBox.Show("Manga non trouvé. Vous avez-peut-être fait une erreur dans le nom","Problème de recherche");
+                return;
+            }
             Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
+            // Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
+
 
         }
 

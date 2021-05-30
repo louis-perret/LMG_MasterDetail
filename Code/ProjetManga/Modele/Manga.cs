@@ -99,8 +99,8 @@ namespace Modele
 
         public GenreDispo Genre { get; private set; }
 
-        public ReadOnlyCollection<Avis> LesAvis { get; private set; }
-        IList<Avis> lesAvis { get; set; }
+        public ObservableCollection<Avis> LesAvis { get; private set; } = new ObservableCollection<Avis>();
+        //IList<Avis> lesAvis { get; set; }
 
         public float MoyenneNote //Renvoie la moyenne des notes de tous ses avis
         { 
@@ -190,13 +190,13 @@ namespace Modele
         /// <param name="a"> Avis à ajouter </param>
         public void AjouterAvis(Avis a)
         {
-            if (LesAvis == null)
+            /*if (LesAvis == null)
             {
-                lesAvis = new List<Avis>();
-                LesAvis = new ReadOnlyCollection<Avis>(lesAvis);
-            }
-            lesAvis.Add(a);
-
+                //lesAvis = new List<Avis>();
+                LesAvis = new ObservableCollection<Avis>();
+            }*/
+            LesAvis.Add(a);
+            OnPropertyChanged(nameof(MoyenneNote));
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Modele
         /// <param name="nbTome">Nombre de tome total</param>
         /// <param name="couv">"Noueau chemin de la couverture</param>
         /// <param name="synop">"Nouveau synopsis</param>
-        public void Modifier(DateTime dTome, int nbTome, string couv, string synop)
+        public void Modifier(DateTime? dTome, int nbTome, string couv, string synop)
         {
             if(PremierTome < dTome && DernierTome <= dTome)
             {

@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:ProjetManga"
         mc:Ignorable="d"
         Title="Ajouter manga" Height="500" Width="600" MinHeight="480" MinWidth="550">
-    
+    <Window.Resources>
+        <Style x:Key="Margin" TargetType="TextBlock">
+            <Setter Property="Margin" Value="10,0,10,10"/>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FFD5E0E8">
 
         <Grid.RowDefinitions>
@@ -60,16 +64,17 @@
                 <TextBlock Text="Maison d'édition Française" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox x:Name="maisonFr_text" Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionFr }"></TextBox>
             </WrapPanel>
-
+            
+            <TextBlock Text="Format : JJ/MM/AAAA ou JJ-MM-AAAA ou JJ MM AAAA" FontSize="8" Margin="10,10,0,0"/>
             <WrapPanel>
-                <TextBlock Text="Premier tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox x:Name="pTome_text" Width="100" Margin="0,10,0,0" Text="{Binding PremierTome }" ></TextBox>
-                <TextBlock Text="Nombre de tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox x:Name="NbTome_text" Width="25" Margin="0,10,0,0" Text="{Binding DernierTome }"></TextBox>
+                <TextBlock Text="Premier tome" Margin="10,0,10,0"></TextBlock>
+                <TextBox x:Name="pTome_text" Width="100" Margin="10,0,10,0" Text="{Binding PremierTome }" ></TextBox>
+                <TextBlock Text="Nombre de tome" Margin="10,0,10,0"></TextBlock>
+                <TextBox x:Name="NbTome_text" Width="25" Margin="10,0,10,0" Text="{Binding DernierTome }"></TextBox>
             </WrapPanel>
 
             <WrapPanel>
-                <TextBlock Text="Dernier tome" Style="{StaticResource TextMargin}"></TextBlock>
+                <TextBlock Text="Dernier tome (facultatif)" Style="{StaticResource TextMargin}"></TextBlock>
                 <TextBox x:Name="dTome_text" Width="100" Margin="0,10,0,0" Text="{Binding DernierTome }" ></TextBox>
                 <TextBlock Text="Genre" Style="{StaticResource TextMargin}"></TextBlock>
                 <ComboBox x:Name="comboGenre" Width="70" Margin="0,8,0,0" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre" ></ComboBox>
@@ -77,7 +82,7 @@
 
             <WrapPanel>
                 <TextBlock Text="Synopsis" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox x:Name="syno_text" Width="300" Height="80" Margin="0,10,0,0"  ></TextBox>
+                <TextBox x:Name="syno_text" Width="300" Height="80" Margin="0,10,0,0" AcceptsReturn="True" TextWrapping="Wrap" ></TextBox>
             </WrapPanel>
         </StackPanel>
 
