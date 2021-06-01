@@ -105,7 +105,7 @@ namespace ProjetManga
 
         private void Button_Click_ListeFavoris(object sender, RoutedEventArgs e)
         {
-            l.ListeMangaCourant = l.CompteCourant.LesFavoris;
+            l.RecupererFavoris();
             // Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }

@@ -262,6 +262,7 @@ namespace Modele
             return leMeilleur;
 
         }
+
         /// <summary>
         /// Permet de modifier le profil, appel la fonction du même nom dans Compte
         /// </summary>
@@ -353,6 +354,14 @@ namespace Modele
         }
 
 
+        public void RecupererFavoris()
+        {
+            ListeMangaCourant.Clear();
+            foreach(Manga m in CompteCourant.LesFavoris)
+            {
+                ListeMangaCourant.Add(m);
+            }
+        }
 
         /// <summary>
         /// Permet de transformer une instance en chaîne de caractères

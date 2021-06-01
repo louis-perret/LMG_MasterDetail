@@ -1,5 +1,6 @@
 ﻿using Modele;
 using System;
+using System.IO;
 
 namespace Data
 {
@@ -8,7 +9,7 @@ namespace Data
    ///  11h50 -- Il faut mettre dans un coin du diagramme de classe la vue, la data,etc SAUF LES TESTS (pas besoin)
    ///        -- Ne pas surcharger les classes de méthodes ToString, Equals, etc sauf si c'est "clé"
    /// </summary>
-    public abstract class Chargeur
+    public abstract class Chargeur : CheminFichier
     {
         private string chemin;
 

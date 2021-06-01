@@ -1,11 +1,12 @@
 ﻿using Modele;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Data
 {
-    public abstract class Sauveur
+    public abstract class Sauveur : CheminFichier
     {
         private string chemin;
 
