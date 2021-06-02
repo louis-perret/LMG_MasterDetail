@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    [DataContract]
     /// <summary>
     /// Classe qui represente un manga
     /// </summary>
@@ -13,26 +15,27 @@ namespace Modele
     {
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
+        [DataMember]
         public string TitreOriginal { get; private set; }
-
+        [DataMember]
         public string TitreAlternatif { get; private set; }
-
+        [DataMember]
         public string Auteur { get; private set; }
 
-
+        [DataMember]
         public string Dessinateur { get; private set; }
 
-
+        [DataMember]
         public string MaisonEditionJap { get; private set; }
-
+        [DataMember]
         public string MaisonEditionFr { get; private set; }
 
-
+        [DataMember]
         public DateTime PremierTome { get; private set; }
 
-
+        [DataMember]
         private DateTime? dernierTome;
-
+        
         public DateTime? DernierTome
         {
             get => dernierTome;
@@ -47,7 +50,7 @@ namespace Modele
             }
         }
         //Le ? permet de dire que cette variable peut-être nulle
-
+        [DataMember]
         private int nombreTome;
         public int NombreTome
         {
@@ -62,7 +65,7 @@ namespace Modele
 
             }
         }
-
+        [DataMember]
         private string couverture;
         public string Couverture
         {
@@ -81,7 +84,7 @@ namespace Modele
 
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        [DataMember]
         private string synopsis;
         public string Synopsis
         {
@@ -96,9 +99,9 @@ namespace Modele
 
             }
         }
-
+        [DataMember]
         public GenreDispo Genre { get; private set; }
-
+        [DataMember]
         public ObservableCollection<Avis> LesAvis { get; private set; } = new ObservableCollection<Avis>();
         //IList<Avis> lesAvis { get; set; }
 

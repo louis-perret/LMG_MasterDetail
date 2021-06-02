@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Text;
 
 
 
 namespace Modele
 {
+    [DataContract]
     /// <summary>
     /// Classe qui définit un Compte d'utilisateur
     /// </summary>
     public class Compte : IEquatable<Compte>, INotifyPropertyChanged
     {
         public ObservableCollection<Manga> LesFavoris { get; private set; }
-        
-        //private ObservableCollection<Manga> lesFavoris;
 
+        //private ObservableCollection<Manga> lesFavoris;
+        [DataMember]
         private string pseudo;
+       
         public string Pseudo
         {
             get => pseudo;
@@ -47,17 +50,17 @@ namespace Modele
             }
 
         }
-
+        [DataMember]
         public DateTime dateNaissance;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        [DataMember]
         public DateTime DateInscription { get; private set; }
-
+        [DataMember]
         public string MotDePasse { get; private set; }
 
-        
 
+        [DataMember]
         private GenreDispo[] genresPreferes;
         public GenreDispo[] GenresPreferes
         {
@@ -72,7 +75,7 @@ namespace Modele
 
             }
         }
-
+        [DataMember]
         public string ImageProfil { get; set; }
 
         /// <summary>

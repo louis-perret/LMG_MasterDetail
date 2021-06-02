@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+
 
 namespace Modele   
 {
+    [DataContract]
     public class Listes : INotifyPropertyChanged
 {
         /// <summary>
@@ -14,14 +17,15 @@ namespace Modele
         /// </summary>
        
         public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
+        [DataMember]
         private IList<Compte> listeCompte { get; set; } 
         
         public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
+        [DataMember]
         private IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
 
         public IList<Genre> ListeGenre { get; private set; }
 
-    // indice du prof : pour le dictionnary on doit faire la propriété calculée au niveau d'une classe qui peut avoir le genre donné par l'utilisateur. Côté vue peut etre ?
         private Compte compte;
         public Compte CompteCourant 
         { 
@@ -90,6 +94,8 @@ namespace Modele
 
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
+
+       
 
         /// <summary>
         /// Constructeur de la classe

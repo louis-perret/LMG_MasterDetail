@@ -22,6 +22,7 @@ namespace ProjetManga
         {
             l = new Stub("").Load("");
             Navigator = new Navigation();
+            
         }
 
         /*protected override void OnActivated(EventArgs e)

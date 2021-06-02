@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Modele
 {
@@ -6,15 +7,16 @@ namespace Modele
     /// Classe représentant les avis des utilisateurs
     /// </summary>
 
-
+    [DataContract]
     public class Avis
     {
-        
+        [DataMember]
         public string Commentaire { get; private set; }
-       
+        [DataMember]
         public int Note { get; private set; }
-       
+        [DataMember]
         public Compte Util { get; private set; }
+        [DataMember]
         public DateTime Date { get; private set; }
 
         /// <summary>

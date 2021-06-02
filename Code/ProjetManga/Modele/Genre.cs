@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    [DataContract]
     /// <summary>
     /// Classe réprésentant les genres disponibles de notre application
     /// </summary>
     public class Genre : IEquatable<Genre>  
     {
+        [DataMember]
         public string Description { get; private set; } //Description du genre
-
+        [DataMember]
         public GenreDispo NomGenre { get; private set; } //Nom du genre à partir de l'enum
 
         public Genre(string description, GenreDispo type)
