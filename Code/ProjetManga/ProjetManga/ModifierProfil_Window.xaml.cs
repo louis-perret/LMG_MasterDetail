@@ -27,12 +27,13 @@ namespace ProjetManga
         public ModifierProfil()
         {
             InitializeComponent();
+            combo1.SelectedIndex = 1;
             var c = l.CompteCourant;
             LeCompte = new Compte(c.Pseudo, c.dateNaissance.ToString(), c.DateInscription, c.MotDePasse, c.GenresPreferes, c.ImageProfil);
             DataContext = LeCompte;
             WrapGenre.DataContext = l;
         }
-
+        
         private void Button_CloseWindow(object sender, RoutedEventArgs e)
         {
             Close();
@@ -40,8 +41,10 @@ namespace ProjetManga
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
-            //l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre } ); // pour les genre c'est certainement pas la bonne méthode
+            
+            //l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre } ); 
             Gestionnaire.ModifierProfil(l,l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre });
+            //les genres sont recupérés mais le binding ne se fait pas sur le tableau
             Close();
         }
 

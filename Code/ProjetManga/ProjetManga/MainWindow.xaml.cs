@@ -114,11 +114,16 @@ namespace ProjetManga
         {
             if(mode_button.IsChecked==true)
             {
-                fond_test.Background = Brushes.Black;
+                mainCoteDroit.Background = Brushes.DarkGray;
+                mainCoteGauche.Background = Brushes.DarkGray;
+                genreClick.Background = Brushes.DarkGray;
+                
             }
-            else
+            if (mode_button.IsChecked == false) //marche pas
             {
-              
+                mainCoteDroit.Background = Brushes.White;
+                mainCoteGauche.Background = Brushes.White;
+                genreClick.Background = Brushes.White;
             }
 
         }

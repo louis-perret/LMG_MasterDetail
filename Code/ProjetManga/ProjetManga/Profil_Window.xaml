@@ -33,13 +33,13 @@
             </Grid.RowDefinitions>
             <Button Margin="2,2,2,2" BorderThickness="0" Click="Button_Changer_Image">
                 <Button.Background>
-                    <ImageBrush ImageSource="Image/modifier.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Image;Component/Image/modifier.png" Stretch="Uniform"/>
                 </Button.Background>
 
             </Button>
             <!--Icone modifier-->
-            
-            <Image Margin="20,10,40,20" Height="80" Width="70" Grid.Column="1" Grid.Row="1" x:Name="imageProfil" Source="/Image/question.png"/>
+
+            <Image Margin="20,10,40,20" Height="80" Width="70" Grid.Column="1" Grid.Row="1" x:Name="imageProfil" Source="/Image;Component/Image/question.png"/>
             <!--Photo de profil -->
         </Grid>
 

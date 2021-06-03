@@ -24,7 +24,7 @@
 
         <DockPanel Grid.Row="0">
             <DockPanel.Background>
-                <ImageBrush ImageSource="Image/banniere.jpg" Stretch="UniformToFill" TileMode="None"/>
+                <ImageBrush ImageSource="/Image;Component/Image/banniere.jpg" Stretch="UniformToFill" TileMode="None"/>
             </DockPanel.Background>
             <Button x:Name="quitter_button" Content="Quitter"  DockPanel.Dock="Left"  HorizontalAlignment="Left" Style="{StaticResource BoutonConnection}" Click="Button_FermerApplication"/>
             <Button x:Name="profil_button" Content="Créer un compte" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource BoutonConnection}" Click="Button_CreerProfil"/>

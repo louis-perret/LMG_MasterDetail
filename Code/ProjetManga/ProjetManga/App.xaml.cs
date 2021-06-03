@@ -22,16 +22,14 @@ namespace ProjetManga
         public Navigation Navigator { get; set; }
         public App()
         {
-            //l = new Stub("").Load();
-            //sauveur.Save(l); ;
-            l = chargeur.Load();
+            l = new Stub("").Load();
+            sauveur.Save(l);
+            
+            //l = chargeur.Load();
+            //sauveur.Save(l);
             Navigator = new Navigation();           
         }
 
-        /*protected override void OnActivated(EventArgs e)
-        {
-            base.OnActivated(e);
-            Navigator = new Navigation((MainWindow as MainWindow).contentControl);
-        }*/
+        
     }
 }

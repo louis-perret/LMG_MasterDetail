@@ -70,26 +70,9 @@ namespace Modele
 
 
         //private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
-
+        [DataMember]
         public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>();
-        //string toto = "";
-        //J'ai mis une observable collection car quand on change de genre on change les éléments à l'intérieur et donc il faut notifier la vue car ce sont les éléments 
-        //à 'intérieur qui change et non l'objet pointé par la référence
-
-        /*public SortedSet<Manga> ListeMangaCourant
-        {
-            get => listeMangaCourant;
-            set
-            {
-                if (listeMangaCourant != value)
-                {
-                    listeMangaCourant = value;
-                    OnPropertyChanged(nameof(listeMangaCourant));
-                }
-
-            }
-        }*/
-
+        
         private Manga mangaCourant;
         public Manga MangaCourant
         {
@@ -325,28 +308,7 @@ namespace Modele
             return false; 
         }
 
-        /*public void ChercherListeParGenre(Genre g)
-        {
-            //SortedSet<Manga> listeTemp = new SortedSet<Manga>();
-            
-            var temp = from k in CollectionManga
-
-                       where k.Key.NomGenre.Equals(g.NomGenre)
-                       select k.Value;
-
-            foreach (var t in temp)
-            {
-
-                foreach (Manga m in t)
-                {
-                    listeMangaCourant.Add(m);
-                }
-            }
-            //ListeMangaCourant = listeTemp;
-            
-
-
-        }*/
+        
         /// <summary>
         /// Permet d'ajouter un utilisateur
         /// </summary>

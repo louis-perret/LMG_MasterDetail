@@ -73,7 +73,7 @@
                 </ComboBox.ItemTemplate>-->
             </ComboBox>
 
-            <ComboBox x:Name="combo2" Width="75" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre"/>
+            <ComboBox x:Name="combo2" Width="75" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre" />
         </WrapPanel>
 
         <Grid Grid.Row="2" Grid.Column="1">

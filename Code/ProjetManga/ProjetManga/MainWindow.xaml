@@ -35,7 +35,7 @@
         <Image Grid.Row="0" Grid.Column="0"  >
 
         </Image>
-        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" Grid.RowSpan="2" >
+        <StackPanel x:Name="mainCoteGauche" Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" Grid.RowSpan="2" >
             <TextBlock Text="Genres disponibles :"></TextBlock>
             <ListBox x:Name="genreClick" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center" SelectionChanged="Selection_Changed_Genre" SelectionMode="Single" >
                 <ListBox.ItemTemplate>
@@ -55,7 +55,7 @@
 
         <Grid Grid.Row="0" Grid.Column="1" Margin="0,0,0,103" Grid.RowSpan="2">
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/banniere2.jpg"/>
+                <ImageBrush ImageSource="/Image;Component/Image/banniere2.jpg"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.2*"/>
@@ -73,18 +73,19 @@
                 </StackPanel>
                 <WrapPanel DockPanel.Dock="Right" Margin="30,10,10,20">
                     <TextBlock Text="Genres préférés :"  FontSize="20" Style="{StaticResource ProfilText}"/>
-                    <ListView ItemsSource="{Binding GenrePreferes}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding GenreDispo}"  FontSize="20" Style="{StaticResource ProfilText}"/>
-                                <!--Faut binder sur l'enum  mais je n'y suis pas arrivé-->
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                    <ListView ItemsSource="{Binding GenresPreferes}" Margin="0,5,0,5">
+                        
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        
                     </ListView>
                 </WrapPanel>
             </DockPanel>
 
-            <StackPanel x:Name="fond_test" Grid.Column="1" Background="#FFD5E0E8">
+            <StackPanel x:Name="mainCoteDroit" Grid.Column="1" Background="#FFD5E0E8">
                 <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2" Click="Button_Click_ListeFavoris">
 
                 </Button>
@@ -94,7 +95,7 @@
 
                 <Button x:Name="home_button" Height="35" Width="35" HorizontalAlignment="Right" Click="Home_Button_Click">
                     <Button.Background>
-                        <ImageBrush ImageSource="Image/home.png" />
+                        <ImageBrush ImageSource="/Image;Component/Image/home.png" />
                     </Button.Background>
                 </Button>
             </StackPanel>

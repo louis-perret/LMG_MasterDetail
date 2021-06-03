@@ -17,7 +17,7 @@
             <ColumnDefinition Width="3.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Source="Image/L.png" Grid.ColumnSpan="2" Margin="125,36,-16,0" Grid.RowSpan="3" Grid.Column="1" MaxHeight="420" MaxWidth="280"/>
+        <Image Source="/Image;Component/Image/L.png" Grid.ColumnSpan="2" Margin="125,36,-16,0" Grid.RowSpan="3" Grid.Column="1" MaxHeight="420" MaxWidth="280"/>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <WrapPanel Margin="0,0,0,10" >
                 <TextBlock Text="Note sur 10 : " Style="{StaticResource TextMargin}"></TextBlock>

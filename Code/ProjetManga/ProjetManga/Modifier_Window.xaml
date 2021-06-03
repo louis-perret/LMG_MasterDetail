@@ -19,11 +19,11 @@
             <ColumnDefinition Width="0.07*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <Image Grid.Column="1" Source="/Image/Gon.png" Margin="268,32,39,0" Grid.RowSpan="3" Stretch="None" Grid.Row="1"/>
+
+        <Image Grid.Column="1" Source="/Image;Component/Image/Gon.png" Margin="268,32,39,0" Grid.RowSpan="3" Stretch="None" Grid.Row="1"/>
         <Button Margin="2,2,2,2" BorderThickness="0"  Click="Button_Changer_Image" >
             <Button.Background>
-                <ImageBrush ImageSource="Image/modifier.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Image;Component/Image/modifier.png" Stretch="Uniform"/>
             </Button.Background>
 
         </Button>

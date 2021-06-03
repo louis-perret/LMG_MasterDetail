@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="700" >
    <!--User-Control permettant d'afficher le manga du moment sur la page principale lors de l'ouverture de l'application
     User-Control à modifier durant la partie 3 du projet-->
-    <Grid Background="#FFECF3F3">
+    <Grid x:Name="mangaDuMomentFond" Background="#FFECF3F3">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -41,7 +41,7 @@
 
                     </Viewbox>
                 </Grid>
-                <Image Source="/Image/etoile.png" Grid.Column="1" MinHeight="30" MaxHeight="30" MaxWidth="50" DockPanel.Dock="Left" VerticalAlignment="Top" Margin="10,15,0,0"/>
+            <Image Source="/Image;Component/Image/etoile.png" Grid.Column="1" MinHeight="30" MaxHeight="30" MaxWidth="50" DockPanel.Dock="Left" VerticalAlignment="Top" Margin="10,15,0,0"/>
                 <TextBlock Text="{Binding MoyenneNote}" FontSize="20" Margin="10,15,10,0" DockPanel.Dock="Right"/>
             </DockPanel>
         

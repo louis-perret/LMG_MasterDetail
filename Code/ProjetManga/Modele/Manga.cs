@@ -72,7 +72,7 @@ namespace Modele
             get => couverture;
             set
             {
-                if (couverture != value)
+                if (couverture != value) 
                 {
                     couverture = value;
                     OnPropertyChanged(nameof(Couverture));

@@ -26,12 +26,12 @@
             <WrapPanel>
                 <Button Width="20" Height="20" HorizontalAlignment="Left" Click="Button_Supprimer_Manga" >
                     <Button.Background>
-                            <ImageBrush ImageSource="/Image/poubelle.png" Stretch="Fill"/>
+                            <ImageBrush ImageSource="/Image;Component/Image/poubelle.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
                     <Button Width="20" Height="20" HorizontalAlignment="Left" Margin="5,0,0,0" Click="Button_Modifier_Manga">
                         <Button.Background>
-                            <ImageBrush ImageSource="/Image/modifier.png" Stretch="Uniform"/>
+                            <ImageBrush ImageSource="/Image;Component/Image/modifier.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
                 </WrapPanel>
@@ -57,12 +57,12 @@
                 <WrapPanel DockPanel.Dock="Right">
                 <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Ajout_Favori" >
                     <Button.Background>
-                        <ImageBrush ImageSource="/Image/c.png"/>
+                                <ImageBrush ImageSource="/Image;Component/Image/c.png"/>
                     </Button.Background>
                 </Button>
                 <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Noter_Manga" >
                     <Button.Background>
-                        <ImageBrush ImageSource="/Image/etoile.png"/>
+                                <ImageBrush ImageSource="/Image;Component/Image/etoile.png"/>
                     </Button.Background>
                 </Button>
                 </WrapPanel>

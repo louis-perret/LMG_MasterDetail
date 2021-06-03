@@ -12,7 +12,7 @@
             <TextBlock TextWrapping="Wrap" Text="{Binding GenreCourant.Description, StringFormat='Description du genre : {0}'}"  Height="80" FontSize="20" Background="#FFD5E0E8"/>
         <Button Width="30" Height="30" HorizontalAlignment="Left" Click="Click_Ajouter_Manga">
             <Button.Background>
-                <ImageBrush ImageSource="/Image/plus.png"/>
+                <ImageBrush ImageSource="/Image;Component/Image/plus.png"/>
             </Button.Background>
         </Button>
     </StackPanel>
