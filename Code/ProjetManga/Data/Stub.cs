@@ -13,7 +13,7 @@ namespace Data
 
         }
 
-        public override Listes Load(string chemin)
+        public override Listes Load()
         {
            
             

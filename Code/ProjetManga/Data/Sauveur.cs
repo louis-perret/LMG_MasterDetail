@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Data
 {
-    public abstract class Sauveur : CheminFichier
+    public abstract class Sauveur
     {
-        private string chemin;
+        protected string chemin { get; set; }
 
         public Sauveur(string chemin)
         {

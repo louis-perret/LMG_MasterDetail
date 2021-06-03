@@ -15,15 +15,27 @@ namespace Modele
         /// <summary>
         /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
         /// </summary>
-       
-        public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
+
         [DataMember]
-        private IList<Compte> listeCompte { get; set; } 
-        
-        public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
+        private IList<Compte> listeCompte { get; set; }
+
+        public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
+
         [DataMember]
         private IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
 
+        
+       
+        public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
+        
+        [OnDeserialized]
+        void InitReadOnlyDictionary(StreamingContext sc = new StreamingContext()) //Méthode qui est appelée après notre sérialisation pour initiliaser nos ReadOnlyCollection
+        {
+            CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
+            ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
+        }
+
+        [DataMember]
         public IList<Genre> ListeGenre { get; private set; }
 
         private Compte compte;
@@ -104,12 +116,20 @@ namespace Modele
         /// <param name="cManga">Dictionnaire des manga, clé : genres, valeur : liste de manga</param>
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga,List<Genre> lGenre)
         {
+            /*InitReadOnlyDictionary();
+            InitReadOnlyCollection();*/
             listeCompte = lCompte;
             ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
-            //ListeCompte = new List<Compte>(listeCompte);
             collectionManga = cManga;
             CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
             ListeGenre = lGenre;
+            
+        }
+
+        public Listes()
+        {
+            //InitReadOnlyCollection();
+            InitReadOnlyDictionary();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

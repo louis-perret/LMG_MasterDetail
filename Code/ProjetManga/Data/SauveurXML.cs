@@ -10,6 +10,13 @@ namespace Data
 {
     public class SauveurXML : Sauveur
     {
+
+        protected string FilePath => Path.Combine(Directory.GetCurrentDirectory(), chemin);
+
+        protected string FileName { get; set; } = "LMG.xml";
+
+        protected string MyFile => Path.Combine(FilePath, FileName);
+
         public SauveurXML(string chemin) : base(chemin)
         {
         }
@@ -27,15 +34,18 @@ namespace Data
 
             var param = new XmlWriterSettings() { Indent = true };
             
-            using(TextWriter tw = File.CreateText(Path.Combine(FilePath, FileName)))
+            using(TextWriter tw = File.CreateText(MyFile)) //Permet d'indenter automatiquement le fichier xml
             {
-                using (XmlWriter w = XmlWriter.Create(tw, param)) ;
+                using (XmlWriter w = XmlWriter.Create(tw, param))
+                {
+                    serializer.WriteObject(w, l);
+                }
             }
 
-            using (Stream s = File.Create(Path.Combine(FilePath, FileName)))
+            /*using (Stream s = File.Create(Path.Combine(FilePath, FileName)))
             {
-                serializer.WriteObject(s, l);
-            }
+                
+            }*/
 
             
         }

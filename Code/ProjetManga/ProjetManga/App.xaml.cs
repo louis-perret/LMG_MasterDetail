@@ -17,12 +17,15 @@ namespace ProjetManga
     {
         public Listes l { get; set; }
 
+        Chargeur chargeur = new ChargeurXML("..//XML");
+        Sauveur sauveur = new SauveurXML("..//XML");
         public Navigation Navigator { get; set; }
         public App()
         {
-            l = new Stub("").Load("");
-            Navigator = new Navigation();
-            
+            //l = new Stub("").Load();
+            //sauveur.Save(l); ;
+            l = chargeur.Load();
+            Navigator = new Navigation();           
         }
 
         /*protected override void OnActivated(EventArgs e)
