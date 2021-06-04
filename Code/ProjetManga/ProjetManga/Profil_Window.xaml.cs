@@ -20,8 +20,6 @@ namespace ProjetManga
     /// </summary>
     public partial class Profil_Window : Window
     {
-        /*private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");*/
         public Listes l => (App.Current as App).l;
 
         private string imageName;

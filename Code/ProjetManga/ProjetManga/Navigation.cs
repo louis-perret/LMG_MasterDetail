@@ -16,7 +16,7 @@ namespace ProjetManga
         public const string UC_AFFICHAGE_MANGA_DU_MOMENT = "MangaDuMoment";
         public const string UC_Affichage_INFO_MANGA = "InfoManga";
 
-        static Dictionary<string, UserControl> DicoUC = new Dictionary<string, UserControl>()
+        public static Dictionary<string, UserControl> DicoUC { get; private set; } = new Dictionary<string, UserControl>()
         {
             [UC_AFFICHAGE_MANGA_DU_MOMENT] = new MangaDuMoment(),
             [UC_AFFICHAGE_COLLECTION] = new AffichageCollection(),

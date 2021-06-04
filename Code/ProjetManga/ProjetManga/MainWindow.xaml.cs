@@ -43,7 +43,7 @@ namespace ProjetManga
         private void Settings_button_Click(object sender, RoutedEventArgs e)
         {
             var menuWindow = new Menu();
-            menuWindow.m = this;
+            menuWindow.M = this;
             menuWindow.ShowDialog();
 
             //l.CompteCourant = null;
