@@ -25,7 +25,7 @@
                 <TextBlock Text="Synopsis" FontSize="20" TextDecorations="Underline"  FontWeight="UltraBold"/>
                 <TextBlock></TextBlock>
                 <ItemsControl>
-                    <TextBlock Text="{Binding Synopsis}"
+                    <TextBlock Text="{Binding MeilleurManga.Synopsis}"
                               MaxWidth="700" TextWrapping="Wrap" FontSize="13" Margin="10,0,0,10" HorizontalAlignment="Left"/>
                 </ItemsControl>
             </StackPanel>
@@ -36,13 +36,13 @@
                 
                 <Grid DockPanel.Dock="Right">
                     <Viewbox>
-                        <Image Source="{Binding Couverture}"  MaxHeight="480" MaxWidth="320" Margin="10" DockPanel.Dock="Right"></Image>
+                    <Image Source="{Binding MeilleurManga.Couverture}"  MaxHeight="480" MaxWidth="320" Margin="10" DockPanel.Dock="Right"></Image>
 
 
                     </Viewbox>
                 </Grid>
             <Image Source="/Image;Component/Image/etoile.png" Grid.Column="1" MinHeight="30" MaxHeight="30" MaxWidth="50" DockPanel.Dock="Left" VerticalAlignment="Top" Margin="10,15,0,0"/>
-                <TextBlock Text="{Binding MoyenneNote}" FontSize="20" Margin="10,15,10,0" DockPanel.Dock="Right"/>
+            <TextBlock Text="{Binding MeilleurManga.MoyenneNote}" FontSize="20" Margin="10,15,10,0" DockPanel.Dock="Right"/>
             </DockPanel>
         
         

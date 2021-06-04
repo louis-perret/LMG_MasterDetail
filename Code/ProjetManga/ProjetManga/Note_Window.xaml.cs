@@ -41,6 +41,7 @@ namespace ProjetManga
             }
             */
             Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text.Text, note, l.MangaCourant.Genre, l.MangaCourant);
+            l.MeilleurManga = l.ChercherMeilleurManga();
             Close();
             
         }

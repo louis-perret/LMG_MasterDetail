@@ -13,6 +13,7 @@
     <None Remove="Image\couvertureOP.jpg" />
     <None Remove="Image\couvertureSNK.jpg" />
     <None Remove="Image\etoile.png" />
+    <None Remove="Image\fleche.png" />
     <None Remove="Image\Gon.png" />
     <None Remove="Image\home.png" />
     <None Remove="Image\L.png" />
@@ -31,6 +32,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\couvertureSNK.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\fleche.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\L.png">

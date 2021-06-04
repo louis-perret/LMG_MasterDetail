@@ -20,14 +20,14 @@ namespace ProjetManga
     /// </summary>
     public partial class MangaDuMoment : UserControl
     {
-        /*private Stub chargeur = new Stub("");
-        public Listes l => chargeur.Load("");*/
-
+        
+        
         public Listes l => (App.Current as App).l;
         public MangaDuMoment()
         {
             InitializeComponent();
-            DataContext = l.ChercherMeilleurManga();
+            l.MeilleurManga = l.ChercherMeilleurManga();
+            DataContext = l; //il faut faire un binding sur le resultat de  cette méthode
         }
     }
 }

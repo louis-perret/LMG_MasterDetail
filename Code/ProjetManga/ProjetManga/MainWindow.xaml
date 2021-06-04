@@ -40,11 +40,15 @@
             <ListBox x:Name="genreClick" Height="209" ItemsSource="{Binding ListeGenre}" HorizontalContentAlignment="Center" SelectionChanged="Selection_Changed_Genre" SelectionMode="Single" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ListBoxItem Content="{Binding NomGenre}" Style="{StaticResource ButtonGenre}" />
+                        <WrapPanel>
+                            <TextBlock Text="{Binding NomGenre}" Style="{StaticResource ListBoxGenre}"></TextBlock>
+                        </WrapPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 
+
             </ListBox>
+           
             <Button Content="GENRE AU HASARD" Click="Button_Click_Hasard" />
             <TextBlock Text="Chercher un manga par nom :" Margin="10,10,10,0" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBlock>
             <TextBox Name="nom_rechercher" Background="White" FontStyle="Italic" Height="25"></TextBox>

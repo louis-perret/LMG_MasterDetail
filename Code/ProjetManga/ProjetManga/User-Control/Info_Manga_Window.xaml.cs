@@ -47,6 +47,7 @@ namespace ProjetManga
             if(result==MessageBoxResult.OK)
             {
                 Gestionnaire.SupprimerManga(l, l.MangaCourant, l.MangaCourant.Genre);
+                Gestionnaire.SupprimerFavoriManga(l, l.MangaCourant, l.CompteCourant);
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             
@@ -57,6 +58,8 @@ namespace ProjetManga
            if(l.CompteCourant.LesFavoris.Contains(l.MangaCourant))
             {
                 Gestionnaire.SupprimerFavoriManga(l, l.MangaCourant, l.CompteCourant);
+                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION); //la suppression ne se fait pas quand on revient sur la page, il faut changer puis revenir
+               
             }
             else
             {
@@ -70,6 +73,10 @@ namespace ProjetManga
          
             var noteWindow = new Note_Window();
             noteWindow.ShowDialog();
+        }
+        private void Click_Retour_Arriere(object sender, RoutedEventArgs e)
+        {
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }
     }
 }

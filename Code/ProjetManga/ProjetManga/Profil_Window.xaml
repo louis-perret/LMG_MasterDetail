@@ -43,7 +43,7 @@
             <!--Photo de profil -->
         </Grid>
 
-
+        
         <StackPanel Grid.Column="1">
             <WrapPanel Margin="0,10,10,20">
                 <TextBlock Text="Nom" Margin="0,0,10,0"/>
@@ -58,6 +58,7 @@
             </WrapPanel>
             
             <WrapPanel Margin="0,10">
+                <TextBlock Text="Format : JJ/MM/AAAA ou JJ-MM-AAAA ou JJ MM AAAA" FontSize="7" />
                 <TextBlock Text="Date de naissance" Margin="0,0,16,0" />
                 <TextBox x:Name="dateNaissance_text" DockPanel.Dock="Right" Width="70" MaxHeight="20" HorizontalAlignment="Left"/>
             </WrapPanel>

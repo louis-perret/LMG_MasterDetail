@@ -12,6 +12,14 @@
             <Setter Property="BorderBrush" Value="#FF728BCF"/>
         </Style>
 
+        <Style TargetType="TextBlock" x:Key="ListBoxGenre">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="40,10,40,10"></Setter>
+            <Setter Property="Padding" Value="45,10,45,10"></Setter>
+            <Setter Property="Background" Value="#FF7FBFF7"/>
+            
+        </Style>
+
         <Style TargetType="TextBlock" x:Key="TextMargin">
             <Setter Property="Margin" Value="10,10,10,0"/>
             <Setter Property="FontFamily" Value="Century"/>

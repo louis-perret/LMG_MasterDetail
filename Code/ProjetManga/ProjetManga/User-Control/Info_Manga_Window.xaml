@@ -24,7 +24,12 @@
         
          <StackPanel >
             <WrapPanel>
-                <Button Width="20" Height="20" HorizontalAlignment="Left" Click="Button_Supprimer_Manga" >
+                    <Button Width="30" Height="30" HorizontalAlignment="Left" Click="Click_Retour_Arriere" Margin="0,0,10,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Image;Component/Image/fleche.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Width="20" Height="20" HorizontalAlignment="Left" Click="Button_Supprimer_Manga" >
                     <Button.Background>
                             <ImageBrush ImageSource="/Image;Component/Image/poubelle.png" Stretch="Fill"/>
                     </Button.Background>
@@ -55,8 +60,8 @@
                         <TextBlock Text="{Binding MangaCourant.MoyenneNote, StringFormat='Note : {0}/10'}"   Style="{StaticResource Intitule}"></TextBlock>
                     </StackPanel>
                 <WrapPanel DockPanel.Dock="Right">
-                <Button Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Ajout_Favori" >
-                    <Button.Background>
+                <Button x:Name="favCoeur" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Click_Ajout_Favori" >
+                    <Button.Background  >
                                 <ImageBrush ImageSource="/Image;Component/Image/c.png"/>
                     </Button.Background>
                 </Button>

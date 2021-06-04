@@ -90,7 +90,19 @@ namespace Modele
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
 
-       
+        private Manga meilleurManga;
+        public Manga MeilleurManga
+        {
+            get => meilleurManga;
+            set
+            {
+                if (meilleurManga != value)
+                {
+                    meilleurManga = value;
+                    OnPropertyChanged(nameof(MeilleurManga));
+                }
+            }
+        }
 
         /// <summary>
         /// Constructeur de la classe
