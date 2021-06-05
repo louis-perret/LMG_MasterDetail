@@ -177,8 +177,11 @@ namespace Modele
         /// </summary>
         /// <param name="m">Manga a ajouter</param>
         /// <param name="g">Genre du manga pour le placer dans la bonne clé</param>
-        public void AjouterManga(Manga m, Genre g) //a modifier a terme
+        
+        public void AjouterManga(string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime? dTome, int nbTome, string couv, string synop, Genre g)
         {
+
+            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop,g.NomGenre);
             foreach(KeyValuePair<Genre,SortedSet<Manga>> kvp in CollectionManga)
             {
                 if (kvp.Key.Equals(g))
@@ -191,6 +194,16 @@ namespace Modele
                 ListeParGenre(g);
             }
         }
+/*
+        public static void AjouterManga(Listes l, string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime? dTome, int nbTome, string couv, string synop, GenreDispo g)
+        {
+            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop, g);
+            l.AjouterManga(m, l.RecupererGenre(g));
+        }
+
+        */
+
+
         /// <summary>
         /// Permet supprimer un manga dans le dictionnaire
         /// </summary>
@@ -238,13 +251,16 @@ namespace Modele
             }
         }
 
+        
+
+
         /// <summary>
         /// Permet d'ajouter un avis a un manga
         /// </summary>
         /// <param name="a">Avis </param>
         /// <param name="g">Genre du manga pour le retrouver dans le dictionnaire</param>
         /// <param name="m">Manga qui va recevoir l'avis</param>
-        public void AjouterAvis(Avis a, Genre g, Manga m)
+        public void AjouterAvis(Compte util, string comm, int note, Genre g, Manga m)
         {
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
@@ -254,12 +270,14 @@ namespace Modele
                     {
                         if (man.Equals(m))
                         {
+                            Avis a = new Avis(comm, note, util);
                             man.AjouterAvis(a);
                         }
                     }
                 }
             }
         }
+
 
         /// <summary>
         /// Cherche le meilleur manga = meilleure note de tous
@@ -325,13 +343,15 @@ namespace Modele
         /// Permet d'ajouter un utilisateur
         /// </summary>
         /// <param name="c">Compte à ajouter</param>
-        public void AjouterUtilisateur(Compte c)
-        {            
+        public void AjouterUtilisateur(string pse, string dateN, string mdp, GenreDispo[] g, string photo_profil)
+        {
+            Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g, photo_profil);
             if(!listeCompte.Contains(c))
             {
                 listeCompte.Add(c);
             }
         }
+
 
         /// <summary>
         /// Appel la méthode Compte pour ajouter un Manga favori à la liste de favori d'un Compte
@@ -361,6 +381,39 @@ namespace Modele
             {
                 ListeMangaCourant.Add(m);
             }
+        }
+
+        public void GenreAuHasard(Listes l, out Genre g)
+        {
+            Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
+
+            Array genreDispo = Enum.GetValues(typeof(GenreDispo));
+            Random random = new Random();
+            int index = random.Next(1, 4);
+            GenreDispo gd = (GenreDispo)genreDispo.GetValue(index);
+            g = l.RecupererGenre(gd);
+            l.ListeParGenre(g);
+        }
+
+        public Manga MangaDuMoment(Listes l)
+        {
+            Manga m = l.ChercherMeilleurManga();
+            return m;
+        }
+
+        public Manga RechercherMangaParNom(string nomManga)
+        {
+            Manga m = null;
+            foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
+            {
+                var Manga = kvp.Value.Where(manga => manga.TitreOriginal.ToLower().Equals(nomManga.ToLower()));
+                if (Manga.Count<Manga>() != 0)
+                {
+                    m = Manga.FirstOrDefault();
+                    return m;
+                }
+            }
+            return m;
         }
 
         /// <summary>

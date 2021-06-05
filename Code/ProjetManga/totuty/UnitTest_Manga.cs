@@ -15,9 +15,9 @@ namespace TestUnitaire.cs
         [Fact]
         public void TestEqualsManga()
         {
-            Listes l1 = stub.Load("");
+            Listes l1 = stub.Load();
 
-            Manga m = Gestionnaire.RechercherMangaParNom(l1, "one piece");
+            Manga m = l1.RechercherMangaParNom("one piece");
             Manga m2 = new Manga("onePiece", "altertest", "eichiro", "dessinateur", "maisone", "maisone2", new DateTime(2020), new DateTime(2021), 33, "dossier/test/", "il etait une fois",GenreDispo.Shonen);
             Manga m3 = new Manga("One Piece", "One Piece", "Eiichirõ Oda", "Eiichirõ Oda", "Shueisha", "Glénat", new DateTime(1997, 06, 22), null, 98, "couvertureOnePiece.png", "Monkey D. Luffy rêve de retrouver ce trésor légendaire et de devenir le nouveau 'Roi des Pirates'. Après avoir mangé un fruit du démon, il possède un pouvoir lui permettant de réaliser son rêve. Il lui faut maintenant trouver un équipage pour partir à l'aventure !", GenreDispo.Shonen);
             

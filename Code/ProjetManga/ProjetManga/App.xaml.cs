@@ -22,11 +22,11 @@ namespace ProjetManga
         public Navigation Navigator { get; set; }
         public App()
         {
-            l = new Stub("").Load();
-            sauveur.Save(l);
-            
-            //l = chargeur.Load();
+            //l = new Stub("").Load();
             //sauveur.Save(l);
+            
+            l = chargeur.Load();
+            sauveur.Save(l);
             Navigator = new Navigation();           
         }
 

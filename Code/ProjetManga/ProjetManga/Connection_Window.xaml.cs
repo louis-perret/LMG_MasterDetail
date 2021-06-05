@@ -39,7 +39,7 @@ namespace ProjetManga
         private void Button_Connexion(object sender, RoutedEventArgs e)
         {
 
-            if (!Gestionnaire.ChercherUtilisateur(l, nom_texte.Text, mdp_texte.Password))
+            if (!l.ChercherUtilisateur( nom_texte.Text, mdp_texte.Password))
             {
                 MessageBox.Show("Ce compte n'existe pas", "Connexion", MessageBoxButton.OK);
                 nom_texte.Text = null;

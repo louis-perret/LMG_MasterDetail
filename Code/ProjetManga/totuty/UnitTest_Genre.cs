@@ -15,7 +15,7 @@ namespace TestUnitaire.cs
              Genre genre1 = new Genre("Description Shonen", g);*/
 
             Stub stub = new Stub("");
-            Listes l1 = stub.Load("");
+            Listes l1 = stub.Load();
 
 
             Genre genreTest = new Genre("Le mot « Shonen » signifie en japonais « garçon et adolescent ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public jeune de sexe masculin.", GenreDispo.Shonen);

@@ -13,7 +13,7 @@ namespace TestUnitaire.cs
         public void TestAge()
         {
             
-            Listes l1 = stub.Load("");
+            Listes l1 = stub.Load();
 
             Assert.Equal(18, l1.ListeCompte[0].Age);
 
@@ -22,7 +22,7 @@ namespace TestUnitaire.cs
         [Fact]
         public void TestFavori()
         {
-            Listes l1 = stub.Load("");
+            Listes l1 = stub.Load();
 
             /*Compte u = Gestionnaire.ChercherUtilisateur(l1, "Nicolas", "azerty123");
             Manga m = Gestionnaire.RechercherMangaParNom(l1, "one piece");

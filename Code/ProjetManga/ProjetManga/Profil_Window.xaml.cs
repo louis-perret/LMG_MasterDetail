@@ -48,7 +48,7 @@ namespace ProjetManga
             {
                 tabGenre[i] = (combo2.SelectedItem as Genre).NomGenre;
             }
-            Gestionnaire.AjouterUtilisateur(l, nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre,imageName); //On a une méthode pour ajouter un utilisateur, autant s'en servir !
+            l.AjouterUtilisateur(nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre,imageName); //On a une méthode pour ajouter un utilisateur, autant s'en servir !
             
             Button_CloseWindow(sender, e);
         }

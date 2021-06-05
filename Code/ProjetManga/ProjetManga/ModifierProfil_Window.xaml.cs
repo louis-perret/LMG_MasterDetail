@@ -44,7 +44,7 @@ namespace ProjetManga
         {
             
             //l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre } ); 
-            Gestionnaire.ModifierProfil(l,l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre });
+            l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre });
             //les genres sont recupérés mais le binding ne se fait pas sur le tableau
             Close();
         }

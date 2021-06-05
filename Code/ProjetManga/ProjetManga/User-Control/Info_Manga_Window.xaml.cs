@@ -46,8 +46,8 @@ namespace ProjetManga
             MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel,MessageBoxImage.Question);
             if(result==MessageBoxResult.OK)
             {
-                Gestionnaire.SupprimerManga(l, l.MangaCourant, l.MangaCourant.Genre);
-                Gestionnaire.SupprimerFavoriManga(l, l.MangaCourant, l.CompteCourant);
+                l.SupprimerManga( l.MangaCourant, l.RecupererGenre(l.MangaCourant.Genre));
+                l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             
@@ -57,13 +57,13 @@ namespace ProjetManga
         {
            if(l.CompteCourant.LesFavoris.Contains(l.MangaCourant))
             {
-                Gestionnaire.SupprimerFavoriManga(l, l.MangaCourant, l.CompteCourant);
+                l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION); //la suppression ne se fait pas quand on revient sur la page, il faut changer puis revenir
                
             }
             else
             {
-                Gestionnaire.AjouterFavoriManga(l, l.MangaCourant, l.CompteCourant);
+                l.AjouterFavoriManga( l.MangaCourant, l.CompteCourant);
             }
            
         }

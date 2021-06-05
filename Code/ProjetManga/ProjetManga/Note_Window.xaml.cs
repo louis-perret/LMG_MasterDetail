@@ -40,7 +40,7 @@ namespace ProjetManga
                 MessageBoxResult result = MessageBox.Show(e1.Message, "Erreur", MessageBoxButton.OK);
             }
             */
-            Gestionnaire.AjouterAvis(l, l.CompteCourant, avis_text.Text, note, l.MangaCourant.Genre, l.MangaCourant);
+            l.AjouterAvis(l.CompteCourant, avis_text.Text, note, l.RecupererGenre(l.MangaCourant.Genre), l.MangaCourant);
             l.MeilleurManga = l.ChercherMeilleurManga();
             Close();
             

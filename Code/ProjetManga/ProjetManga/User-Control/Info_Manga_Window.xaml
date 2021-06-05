@@ -86,6 +86,7 @@
                                     <TextBlock Text="{Binding Util.Pseudo, StringFormat='De {0},'}" FontSize="16"/>
                                     <TextBlock Text="{Binding Date, StringFormat=' écrit le {0} : '}" FontSize="16"/>
                                     <TextBlock Text="{Binding Commentaire}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Note, StringFormat='          Note : {0}/10 '}" FontSize="16"/>
                                 </WrapPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

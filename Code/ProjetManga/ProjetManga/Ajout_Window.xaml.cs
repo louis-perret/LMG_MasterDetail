@@ -64,7 +64,7 @@ namespace ProjetManga
             
             GenreDispo g = (comboGenre.SelectedItem as Genre).NomGenre;
             int nb = Int32.Parse(NbTome_text.Text);          
-            Gestionnaire.AjouterManga(l, to_text.Text, ta_text.Text, auteur_text.Text, dess_text.Text, maisonJ_text.Text, maisonFr_text.Text, p, d, nb, imageName, syno_text.Text, g);
+            l.AjouterManga( to_text.Text, ta_text.Text, auteur_text.Text, dess_text.Text, maisonJ_text.Text, maisonFr_text.Text, p, d, nb, imageName, syno_text.Text,l.RecupererGenre(g));
             Close();
         }
 
