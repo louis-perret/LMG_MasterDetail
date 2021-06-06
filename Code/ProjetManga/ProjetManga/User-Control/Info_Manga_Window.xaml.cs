@@ -78,5 +78,11 @@ namespace ProjetManga
         {
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }
+
+        public void SetColor(SolidColorBrush b)
+        {
+            fond.Background = b;
+            
+        }
     }
 }

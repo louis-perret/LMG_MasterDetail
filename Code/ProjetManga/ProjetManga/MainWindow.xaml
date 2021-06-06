@@ -93,7 +93,7 @@
                 <Button Name="fav_button" Content="Favoris ♥" Background="IndianRed" FontSize="16" FontFamily="Dubai" FontWeight="Normal" BorderBrush="Black" BorderThickness="2" Click="Button_Click_ListeFavoris">
 
                 </Button>
-                <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219" Checked="Click_Dark_Mode"  />
+                <CheckBox Name="mode_button" Content="Mode nuit" FontFamily="Dubai" FontSize="16"  Width="219" Checked="Click_Dark_Mode" Unchecked="Click_Dark_Mode" />
 
                 <Button Name="settings_button" Content="Paramètres" FontFamily="Dubai" FontWeight="Normal" FontSize="16" Background="#FFD1D1D1" Click="Settings_button_Click" BorderBrush="Black" BorderThickness="2" />
 

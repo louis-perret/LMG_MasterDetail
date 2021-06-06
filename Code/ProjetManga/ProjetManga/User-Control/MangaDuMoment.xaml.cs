@@ -29,5 +29,10 @@ namespace ProjetManga
             l.MeilleurManga = l.ChercherMeilleurManga();
             DataContext = l; //il faut faire un binding sur le resultat de  cette méthode
         }
+
+        public void SetColor(SolidColorBrush b)
+        {
+            this.mangaDuMomentFond.Background = b;
+        }
     }
 }

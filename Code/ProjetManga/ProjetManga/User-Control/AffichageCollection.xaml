@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="600">
     <!--UserControl pour afficher chaque élément de notre collection lorsqu'on affiche nos favoris ou les mangas d'un genre choisi.-->
-    <DockPanel>
+    <DockPanel x:Name="fond" Background="#FFD5E0E8">
      <StackPanel  DockPanel.Dock="Top">
-            <TextBlock TextWrapping="Wrap" Text="{Binding GenreCourant.Description, StringFormat='Description du genre : {0}'}"  Height="80" FontSize="20" Background="#FFD5E0E8"/>
+            <TextBlock TextWrapping="Wrap" Text="{Binding GenreCourant.Description, StringFormat='Description du genre : {0}'}"  Height="80" FontSize="20" />
            
                 
                 <Button Width="30" Height="30" HorizontalAlignment="Left" Click="Click_Ajouter_Manga">
@@ -19,7 +19,7 @@
                 </Button>
            
         </StackPanel>
-        <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}" SelectionChanged="AffichageDuMangaSelectionne"  >
+        <ListBox x:Name="bas" DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}" SelectionChanged="AffichageDuMangaSelectionne"  >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>

@@ -14,7 +14,7 @@
     </UserControl.Resources>
     <!-- User control à finir -->
     <ScrollViewer>
-        <Grid  Background="#FFE2F3F3" >
+        <Grid x:Name="fond" Background="#FFE2F3F3" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="1.6*"/>

@@ -47,6 +47,11 @@ namespace ProjetManga
                       
         }
 
-        
+        public void SetColor(SolidColorBrush b)
+        {
+            fond.Background = b;
+            bas.Background = b;
+           
+        }
     }
 }

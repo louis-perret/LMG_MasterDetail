@@ -16,6 +16,7 @@ using Modele;
 using Data;
 using System.ComponentModel;
 
+
 namespace ProjetManga
 {
     /// <summary>
@@ -113,18 +114,36 @@ namespace ProjetManga
 
         private void Click_Dark_Mode(object sender, RoutedEventArgs e)
         {
-            if(mode_button.IsChecked==true)
+            
+            Navigation.DicoUC.TryGetValue(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT, out UserControl u1);
+            Navigation.DicoUC.TryGetValue(Navigation.UC_AFFICHAGE_COLLECTION, out UserControl u2);
+            Navigation.DicoUC.TryGetValue(Navigation.UC_Affichage_INFO_MANGA, out UserControl u3);
+
+            if (mode_button.IsChecked==true)
             {
                 mainCoteDroit.Background = Brushes.DarkGray;
                 mainCoteGauche.Background = Brushes.DarkGray;
                 genreClick.Background = Brushes.DarkGray;
-                
+                ((MangaDuMoment)u1).SetColor(Brushes.DarkGray);
+                ((AffichageCollection) u2).SetColor(Brushes.DarkGray);
+                ((Info_Manga_Window)u3).SetColor(Brushes.DarkGray);
+
+                u3.Background = Brushes.DarkGray;
+
             }
-            if (mode_button.IsChecked == false) //marche pas
+            else 
+               
             {
-                mainCoteDroit.Background = Brushes.White;
-                mainCoteGauche.Background = Brushes.White;
-                genreClick.Background = Brushes.White;
+                SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(208, 224, 232));
+                mainCoteDroit.Background = brush;
+                mainCoteGauche.Background = brush;
+                genreClick.Background = brush;
+
+                ((MangaDuMoment)u1).SetColor(brush);
+                ((AffichageCollection)u2).SetColor(brush);
+                ((Info_Manga_Window)u3).SetColor(brush);
+
+                u3.Background = brush;
             }
 
         }

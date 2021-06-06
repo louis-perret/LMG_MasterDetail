@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         
         <Border BorderThickness="2" BorderBrush="Black" Margin="5" MinHeight="50" MinWidth="240" MaxHeight="100" MaxWidth="240" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <DockPanel Grid.RowSpan="2">
+        <DockPanel  Grid.RowSpan="2">
             <TextBlock DockPanel.Dock="Top" Text="Manga du moment" MinHeight="50" MaxHeight="50" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="25"  TextWrapping="Wrap" Margin="10" Padding="2" Foreground="#FF0B0B0B" FontWeight="Bold"/>
             <StackPanel DockPanel.Dock="Bottom" Margin="20,0,0,0">
                 <TextBlock Text="Synopsis" FontSize="20" TextDecorations="Underline"  FontWeight="UltraBold"/>

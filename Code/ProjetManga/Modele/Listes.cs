@@ -389,7 +389,7 @@ namespace Modele
 
             Array genreDispo = Enum.GetValues(typeof(GenreDispo));
             Random random = new Random();
-            int index = random.Next(1, 4);
+            int index = random.Next(0, 4);
             GenreDispo gd = (GenreDispo)genreDispo.GetValue(index);
             g = l.RecupererGenre(gd);
             l.ListeParGenre(g);
