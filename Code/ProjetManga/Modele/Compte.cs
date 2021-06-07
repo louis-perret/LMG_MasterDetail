@@ -70,13 +70,23 @@ namespace Modele
                 if (genresPreferes != value)
                 {
                     genresPreferes = value;
-                    OnPropertyChanged(nameof(Pseudo));
+                    OnPropertyChanged(nameof(GenresPreferes));
                 }
 
             }
         }
         [DataMember]
-        public string ImageProfil { get; set; }
+
+        private string imageProfil;
+        public string ImageProfil
+        {
+            get => imageProfil;
+            set
+            {
+                imageProfil = value;
+                OnPropertyChanged(nameof(ImageProfil));
+            }
+        }
 
         /// <summary>
         /// Constructeur de la classe
@@ -88,11 +98,21 @@ namespace Modele
         /// <param name="genrepref">un utilisateur peut afficher sur son profil 0 à 2 genres qu'il affectionne</param>
         public Compte(string pseudo, string dateDeNaissance, DateTime dateInscription, string motDePasse, GenreDispo[] genrepref, string image)
         {
-            Pseudo = pseudo ?? throw new ArgumentNullException(nameof(pseudo));
-            dateNaissance = Convert.ToDateTime(dateDeNaissance);
-            
+            if (String.IsNullOrEmpty(pseudo) || String.IsNullOrEmpty(motDePasse))
+            {
+                throw new ArgumentException("Veuillez renseigner tous les champs");
+            }
+            Pseudo = pseudo;
+            try
+            {
+                dateNaissance = Convert.ToDateTime(dateDeNaissance);
+            }
+            catch(Exception e)
+            {
+                throw new ArgumentException("Veuillez entrer le bon format de date");
+            }
             DateInscription = dateInscription;
-            MotDePasse = motDePasse ?? throw new ArgumentNullException(nameof(motDePasse));
+            MotDePasse = motDePasse;
             GenresPreferes = genrepref;
 
             // lesFavoris = new ObservableCollection<Manga>();
@@ -100,7 +120,7 @@ namespace Modele
             LesFavoris = new ObservableCollection<Manga>();
             if (image == null)
             {
-                ImageProfil = "/Image/question.png";
+                ImageProfil = "/Image;Component/Image/question.png";
             }
             else
             {
@@ -142,10 +162,19 @@ namespace Modele
         /// </summary>
         /// <param name="newPseudo">le nouveau pseudo à mettre</param>
         /// <param name="genrePref">les nouveaux genres preferes à mettre</param>
-        public void ModifierProfil(string newPseudo, GenreDispo[] genrePref)
+        public void ModifierProfil(string newPseudo, GenreDispo[] genrePref, string imageName)
         {
+            if (String.IsNullOrEmpty(newPseudo))
+            {
+                throw new ArgumentException("Pseudo vide");
+            }
+            if (imageName == null)
+            {
+                imageName = "/Image;Component/Image/question.png";
+            }
             Pseudo = newPseudo;
             GenresPreferes = genrePref;
+            ImageProfil = imageName;
         }
 
         /// <summary>

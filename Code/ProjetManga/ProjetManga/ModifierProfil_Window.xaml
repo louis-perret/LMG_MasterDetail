@@ -34,7 +34,12 @@
             </Grid.RowDefinitions>
 
 
+            <Button Margin="2,2,2,2" BorderThickness="0" Click="Button_Changer_Image">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Image;Component/Image/modifier.png" Stretch="Uniform"/>
+                </Button.Background>
 
+            </Button>
 
 
             <Image Margin="40,10,40,10" Height="80" Width="70" Grid.Column="1" Grid.Row="1" x:Name="imageProfil" Source="{Binding ImageProfil}"/>
@@ -48,14 +53,6 @@
                 <TextBox DockPanel.Dock="Right" x:Name="nom_text" Width="70" MaxHeight="20" HorizontalAlignment="Left" Text="{Binding Pseudo}" />
             </WrapPanel>
 
-            <!--<WrapPanel Margin="0,0,10,10">
-                <TextBlock Text="Mot de passe" Margin="0,0,10,0" />
-                <TextBlock  DockPanel.Dock="Right" Width="70" MaxHeight="20" HorizontalAlignment="Left" Text="{Binding CompteCourant.MotDePasse}"  />
-
-            </WrapPanel>
-            
-            Un mot de passe ça ne s'affiche pas non ?-->
-            
             <WrapPanel>
                 <TextBlock Text="Age :" Margin="0,0,16,0"/>
                 <TextBlock x:Name="age_text" DockPanel.Dock="Right" Width="70" MaxHeight="20" HorizontalAlignment="Left" Text="{Binding Age}"/>
@@ -65,12 +62,6 @@
             <TextBlock Text="Genres préférés :"  />
 
             <ComboBox x:Name="combo1" Width="75" Margin="0,0,10,0"   ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre" >
-                
-                <!--<ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <ComboBoxItem 
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>-->
             </ComboBox>
 
             <ComboBox x:Name="combo2" Width="75" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre" />

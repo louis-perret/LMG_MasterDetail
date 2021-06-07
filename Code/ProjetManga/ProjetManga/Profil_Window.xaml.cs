@@ -22,7 +22,7 @@ namespace ProjetManga
     {
         public Listes l => (App.Current as App).l;
 
-        private string imageName;
+        private string imageName = null;
         public Profil_Window()
         {
             InitializeComponent();
@@ -36,35 +36,45 @@ namespace ProjetManga
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
-            GenreDispo[] tabGenre = new GenreDispo[2];
-            int i = 0;
+            List<GenreDispo> tabGenre = new List<GenreDispo>();
+          
             if(combo1.SelectedItem != null)
             {
-                tabGenre[i] =(combo1.SelectedItem as Genre).NomGenre;
-                i++;
+                tabGenre.Add((combo1.SelectedItem as Genre).NomGenre);
             }
-            
+
             if (combo2.SelectedItem != null)
             {
-                tabGenre[i] = (combo2.SelectedItem as Genre).NomGenre;
+                GenreDispo g = (combo2.SelectedItem as Genre).NomGenre;
+                if (g != tabGenre[0])
+                {
+                    tabGenre.Add(g);
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez ne pas mettre deux fois le même genre", "Problème", MessageBoxButton.OK);
+                    return;
+                }
+
             }
-            l.AjouterUtilisateur(nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre,imageName); //On a une méthode pour ajouter un utilisateur, autant s'en servir !
-            
+            try
+            {
+                l.AjouterUtilisateur(nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre.ToArray(), imageName);
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Problème", MessageBoxButton.OK);
+                return;
+            }
+
+
             Button_CloseWindow(sender, e);
         }
 
         private void Button_Changer_Image(object sender, RoutedEventArgs e)
         {
-
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Choisissez votre photo de profil";
-            dialog.Filter = "Fichiers images | *.jpg;*.png;";
-            bool? resultat = dialog.ShowDialog();
-            if(resultat==true)
-            {
-                imageName = dialog.FileName;
-                imageProfil.Source = new BitmapImage(new Uri( imageName));
-            }
+            imageName = (App.Current as App).Button_Changer_Image();
+            if(imageName != null) imageProfil.Source = new BitmapImage(new Uri(imageName));
         }
     }
 }

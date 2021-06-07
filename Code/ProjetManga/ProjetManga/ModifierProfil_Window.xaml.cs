@@ -24,13 +24,13 @@ namespace ProjetManga
         public Listes l => (App.Current as App).l; //Pointe sur le même l de toutes l'application
         public Compte LeCompte { get; set; }
 
+        string imageName;
         
         public ModifierProfil()
         {
             InitializeComponent();
-            combo1.SelectedIndex = 1;
-            var c = l.CompteCourant;
-            LeCompte = new Compte(c.Pseudo, c.dateNaissance.ToString(), c.DateInscription, c.MotDePasse, c.GenresPreferes, c.ImageProfil);
+            LeCompte = new Compte(l.CompteCourant.Pseudo, l.CompteCourant.dateNaissance.ToString(), l.CompteCourant.DateInscription, l.CompteCourant.MotDePasse, l.CompteCourant.GenresPreferes, l.CompteCourant.ImageProfil);
+            imageName = LeCompte.ImageProfil;
             DataContext = LeCompte;
             WrapGenre.DataContext = l;
         }
@@ -42,13 +42,43 @@ namespace ProjetManga
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
-            
-            //l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre } ); 
-            l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, new GenreDispo[] { (combo1.SelectedItem as Genre).NomGenre, (combo2.SelectedItem as Genre).NomGenre });
-            //les genres sont recupérés mais le binding ne se fait pas sur le tableau
-            Close();
+            List<GenreDispo> tabGenre = new List<GenreDispo>();
+
+            if (combo1.SelectedItem != null)
+            {
+                tabGenre.Add((combo1.SelectedItem as Genre).NomGenre);
+            }
+
+            if (combo2.SelectedItem != null)
+            {
+                GenreDispo g = (combo2.SelectedItem as Genre).NomGenre;
+                if (g  != tabGenre[0])
+                {
+                    tabGenre.Add(g);
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez ne pas mettre deux fois le même genre", "Problème", MessageBoxButton.OK);
+                    return;
+                }
+                
+            }
+            try
+            {
+                l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, tabGenre.ToArray(), imageName);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Problème", MessageBoxButton.OK);
+                return;
+            }
+            Button_CloseWindow(sender,e);
         }
 
-        
+        private void Button_Changer_Image(object sender, RoutedEventArgs e)
+        {
+            imageName = (App.Current as App).Button_Changer_Image();
+            if(imageName != null) imageProfil.Source = new BitmapImage(new Uri(imageName));
+        }
     }
 }

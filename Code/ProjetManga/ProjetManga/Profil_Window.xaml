@@ -67,12 +67,6 @@
             <TextBlock Text="Genres préférés :"  />
 
             <ComboBox x:Name="combo1" Width="75" Margin="0,0,10,0" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre">
-                
-                <!--<ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <ComboBoxItem 
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>-->
             </ComboBox>
 
             <ComboBox x:Name="combo2" Width="75" ItemsSource="{Binding ListeGenre}" DisplayMemberPath="NomGenre"/>

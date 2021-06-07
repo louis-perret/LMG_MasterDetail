@@ -308,13 +308,20 @@ namespace Modele
         /// <param name="oldPseudo">ancien pseudo</param>
         /// <param name="newPseudo">nouveau pseudo qu'on souhaite</param>
         /// <param name="genrePref">genres preferes qu'on souhaite </param>
-        public void ModifierProfil(string oldPseudo, string newPseudo, GenreDispo[] genrePref)
+        public void ModifierProfil(string oldPseudo, string newPseudo, GenreDispo[] genrePref, string imageName)
         {
             foreach(Compte compte in ListeCompte)
             {
                 if (compte.Pseudo.Equals(oldPseudo))
                 {
-                    compte.ModifierProfil(newPseudo, genrePref);
+                    try
+                    {
+                        compte.ModifierProfil(newPseudo, genrePref, imageName);
+                    }
+                    catch(Exception e)
+                    {
+                        throw new ArgumentException(e.Message);
+                    }
                 }
             }
         }
@@ -345,11 +352,18 @@ namespace Modele
         /// <param name="c">Compte à ajouter</param>
         public void AjouterUtilisateur(string pse, string dateN, string mdp, GenreDispo[] g, string photo_profil)
         {
-            Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g, photo_profil);
-            if(!listeCompte.Contains(c))
+            try
             {
-                listeCompte.Add(c);
+                Compte c = new Compte(pse, dateN, DateTime.Today, mdp, g, photo_profil);
+                if (!listeCompte.Contains(c))
+                {
+                    listeCompte.Add(c);
+                }
             }
+            catch(Exception e)
+            {
+                throw new ArgumentException(e.Message);
+            }          
         }
 
 

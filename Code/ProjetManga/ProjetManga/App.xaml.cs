@@ -1,4 +1,5 @@
 ﻿using Data;
+using Microsoft.Win32;
 using Modele;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,19 @@ namespace ProjetManga
             Navigator = new Navigation();           
         }
 
-        
+        public string Button_Changer_Image()
+        {
+            string imageName = null;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Choisissez votre photo de profil";
+            dialog.Filter = "Fichiers images | *.jpg;*.png;";
+            bool? resultat = dialog.ShowDialog();
+            if (resultat == true)
+            {
+                imageName = dialog.FileName;               
+            }
+            
+            return imageName;
+        }
     }
 }
