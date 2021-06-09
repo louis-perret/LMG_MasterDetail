@@ -31,23 +31,6 @@ namespace ProjetManga
             //MainPart = mainPart;
         }
 
-        /* public void NavigationTo(string nomUC,ContentControl contentControl)
-         {
-             if(contentControl != null)
-             {
-                 MainPart = contentControl; //Permet de toujours garder le ContentControl de MainWindow
-             }          
-
-             if (DicoUC.TryGetValue(nomUC, out UserControl u))
-             {
-                 if (nomUC == UC_Affichage_INFO_MANGA)
-                 {
-                     u.DataContext = l.MangaCourant;
-                 }
-                 MainPart.Content = u;
-
-             }
-         }*/
         public void NavigationTo(string nomUC)
         {
             SelectedUserControl = DicoUC.GetValueOrDefault(nomUC);

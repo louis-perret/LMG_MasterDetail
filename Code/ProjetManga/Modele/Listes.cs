@@ -118,7 +118,7 @@ namespace Modele
             collectionManga = cManga;
             CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
             ListeGenre = lGenre;
-            
+            ChercherMeilleurManga();
         }
 
         public Listes()
@@ -178,7 +178,7 @@ namespace Modele
         /// <param name="m">Manga a ajouter</param>
         /// <param name="g">Genre du manga pour le placer dans la bonne clé</param>
         
-        public void AjouterManga(string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime? dTome, int nbTome, string couv, string synop, Genre g)
+        public void AjouterManga(string to, string ta, string au, string dess, string maisJ, string maisFr, string pTome, string dTome, int nbTome, string couv, string synop, Genre g)
         {
 
             Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop,g.NomGenre);
@@ -211,6 +211,10 @@ namespace Modele
         /// <param name="g">Genre du manga pour le supprimer au niveau de la bonne clé</param>
         public void SupprimerManga(Manga m, Genre g) /// a modifier a terme
         {
+            foreach (Compte c in ListeCompte)
+            {
+                c.SupprimerFavori(MangaCourant);
+            }
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
                 if (kvp.Key.Equals(g))
@@ -221,7 +225,9 @@ namespace Modele
                     }
                 }
                 ListeParGenre(g);
+                ChercherMeilleurManga();
             }
+            
         }
 
         /// <summary>
@@ -233,7 +239,7 @@ namespace Modele
         /// <param name="nbTome">nombre de tome</param>
         /// <param name="couv">lien vers l'image de couverture</param>
         /// <param name="synop">texte permetant de lancer l'intrigue du manga</param>
-        public void ModifierManga(Genre g, string to, DateTime? dTome, int nbTome, string couv, string synop)
+        public void ModifierManga(Genre g, string to, string dTome, int nbTome, string couv, string synop)
         {
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
@@ -276,6 +282,7 @@ namespace Modele
                     }
                 }
             }
+            ChercherMeilleurManga();
         }
 
 
@@ -283,9 +290,9 @@ namespace Modele
         /// Cherche le meilleur manga = meilleure note de tous
         /// </summary>
         /// <returns>Manga le plus apprecié</returns>
-        public Manga ChercherMeilleurManga()
+        public void ChercherMeilleurManga()
         {
-            Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", new DateTime(2000), new DateTime(2001), 1, "/test/", "testtest",GenreDispo.Shonen);
+            Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", "01/01/2000", "01/01/2000", 1, "/test/", "testtest",GenreDispo.Shonen);
 
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
@@ -298,7 +305,7 @@ namespace Modele
                     }
                 }
             }
-            return leMeilleur;
+            MeilleurManga = leMeilleur;
 
         }
 
@@ -397,7 +404,7 @@ namespace Modele
             }
         }
 
-        public void GenreAuHasard(Listes l, out Genre g)
+        public void GenreAuHasard()
         {
             Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
 
@@ -405,14 +412,8 @@ namespace Modele
             Random random = new Random();
             int index = random.Next(0, 4);
             GenreDispo gd = (GenreDispo)genreDispo.GetValue(index);
-            g = l.RecupererGenre(gd);
-            l.ListeParGenre(g);
-        }
-
-        public Manga MangaDuMoment(Listes l)
-        {
-            Manga m = l.ChercherMeilleurManga();
-            return m;
+            GenreCourant = RecupererGenre(gd);
+            ListeParGenre(GenreCourant);
         }
 
         public Manga RechercherMangaParNom(string nomManga)

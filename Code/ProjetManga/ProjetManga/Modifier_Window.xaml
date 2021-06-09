@@ -30,63 +30,29 @@
         <WrapPanel Grid.Row="1" Grid.Column="1">
             <Image Height="160" Width="140" Source="{Binding Couverture}" x:Name="imageManga" ></Image>
             <StackPanel>
+                <TextBlock Text="Format : JJ/MM/AAAA ou JJ-MM-AAAA ou JJ MM AAAA" FontSize="8" Margin="10,10,0,0"/>
                 <WrapPanel>
-                    <TextBlock Text="Titre original" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding TitreOriginal }"></TextBlock>
+                    <TextBlock Text="Dernier tome (facultatif)" Margin="10,0,10,10"></TextBlock>
+                    <TextBox x:Name="modif_dTome" Width="100" Margin="10,0,10,10" ></TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock Text="Titre alternatif" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding TitreAlternatif }" ></TextBlock>
-                </WrapPanel>
-                <WrapPanel>
-                    <TextBlock Text="Auteur(s)" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding Auteur }" ></TextBlock>
-                </WrapPanel>
-                <WrapPanel>
-                    <TextBlock Text="Dessinateur(s)" Style="{StaticResource TextMargin}"></TextBlock>
-                    <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding TitreOriginal  }" ></TextBlock>
+                    <TextBlock Text="Nombre de tome" Style="{StaticResource TextMargin}"></TextBlock>
+                    <TextBox x:Name="modif_nb" Width="25" Margin="0,10,0,0" Text="{Binding NombreTome }"></TextBox>
                 </WrapPanel>
             </StackPanel>
         </WrapPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
-
-            <WrapPanel>
-                <TextBlock Text="Maison d'édition Japonaise" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionJap }" ></TextBlock>
-            </WrapPanel>
-
-            <WrapPanel>
-                <TextBlock Text="Maison d'édition Française" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding MaisonEditionFr }"></TextBlock>
-            </WrapPanel>
-
-            <WrapPanel>
-                <TextBlock Text="Premier tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBlock Width="100" Margin="0,10,0,0" Text="{Binding PremierTome }" ></TextBlock>
-                <TextBlock Text="Nombre de tome" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox x:Name="modif_nb" Width="25" Margin="0,10,0,0" Text="{Binding NombreTome }"></TextBox>
-            </WrapPanel>
-            <TextBlock Text="Format : JJ/MM/AAAA ou JJ-MM-AAAA ou JJ MM AAAA" FontSize="8" Margin="10,10,0,0"/>
-            <WrapPanel>
-                <TextBlock Text="Dernier tome (facultatif)" Margin="10,0,10,10"></TextBlock>
-                <TextBox x:Name="modif_dTome" Width="100" Margin="10,0,10,10" Text="{Binding DernierTome }" ></TextBox>
-                <TextBlock Text="Genre" Margin="10,0,10,10"></TextBlock>
-                <TextBlock Width="70" Margin="10,0,10,10" Text="{Binding Genre }" ></TextBlock>
-            </WrapPanel>
-
             <WrapPanel>
                 <TextBlock Text="Synopsis" Style="{StaticResource TextMargin}"></TextBlock>
-                <TextBox x:Name="modif_syno" Width="300" Height="80" Margin="0,10,0,0" Text="{Binding Synopsis }"></TextBox>
-                
+                <TextBox x:Name="modif_syno" Width="300" MinHeight="80" Margin="0,10,0,0" Text="{Binding Synopsis }" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
             </WrapPanel>
             
-            
-        </StackPanel>
 
+        </StackPanel>
         <Button Content="Annuler" Grid.Row="3" Width="100"  HorizontalAlignment="Left" Grid.ColumnSpan="2" Click="Annuler_Click"/>
         <Button Grid.Row="3" Width="100"  HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource ButtonValider}" Click="Valider_Click"/>
-
+        
 
 
     </Grid>

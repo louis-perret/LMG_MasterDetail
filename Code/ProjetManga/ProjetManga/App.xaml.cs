@@ -35,7 +35,7 @@ namespace ProjetManga
         {
             string imageName = null;
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Choisissez votre photo de profil";
+            dialog.Title = "Choisissez votre photo";
             dialog.Filter = "Fichiers images | *.jpg;*.png;";
             bool? resultat = dialog.ShowDialog();
             if (resultat == true)

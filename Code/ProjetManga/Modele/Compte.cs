@@ -26,11 +26,11 @@ namespace Modele
             get => pseudo;
             set
             {
-                if (pseudo != value)
-                {
+                //if (pseudo != value)
+               //{
                     pseudo = value;
                     OnPropertyChanged(nameof(Pseudo));
-                }
+                //}
 
             }
         }

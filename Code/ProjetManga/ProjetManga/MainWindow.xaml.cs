@@ -79,10 +79,9 @@ namespace ProjetManga
         private void Button_Click_Hasard(object sender, RoutedEventArgs e)
         {
 
-            Genre g;
-            l.GenreAuHasard(l,out g);
-            l.GenreCourant = g;
-            l.ListeParGenre(g);
+            //Genre g;
+            l.GenreAuHasard();
+            l.ListeParGenre(l.GenreCourant);
             //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
 

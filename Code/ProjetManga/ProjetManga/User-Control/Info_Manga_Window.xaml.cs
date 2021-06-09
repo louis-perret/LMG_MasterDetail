@@ -47,7 +47,7 @@ namespace ProjetManga
             if(result==MessageBoxResult.OK)
             {
                 l.SupprimerManga( l.MangaCourant, l.RecupererGenre(l.MangaCourant.Genre));
-                l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
+                //l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             

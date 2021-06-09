@@ -30,26 +30,30 @@ namespace Modele
         [DataMember]
         public string MaisonEditionFr { get; private set; }
 
+
+
         [DataMember]
         public DateTime PremierTome { get; private set; }
+        public string DatePremierTome
+        {
+            get => PremierTome.ToString("d");
+        }
 
         [DataMember]
-        private DateTime? dernierTome;
-        
-        public DateTime? DernierTome
+        //private DateTime dernierTome;
+        public DateTime DernierTome { get; private set; }
+        public string DateDernierTome
         {
-            get => dernierTome;
-            set
+            get
             {
-                if (dernierTome != value)
+                if(DernierTome == null)
                 {
-                    dernierTome = value;
-                    OnPropertyChanged(nameof(DernierTome));
+                    return "En cours de parutions";
                 }
-
+                return DernierTome.ToString("d");
             }
         }
-        //Le ? permet de dire que cette variable peut-être nulle
+
         [DataMember]
         private int nombreTome;
         public int NombreTome
@@ -101,6 +105,7 @@ namespace Modele
         }
         [DataMember]
         public GenreDispo Genre { get; private set; }
+
         [DataMember]
         public ObservableCollection<Avis> LesAvis { get; private set; } = new ObservableCollection<Avis>();
         //IList<Avis> lesAvis { get; set; }
@@ -150,19 +155,34 @@ namespace Modele
         /// <param name="couverture">Chemin du fichier de la couverture</param>
         /// <param name="synopsis">Synopsis de l'oeuvre</param>
         /// <param name="g">Genre du manga</param>
-        public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEditionJap, string maisonEditionFr, DateTime premierTome, DateTime? dernierTome, int nombreTome, string couverture, string synopsis, GenreDispo g)
+        public Manga(string titreOriginal, string titreAlternatif, string auteur, string dessinateur, string maisonEditionJap, string maisonEditionFr, string premierTome, string dernierTome, int nombreTome, string couverture, string synopsis, GenreDispo g)
         {
-            TitreOriginal = titreOriginal ?? throw new ArgumentNullException(nameof(titreOriginal));
-            TitreAlternatif = titreAlternatif ?? throw new ArgumentNullException(nameof(titreAlternatif));
-            Auteur = auteur ?? throw new ArgumentNullException(nameof(auteur));
-            Dessinateur = dessinateur ?? throw new ArgumentNullException(nameof(dessinateur));
-            MaisonEditionJap = maisonEditionJap ?? throw new ArgumentNullException(nameof(maisonEditionJap));
-            MaisonEditionFr = maisonEditionFr ?? throw new ArgumentNullException(nameof(maisonEditionFr));
-            PremierTome = premierTome;
-            DernierTome = dernierTome;
+            if(String.IsNullOrEmpty(titreOriginal) || String.IsNullOrEmpty(titreAlternatif) || String.IsNullOrEmpty(auteur) || String.IsNullOrEmpty(dessinateur) || String.IsNullOrEmpty(maisonEditionJap) || String.IsNullOrEmpty(maisonEditionFr)
+                || String.IsNullOrEmpty(synopsis))
+            {
+                throw new ArgumentException("Veuillez rentrer toutes les informations");
+            }
+            TitreOriginal = titreOriginal;
+            TitreAlternatif = titreAlternatif;
+            Auteur = auteur;
+            Dessinateur = dessinateur;
+            MaisonEditionJap = maisonEditionJap;
+            MaisonEditionFr = maisonEditionFr;
+            try
+            {
+                PremierTome = Convert.ToDateTime(premierTome);
+                if (!String.IsNullOrEmpty(dernierTome))
+                {
+                    DernierTome = Convert.ToDateTime(dernierTome);
+                }
+            }
+            catch(Exception e)
+            {
+                throw new ArgumentException("Problème dans le format des dates");
+            }
             NombreTome = nombreTome;
-            Couverture = couverture ?? throw new ArgumentNullException(nameof(couverture));
-            Synopsis = synopsis ?? throw new ArgumentNullException(nameof(synopsis));
+            Couverture = couverture;
+            Synopsis = synopsis;
             Genre = g;
         }
 
@@ -209,19 +229,43 @@ namespace Modele
         /// <param name="nbTome">Nombre de tome total</param>
         /// <param name="couv">"Noueau chemin de la couverture</param>
         /// <param name="synop">"Nouveau synopsis</param>
-        public void Modifier(DateTime? dTome, int nbTome, string couv, string synop)
+        public void Modifier(string dTome, int nbTome, string couv, string synop)
         {
-            if(PremierTome < dTome && DernierTome <= dTome)
+            if (String.IsNullOrEmpty(synop) || String.IsNullOrEmpty(couv))
             {
-                DernierTome = dTome;
+                throw new ArgumentException("Veuillez renseigner tous les champs");
             }
-            
-            if(NombreTome <= nbTome)
+
+            if (!String.IsNullOrEmpty(dTome))
             {
-                NombreTome = nbTome;
-            }           
+                try
+                {
+                    DateTime dernierTome = Convert.ToDateTime(dTome);
+                    if (PremierTome < dernierTome && DernierTome <= dernierTome)
+                    {
+                        DernierTome = dernierTome;
+                        OnPropertyChanged(nameof(DateDernierTome));
+                    }
+                    else
+                    {
+                        throw new ArgumentException("La date de parution du dernier tome n'est pas bonne");
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new ArgumentException("La date de parution du dernier tome n'est pas bonne");
+                }
+            }
+           
+
+            if (NombreTome > nbTome)
+            {
+                throw new ArgumentException("Nombre de tome incorrecte");
+            }
+
             Couverture = couv;
             Synopsis = synop;
+            NombreTome = nbTome;
         }
 
         /// <summary>

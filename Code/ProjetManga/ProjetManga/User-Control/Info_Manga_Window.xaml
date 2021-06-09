@@ -48,14 +48,14 @@
 
                     <Image Source="{Binding MangaCourant.Couverture}" MinHeight="250" MinWidth="200" Width="200" Margin="10,10,0,0" DockPanel.Dock="Left" ></Image>
                 <StackPanel DockPanel.Dock="Left" Width="400">
-                        <TextBlock Text="{Binding MangaCourant.TitreOriginal}" Style="{StaticResource Intitule}"  ></TextBlock>
+                        <TextBlock Text="{Binding MangaCourant.TitreOriginal, StringFormat='Titre original : {0}'}" Style="{StaticResource Intitule}"  ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.TitreAlternatif, StringFormat='Titre alternatif : {0}'}" Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.Auteur, StringFormat='Auteur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.Dessinateur, StringFormat='Dessinateur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.MaisonEditionJap, StringFormat='Maison édition Japonaise : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.MaisonEditionFr, StringFormat='Maison édition française : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                        <TextBlock Text="{Binding MangaCourant.PremierTome, StringFormat='Premier tome : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                        <TextBlock Text="{Binding MangaCourant.DernierTome, StringFormat='Dernier tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
+                        <TextBlock Text="{Binding MangaCourant.DatePremierTome, StringFormat='Premier tome : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding MangaCourant.DateDernierTome, StringFormat='Dernier tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.NombreTome, StringFormat='Nombre de tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.MoyenneNote, StringFormat='Note : {0}/10'}"   Style="{StaticResource Intitule}"></TextBlock>
                     </StackPanel>

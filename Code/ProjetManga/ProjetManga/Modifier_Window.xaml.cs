@@ -25,6 +25,8 @@ namespace ProjetManga
         //public Manga LeManga { get; set; }
         private string imageName;
 
+        private Manga m = new Manga(l.MangaCourant.TitreOriginal, l.MangaCourant.TitreAlternatif, l.MangaCourant.Auteur, l.MangaCourant.Dessinateur, l.MangaCourant.MaisonEditionJap,
+            l.MangaCourant.MaisonEditionFr, l.MangaCourant.DatePremierTome, l.MangaCourant.DateDernierTome, l.MangaCourant.NombreTome, l.MangaCourant.Couverture, l.MangaCourant.Synopsis, l.MangaCourant.Genre);
 
         public Modifier_Window()
         {
@@ -34,7 +36,7 @@ namespace ProjetManga
             LeManga = new Manga(m.TitreOriginal,m.TitreAlternatif,m.Auteur,m.Dessinateur,m.MaisonEditionJap,m.MaisonEditionFr,m.PremierTome,m.DernierTome,m.NombreTome,m.Couverture,m.Synopsis,m.Genre);
             DataContext = LeManga;
             */
-            DataContext = l.MangaCourant;
+            DataContext = m;
             
 
 
@@ -46,38 +48,37 @@ namespace ProjetManga
         }
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            DateTime? d = null;
-            int nb = Int32.Parse(modif_nb.Text);
-            if (!String.IsNullOrEmpty(modif_dTome.Text))
+            int nb = 0;
+            try
             {
-                try 
-                {
-                    d = Convert.ToDateTime(modif_dTome.Text);
-                }
-                catch(Exception exception)
-                {
-                    MessageBox.Show("Mauvais format pour la dernière date de parution","Problème", MessageBoxButton.OK);
-                }               
+                nb = Int32.Parse(modif_nb.Text);
             }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Nombre de tome incorrect", "Problème", MessageBoxButton.OK);
+                return;
+            }             
             if(imageName == null)
             {
-                imageName = l.MangaCourant.Couverture;
+                imageName = m.Couverture;
             }
-            l.ModifierManga(l.RecupererGenre(l.MangaCourant.Genre), l.MangaCourant.TitreOriginal, d, nb, imageName, modif_syno.Text); //je crois que c'est qu'il manque parfois des 0
+            try
+            {
+                l.ModifierManga(l.RecupererGenre(m.Genre), m.TitreOriginal, modif_dTome.Text ,nb, imageName, m.Synopsis); //je crois que c'est qu'il manque parfois des 0
+
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Problème", MessageBoxButton.OK);
+                return;
+            }
             Close();
         }
 
         private void Button_Changer_Image(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Choisissez votre photo de profil";
-            dialog.Filter = "Fichiers images | *.jpg;*.png;";
-            bool? resultat = dialog.ShowDialog();
-            if (resultat == true)
-            {
-                imageName = dialog.FileName;
-                imageManga.Source = new BitmapImage(new Uri(imageName));
-            }
+            imageName = (App.Current as App).Button_Changer_Image();
+            if(imageName != null ) imageManga.Source = new BitmapImage(new Uri(imageName));
         }
     }
 }

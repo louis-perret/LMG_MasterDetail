@@ -26,7 +26,7 @@ namespace ProjetManga
         public MangaDuMoment()
         {
             InitializeComponent();
-            l.MeilleurManga = l.ChercherMeilleurManga();
+            //l.ChercherMeilleurManga();
             DataContext = l; //il faut faire un binding sur le resultat de  cette méthode
         }
 
