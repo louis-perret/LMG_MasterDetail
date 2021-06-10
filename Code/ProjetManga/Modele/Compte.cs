@@ -17,7 +17,6 @@ namespace Modele
     {
         public ObservableCollection<Manga> LesFavoris { get; private set; }
 
-        //private ObservableCollection<Manga> lesFavoris;
         [DataMember]
         private string pseudo;
        
@@ -26,11 +25,10 @@ namespace Modele
             get => pseudo;
             set
             {
-                //if (pseudo != value)
-               //{
+                
                     pseudo = value;
                     OnPropertyChanged(nameof(Pseudo));
-                //}
+                
 
             }
         }
@@ -115,8 +113,6 @@ namespace Modele
             MotDePasse = motDePasse;
             GenresPreferes = genrepref;
 
-            // lesFavoris = new ObservableCollection<Manga>();
-            //LesFavoris = new ObservableCollection<Manga>(lesFavoris);
             LesFavoris = new ObservableCollection<Manga>();
             if (image == null)
             {
@@ -183,10 +179,7 @@ namespace Modele
         /// <param name="m">Manga qui va etre rajouté à la liste</param>
         public void AjouterFavori(Manga m)
         {
-            /*if (LesFavoris == null)
-            {
-                LesFavoris = new List<Manga>();                
-            }*/
+            
             if (!LesFavoris.Contains(m))
             {
                 LesFavoris.Add(m);

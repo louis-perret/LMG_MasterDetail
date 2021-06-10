@@ -28,6 +28,7 @@ namespace ProjetManga
             
             //l = chargeur.Load();
             //sauveur.Save(l);
+
             Navigator = new Navigation();           
         }
 

@@ -19,10 +19,6 @@ namespace Modele
         public Genre(string description, GenreDispo type)
         {
             NomGenre = type;
-            /*if(String.IsNullOrEmpty(description))
-            {
-                throw new ArgumentException("Description requise");
-            }*/
             Description = description;
         }
 

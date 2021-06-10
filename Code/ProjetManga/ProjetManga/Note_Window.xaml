@@ -35,7 +35,7 @@
                     <ComboBoxItem Content="10"/>
                 </ComboBox>
             </WrapPanel>
-            <TextBlock Text="Avis : (300 caractères max)" Margin="10,0,0,5" Style="{StaticResource TextMargin}" ></TextBlock>
+            <TextBlock Text="Avis :" Margin="10,0,0,5" Style="{StaticResource TextMargin}" ></TextBlock>
             <TextBox x:Name="avis_text" Height="30"></TextBox>
         </StackPanel>
 

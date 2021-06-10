@@ -22,7 +22,6 @@ namespace ProjetManga
     {
 
         public static Listes l => (App.Current as App).l;
-        //public Manga LeManga { get; set; }
         private string imageName;
 
         private Manga m = new Manga(l.MangaCourant.TitreOriginal, l.MangaCourant.TitreAlternatif, l.MangaCourant.Auteur, l.MangaCourant.Dessinateur, l.MangaCourant.MaisonEditionJap,
@@ -31,14 +30,7 @@ namespace ProjetManga
         public Modifier_Window()
         {
             InitializeComponent();
-            /*var m = l.MangaCourant;
-            
-            LeManga = new Manga(m.TitreOriginal,m.TitreAlternatif,m.Auteur,m.Dessinateur,m.MaisonEditionJap,m.MaisonEditionFr,m.PremierTome,m.DernierTome,m.NombreTome,m.Couverture,m.Synopsis,m.Genre);
-            DataContext = LeManga;
-            */
-            DataContext = m;
-            
-
+            DataContext = m;         
 
         }
 

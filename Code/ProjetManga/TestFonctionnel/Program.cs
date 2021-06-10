@@ -19,7 +19,7 @@ namespace TestFonctionnel
             Console.WriteLine($"{l1}\n");
 
             Console.WriteLine("\n\n\tTest de la fonctionnalité Ajouter un Manga \n\n");
-            l1.AjouterManga("Shingeki no Kyogin", "Attaque des titans", "Hajime Isayama", "Hajime Isayama", "Kodasha", "Pika Edition", new DateTime(2009, 09, 09), new DateTime(2021, 04, 09), 34, 
+            l1.AjouterManga("Shingeki no Kyogin", "Attaque des titans", "Hajime Isayama", "Hajime Isayama", "Kodasha", "Pika Edition", "09/09/2009", "2021, 04, 09", 34, 
                 "couvertureSNK.png", "Eren est un petit garçon rêvant de voyager dans le monde extérieur. Mais cela est impossible car il vit dans une ville fortifiée aux murailles dépassant les cinquante mètres de haut. Ces remparts sont nécessaires à la sécurité des habitants car ils sont les derniers représentants de l'humanité, obligés de se cacher pour échapper aux titans qui ont massacré la majeure partie du genre humain un siècle plus tôt.", l1.ListeGenre[0]);
             Manga m = l1.RechercherMangaParNom( "shingeki no kyogin");
             Console.WriteLine($"Le manga qui a été ajouté est : \n{m}"); //On voit bien que ça affiche le manga ajouté précédemment
@@ -27,7 +27,7 @@ namespace TestFonctionnel
             Console.WriteLine("\n\n\tTest de la fonctionnalité Modifier un Manga \n\n");
             m = l1.RechercherMangaParNom( "one piece"); //Recherche le manga à modifier
             Console.WriteLine("Voici le manga avant sa modification : \n{0}", m);
-            l1.ModifierManga(l1.RecupererGenre(m.Genre), m.TitreOriginal, new DateTime(2012, 10, 26), 55, "nouvelleCouverture.png", "20 ans plus tard, l'équipage au chapeau de paille se retrouve démunis face aux 4 grandes empereurs des mers");
+            l1.ModifierManga(l1.RecupererGenre(m.Genre), m.TitreOriginal, "2012, 10, 26", 100, "nouvelleCouverture.png", "20 ans plus tard, l'équipage au chapeau de paille se retrouve démunis face aux 4 grandes empereurs des mers");
             Console.WriteLine("Voici le manga, après sa modification : \n{0}", m);
 
             Console.WriteLine("\n\n\tTest de la fonctionnalité Suppprimer un Manga \n");
@@ -47,12 +47,12 @@ namespace TestFonctionnel
             //On remarque bien que la moyenne de ses notes a bien été recalculée puisqu'elle est à 9 maintenant
 
             Console.WriteLine("\n\n\tTest de la fonctionnalité Chercher le meilleur manga\n\n"); 
-            m = l1.MangaDuMoment(l1);
-            Console.Write(m); //La console affiche bien le manga avec le meilleur avis (dans nos testes c'est le manga Death Note)
+            l1.ChercherMeilleurManga();
+            Console.Write(l1.MeilleurManga); //La console affiche bien le manga avec le meilleur avis (dans nos testes c'est le manga Death Note)
 
             Console.WriteLine("\n\n\tTest de la fonctonnalité ModifierProfil\n\n");
             Console.WriteLine($"Avant modifications :{l1.ListeCompte[0]}");
-            l1.ModifierProfil( l1.ListeCompte[0].Pseudo, "NouveauPseudo", new GenreDispo[] { GenreDispo.Seinen });
+            l1.ModifierProfil( l1.ListeCompte[0].Pseudo, "NouveauPseudo", new GenreDispo[] { GenreDispo.Seinen }, null);
             Console.WriteLine($"Après modifications :{l1.ListeCompte[0]}"); 
             //On voit bien que son pseudo ainsi que ses genres préférés ont été modifiés
 
@@ -85,7 +85,6 @@ namespace TestFonctionnel
             //On remarque que sa liste de favoris est maintenant vide
 
             Console.WriteLine("\n\n\tTeste de la fonctionnalité Liste par genre\n\n"); 
-            //SortedSet<Manga> listeDeManga = 
             l1.ListeParGenre(l1.RecupererGenre(GenreDispo.Shonen)); //On souhaite afficher la collection de mangas de genre Shonen
             Console.WriteLine("Affichage des mangas de type Shonen :\n");
             foreach (var s in l1.ListeMangaCourant)
@@ -95,9 +94,8 @@ namespace TestFonctionnel
                          
             Console.WriteLine("\n\n\t Teste de la fonctionnalité Genre au hasard\n\n");
             Genre g;
-            //listeDeManga = 
-            l1.GenreAuHasard(l1, out g);
-            Console.WriteLine($"Le genre pioché au hasard est : \n{g} \nVoici la liste des mangas de ce genre : \n\n");
+            l1.GenreAuHasard();
+            Console.WriteLine($"Le genre pioché au hasard est : \n{l1.GenreCourant} \nVoici la liste des mangas de ce genre : \n\n");
             foreach (var s in l1.ListeMangaCourant)
             {
                 Console.WriteLine(s);             

@@ -28,7 +28,7 @@ namespace ProjetManga
         public Navigation()
         {
             SelectedUserControl = DicoUC.GetValueOrDefault(UC_AFFICHAGE_MANGA_DU_MOMENT);
-            //MainPart = mainPart;
+            
         }
 
         public void NavigationTo(string nomUC)

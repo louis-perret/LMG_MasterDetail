@@ -26,7 +26,6 @@ namespace ProjetManga
     {
 
         public Listes l => (App.Current as App).l;
-        //private Array genreDisponible = Enum.GetValues(typeof(GenreDispo));
 
         public Navigation Navigator => (App.Current as App).Navigator;
         public MainWindow()
@@ -34,9 +33,7 @@ namespace ProjetManga
             InitializeComponent();
             DataContext = l;
             contentControl.DataContext = Navigator;
-            //bool c = Gestionnaire.ChercherUtilisateur(l, "Nicolas", "azerty123");
             profil.DataContext = l.CompteCourant;
-            //Navigator = new Navigation(this.contentControl);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -47,10 +44,7 @@ namespace ProjetManga
             menuWindow.M = this;
             menuWindow.ShowDialog();
 
-            //l.CompteCourant = null;
-            //var connectionWindow = new Connection_Window();
-            //connectionWindow.Show();
-            //this.Close();
+           
         }
 
         
@@ -65,24 +59,20 @@ namespace ProjetManga
             l.GenreCourant = genreClick.SelectedItem as Genre;
             
             l.ListeParGenre(l.GenreCourant);
-            //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION,contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
 
         }
 
         private void Home_Button_Click(object sender, RoutedEventArgs e)
         {
-            // Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT, contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT);
         }
 
         private void Button_Click_Hasard(object sender, RoutedEventArgs e)
         {
 
-            //Genre g;
             l.GenreAuHasard();
             l.ListeParGenre(l.GenreCourant);
-            //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
 
         }
@@ -98,7 +88,6 @@ namespace ProjetManga
                 return;
             }
             Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
-            // Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA, null);
 
 
         }
@@ -107,7 +96,6 @@ namespace ProjetManga
         {
             l.RecupererFavoris();
             l.GenreCourant = null;
-            // Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION, contentControl);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }
 
@@ -134,11 +122,12 @@ namespace ProjetManga
                
             {
                 SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(208, 224, 232));
+                SolidColorBrush brushMain = new SolidColorBrush(Color.FromRgb(232, 240, 240));
                 mainCoteDroit.Background = brush;
                 mainCoteGauche.Background = brush;
                 genreClick.Background = brush;
 
-                ((MangaDuMoment)u1).SetColor(brush);
+                ((MangaDuMoment)u1).SetColor(brushMain);
                 ((AffichageCollection)u2).SetColor(brush);
                 ((Info_Manga_Window)u3).SetColor(brush);
 

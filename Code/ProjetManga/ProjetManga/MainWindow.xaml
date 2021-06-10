@@ -13,7 +13,6 @@
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Margin" Value="0,10,0,0"></Setter>
-            <!-- <Setter Property="VerticalAlignment" Value="Center"></Setter>-->
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         </Style>
         <Style TargetType="TextBlock" x:Key="ProfilText">

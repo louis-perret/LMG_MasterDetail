@@ -37,10 +37,10 @@
                 </Button.Background>
 
             </Button>
-            <!--Icone modifier-->
+            
 
             <Image Margin="20,10,40,20" Height="80" Width="70" Grid.Column="1" Grid.Row="1" x:Name="imageProfil" Source="/Image;Component/Image/question.png"/>
-            <!--Photo de profil -->
+            
         </Grid>
 
         

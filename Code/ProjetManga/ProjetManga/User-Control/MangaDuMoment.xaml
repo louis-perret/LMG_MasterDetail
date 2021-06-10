@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:ProjetManga"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="700" >
-   <!--User-Control permettant d'afficher le manga du moment sur la page principale lors de l'ouverture de l'application
-    User-Control à modifier durant la partie 3 du projet-->
+
+    <!--User-Control permettant d'afficher le manga du moment sur la page principale lors de l'ouverture de l'application-->
+    
     <Grid x:Name="mangaDuMomentFond" Background="#FFECF3F3">
         <Grid.RowDefinitions>
             <RowDefinition/>

@@ -24,12 +24,10 @@ namespace ProjetManga
         public Navigation Navigator => (App.Current as App).Navigator;
 
 
-        // private static Manga MangaCourant { get; set; }
         public Info_Manga_Window()
         {
             InitializeComponent();
-            //DataContext = this; //ça va nous permettre de pouvoir binder sur MangaCourant de l'UC puis sur chacune de ses propriétés
-            //DataContext =l; //mauvaise reference, il faut binder sur une propriété qui comprend le MangaCourant (c'est ce qu'a dit le prof)
+            
             DataContext = l;
         }
 
@@ -47,7 +45,7 @@ namespace ProjetManga
             if(result==MessageBoxResult.OK)
             {
                 l.SupprimerManga( l.MangaCourant, l.RecupererGenre(l.MangaCourant.Genre));
-                //l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
+                
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             
@@ -58,7 +56,7 @@ namespace ProjetManga
            if(l.CompteCourant.LesFavoris.Contains(l.MangaCourant))
             {
                 l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
-                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION); //la suppression ne se fait pas quand on revient sur la page, il faut changer puis revenir
+                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION); 
                
             }
             else

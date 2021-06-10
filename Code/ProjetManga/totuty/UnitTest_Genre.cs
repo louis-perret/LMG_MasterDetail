@@ -10,10 +10,7 @@ namespace TestUnitaire.cs
         [Fact]          
         public void TestEqualsGenre()
         {
-            /* GenreDispo g = GenreDispo.Josei;
-             GenreDispo g3 = GenreDispo.Shonen;
-             Genre genre1 = new Genre("Description Shonen", g);*/
-
+            
             Stub stub = new Stub("");
             Listes l1 = stub.Load();
 

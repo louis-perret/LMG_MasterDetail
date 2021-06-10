@@ -19,7 +19,7 @@ namespace ProjetManga
     /// </summary>
     public partial class Connection_Window : Window
     {
-        public Listes l => (App.Current as App).l; //Pense bien à mettre ça sur chaque fene^tre pour qu'elles pointent bien toutes sur le même l
+        public Listes l => (App.Current as App).l;
         public Connection_Window()
         {
             InitializeComponent();
@@ -48,7 +48,6 @@ namespace ProjetManga
 
             else
             {
-                //Compte c = l.CompteCourant;
                 var mainWindow = new MainWindow();
                 mainWindow.Show();
                 Button_FermerApplication(sender, e);               

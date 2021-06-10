@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:ProjetManga"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="600">
+    
     <!--UserControl pour afficher chaque élément de notre collection lorsqu'on affiche nos favoris ou les mangas d'un genre choisi.-->
+    
     <DockPanel x:Name="fond" Background="#FFD5E0E8">
      <StackPanel  DockPanel.Dock="Top">
             <TextBlock TextWrapping="Wrap" Text="{Binding GenreCourant.Description, StringFormat='Description du genre : {0}'}"  Height="80" FontSize="20" />

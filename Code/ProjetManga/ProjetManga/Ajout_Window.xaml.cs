@@ -26,7 +26,6 @@ namespace ProjetManga
         public Ajout_Window()
         {
             InitializeComponent();
-            //DataContext = l.CollectionManga.Values;
             comboGenre.DataContext = l;
         }
 

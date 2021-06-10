@@ -21,7 +21,7 @@ namespace ProjetManga
     /// </summary>
     public partial class ModifierProfil : Window
     {
-        public Listes l => (App.Current as App).l; //Pointe sur le même l de toutes l'application
+        public Listes l => (App.Current as App).l; 
         public Compte LeCompte { get; set; }
 
         string imageName;

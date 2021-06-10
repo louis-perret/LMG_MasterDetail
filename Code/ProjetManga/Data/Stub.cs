@@ -5,7 +5,7 @@ using Modele;
 
 namespace Data
 {
-    /// a rajouter dans le diagramme evidemment
+    
     public class Stub : Chargeur
     {
         public Stub(string chemin) :base(chemin)

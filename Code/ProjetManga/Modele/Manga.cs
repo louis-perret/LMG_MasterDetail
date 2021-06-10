@@ -40,7 +40,6 @@ namespace Modele
         }
 
         [DataMember]
-        //private DateTime dernierTome;
         public DateTime DernierTome { get; private set; }
         public string DateDernierTome
         {
@@ -108,7 +107,7 @@ namespace Modele
 
         [DataMember]
         public ObservableCollection<Avis> LesAvis { get; private set; } = new ObservableCollection<Avis>();
-        //IList<Avis> lesAvis { get; set; }
+        
 
         public float MoyenneNote //Renvoie la moyenne des notes de tous ses avis
         { 
@@ -213,11 +212,7 @@ namespace Modele
         /// <param name="a"> Avis à ajouter </param>
         public void AjouterAvis(Avis a)
         {
-            /*if (LesAvis == null)
-            {
-                //lesAvis = new List<Avis>();
-                LesAvis = new ObservableCollection<Avis>();
-            }*/
+    
             LesAvis.Add(a);
             OnPropertyChanged(nameof(MoyenneNote));
         }

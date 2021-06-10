@@ -43,7 +43,7 @@
 
 
             <Image Margin="40,10,40,10" Height="80" Width="70" Grid.Column="1" Grid.Row="1" x:Name="imageProfil" Source="{Binding ImageProfil}"/>
-            <!--Photo de profil -->
+           
         </Grid>
 
 

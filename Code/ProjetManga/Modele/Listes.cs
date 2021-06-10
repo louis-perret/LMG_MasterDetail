@@ -68,8 +68,6 @@ namespace Modele
             }
         }
 
-
-        //private SortedSet<Manga> listeMangaCourant = new SortedSet<Manga>();
         [DataMember]
         public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>();
         
@@ -111,8 +109,7 @@ namespace Modele
         /// <param name="cManga">Dictionnaire des manga, clé : genres, valeur : liste de manga</param>
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga,List<Genre> lGenre)
         {
-            /*InitReadOnlyDictionary();
-            InitReadOnlyCollection();*/
+            
             listeCompte = lCompte;
             ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
             collectionManga = cManga;
@@ -123,7 +120,7 @@ namespace Modele
 
         public Listes()
         {
-            //InitReadOnlyCollection();
+            
             InitReadOnlyDictionary();
         }
 
@@ -150,7 +147,7 @@ namespace Modele
         /// <returns>Liste de manga du genre passé en parametre</returns>
         public void ListeParGenre(Genre g) 
         {
-            //SortedSet<Manga> listeDuGenre = new SortedSet<Manga>();
+            
             ListeMangaCourant.Clear();
             var temp = from k in CollectionManga
 
@@ -165,7 +162,7 @@ namespace Modele
                     ListeMangaCourant.Add(m);
                 }
             }
-            //return listeDuGenre;
+           
 
 
         }
@@ -194,15 +191,6 @@ namespace Modele
                 ListeParGenre(g);
             }
         }
-/*
-        public static void AjouterManga(Listes l, string to, string ta, string au, string dess, string maisJ, string maisFr, DateTime pTome, DateTime? dTome, int nbTome, string couv, string synop, GenreDispo g)
-        {
-            Manga m = new Manga(to, ta, au, dess, maisJ, maisFr, pTome, dTome, nbTome, couv, synop, g);
-            l.AjouterManga(m, l.RecupererGenre(g));
-        }
-
-        */
-
 
         /// <summary>
         /// Permet supprimer un manga dans le dictionnaire
@@ -231,7 +219,7 @@ namespace Modele
         }
 
         /// <summary>
-        /// permet de modifier les informations d'un manga : les elements en parametres peuvent etre modifié
+        /// Permet de modifier les informations d'un manga : les elements en parametres peuvent etre modifié
         /// </summary>
         /// <param name="g">Genre du manga pour le retrouver dans la bonne clé</param>
         /// <param name="to">titre original</param>
@@ -296,7 +284,6 @@ namespace Modele
 
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
-                //var m = kvp.Value.Max(man => man.MoyenneNote);
                 foreach (Manga man in kvp.Value)
                 {
                     if (man.MoyenneNote > leMeilleur.MoyenneNote)

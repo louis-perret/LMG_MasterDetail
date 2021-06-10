@@ -15,8 +15,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <!--Pour tester j'ai mis la source de l'image et le contenu du TextBlock directement, mais faudra remplacer par un Binding dans la partie 3-->
-            <!--<Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="120" VerticalAlignment="Center" Width="80"/>-->
+            
             <Image Grid.Row="0"  Source="{Binding Couverture}"   HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="280" MaxWidth="220"/>
             <TextBlock Grid.Row="1" Text="{Binding TitreAlternatif}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Padding="10"/>
         </Grid>
