@@ -30,7 +30,11 @@ namespace ProjetManga
         }
 
         
-
+        /// <summary>
+        /// Permet d'ouvrir la fenetre pour ajouter un manga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Click_Ajouter_Manga(object sender, RoutedEventArgs e)
         {
             var ajoutWindow = new Ajout_Window();
@@ -38,15 +42,22 @@ namespace ProjetManga
             ajoutWindow.ShowDialog();
         }
 
+        /// <summary>
+        /// Permet de changer le user control pour afficher le manga selectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e)
         {
                                   
                 l.MangaCourant = (sender as ListBox).SelectedItem as Manga;
                 Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
-               
-                      
         }
 
+        /// <summary>
+        /// Permet de changer la couleur de certaines parties de la fenetre
+        /// </summary>
+        /// <param name="b"></param>
         public void SetColor(SolidColorBrush b)
         {
             fond.Background = b;

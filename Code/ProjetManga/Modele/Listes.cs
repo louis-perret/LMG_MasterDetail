@@ -9,24 +9,25 @@ using System.Text;
 
 namespace Modele   
 {
+    /// <summary>
+    /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
+    /// </summary>
+
     [DataContract]
     public class Listes : INotifyPropertyChanged
 {
-        /// <summary>
-        /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
-        /// </summary>
-
+        
         [DataMember]
         private IList<Compte> listeCompte { get; set; }
 
-        public ReadOnlyCollection<Compte> ListeCompte { get; private set; }
+        public ReadOnlyCollection<Compte> ListeCompte { get; private set; } //Liste des Comptes 
 
         [DataMember]
         private IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
 
         
        
-        public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; }
+        public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; } //Dictionnaire de tous les mangas
         
         [OnDeserialized]
         void InitReadOnlyDictionary(StreamingContext sc = new StreamingContext()) //Méthode qui est appelée après notre sérialisation pour initiliaser nos ReadOnlyCollection
@@ -36,10 +37,10 @@ namespace Modele
         }
 
         [DataMember]
-        public IList<Genre> ListeGenre { get; private set; }
+        public IList<Genre> ListeGenre { get; private set; } //Liste des genres existants de notre application
 
         private Compte compte;
-        public Compte CompteCourant 
+        public Compte CompteCourant //Compte connecté sur l'application
         { 
             get => compte;  
             set
@@ -49,12 +50,10 @@ namespace Modele
                     compte = value;
                     OnPropertyChanged(nameof(CompteCourant));
                 }
-                
             }
         }
-
         private Genre genreCourant { get; set; }
-        public Genre GenreCourant
+        public Genre GenreCourant  //Genre actuellement selectionné
         {
             get => genreCourant;
             set
@@ -64,15 +63,14 @@ namespace Modele
                     genreCourant = value;
                     OnPropertyChanged(nameof(GenreCourant));
                 }
-
             }
         }
 
         [DataMember]
-        public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>();
+        public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>(); 
         
         private Manga mangaCourant;
-        public Manga MangaCourant
+        public Manga MangaCourant 
         {
             get => mangaCourant;
             set
@@ -84,12 +82,11 @@ namespace Modele
                 }
             }
         }
-
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
 
         private Manga meilleurManga;
-        public Manga MeilleurManga
+        public Manga MeilleurManga //Le meilleur manga est le mieux noté
         {
             get => meilleurManga;
             set
@@ -107,6 +104,7 @@ namespace Modele
         /// </summary>
         /// <param name="lCompte">Listes des comptes</param>
         /// <param name="cManga">Dictionnaire des manga, clé : genres, valeur : liste de manga</param>
+        /// <param name="lGenre">Liste des genres</param>
         public Listes(List<Compte> lCompte, Dictionary<Genre, SortedSet<Manga>> cManga,List<Genre> lGenre)
         {
             
@@ -120,7 +118,6 @@ namespace Modele
 
         public Listes()
         {
-            
             InitReadOnlyDictionary();
         }
 
@@ -141,13 +138,12 @@ namespace Modele
         }
 
         /// <summary>
-        /// Permet de renvoyer une liste de manga du même genre
+        /// Permet d'actualiser la liste de manga du même genre
         /// </summary>
         /// <param name="g">Genre de manga voulu</param>
-        /// <returns>Liste de manga du genre passé en parametre</returns>
+        
         public void ListeParGenre(Genre g) 
         {
-            
             ListeMangaCourant.Clear();
             var temp = from k in CollectionManga
 
@@ -156,25 +152,30 @@ namespace Modele
 
             foreach (var t in temp)
             {
-
                 foreach (Manga m in t)
                 {
                     ListeMangaCourant.Add(m);
                 }
             }
            
-
-
         }
 
-
-
         /// <summary>
-        /// Permet d'ajouter un manga dans le dictionnaire
+        /// Permet d'ajouter un manga 
         /// </summary>
-        /// <param name="m">Manga a ajouter</param>
-        /// <param name="g">Genre du manga pour le placer dans la bonne clé</param>
-        
+        /// <param name="to">Titre original(japonais)</param>
+        /// <param name="ta">Titre alternatif</param>
+        /// <param name="au">Auteur du manga</param>
+        /// <param name="dess">Dessinateur du manga</param>
+        /// <param name="maisJ">Maison d'edition japonaise</param>
+        /// <param name="maisFr">Maison d'edition francaise</param>
+        /// <param name="pTome">Date du premier tome</param>
+        /// <param name="dTome">Date du dernier tome(facultatif)</param>
+        /// <param name="nbTome">Nombre de tomes du manga</param>
+        /// <param name="couv">Couverture du manga</param>
+        /// <param name="synop">Synopsis</param>
+        /// <param name="g">Genre du manga</param>
+
         public void AjouterManga(string to, string ta, string au, string dess, string maisJ, string maisFr, string pTome, string dTome, int nbTome, string couv, string synop, Genre g)
         {
 
@@ -213,11 +214,10 @@ namespace Modele
                     }
                 }
                 ListeParGenre(g);
-                ChercherMeilleurManga();
+                ChercherMeilleurManga(); //reactualise le meilleur manga s'il est supprimé
             }
             
         }
-
         /// <summary>
         /// Permet de modifier les informations d'un manga : les elements en parametres peuvent etre modifié
         /// </summary>
@@ -245,15 +245,14 @@ namespace Modele
             }
         }
 
-        
-
-
         /// <summary>
-        /// Permet d'ajouter un avis a un manga
+        /// Permet d'ajouter un avis à un manga
         /// </summary>
-        /// <param name="a">Avis </param>
-        /// <param name="g">Genre du manga pour le retrouver dans le dictionnaire</param>
-        /// <param name="m">Manga qui va recevoir l'avis</param>
+        /// <param name="util">Utilisateur </param>
+        /// <param name="comm">Commentaire (facultatif)</param>
+        /// <param name="note">Note entre 0 et 10</param>
+        /// <param name="g">Genre du manga noté</param>
+        /// <param name="m">Manga noté</param>
         public void AjouterAvis(Compte util, string comm, int note, Genre g, Manga m)
         {
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
@@ -270,14 +269,12 @@ namespace Modele
                     }
                 }
             }
-            ChercherMeilleurManga();
+            ChercherMeilleurManga(); //Actualise le manga du moment s'il devient/ne devient plus le meilleur
         }
 
-
         /// <summary>
-        /// Cherche le meilleur manga = meilleure note de tous
+        /// Cherche le meilleur manga = meilleure note de tous et l'actualise
         /// </summary>
-        /// <returns>Manga le plus apprecié</returns>
         public void ChercherMeilleurManga()
         {
             Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", "01/01/2000", "01/01/2000", 1, "/test/", "testtest",GenreDispo.Shonen);
@@ -295,13 +292,13 @@ namespace Modele
             MeilleurManga = leMeilleur;
 
         }
-
         /// <summary>
         /// Permet de modifier le profil, appel la fonction du même nom dans Compte
         /// </summary>
         /// <param name="oldPseudo">ancien pseudo</param>
         /// <param name="newPseudo">nouveau pseudo qu'on souhaite</param>
         /// <param name="genrePref">genres preferes qu'on souhaite </param>
+        /// <param name="imageName">Photo de profil modifiée</param>
         public void ModifierProfil(string oldPseudo, string newPseudo, GenreDispo[] genrePref, string imageName)
         {
             foreach(Compte compte in ListeCompte)
@@ -319,13 +316,12 @@ namespace Modele
                 }
             }
         }
-
         /// <summary>
         /// Cherche un utilisateur à travers toute la collection de compte
         /// </summary>
         /// <param name="pseudo">pseudo du Compte à retrouver</param>
         /// <param name="motDePasse">mot de passe du Compte à retrouver</param>
-        /// <returns>Le compte cherché</returns>
+        /// <returns>Resultat de la recherche</returns>
         public bool ChercherUtilisateur(string pseudo, string motDePasse)
         {
             foreach(Compte c in ListeCompte)
@@ -338,12 +334,14 @@ namespace Modele
             }
             return false; 
         }
-
-        
         /// <summary>
-        /// Permet d'ajouter un utilisateur
+        /// Permet de rajouter un Compte à l'application
         /// </summary>
-        /// <param name="c">Compte à ajouter</param>
+        /// <param name="pse">Pseudo</param>
+        /// <param name="dateN">Date de naissance, qui sera transformée en age</param>
+        /// <param name="mdp">Mot de passe</param>
+        /// <param name="g">Genres preferés de 0 à 2</param>
+        /// <param name="photo_profil">Photo de profil</param>
         public void AjouterUtilisateur(string pse, string dateN, string mdp, GenreDispo[] g, string photo_profil)
         {
             try
@@ -359,7 +357,6 @@ namespace Modele
                 throw new ArgumentException(e.Message);
             }          
         }
-
 
         /// <summary>
         /// Appel la méthode Compte pour ajouter un Manga favori à la liste de favori d'un Compte
@@ -380,8 +377,6 @@ namespace Modele
         {
             c.SupprimerFavori(m);
         }
-
-
         public void RecupererFavoris()
         {
             ListeMangaCourant.Clear();
@@ -391,24 +386,32 @@ namespace Modele
             }
         }
 
+        /// <summary>
+        /// Permet de choisir un genre au hasard 
+        /// </summary>
         public void GenreAuHasard()
         {
             Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
 
             Array genreDispo = Enum.GetValues(typeof(GenreDispo));
-            Random random = new Random();
+            Random random = new Random(); 
             int index = random.Next(0, 4);
             GenreDispo gd = (GenreDispo)genreDispo.GetValue(index);
             GenreCourant = RecupererGenre(gd);
-            ListeParGenre(GenreCourant);
+            ListeParGenre(GenreCourant); 
         }
 
+        /// <summary>
+        /// Renvoie un manga en le recherchant par nom
+        /// </summary>
+        /// <param name="nomManga">Nom du manga saisi, pas sensible à la casse</param>
+        /// <returns></returns>
         public Manga RechercherMangaParNom(string nomManga)
         {
             Manga m = null;
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {
-                var Manga = kvp.Value.Where(manga => manga.TitreOriginal.ToLower().Equals(nomManga.ToLower()));
+                var Manga = kvp.Value.Where(manga => manga.TitreOriginal.ToLower().Equals(nomManga.ToLower())); //Permet de retrouver le pseudo sans prendre en compte les majuscules
                 if (Manga.Count<Manga>() != 0)
                 {
                     m = Manga.FirstOrDefault();
@@ -417,7 +420,6 @@ namespace Modele
             }
             return m;
         }
-
         /// <summary>
         /// Permet de transformer une instance en chaîne de caractères
         /// </summary>
@@ -439,10 +441,7 @@ namespace Modele
                 }
             }
             return r;
-        }
-
-       
-
+        }       
 
     }
 }

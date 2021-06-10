@@ -19,17 +19,18 @@ namespace ProjetManga
     /// Logique d'interaction pour MangaDuMoment.xaml
     /// </summary>
     public partial class MangaDuMoment : UserControl
-    {
-        
-        
+    {        
         public Listes l => (App.Current as App).l;
         public MangaDuMoment()
         {
-            InitializeComponent();
-            //l.ChercherMeilleurManga();
-            DataContext = l; //il faut faire un binding sur le resultat de  cette méthode
+            InitializeComponent();   
+            DataContext = l; 
         }
 
+        /// <summary>
+        /// Permet de modifier les couleurs de certaines parties de la fenetre
+        /// </summary>
+        /// <param name="b"></param>
         public void SetColor(SolidColorBrush b)
         {
             this.mangaDuMomentFond.Background = b;

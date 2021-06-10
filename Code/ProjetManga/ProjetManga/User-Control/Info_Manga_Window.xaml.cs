@@ -31,56 +31,78 @@ namespace ProjetManga
             DataContext = l;
         }
 
+        /// <summary>
+        /// Permet d'ouvrir la fenetre pour modifier le manga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Button_Modifier_Manga(object sender, RoutedEventArgs e)
         {
 
             var modifWindow = new Modifier_Window();
             modifWindow.ShowDialog();
-            
         }
-
+        /// <summary>
+        /// Permet de supprimer un manga de l'application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Supprimer_Manga(object sender, RoutedEventArgs e)
         {
+            //Controle pour eviter les fausses manipulations
             MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel,MessageBoxImage.Question);
             if(result==MessageBoxResult.OK)
             {
                 l.SupprimerManga( l.MangaCourant, l.RecupererGenre(l.MangaCourant.Genre));
-                
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             
         }
-
+        /// <summary>
+        /// Permet d'ajouter un favori à la liste des favoris
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Click_Ajout_Favori(object sender, RoutedEventArgs e)
         {
+           //Si le manga est deja en favori, il est retiré des favoris
            if(l.CompteCourant.LesFavoris.Contains(l.MangaCourant))
             {
                 l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION); 
-               
             }
             else
             {
                 l.AjouterFavoriManga( l.MangaCourant, l.CompteCourant);
             }
-           
         }
-
+        /// <summary>
+        /// Permet d'ouvrir la fenetre pour noter un manga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Click_Noter_Manga(object sender, RoutedEventArgs e)
         {
-         
             var noteWindow = new Note_Window();
             noteWindow.ShowDialog();
         }
+        /// <summary>
+        /// Permet de retourner à l'affichage de la collection de manga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Click_Retour_Arriere(object sender, RoutedEventArgs e)
         {
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }
 
+        /// <summary>
+        /// Permet de changer la couleur de certaines parties de la fenetre
+        /// </summary>
+        /// <param name="b"></param>
         public void SetColor(SolidColorBrush b)
         {
             fond.Background = b;
-            
         }
     }
 }

@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace ProjetManga
 {
     /// <summary>
-    /// Logique d'interaction pour Window1.xaml
+    /// Logique d'interaction pour Ajout_Window.xaml
     /// </summary>
     public partial class Ajout_Window : Window
     {
@@ -29,12 +29,24 @@ namespace ProjetManga
             comboGenre.DataContext = l;
         }
 
+        /// <summary>
+        /// Permet de fermer la fenetre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Annuler_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+        /// <summary>
+        /// Valide l'ajout du manga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
+            //Des controles sont effectués pour tous les cas
             string p = pTome_text.Text;
             string d = dTome_text.Text;
             if (comboGenre.SelectedItem == null)
@@ -71,12 +83,14 @@ namespace ProjetManga
                 MessageBox.Show(exception.Message, "Problème", MessageBoxButton.OK);
                 return;
             }
-            
-            
-
             Close();
         }
 
+        /// <summary>
+        /// Permet d'ouvrir une fenetre pour selectionner l'image à changer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Changer_Image(object sender, RoutedEventArgs e)
         {
             imageName = (App.Current as App).Button_Changer_Image();

@@ -30,8 +30,6 @@ namespace Modele
         [DataMember]
         public string MaisonEditionFr { get; private set; }
 
-
-
         [DataMember]
         public DateTime PremierTome { get; private set; }
         public string DatePremierTome
@@ -84,8 +82,6 @@ namespace Modele
             }
         }
 
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         [DataMember]
         private string synopsis;
@@ -107,8 +103,6 @@ namespace Modele
 
         [DataMember]
         public ObservableCollection<Avis> LesAvis { get; private set; } = new ObservableCollection<Avis>();
-        
-
         public float MoyenneNote //Renvoie la moyenne des notes de tous ses avis
         { 
             get
@@ -275,7 +269,6 @@ namespace Modele
                 return true;
             return false;
         }
-
 
         /// <summary>
         /// Compare deux instances de Manga

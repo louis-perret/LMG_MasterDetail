@@ -21,10 +21,7 @@ namespace Modele
             NomGenre = type;
             Description = description;
         }
-
        
-
-
        /// <summary>
        /// Renvoie sous forme de chaîne de caractères l'objet appelant
        /// </summary>

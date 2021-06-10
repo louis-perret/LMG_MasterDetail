@@ -8,6 +8,9 @@ using Modele;
 
 namespace Data
 {
+    /// <summary>
+    /// Classe qui est spécialisée dans la sauvegarde de nos données sous format xml
+    /// </summary>
     public class SauveurXML : Sauveur
     {
 

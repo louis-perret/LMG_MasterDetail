@@ -5,7 +5,9 @@ using Modele;
 
 namespace Data
 {
-    
+    /// <summary>
+    /// Cette classe simule un faux chargement de données
+    /// </summary>
     public class Stub : Chargeur
     {
         public Stub(string chemin) :base(chemin)
@@ -13,6 +15,10 @@ namespace Data
 
         }
 
+        /// <summary>
+        /// Charge des données fictives
+        /// </summary>
+        /// <returns>Renvoie un objet Listes : données fictive</returns>
         public override Listes Load()
         {
            

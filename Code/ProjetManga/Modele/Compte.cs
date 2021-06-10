@@ -9,10 +9,11 @@ using System.Text;
 
 namespace Modele
 {
-    [DataContract]
+
     /// <summary>
     /// Classe qui définit un Compte d'utilisateur
     /// </summary>
+    [DataContract]
     public class Compte : IEquatable<Compte>, INotifyPropertyChanged
     {
         public ObservableCollection<Manga> LesFavoris { get; private set; }
@@ -25,18 +26,13 @@ namespace Modele
             get => pseudo;
             set
             {
-                
                     pseudo = value;
                     OnPropertyChanged(nameof(Pseudo));
-                
-
             }
         }
-
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
-
-        public int Age 
+        public int Age //Calcul l'age à partir de la date de naissance
         {
             get
             {
@@ -74,7 +70,6 @@ namespace Modele
             }
         }
         [DataMember]
-
         private string imageProfil;
         public string ImageProfil
         {
@@ -85,7 +80,6 @@ namespace Modele
                 OnPropertyChanged(nameof(ImageProfil));
             }
         }
-
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -94,6 +88,7 @@ namespace Modele
         /// <param name="dateInscription">Cette date est définit au jour de la création du compte</param>
         /// <param name="motDePasse">permet de se connecter</param>
         /// <param name="genrepref">un utilisateur peut afficher sur son profil 0 à 2 genres qu'il affectionne</param>
+        /// <param name="image"> Photo de profil : "?" par defaut</param>
         public Compte(string pseudo, string dateDeNaissance, DateTime dateInscription, string motDePasse, GenreDispo[] genrepref, string image)
         {
             if (String.IsNullOrEmpty(pseudo) || String.IsNullOrEmpty(motDePasse))
@@ -122,8 +117,6 @@ namespace Modele
             {
                 ImageProfil = image;
             }
-            
-
         }
 
         /// <summary>
@@ -158,6 +151,7 @@ namespace Modele
         /// </summary>
         /// <param name="newPseudo">le nouveau pseudo à mettre</param>
         /// <param name="genrePref">les nouveaux genres preferes à mettre</param>
+        /// <param name="imageName">photo de profil modifiée</param>
         public void ModifierProfil(string newPseudo, GenreDispo[] genrePref, string imageName)
         {
             if (String.IsNullOrEmpty(newPseudo))

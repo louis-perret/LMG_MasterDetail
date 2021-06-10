@@ -7,6 +7,9 @@ using Modele;
 
 namespace Data
 {
+    /// <summary>
+    /// Classe qui est spécialisée dans le chargement de nos données à partir d’un fichier XM
+    /// </summary>
     public class ChargeurXML : Chargeur
     {
         protected string FilePath => Path.Combine(Directory.GetCurrentDirectory(), chemin);
@@ -25,9 +28,7 @@ namespace Data
             {
                 throw new FileNotFoundException("Le fichier de persistance est manquant");
             }
-
             Listes l;
-
             var serializer = new DataContractSerializer(typeof(Listes));
             using(Stream s = File.OpenRead(MyFile))
             {

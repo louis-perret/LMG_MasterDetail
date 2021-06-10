@@ -24,16 +24,16 @@ namespace TestUnitaire.cs
         {
             Listes l1 = stub.Load();
 
-            /*Compte u = Gestionnaire.ChercherUtilisateur(l1, "Nicolas", "azerty123");
-            Manga m = Gestionnaire.RechercherMangaParNom(l1, "one piece");
-            u.SupprimerFavori(m); //L'instance de u possède déjà le manga One Piece
+            bool c = l1.ChercherUtilisateur("Nicolas", "azerty123");
+            Manga m = l1.RechercherMangaParNom("one piece");
+            l1.CompteCourant.SupprimerFavori(m); //L'instance de u possède déjà le manga One Piece
             //On le supprime de sa liste
-            Assert.False(u.LesFavoris.Contains(m));
+            Assert.False(l1.CompteCourant.LesFavoris.Contains(m));
 
             //Puis on le rajoute
-            u.AjouterFavori(m); //L'instance de u ne possède plus le manga One Piece
-            Assert.True(u.LesFavoris.Contains(m));
-            */
+            l1.CompteCourant.AjouterFavori(m); //L'instance de u ne possède plus le manga One Piece
+            Assert.True(l1.CompteCourant.LesFavoris.Contains(m));
+            
         }
 
     }
