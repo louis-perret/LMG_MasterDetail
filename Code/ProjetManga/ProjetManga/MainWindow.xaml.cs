@@ -43,8 +43,6 @@ namespace ProjetManga
             var menuWindow = new Menu();
             menuWindow.M = this;
             menuWindow.ShowDialog();
-
-           
         }
 
         
@@ -56,11 +54,9 @@ namespace ProjetManga
 
         private void Selection_Changed_Genre(object sender, SelectionChangedEventArgs e)
         {
-            l.GenreCourant = genreClick.SelectedItem as Genre;
-            
+            l.GenreCourant = genreClick.SelectedItem as Genre;            
             l.ListeParGenre(l.GenreCourant);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
-
         }
 
         private void Home_Button_Click(object sender, RoutedEventArgs e)

@@ -21,7 +21,7 @@
                 </Button>
            
         </StackPanel>
-        <ListBox x:Name="bas" DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}" SelectionChanged="AffichageDuMangaSelectionne"  >
+        <ListBox x:Name="listeManga" DockPanel.Dock="Bottom" ItemsSource="{Binding ListeMangaCourant}" SelectionChanged="AffichageDuMangaSelectionne"  >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>

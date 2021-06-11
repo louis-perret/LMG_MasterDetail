@@ -50,6 +50,7 @@ namespace Modele
         public event PropertyChangedEventHandler PropertyChanged;
         [DataMember]
         public DateTime DateInscription { get; private set; }
+
         [DataMember]
         public string MotDePasse { get; private set; }
 
@@ -80,6 +81,13 @@ namespace Modele
                 OnPropertyChanged(nameof(ImageProfil));
             }
         }
+
+        [OnDeserialized]
+        void InitObservableCollection(StreamingContext sc = new StreamingContext())
+        {
+            LesFavoris = new ObservableCollection<Manga>();
+        }
+
         /// <summary>
         /// Constructeur de la classe
         /// </summary>

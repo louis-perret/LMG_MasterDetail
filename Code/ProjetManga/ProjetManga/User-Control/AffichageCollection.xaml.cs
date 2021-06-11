@@ -38,8 +38,9 @@ namespace ProjetManga
         private void Click_Ajouter_Manga(object sender, RoutedEventArgs e)
         {
             var ajoutWindow = new Ajout_Window();
-
+            
             ajoutWindow.ShowDialog();
+            listeManga.SelectedItem = null;
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace ProjetManga
         public void SetColor(SolidColorBrush b)
         {
             fond.Background = b;
-            bas.Background = b;
+            listeManga.Background = b;
            
         }
     }

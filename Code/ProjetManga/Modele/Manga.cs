@@ -166,7 +166,12 @@ namespace Modele
                 PremierTome = Convert.ToDateTime(premierTome);
                 if (!String.IsNullOrEmpty(dernierTome))
                 {
+                    if(PremierTome >= DernierTome)
                     DernierTome = Convert.ToDateTime(dernierTome);
+                    if (PremierTome >= DernierTome)
+                    {
+                        throw new ArgumentException("Date de parution du dernier tome doit-être plus récente que celle du premier tome");
+                    }
                 }
             }
             catch(Exception e)

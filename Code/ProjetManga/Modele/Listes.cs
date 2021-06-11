@@ -29,13 +29,7 @@ namespace Modele
        
         public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; } //Dictionnaire de tous les mangas
         
-        [OnDeserialized]
-        void InitReadOnlyDictionary(StreamingContext sc = new StreamingContext()) //Méthode qui est appelée après notre sérialisation pour initiliaser nos ReadOnlyCollection
-        {
-            CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
-            ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
-        }
-
+       
         [DataMember]
         public IList<Genre> ListeGenre { get; private set; } //Liste des genres existants de notre application
 
@@ -70,7 +64,7 @@ namespace Modele
         public ObservableCollection<Manga> ListeMangaCourant { get; set; } = new ObservableCollection<Manga>(); 
         
         private Manga mangaCourant;
-        public Manga MangaCourant 
+        public Manga MangaCourant //Manga sélectionné 
         {
             get => mangaCourant;
             set
@@ -99,6 +93,15 @@ namespace Modele
             }
         }
 
+        [OnDeserialized]
+        void InitReadOnlyCollection(StreamingContext sc = new StreamingContext()) //Méthode qui est appelée après notre sérialisation pour initiliaser nos ReadOnlyCollection
+        {
+            CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
+            ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
+            ChercherMeilleurManga();
+        }
+
+
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -116,10 +119,10 @@ namespace Modele
             ChercherMeilleurManga();
         }
 
-        public Listes()
+        /*public Listes()
         {
             InitReadOnlyDictionary();
-        }
+        }*/
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -277,7 +280,7 @@ namespace Modele
         /// </summary>
         public void ChercherMeilleurManga()
         {
-            Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", "01/01/2000", "01/01/2000", 1, "/test/", "testtest",GenreDispo.Shonen);
+            Manga leMeilleur = new Manga("test", "test", "test", "test", "test", "test", "01/01/2000", "01/01/2001", 1, "/test/", "testtest",GenreDispo.Shonen);
 
             foreach (KeyValuePair<Genre, SortedSet<Manga>> kvp in CollectionManga)
             {

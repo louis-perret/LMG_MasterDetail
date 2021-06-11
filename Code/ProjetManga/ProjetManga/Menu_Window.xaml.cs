@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,6 +21,9 @@ namespace ProjetManga
     {
 
         public MainWindow M { get; set; }
+
+        public Listes l => (App.Current as App).l;
+        public Sauveur sauveur => (App.Current as App).sauveur;
         public Menu()
         {
             InitializeComponent();
@@ -34,6 +39,7 @@ namespace ProjetManga
             M.Close();
             var connection_window = new Connection_Window();
             connection_window.Show();
+            sauveur.Save(l);
             Close();
         }
 

@@ -16,18 +16,18 @@ namespace ProjetManga
     /// </summary>
     public partial class App : Application
     {
-        public Listes l { get; set; }
+        internal Listes l { get; set; }
 
-        Chargeur chargeur = new ChargeurXML("..//XML");
-        Sauveur sauveur = new SauveurXML("..//XML");
+        internal Chargeur chargeur = new ChargeurXML("../../..//XML");
+        internal Sauveur sauveur = new SauveurXML("../../..//XML");
         public Navigation Navigator { get; set; }
         public App()
         {
-            l = new Stub("").Load();
-            sauveur.Save(l);
+            /*l = new Stub("").Load();
+            sauveur.Save(l);*/
             
-            //l = chargeur.Load();
-            //sauveur.Save(l);
+            l = chargeur.Load();
+            
 
             Navigator = new Navigation();           
         }

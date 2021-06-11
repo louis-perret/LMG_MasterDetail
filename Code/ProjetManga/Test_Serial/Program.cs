@@ -11,11 +11,11 @@ namespace Test_Serial
             Stub stub = new Stub("");
             Listes l1 = stub.Load();
 
-            SauveurXML s = new SauveurXML("..//XML");
+            SauveurXML s = new SauveurXML("../../..//XML");
             s.Save(l1);
 
             Listes l;
-            Chargeur chargeur = new ChargeurXML("..//XML");
+            Chargeur chargeur = new ChargeurXML("../../..//XML");
             l = chargeur.Load();
             Console.WriteLine(l);
         }
