@@ -16,12 +16,12 @@ namespace Modele
     [DataContract]
     public class Compte : IEquatable<Compte>, INotifyPropertyChanged
     {
-        public ObservableCollection<Manga> LesFavoris { get; private set; }
+        public ObservableCollection<Manga> LesFavoris { get; private set; } //Liste des manga préférés de l'utilisateur
 
         [DataMember]
         private string pseudo;
        
-        public string Pseudo
+        public string Pseudo //Propriété Pseudo qui encapsule l'attribut pseudo
         {
             get => pseudo;
             set
@@ -32,7 +32,7 @@ namespace Modele
         }
         void OnPropertyChanged(string nomProp)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
-        public int Age //Calcul l'age à partir de la date de naissance
+        public int Age //Calcul l'âge à partir de la date de naissance
         {
             get
             {
@@ -45,19 +45,19 @@ namespace Modele
 
         }
         [DataMember]
-        public DateTime dateNaissance;
+        public DateTime dateNaissance; //Date de naissance du compte
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged; //Evènement permettant de géré la notification de changement de nos propriétés
         [DataMember]
         public DateTime DateInscription { get; private set; }
 
         [DataMember]
-        public string MotDePasse { get; private set; }
+        public string MotDePasse { get; private set; } //Mot de passe du compte
 
 
         [DataMember]
         private GenreDispo[] genresPreferes;
-        public GenreDispo[] GenresPreferes
+        public GenreDispo[] GenresPreferes //Tableau contenant entre 1 et 2 valeurs des genres préférés de l'tilisateur
         {
             get => genresPreferes;
             set
@@ -72,7 +72,7 @@ namespace Modele
         }
         [DataMember]
         private string imageProfil;
-        public string ImageProfil
+        public string ImageProfil //Chemin de la photo de profil
         {
             get => imageProfil;
             set
@@ -83,7 +83,7 @@ namespace Modele
         }
 
         [OnDeserialized]
-        void InitObservableCollection(StreamingContext sc = new StreamingContext())
+        void InitObservableCollection(StreamingContext sc = new StreamingContext()) //Méthode appelée après la sérialisation afin d'initialiser notre ReadOnlyCollection
         {
             LesFavoris = new ObservableCollection<Manga>();
         }
@@ -93,7 +93,7 @@ namespace Modele
         /// </summary>
         /// <param name="pseudo">pseudo du compte</param>
         /// <param name="dateDeNaissance">Va permettre de donner l'age de l'utilisateur</param>
-        /// <param name="dateInscription">Cette date est définit au jour de la création du compte</param>
+        /// <param name="dateInscription">Cette date est définie au jour de la création du compte</param>
         /// <param name="motDePasse">permet de se connecter</param>
         /// <param name="genrepref">un utilisateur peut afficher sur son profil 0 à 2 genres qu'il affectionne</param>
         /// <param name="image"> Photo de profil : "?" par defaut</param>
@@ -155,7 +155,7 @@ namespace Modele
             return r;
         }
         /// <summary>
-        /// Modifie le profil : pseudo et genrepref uniquement
+        /// Modifie le profil : pseudo,genrepref et la photo de profil
         /// </summary>
         /// <param name="newPseudo">le nouveau pseudo à mettre</param>
         /// <param name="genrePref">les nouveaux genres preferes à mettre</param>
@@ -178,7 +178,7 @@ namespace Modele
         /// <summary>
         /// Ajoute un favori à la liste des favoris du Compte
         /// </summary>
-        /// <param name="m">Manga qui va etre rajouté à la liste</param>
+        /// <param name="m">Manga qui va être rajouté à la liste</param>
         public void AjouterFavori(Manga m)
         {
             
@@ -191,7 +191,7 @@ namespace Modele
         /// <summary>
         /// Supprime un favori de la liste de favoris du Compte
         /// </summary>
-        /// <param name="m">Manga a supprimer de la liste des favoris</param>
+        /// <param name="m">Manga à supprimer de la liste des favoris</param>
         public void SupprimerFavori(Manga m)
         {
             if (LesFavoris.Contains(m))
@@ -201,7 +201,7 @@ namespace Modele
 
         }
         /// <summary>
-        /// Compare deux instances de Manga
+        /// Compare deux instances de Compte
         /// </summary>
         /// <param name="other">Instance à comparer</param>
         /// <returns>Renvoie true si égaux</returns>
@@ -212,7 +212,7 @@ namespace Modele
             return false;
         }
         /// <summary>
-        /// Compare deux instances de Manga
+        /// Compare deux instances de Compte
         /// </summary>
         /// <param name="obj">Instance à comparer</param>
         /// <returns>Renvoie true si égaux</returns>
@@ -225,7 +225,7 @@ namespace Modele
         }
 
         /// <summary>
-        /// Renvoie un entier identifiant une instance d'un manga
+        /// Renvoie un entier identifiant une instance de compte
         /// </summary>
         /// <returns>Retourne un int</returns>
         public override int GetHashCode()

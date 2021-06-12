@@ -10,7 +10,7 @@ using System.Text;
 namespace Modele   
 {
     /// <summary>
-    /// Classe qui va etre serializée et qui va effectuer les méthodes sur nos classes
+    /// Classe qui va etre serialisée et qui va effectuer les méthodes sur nos classes
     /// </summary>
 
     [DataContract]
@@ -80,7 +80,7 @@ namespace Modele
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
 
         private Manga meilleurManga;
-        public Manga MeilleurManga //Le meilleur manga est le mieux noté
+        public Manga MeilleurManga //Le meilleur manga est celui qui possède la meilleure MoyenneNote
         {
             get => meilleurManga;
             set
@@ -98,7 +98,7 @@ namespace Modele
         {
             CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
             List<Compte> lCompte = new List<Compte>();
-            foreach(Compte c in listeCompte)
+            foreach(Compte c in listeCompte) //Permet d'éviter d'avoir un tableau dans notre IList
             {
                 lCompte.Add(c);
             }
@@ -126,7 +126,7 @@ namespace Modele
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged; //Evènement permettant de géré la notification de changement de nos propriétés
 
         /// <summary>
         /// Permet de recuperer le genre à partir de son nom de l'enum
@@ -203,7 +203,7 @@ namespace Modele
         /// </summary>
         /// <param name="m">Manga a supprimer</param>
         /// <param name="g">Genre du manga pour le supprimer au niveau de la bonne clé</param>
-        public void SupprimerManga(Manga m, Genre g) /// a modifier a terme
+        public void SupprimerManga(Manga m, Genre g) 
         {
             foreach (Compte c in ListeCompte)
             {

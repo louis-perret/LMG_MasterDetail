@@ -45,13 +45,6 @@ namespace ProjetManga
             menuWindow.ShowDialog();
         }
 
-        
-
-
-        void OnPropertyChanged(string nomProp)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomProp));
-
-
         private void Selection_Changed_Genre(object sender, SelectionChangedEventArgs e)
         {
             L.GenreCourant = genreClick.SelectedItem as Genre;            
