@@ -25,7 +25,7 @@ namespace ProjetManga
         public Navigation Navigator { get; set; }
         public App()
         {
-           /* L = new Stub("").Load();
+            /*L = new Stub("").Load();
             Sauveur.Save(L);*/
           
             L = Chargeur.Load();

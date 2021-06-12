@@ -5,7 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>ProjetManga</ActiveDebugProfile>
-    <_LastSelectedProfileId>U:\PROJET P4\Code\ProjetManga\ProjetManga\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\Simon\Desktop\projet\Code\ProjetManga\ProjetManga\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
