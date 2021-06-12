@@ -20,13 +20,13 @@ namespace ProjetManga
     /// </summary>
     public partial class Ajout_Window : Window
     {
-        public static Listes l => (App.Current as App).l;
+        public static Listes L => (App.Current as App).L;
 
         private string imageName;
         public Ajout_Window()
         {
             InitializeComponent();
-            comboGenre.DataContext = l;
+            comboGenre.DataContext = L;
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace ProjetManga
 
             try
             {
-                l.AjouterManga(to_text.Text, ta_text.Text, auteur_text.Text, dess_text.Text, maisonJ_text.Text, maisonFr_text.Text, p, d, nb, imageName, syno_text.Text, l.RecupererGenre(g));
+                L.AjouterManga(to_text.Text, ta_text.Text, auteur_text.Text, dess_text.Text, maisonJ_text.Text, maisonFr_text.Text, p, d, nb, imageName, syno_text.Text, L.RecupererGenre(g));
             }
             catch (Exception exception)
             {

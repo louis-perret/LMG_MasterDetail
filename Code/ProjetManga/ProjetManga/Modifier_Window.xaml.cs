@@ -21,11 +21,11 @@ namespace ProjetManga
     public partial class Modifier_Window : Window
     {
 
-        public static Listes l => (App.Current as App).l;
+        public static Listes L => (App.Current as App).L;
         private string imageName;
 
-        private Manga m = new Manga(l.MangaCourant.TitreOriginal, l.MangaCourant.TitreAlternatif, l.MangaCourant.Auteur, l.MangaCourant.Dessinateur, l.MangaCourant.MaisonEditionJap,
-            l.MangaCourant.MaisonEditionFr, l.MangaCourant.DatePremierTome, l.MangaCourant.DateDernierTome, l.MangaCourant.NombreTome, l.MangaCourant.Couverture, l.MangaCourant.Synopsis, l.MangaCourant.Genre);
+        private Manga m = new Manga(L.MangaCourant.TitreOriginal, L.MangaCourant.TitreAlternatif, L.MangaCourant.Auteur, L.MangaCourant.Dessinateur, L.MangaCourant.MaisonEditionJap,
+            L.MangaCourant.MaisonEditionFr, L.MangaCourant.PremierTome.ToString("d"), L.MangaCourant.DateDernierTome, L.MangaCourant.NombreTome, L.MangaCourant.Couverture, L.MangaCourant.Synopsis, L.MangaCourant.Genre);
 
         public Modifier_Window()
         {
@@ -56,7 +56,7 @@ namespace ProjetManga
             }
             try
             {
-                l.ModifierManga(l.RecupererGenre(m.Genre), m.TitreOriginal, modif_dTome.Text ,nb, imageName, m.Synopsis); //je crois que c'est qu'il manque parfois des 0
+                L.ModifierManga(L.RecupererGenre(m.Genre), m.TitreOriginal, modif_dTome.Text ,nb, imageName, m.Synopsis); //je crois que c'est qu'il manque parfois des 0
 
             }
             catch(Exception exception)

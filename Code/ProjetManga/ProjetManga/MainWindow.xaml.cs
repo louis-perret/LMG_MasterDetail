@@ -25,15 +25,15 @@ namespace ProjetManga
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
 
-        public Listes l => (App.Current as App).l;
+        public Listes L => (App.Current as App).L;
 
         public Navigation Navigator => (App.Current as App).Navigator;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = l;
+            DataContext = L;
             contentControl.DataContext = Navigator;
-            profil.DataContext = l.CompteCourant;
+            profil.DataContext = L.CompteCourant;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,8 +54,8 @@ namespace ProjetManga
 
         private void Selection_Changed_Genre(object sender, SelectionChangedEventArgs e)
         {
-            l.GenreCourant = genreClick.SelectedItem as Genre;            
-            l.ListeParGenre(l.GenreCourant);
+            L.GenreCourant = genreClick.SelectedItem as Genre;            
+            L.ListeParGenre(L.GenreCourant);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }
 
@@ -67,8 +67,8 @@ namespace ProjetManga
         private void Button_Click_Hasard(object sender, RoutedEventArgs e)
         {
 
-            l.GenreAuHasard();
-            l.ListeParGenre(l.GenreCourant);
+            L.GenreAuHasard();
+            L.ListeParGenre(L.GenreCourant);
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
 
         }
@@ -77,21 +77,22 @@ namespace ProjetManga
         {
             
             string m = nom_rechercher.Text;
-            l.MangaCourant= l.RechercherMangaParNom(m);
-            if (l.MangaCourant == null)
+            L.MangaCourant= L.RechercherMangaParNom(m);
+            if (L.MangaCourant == null)
             {
-                MessageBox.Show("Manga non trouvé. Vous avez-peut-être fait une erreur dans le nom","Problème de recherche");
+                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT);
+                MessageBox.Show("Manga non trouvé. Vous avez-peut-être fait une erreur dans le nom", "Problème de recherche");
                 return;
             }
-            Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
+            Navigator.NavigationTo(Navigation.UC_AFFICHAGE_INFO_MANGA);
 
 
         }
 
         private void Button_Click_ListeFavoris(object sender, RoutedEventArgs e)
         {
-            l.RecupererFavoris();
-            l.GenreCourant = null;
+            L.RecupererFavoris();
+            L.GenreCourant = null;
             Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
         }
 
@@ -100,7 +101,7 @@ namespace ProjetManga
             
             Navigation.DicoUC.TryGetValue(Navigation.UC_AFFICHAGE_MANGA_DU_MOMENT, out UserControl u1);
             Navigation.DicoUC.TryGetValue(Navigation.UC_AFFICHAGE_COLLECTION, out UserControl u2);
-            Navigation.DicoUC.TryGetValue(Navigation.UC_Affichage_INFO_MANGA, out UserControl u3);
+            Navigation.DicoUC.TryGetValue(Navigation.UC_AFFICHAGE_INFO_MANGA, out UserControl u3);
 
             if (mode_button.IsChecked==true)
             {

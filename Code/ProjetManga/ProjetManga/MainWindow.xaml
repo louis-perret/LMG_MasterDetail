@@ -71,7 +71,7 @@
                 <Image Source="{Binding ImageProfil}" MaxHeight="200"  MinHeight="100"  DockPanel.Dock="Left" Margin="10"/>
                 <StackPanel DockPanel.Dock="Left" Margin="10,10,10,20">
                     <TextBlock Text="{Binding Pseudo}" FontSize="20" Style="{StaticResource ProfilText}"/>
-                    <TextBlock Text="{Binding DateInscription}" FontSize="20" Style="{StaticResource ProfilText}"/>
+                    <TextBlock Text="{Binding DateInscription, StringFormat='Inscrit le : {0:d}'}" FontSize="20" Style="{StaticResource ProfilText}"/>
                     <TextBlock Text="{Binding Age}" FontSize="20" Style="{StaticResource ProfilText}"/>
                 </StackPanel>
                 <WrapPanel DockPanel.Dock="Right" Margin="30,10,10,20">

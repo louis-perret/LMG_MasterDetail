@@ -12,7 +12,7 @@
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
     </UserControl.Resources>
-    <!-- User control à finir -->
+
     <ScrollViewer>
         <Grid x:Name="fond" Background="#FFE2F3F3" >
         <Grid.RowDefinitions>
@@ -23,28 +23,24 @@
 
         
          <StackPanel >
-            <WrapPanel>
+                <WrapPanel>
                     <Button Width="30" Height="30" HorizontalAlignment="Left" Click="Click_Retour_Arriere" Margin="0,0,10,0">
                         <Button.Background>
                             <ImageBrush ImageSource="/Image;Component/Image/fleche.png"/>
                         </Button.Background>
                     </Button>
                     <Button Width="20" Height="20" HorizontalAlignment="Left" Click="Button_Supprimer_Manga" >
-                    <Button.Background>
+                        <Button.Background>
                             <ImageBrush ImageSource="/Image;Component/Image/poubelle.png" Stretch="Fill"/>
-                    </Button.Background>
-                </Button>
+                        </Button.Background>
+                    </Button>
                     <Button Width="20" Height="20" HorizontalAlignment="Left" Margin="5,0,0,0" Click="Button_Modifier_Manga">
                         <Button.Background>
                             <ImageBrush ImageSource="/Image;Component/Image/modifier.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
                 </WrapPanel>
-                <!-- <ItemsControl Grid.Row="1"> 
-         <ItemsControl.ItemTemplate> 
-           <DataTemplate>  -->
-        <!--A modifier lors de la partie 3-->
-            <DockPanel Grid.Row="1">
+                <DockPanel Grid.Row="1">
 
                     <Image Source="{Binding MangaCourant.Couverture}" MinHeight="250" MinWidth="200" Width="200" Margin="10,10,0,0" DockPanel.Dock="Left" ></Image>
                 <StackPanel DockPanel.Dock="Left" Width="400">
@@ -54,7 +50,7 @@
                         <TextBlock Text="{Binding MangaCourant.Dessinateur, StringFormat='Dessinateur : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.MaisonEditionJap, StringFormat='Maison édition Japonaise : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.MaisonEditionFr, StringFormat='Maison édition française : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
-                        <TextBlock Text="{Binding MangaCourant.DatePremierTome, StringFormat='Premier tome : {0}'}"  Style="{StaticResource Intitule}" ></TextBlock>
+                        <TextBlock Text="{Binding MangaCourant.PremierTome, StringFormat='Premier tome : {0:d}'}"  Style="{StaticResource Intitule}" ></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.DateDernierTome, StringFormat='Dernier tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.NombreTome, StringFormat='Nombre de tome : {0}'}"   Style="{StaticResource Intitule}"></TextBlock>
                         <TextBlock Text="{Binding MangaCourant.MoyenneNote, StringFormat='Note : {0}/10'}"   Style="{StaticResource Intitule}"></TextBlock>
@@ -81,10 +77,19 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel Margin="30,15,0,0">
-                                    <TextBlock Text="{Binding Util.Pseudo, StringFormat='De {0},'}" FontSize="16"/>
-                                    <TextBlock Text="{Binding Date, StringFormat=' écrit le {0} : '}" FontSize="16"/>
+                                    <TextBlock FontSize="16">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="De {0}, écrit le {1:d} : {2}">
+                                                <Binding Path="Util.Pseudo"/>
+                                                <Binding Path="Date"/>
+                                                <Binding Path="Commentaire"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                    <!--<TextBlock Text="{Binding Util.Pseudo, StringFormat='De {0},'}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Date, StringFormat=' écrit le {0:d} : '}" FontSize="16"/>
                                     <TextBlock Text="{Binding Commentaire}" FontSize="16" TextWrapping="Wrap"/>
-                                    <TextBlock Text="{Binding Note, StringFormat='          Note : {0}/10 '}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Note, StringFormat='          Note : {0}/10 '}" FontSize="16"/>-->
                                 </WrapPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

@@ -20,13 +20,13 @@ namespace ProjetManga
     /// </summary>
     public partial class Profil_Window : Window
     {
-        public Listes l => (App.Current as App).l;
+        public Listes L => (App.Current as App).L;
 
         private string imageName = null;
         public Profil_Window()
         {
             InitializeComponent();
-            WrapGenre.DataContext = l;
+            WrapGenre.DataContext = L;
         }
 
         private void Button_CloseWindow(object sender, RoutedEventArgs e)
@@ -59,7 +59,7 @@ namespace ProjetManga
             }
             try
             {
-                l.AjouterUtilisateur(nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre.ToArray(), imageName);
+                L.AjouterUtilisateur(nom_text.Text, dateNaissance_text.Text, mdp_text.Password, tabGenre.ToArray(), imageName);
             }
             catch(Exception exception)
             {

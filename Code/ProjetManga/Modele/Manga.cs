@@ -32,10 +32,10 @@ namespace Modele
 
         [DataMember]
         public DateTime PremierTome { get; private set; }
-        public string DatePremierTome
+        /*public string DatePremierTome
         {
             get => PremierTome.ToString("d");
-        }
+        }*/
 
         [DataMember]
         public DateTime DernierTome { get; private set; }

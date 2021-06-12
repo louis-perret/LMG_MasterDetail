@@ -9,7 +9,7 @@
 
     <!--User-Control permettant d'afficher le manga du moment sur la page principale lors de l'ouverture de l'application-->
     
-    <Grid x:Name="mangaDuMomentFond" Background="#FFECF3F3">
+    <Grid x:Name="fond" Background="#FFECF3F3">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>

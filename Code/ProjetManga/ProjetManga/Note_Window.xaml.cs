@@ -20,18 +20,18 @@ namespace ProjetManga
     public partial class Note_Window : Window
     {
 
-        public Listes l => (App.Current as App).l;
+        public Listes L => (App.Current as App).L;
         public Note_Window()
         {
             InitializeComponent();
-            DataContext = l;
+            DataContext = L;
         }
 
         private void Button_Valider(object sender, RoutedEventArgs e)
         {
             int note = (int)noteBox.SelectedIndex;
-            l.AjouterAvis(l.CompteCourant, avis_text.Text, note, l.RecupererGenre(l.MangaCourant.Genre), l.MangaCourant);
-            l.ChercherMeilleurManga();
+            L.AjouterAvis(L.CompteCourant, avis_text.Text, note, L.RecupererGenre(L.MangaCourant.Genre), L.MangaCourant);
+            L.ChercherMeilleurManga();
             Close();
             
         }

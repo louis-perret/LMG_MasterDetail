@@ -19,7 +19,7 @@ namespace ProjetManga
     /// </summary>
     public partial class Info_Manga_Window : UserControl
     {
-        public static Listes l => (App.Current as App).l;
+        public static Listes L => (App.Current as App).L;
 
         public Navigation Navigator => (App.Current as App).Navigator;
 
@@ -28,7 +28,7 @@ namespace ProjetManga
         {
             InitializeComponent();
             
-            DataContext = l;
+            DataContext = L;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace ProjetManga
             MessageBoxResult result = MessageBox.Show("Souhaitez-vous supprimer définitivement ce manga de l'application ?","Supprimer Manga", MessageBoxButton.OKCancel,MessageBoxImage.Question);
             if(result==MessageBoxResult.OK)
             {
-                l.SupprimerManga( l.MangaCourant, l.RecupererGenre(l.MangaCourant.Genre));
+                L.SupprimerManga( L.MangaCourant, L.RecupererGenre(L.MangaCourant.Genre));
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             
@@ -66,14 +66,15 @@ namespace ProjetManga
         private void Click_Ajout_Favori(object sender, RoutedEventArgs e)
         {
            //Si le manga est deja en favori, il est retiré des favoris
-           if(l.CompteCourant.LesFavoris.Contains(l.MangaCourant))
+           if(L.CompteCourant.LesFavoris.Contains(L.MangaCourant))
             {
-                l.SupprimerFavoriManga(l.MangaCourant, l.CompteCourant);
-                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION); 
+                L.SupprimerFavoriManga(L.MangaCourant, L.CompteCourant);
+                //L.RecupererFavoris();
+                //Navigator.NavigationTo(Navigation.UC_AFFICHAGE_COLLECTION);
             }
             else
             {
-                l.AjouterFavoriManga( l.MangaCourant, l.CompteCourant);
+                L.AjouterFavoriManga( L.MangaCourant, L.CompteCourant);
             }
         }
         /// <summary>

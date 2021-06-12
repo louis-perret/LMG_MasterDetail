@@ -19,7 +19,7 @@ namespace ProjetManga
     /// </summary>
     public partial class Connection_Window : Window
     {
-        public Listes l => (App.Current as App).l;
+        public Listes L => (App.Current as App).L;
         public Connection_Window()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace ProjetManga
         private void Button_Connexion(object sender, RoutedEventArgs e)
         {
 
-            if (!l.ChercherUtilisateur( nom_texte.Text, mdp_texte.Password))
+            if (!L.ChercherUtilisateur( nom_texte.Text, mdp_texte.Password))
             {
                 MessageBox.Show("Ce compte n'existe pas", "Connexion", MessageBoxButton.OK);
                 nom_texte.Text = null;

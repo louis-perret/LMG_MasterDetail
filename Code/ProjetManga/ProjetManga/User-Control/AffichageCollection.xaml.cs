@@ -21,12 +21,12 @@ namespace ProjetManga
     public partial class AffichageCollection : UserControl
     {
 
-        public Listes l => (App.Current as App).l;
+        public Listes L => (App.Current as App).L;
         public Navigation Navigator => (App.Current as App).Navigator;
         public AffichageCollection()
         {
             InitializeComponent();
-            DataContext = l;
+            DataContext = L;
         }
 
         
@@ -51,8 +51,8 @@ namespace ProjetManga
         private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e)
         {
                                   
-                l.MangaCourant = (sender as ListBox).SelectedItem as Manga;
-                Navigator.NavigationTo(Navigation.UC_Affichage_INFO_MANGA);
+                L.MangaCourant = (sender as ListBox).SelectedItem as Manga;
+                Navigator.NavigationTo(Navigation.UC_AFFICHAGE_INFO_MANGA);
         }
 
         /// <summary>
@@ -63,7 +63,6 @@ namespace ProjetManga
         {
             fond.Background = b;
             listeManga.Background = b;
-           
         }
     }
 }

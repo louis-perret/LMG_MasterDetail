@@ -22,8 +22,8 @@ namespace ProjetManga
 
         public MainWindow M { get; set; }
 
-        public Listes l => (App.Current as App).l;
-        public Sauveur sauveur => (App.Current as App).sauveur;
+        public Listes L => (App.Current as App).L;
+        public Sauveur Sauveur => (App.Current as App).Sauveur;
         public Menu()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace ProjetManga
             M.Close();
             var connection_window = new Connection_Window();
             connection_window.Show();
-            sauveur.Save(l);
+            Sauveur.Save(L);
             Close();
         }
 

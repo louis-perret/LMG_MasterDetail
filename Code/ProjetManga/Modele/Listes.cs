@@ -97,6 +97,12 @@ namespace Modele
         void InitReadOnlyCollection(StreamingContext sc = new StreamingContext()) //Méthode qui est appelée après notre sérialisation pour initiliaser nos ReadOnlyCollection
         {
             CollectionManga = new ReadOnlyDictionary<Genre, SortedSet<Manga>>(collectionManga);
+            List<Compte> lCompte = new List<Compte>();
+            foreach(Compte c in listeCompte)
+            {
+                lCompte.Add(c);
+            }
+            listeCompte = lCompte;
             ListeCompte = new ReadOnlyCollection<Compte>(listeCompte);
             ChercherMeilleurManga();
         }
@@ -119,10 +125,6 @@ namespace Modele
             ChercherMeilleurManga();
         }
 
-        /*public Listes()
-        {
-            InitReadOnlyDictionary();
-        }*/
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -353,6 +355,7 @@ namespace Modele
                 if (!listeCompte.Contains(c))
                 {
                     listeCompte.Add(c);
+                  
                 }
             }
             catch(Exception e)

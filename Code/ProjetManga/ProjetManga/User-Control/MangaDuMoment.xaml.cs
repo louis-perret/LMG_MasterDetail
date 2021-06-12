@@ -20,11 +20,11 @@ namespace ProjetManga
     /// </summary>
     public partial class MangaDuMoment : UserControl
     {        
-        public Listes l => (App.Current as App).l;
+        public Listes L => (App.Current as App).L;
         public MangaDuMoment()
         {
             InitializeComponent();   
-            DataContext = l; 
+            DataContext = L; 
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace ProjetManga
         /// <param name="b"></param>
         public void SetColor(SolidColorBrush b)
         {
-            this.mangaDuMomentFond.Background = b;
+            fond.Background = b;
         }
     }
 }

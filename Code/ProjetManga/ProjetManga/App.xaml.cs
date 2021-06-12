@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ProjetManga
 {
@@ -16,17 +18,17 @@ namespace ProjetManga
     /// </summary>
     public partial class App : Application
     {
-        internal Listes l { get; set; }
+        internal Listes L { get; set; }
 
-        internal Chargeur chargeur = new ChargeurXML("../../..//XML");
-        internal Sauveur sauveur = new SauveurXML("../../..//XML");
+        internal Chargeur Chargeur { get; set; } = new ChargeurXML("../../..//XML");
+        internal Sauveur Sauveur { get; set; } = new SauveurXML("../../..//XML");
         public Navigation Navigator { get; set; }
         public App()
         {
             /*l = new Stub("").Load();
-            sauveur.Save(l);*/
+            Sauveur.Save(L);*/
             
-            l = chargeur.Load();
+            L = Chargeur.Load();
             
 
             Navigator = new Navigation();           
@@ -46,5 +48,6 @@ namespace ProjetManga
             
             return imageName;
         }
+
     }
 }

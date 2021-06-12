@@ -21,7 +21,7 @@ namespace ProjetManga
     /// </summary>
     public partial class ModifierProfil : Window
     {
-        public Listes l => (App.Current as App).l; 
+        public Listes L => (App.Current as App).L; 
         public Compte LeCompte { get; set; }
 
         string imageName;
@@ -29,10 +29,10 @@ namespace ProjetManga
         public ModifierProfil()
         {
             InitializeComponent();
-            LeCompte = new Compte(l.CompteCourant.Pseudo, l.CompteCourant.dateNaissance.ToString(), l.CompteCourant.DateInscription, l.CompteCourant.MotDePasse, l.CompteCourant.GenresPreferes, l.CompteCourant.ImageProfil);
+            LeCompte = new Compte(L.CompteCourant.Pseudo, L.CompteCourant.dateNaissance.ToString(), L.CompteCourant.DateInscription, L.CompteCourant.MotDePasse, L.CompteCourant.GenresPreferes, L.CompteCourant.ImageProfil);
             imageName = LeCompte.ImageProfil;
             DataContext = LeCompte;
-            WrapGenre.DataContext = l;
+            WrapGenre.DataContext = L;
         }
         
         private void Button_CloseWindow(object sender, RoutedEventArgs e)
@@ -65,7 +65,7 @@ namespace ProjetManga
             }
             try
             {
-                l.ModifierProfil(l.CompteCourant.Pseudo, LeCompte.Pseudo, tabGenre.ToArray(), imageName);
+                L.ModifierProfil(L.CompteCourant.Pseudo, LeCompte.Pseudo, tabGenre.ToArray(), imageName);
             }
             catch (Exception exception)
             {
