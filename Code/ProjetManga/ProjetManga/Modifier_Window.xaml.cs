@@ -24,13 +24,25 @@ namespace ProjetManga
         public static Listes L => (App.Current as App).L;
         private string imageName;
 
-        private Manga m = new Manga(L.MangaCourant.TitreOriginal, L.MangaCourant.TitreAlternatif, L.MangaCourant.Auteur, L.MangaCourant.Dessinateur, L.MangaCourant.MaisonEditionJap,
-            L.MangaCourant.MaisonEditionFr, L.MangaCourant.PremierTome.ToString("d"), L.MangaCourant.DateDernierTome, L.MangaCourant.NombreTome, L.MangaCourant.Couverture, L.MangaCourant.Synopsis, L.MangaCourant.Genre);
+
+
+        private Manga m;
 
         public Modifier_Window()
         {
             InitializeComponent();
-            DataContext = m;         
+            if(L.MangaCourant.DateDernierTome.Equals("En cours de parution"))
+            {
+                m = new Manga(L.MangaCourant.TitreOriginal, L.MangaCourant.TitreAlternatif, L.MangaCourant.Auteur, L.MangaCourant.Dessinateur, L.MangaCourant.MaisonEditionJap,
+           L.MangaCourant.MaisonEditionFr, L.MangaCourant.PremierTome.ToString("d"), "" , L.MangaCourant.NombreTome, L.MangaCourant.Couverture, L.MangaCourant.Synopsis, L.MangaCourant.Genre);
+            }
+            else
+            {
+                m = new Manga(L.MangaCourant.TitreOriginal, L.MangaCourant.TitreAlternatif, L.MangaCourant.Auteur, L.MangaCourant.Dessinateur, L.MangaCourant.MaisonEditionJap,
+            L.MangaCourant.MaisonEditionFr, L.MangaCourant.PremierTome.ToString("d"), L.MangaCourant.DateDernierTome, L.MangaCourant.NombreTome, L.MangaCourant.Couverture, L.MangaCourant.Synopsis, L.MangaCourant.Genre);
+            }
+             
+        DataContext = m;         
 
         }
 

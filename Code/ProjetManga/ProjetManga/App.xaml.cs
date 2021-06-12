@@ -20,17 +20,16 @@ namespace ProjetManga
     {
         internal Listes L { get; set; }
 
-        internal Chargeur Chargeur { get; set; } = new ChargeurXML("../../..//XML");
-        internal Sauveur Sauveur { get; set; } = new SauveurXML("../../..//XML");
+        internal Chargeur Chargeur { get; set; } = new ChargeurXML("XML");
+        internal Sauveur Sauveur { get; set; } = new SauveurXML("XML");
         public Navigation Navigator { get; set; }
         public App()
         {
-            /*l = new Stub("").Load();
+           /* L = new Stub("").Load();
             Sauveur.Save(L);*/
-            
+          
             L = Chargeur.Load();
             
-
             Navigator = new Navigation();           
         }
 
@@ -49,5 +48,6 @@ namespace ProjetManga
             return imageName;
         }
 
+       
     }
 }

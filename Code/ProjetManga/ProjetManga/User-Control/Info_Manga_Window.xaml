@@ -70,26 +70,24 @@
             </DockPanel>
         
                 <StackPanel Grid.Row="2" Margin="0,20,0,0">
-                    <TextBlock Text="{Binding MangaCourant.Synopsis, StringFormat='Synopsis : {0}'}" Style="{StaticResource Intitule}" TextWrapping="Wrap"></TextBlock>
-                    <TextBlock Height="50"></TextBlock>
-                    <TextBlock Text="Avis : " Style="{StaticResource Intitule}"></TextBlock>
-                    <ItemsControl ItemsSource="{Binding MangaCourant.LesAvis}">
+                    <TextBlock Text="{Binding MangaCourant.Synopsis, StringFormat='Synopsis  : {0}'}" Style="{StaticResource Intitule}" TextWrapping="Wrap" Background="#FFFFDFB9" Padding="10"></TextBlock>
+                    
+                    <TextBlock Margin="40,40,0,0" Text="Avis : " Style="{StaticResource Intitule}"></TextBlock>
+                    <ItemsControl ItemsSource="{Binding MangaCourant.LesAvis}" Background="#FF71ABFF" Padding="10" Margin="40,0,10,10" >
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel Margin="30,15,0,0">
                                     <TextBlock FontSize="16">
                                         <TextBlock.Text>
-                                            <MultiBinding StringFormat="De {0}, écrit le {1:d} : {2}">
+                                            <MultiBinding StringFormat="De {0}, écrit le {1:d} : {2}.   {3}/10">
                                                 <Binding Path="Util.Pseudo"/>
                                                 <Binding Path="Date"/>
                                                 <Binding Path="Commentaire"/>
+                                                <Binding Path="Note"/>
                                             </MultiBinding>
                                         </TextBlock.Text>
                                     </TextBlock>
-                                    <!--<TextBlock Text="{Binding Util.Pseudo, StringFormat='De {0},'}" FontSize="16"/>
-                                    <TextBlock Text="{Binding Date, StringFormat=' écrit le {0:d} : '}" FontSize="16"/>
-                                    <TextBlock Text="{Binding Commentaire}" FontSize="16" TextWrapping="Wrap"/>
-                                    <TextBlock Text="{Binding Note, StringFormat='          Note : {0}/10 '}" FontSize="16"/>-->
+                                    
                                 </WrapPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

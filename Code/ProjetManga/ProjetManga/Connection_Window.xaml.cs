@@ -20,6 +20,8 @@ namespace ProjetManga
     public partial class Connection_Window : Window
     {
         public Listes L => (App.Current as App).L;
+
+        public Sauveur S => (App.Current as App).Sauveur;
         public Connection_Window()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace ProjetManga
 
         private void Button_FermerApplication(object sender, RoutedEventArgs e)
         {
+            S.Save(L);
             Close();
         }
 

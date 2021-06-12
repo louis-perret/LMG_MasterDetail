@@ -385,7 +385,7 @@ namespace Modele
         }
         public void RecupererFavoris()
         {
-            ListeMangaCourant.Clear();
+            ListeMangaCourant.Clear(); 
             foreach(Manga m in CompteCourant.LesFavoris)
             {
                 ListeMangaCourant.Add(m);

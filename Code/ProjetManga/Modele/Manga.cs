@@ -32,22 +32,19 @@ namespace Modele
 
         [DataMember]
         public DateTime PremierTome { get; private set; }
-        /*public string DatePremierTome
-        {
-            get => PremierTome.ToString("d");
-        }*/
+       
 
         [DataMember]
-        public DateTime DernierTome { get; private set; }
+        public DateTime? DernierTome { get; private set; }
         public string DateDernierTome
         {
             get
             {
                 if(DernierTome == null)
                 {
-                    return "En cours de parutions";
+                    return "En cours de parution";
                 }
-                return DernierTome.ToString("d");
+                return DernierTome.ToString();
             }
         }
 
@@ -166,12 +163,16 @@ namespace Modele
                 PremierTome = Convert.ToDateTime(premierTome);
                 if (!String.IsNullOrEmpty(dernierTome))
                 {
-                    if(PremierTome >= DernierTome)
                     DernierTome = Convert.ToDateTime(dernierTome);
                     if (PremierTome >= DernierTome)
                     {
                         throw new ArgumentException("Date de parution du dernier tome doit-être plus récente que celle du premier tome");
                     }
+                    
+                }
+                else
+                {
+                    DernierTome = null;
                 }
             }
             catch(Exception e)
@@ -235,19 +236,35 @@ namespace Modele
                 try
                 {
                     DateTime dernierTome = Convert.ToDateTime(dTome);
-                    if (PremierTome < dernierTome && DernierTome <= dernierTome)
+                    if (DernierTome != null)
                     {
-                        DernierTome = dernierTome;
-                        OnPropertyChanged(nameof(DateDernierTome));
+                        if (PremierTome < dernierTome && DernierTome < dernierTome)
+                        {
+                            DernierTome = dernierTome;
+                            
+                        }
+
+                        else
+                        {
+                            throw new ArgumentException("La date de parution du dernier tome n'est pas bonne ");
+                        }
                     }
                     else
                     {
-                        throw new ArgumentException("La date de parution du dernier tome n'est pas bonne");
+                        if (PremierTome < dernierTome)
+                        {
+                            DernierTome = dernierTome;
+                            
+                        }
+                        else
+                        {
+                            throw new ArgumentException("La date de parution du dernier tome n'est pas bonne ");
+                        }
                     }
                 }
                 catch (Exception e)
                 {
-                    throw new ArgumentException("La date de parution du dernier tome n'est pas bonne");
+                    throw new ArgumentException("La date de parution du dernier tome n'est pas bonne ");
                 }
             }
            
@@ -260,6 +277,7 @@ namespace Modele
             Couverture = couv;
             Synopsis = synop;
             NombreTome = nbTome;
+            OnPropertyChanged(nameof(DateDernierTome));
         }
 
         /// <summary>

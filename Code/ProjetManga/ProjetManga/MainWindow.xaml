@@ -31,7 +31,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="0" Grid.Column="0"  >
+        <Image Grid.Row="0" Grid.Column="0" MaxHeight="150" MaxWidth="200" Source="/Image;Component/Image/logo.png" >
 
         </Image>
         <StackPanel x:Name="mainCoteGauche" Grid.Row="1" Grid.Column="0" Background="#FFD5E0E8" Grid.RowSpan="2" >

@@ -50,9 +50,11 @@ namespace ProjetManga
         /// <param name="e"></param>
         private void AffichageDuMangaSelectionne(object sender, SelectionChangedEventArgs e)
         {
-                                  
+            if ((sender as ListBox).SelectedItem != null)
+            {
                 L.MangaCourant = (sender as ListBox).SelectedItem as Manga;
                 Navigator.NavigationTo(Navigation.UC_AFFICHAGE_INFO_MANGA);
+            }
         }
 
         /// <summary>
