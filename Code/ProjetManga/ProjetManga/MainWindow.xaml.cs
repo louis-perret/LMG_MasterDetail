@@ -22,7 +22,7 @@ namespace ProjetManga
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
 
         public Listes L => (App.Current as App).L;
@@ -36,7 +36,6 @@ namespace ProjetManga
             profil.DataContext = L.CompteCourant;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void Settings_button_Click(object sender, RoutedEventArgs e)
         {

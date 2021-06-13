@@ -24,8 +24,6 @@ namespace Modele
 
         [DataMember]
         private IDictionary<Genre, SortedSet<Manga>> collectionManga { get; set; }
-
-        
        
         public ReadOnlyDictionary<Genre,SortedSet<Manga>> CollectionManga { get; private set; } //Dictionnaire de tous les mangas
         
@@ -397,8 +395,6 @@ namespace Modele
         /// </summary>
         public void GenreAuHasard()
         {
-            Dictionary<Genre, SortedSet<Manga>> genreHasard = new Dictionary<Genre, SortedSet<Manga>>();
-
             Array genreDispo = Enum.GetValues(typeof(GenreDispo));
             Random random = new Random(); 
             int index = random.Next(0, 4);

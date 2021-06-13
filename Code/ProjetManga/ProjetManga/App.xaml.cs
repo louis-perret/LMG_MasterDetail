@@ -20,8 +20,8 @@ namespace ProjetManga
     {
         internal Listes L { get; set; }
 
-        internal Chargeur Chargeur { get; set; } = new ChargeurXML("XML");
-        internal Sauveur Sauveur { get; set; } = new SauveurXML("XML");
+        internal Chargeur Chargeur { get; set; } = new ChargeurXML("../../../XML");
+        internal Sauveur Sauveur { get; set; } = new SauveurXML("../../../XML");
         public Navigation Navigator { get; set; }
         public App()
         {

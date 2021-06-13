@@ -16,6 +16,7 @@ namespace Modele
     [DataContract]
     public class Compte : IEquatable<Compte>, INotifyPropertyChanged
     {
+        [DataMember]
         public ObservableCollection<Manga> LesFavoris { get; private set; } //Liste des manga préférés de l'utilisateur
 
         [DataMember]
