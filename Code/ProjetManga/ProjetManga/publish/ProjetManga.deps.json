@@ -1,0 +1,62 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "ProjetManga/1.0.0": {
+        "dependencies": {
+          "Data": "1.0.0",
+          "Image": "1.0.0",
+          "Modele": "1.0.0"
+        },
+        "runtime": {
+          "ProjetManga.dll": {}
+        }
+      },
+      "Data/1.0.0": {
+        "dependencies": {
+          "Image": "1.0.0",
+          "Modele": "1.0.0"
+        },
+        "runtime": {
+          "Data.dll": {}
+        }
+      },
+      "Image/1.0.0": {
+        "runtime": {
+          "Image.dll": {}
+        }
+      },
+      "Modele/1.0.0": {
+        "runtime": {
+          "Modele.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProjetManga/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Image/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modele/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

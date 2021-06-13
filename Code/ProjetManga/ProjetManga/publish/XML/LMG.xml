@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Listes xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/Modele">
+  <ListeGenre z:Id="2" z:Size="4">
+    <Genre z:Id="3">
+      <Description z:Id="4">Le mot « Shonen » signifie en japonais « garçon et adolescent ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public jeune de sexe masculin.</Description>
+      <NomGenre>Shonen</NomGenre>
+    </Genre>
+    <Genre z:Id="5">
+      <Description z:Id="6">Le mot « Seinen » signifie en japonais « jeune homme ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public composé de jeunes hommes</Description>
+      <NomGenre>Seinen</NomGenre>
+    </Genre>
+    <Genre z:Id="7">
+      <Description z:Id="8">Le mot « Shojo » signifie en japonais « jeune fille ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public jeune de sexe feminin.</Description>
+      <NomGenre>Shojo</NomGenre>
+    </Genre>
+    <Genre z:Id="9">
+      <Description z:Id="10">Le mot « Josei » signifie en japonais « jeune femme ». Il ne désigne pas à proprement parler un type, mais plutôt une ligne éditoriale du manga qui cible un public composé de jeunes femmes.</Description>
+      <NomGenre>Josei</NomGenre>
+    </Genre>
+  </ListeGenre>
+  <ListeMangaCourant z:Id="11" z:Size="0" />
+  <collectionManga xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="12" z:Size="4">
+    <d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+      <d2p1:Key z:Ref="3" i:nil="true" />
+      <d2p1:Value z:Id="13" z:Size="2">
+        <Manga z:Id="14">
+          <Auteur z:Id="15">Tsugumi Oba</Auteur>
+          <DernierTome>2006-05-15T00:00:00</DernierTome>
+          <Dessinateur z:Id="16">Takeshi Obata</Dessinateur>
+          <Genre>Shonen</Genre>
+          <LesAvis z:Id="17" z:Size="1">
+            <Avis z:Id="18">
+              <Commentaire z:Id="19">Histoire intéressante avec un suspense insoutenable</Commentaire>
+              <Date>2021-06-12T00:00:00+02:00</Date>
+              <Note>10</Note>
+              <Util z:Id="20">
+                <DateInscription>2021-03-12T00:00:00</DateInscription>
+                <MotDePasse z:Id="21">frigiel</MotDePasse>
+                <dateNaissance>2004-01-05T00:00:00</dateNaissance>
+                <genresPreferes z:Id="22" z:Size="2">
+                  <GenreDispo>Seinen</GenreDispo>
+                  <GenreDispo>Josei</GenreDispo>
+                </genresPreferes>
+                <imageProfil z:Id="23">/Image;Component/Image/question.png</imageProfil>
+                <pseudo z:Id="24">Camille</pseudo>
+              </Util>
+            </Avis>
+          </LesAvis>
+          <MaisonEditionFr z:Id="25">Kana</MaisonEditionFr>
+          <MaisonEditionJap z:Id="26">Shueisha</MaisonEditionJap>
+          <PremierTome>2003-12-01T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="27">Death Note</TitreAlternatif>
+          <TitreOriginal z:Ref="27" i:nil="true" />
+          <couverture z:Id="28">/Image;Component/Image/couvertureDN.jpg</couverture>
+          <nombreTome>13</nombreTome>
+          <synopsis z:Id="29">Light Yagami est un lycéen surdoué qui juge le monde actuel criminel, pourri et corrompu. Sa vie change du tout au tout le jour où il ramasse par hasard un mystérieux cahier intitulé « Death Note ». Son mode d'emploi indique que « la personne dont le nom est écrit dans ce cahier meurt ».</synopsis>
+        </Manga>
+        <Manga z:Id="30">
+          <Auteur z:Id="31">Eiichirõ Oda</Auteur>
+          <DernierTome i:nil="true" />
+          <Dessinateur z:Ref="31" i:nil="true" />
+          <Genre>Shonen</Genre>
+          <LesAvis z:Id="32" z:Size="2">
+            <Avis z:Id="33">
+              <Commentaire z:Id="34">Belle couverture</Commentaire>
+              <Date>2021-06-12T00:00:00+02:00</Date>
+              <Note>9</Note>
+              <Util z:Id="35">
+                <DateInscription>2021-03-03T00:00:00</DateInscription>
+                <MotDePasse z:Id="36">azerty123</MotDePasse>
+                <dateNaissance>2003-05-05T00:00:00</dateNaissance>
+                <genresPreferes z:Id="37" z:Size="2">
+                  <GenreDispo>Shonen</GenreDispo>
+                  <GenreDispo>Seinen</GenreDispo>
+                </genresPreferes>
+                <imageProfil z:Id="38">/Image;Component/Image/L.png</imageProfil>
+                <pseudo z:Id="39">Nicolas</pseudo>
+              </Util>
+            </Avis>
+            <Avis z:Id="40">
+              <Commentaire z:Id="41">Histoire intéressante, mais je n'ai pas accroché</Commentaire>
+              <Date>2021-06-12T00:00:00+02:00</Date>
+              <Note>5</Note>
+              <Util z:Ref="20" i:nil="true" />
+            </Avis>
+          </LesAvis>
+          <MaisonEditionFr z:Id="42">Glénat</MaisonEditionFr>
+          <MaisonEditionJap z:Ref="26" i:nil="true" />
+          <PremierTome>1997-06-22T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="43">One Piece</TitreAlternatif>
+          <TitreOriginal z:Ref="43" i:nil="true" />
+          <couverture z:Id="44">/Image;Component/Image/couvertureOP.jpg</couverture>
+          <nombreTome>98</nombreTome>
+          <synopsis z:Id="45">Monkey D. Luffy rêve de retrouver ce trésor légendaire et de devenir le nouveau 'Roi des Pirates'. Après avoir mangé un fruit du démon, il possède un pouvoir lui permettant de réaliser son rêve. Il lui faut maintenant trouver un équipage pour partir à l'aventure !</synopsis>
+        </Manga>
+      </d2p1:Value>
+    </d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+    <d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+      <d2p1:Key z:Ref="5" i:nil="true" />
+      <d2p1:Value z:Id="46" z:Size="2">
+        <Manga z:Id="47">
+          <Auteur z:Id="48">Sui Ishida</Auteur>
+          <DernierTome>2014-09-18T00:00:00</DernierTome>
+          <Dessinateur z:Ref="48" i:nil="true" />
+          <Genre>Seinen</Genre>
+          <LesAvis z:Id="49" z:Size="0" />
+          <MaisonEditionFr z:Ref="42" i:nil="true" />
+          <MaisonEditionJap z:Ref="26" i:nil="true" />
+          <PremierTome>2011-09-08T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="50">Tokyo Ghoul</TitreAlternatif>
+          <TitreOriginal z:Id="51">Tokyo Guru</TitreOriginal>
+          <couverture z:Id="52">/Image;Component/Image/couvertureTG.png</couverture>
+          <nombreTome>14</nombreTome>
+          <synopsis z:Id="53">Synopsis. Dans la ville de Tokyo, des créatures nommées goules sont apparues et se nourrissent de chair humaine pour survivre. Un jour, Ken Kaneki, jeune étudiant, se fait attaquer par l'une d'entre elles et subit une grave blessure.</synopsis>
+        </Manga>
+        <Manga z:Id="54">
+          <Auteur z:Ref="48" i:nil="true" />
+          <DernierTome>2018-07-05T00:00:00</DernierTome>
+          <Dessinateur z:Ref="48" i:nil="true" />
+          <Genre>Seinen</Genre>
+          <LesAvis z:Id="55" z:Size="0" />
+          <MaisonEditionFr z:Ref="42" i:nil="true" />
+          <MaisonEditionJap z:Ref="26" i:nil="true" />
+          <PremierTome>2014-11-16T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="56">Tokyo Ghoul:Re</TitreAlternatif>
+          <TitreOriginal z:Id="57">Tokyo Guru:Re</TitreOriginal>
+          <couverture z:Id="58">/Image;Component/Image/couvertureTGRE.png</couverture>
+          <nombreTome>16</nombreTome>
+          <synopsis z:Id="59">Deux ans après les événements qui ont impliqué les goules du 20ème et le CCG, on suit Haise Sasaki, un inspecteur du CCG et son équipe, assignés pour traquer une goule sans scrupule qui se fait passer pour un chauffeur de taxi. Si on fait appel à eux pour ce cas, c'est parce qu'ils possèdent des caractéristiques bien précises...</synopsis>
+        </Manga>
+      </d2p1:Value>
+    </d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+    <d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+      <d2p1:Key z:Ref="7" i:nil="true" />
+      <d2p1:Value z:Id="60" z:Size="2">
+        <Manga z:Id="61">
+          <Auteur z:Id="62">NastukiTakaya</Auteur>
+          <DernierTome>2006-11-01T00:00:00</DernierTome>
+          <Dessinateur z:Ref="62" i:nil="true" />
+          <Genre>Shojo</Genre>
+          <LesAvis z:Id="63" z:Size="0" />
+          <MaisonEditionFr z:Id="64">Delcourt</MaisonEditionFr>
+          <MaisonEditionJap z:Id="65">Hakusensha</MaisonEditionJap>
+          <PremierTome>1998-07-01T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="66">Fruits Basket</TitreAlternatif>
+          <TitreOriginal z:Id="67">Furūtsu Basuketto</TitreOriginal>
+          <couverture z:Id="68">/Image;Component/Image/couvertureFB.jpg</couverture>
+          <nombreTome>23</nombreTome>
+          <synopsis z:Id="69"> Tohru Honda est une lycéenne de 16 ans qui vit seule sous une tente après la mort de sa mère. ... Ayant appris qu'elle vivait sous une tente, ils lui proposent de loger chez eux en échange de tâches ménagères. Tohru accepte et commence alors à vivre avec Yuki, Kyô et Shigure.</synopsis>
+        </Manga>
+        <Manga z:Id="70">
+          <Auteur z:Id="71">Ai Yazawa</Auteur>
+          <DernierTome i:nil="true" />
+          <Dessinateur z:Ref="71" i:nil="true" />
+          <Genre>Shojo</Genre>
+          <LesAvis z:Id="72" z:Size="0" />
+          <MaisonEditionFr z:Id="73">Akata</MaisonEditionFr>
+          <MaisonEditionJap z:Ref="26" i:nil="true" />
+          <PremierTome>2000-05-15T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="74">Nana</TitreAlternatif>
+          <TitreOriginal z:Ref="74" i:nil="true" />
+          <couverture z:Id="75">/Image;Component/Image/couvertureN.jpg</couverture>
+          <nombreTome>21</nombreTome>
+          <synopsis z:Id="76">Dans le Japon contemporain, deux jeunes femmes se rencontrent dans le train les conduisant à Tokyo. ... Trouvant avantageux de partager les frais de loyer, elles décident de vivre en colocation dans l'appartement 707 (c'est une autre coïncidence car leur prénom, Nana, représente le chiffre 7 en japonais).</synopsis>
+        </Manga>
+      </d2p1:Value>
+    </d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+    <d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+      <d2p1:Key z:Ref="9" i:nil="true" />
+      <d2p1:Value z:Id="77" z:Size="2">
+        <Manga z:Id="78">
+          <Auteur z:Id="79">Tomoko Ninomiya</Auteur>
+          <DernierTome>2009-10-10T00:00:00</DernierTome>
+          <Dessinateur z:Ref="79" i:nil="true" />
+          <Genre>Josei</Genre>
+          <LesAvis z:Id="80" z:Size="0" />
+          <MaisonEditionFr z:Id="81">Pika Edition</MaisonEditionFr>
+          <MaisonEditionJap z:Id="82">Kodansha</MaisonEditionJap>
+          <PremierTome>2001-07-10T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="83">Nodame Cantabile</TitreAlternatif>
+          <TitreOriginal z:Ref="83" i:nil="true" />
+          <couverture z:Id="84">/Image;Component/Image/couvertureNC.jpg</couverture>
+          <nombreTome>23</nombreTome>
+          <synopsis z:Id="85">C'est l'histoire de Shin'ichi Chiaki, étudiant en 3eme classe de piano à l'Académie de musique Momogaoka. Né dans une famille de musiciens, il est un excellent pianiste et violoniste. Son rêve est de devenir chef d'orchestre comme son mentor Sebastiano Viera. Il se sent prisonnier au Japon et perçoit son avenir musical en noir. C'est dans ce contexte qu'il rencontre Megumi Node (Nodame) qui ne sait pas lire une partition. Mais elle tombe amoureuse de Chiaki et ces deux personnages vont mutuellement se rapprocher...</synopsis>
+        </Manga>
+        <Manga z:Id="86">
+          <Auteur z:Ref="71" i:nil="true" />
+          <DernierTome>2003-09-01T00:00:00</DernierTome>
+          <Dessinateur z:Ref="71" i:nil="true" />
+          <Genre>Josei</Genre>
+          <LesAvis z:Id="87" z:Size="0" />
+          <MaisonEditionFr z:Ref="25" i:nil="true" />
+          <MaisonEditionJap z:Id="88">Shodensha</MaisonEditionJap>
+          <PremierTome>0200-04-01T00:00:00</PremierTome>
+          <TitreAlternatif z:Id="89">Paradise Kiss</TitreAlternatif>
+          <TitreOriginal z:Id="90">Paradaisu Kisu</TitreOriginal>
+          <couverture z:Id="91">/Image;Component/Image/couverturePK.jpg</couverture>
+          <nombreTome>5</nombreTome>
+          <synopsis z:Id="92">Yukari est une jeune lycéenne modèle n'écoutant que ses parents. Elle veut rentrer dans une prestigieuse université afin d'avoir un avenir brillant jusqu'au jour où elle fait la rencontre d'un groupe d'étudiants travaillant dans la mode, et ayant leur propre marque de vêtement : 'Paradise Kiss'</synopsis>
+        </Manga>
+      </d2p1:Value>
+    </d2p1:KeyValueOfGenreArrayOfMangaljQEhnns>
+  </collectionManga>
+  <listeCompte z:Id="93" z:Size="4">
+    <Compte z:Ref="35" i:nil="true" />
+    <Compte z:Id="94">
+      <DateInscription>2021-04-02T00:00:00</DateInscription>
+      <MotDePasse z:Id="95">test</MotDePasse>
+      <dateNaissance>1972-08-11T00:00:00</dateNaissance>
+      <genresPreferes i:nil="true" />
+      <imageProfil z:Ref="23" i:nil="true" />
+      <pseudo z:Id="96">Frederic</pseudo>
+    </Compte>
+    <Compte z:Ref="20" i:nil="true" />
+    <Compte z:Id="97">
+      <DateInscription>2021-06-13T00:00:00+02:00</DateInscription>
+      <MotDePasse z:Id="98">t</MotDePasse>
+      <dateNaissance>2012-12-06T00:00:00</dateNaissance>
+      <genresPreferes z:Id="99" z:Size="2">
+        <GenreDispo>Shonen</GenreDispo>
+        <GenreDispo>Seinen</GenreDispo>
+      </genresPreferes>
+      <imageProfil z:Id="100">C:\Users\Simon\Pictures\Action!\javaw 15-02-2016 20-28-36-535.png</imageProfil>
+      <pseudo z:Id="101">t</pseudo>
+    </Compte>
+  </listeCompte>
+</Listes>
