@@ -1,0 +1,8 @@
+LMG est une application de collections de mangas classées par genres (shōnen, seinen, shōjo, josei, magical girl….), cette application est donc réservée à un public spécifique composé d’amateurs, de débutants ainsi que de spécialistes. Vous pourrez ainsi, parcourir une liste des œuvres appartenant à la catégorie que vous aurez choisie au préalable, vous pourrez également obtenir davantage d'informations sur chacune des œuvres à l’aide d’une page descriptive. 
+Il est également possible de rechercher un manga par son nom, ce qui vous permettra d’accéder directement à sa fiche descriptive.
+Vous obtiendrez des informations telles que le nom de l’auteur ainsi que du dessinateur, mais également le nom de l’œuvre en japonais (si le manga en possède un), la maison d’édition (japonaise & française), la date de parution, le nombre de tomes, s’il est en cours de parution ou terminé, son synopsis, la note moyenne ainsi que les avis laissés par les lecteurs. 
+
+Vous avez la possibilité de déposer un commentaire dans l’espace “Avis” afin d’exprimer votre point de vue et permettre à d’autres potentiels chercheurs de faciliter leurs choix de lectures.  Vous pourrez également noter un manga d’une note allant de 1 à 10, où 1 représente un avis extrêmement défavorable, et 10 représente un avis, au contraire, extrêmement satisfaisant. 
+Une option “favoris” est également disponible, elle vous permettra d’ajouter vos œuvres favorites à l’intérieur de cette liste que vous pourrez consulter à tout moment, mais également vous pourrez modifier cette liste, en enlevant certaines œuvres.
+
+Pour terminer, vous avez également la possibilité d’ajouter, de supprimer et de modifier des mangas sur l’application. 
